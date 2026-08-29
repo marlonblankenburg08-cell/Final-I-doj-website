@@ -1,24 +1,37 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gesetzbücher | Final City</title>
+<meta name="description" content="Gesetzbücher der Republik Final City – Department of Justice">
+<meta name="theme-color" content="#303030">
+
+<title>Gesetzbücher | Final City DOJ</title>
 
 <style>
 :root {
-    --dark: #303030;
-    --dark-2: #343434;
+    --dark: #292929;
+    --dark-2: #333333;
+    --dark-3: #3d3d3d;
     --gold: #d6aa35;
-    --light: #eeeeee;
+    --gold-dark: #a98218;
+    --gold-light: #f5eac5;
+
+    --bg: #eeeeee;
     --white: #ffffff;
-    --text: #222222;
-    --muted: #666666;
-    --border: #e2e2e2;
-    --gold-light: #f3e7bd;
-    --shadow: 0 8px 25px rgba(0,0,0,0.08);
+    --text: #242424;
+    --muted: #686868;
+    --border: #e1e1e1;
+
+    --success: #66715d;
+    --danger: #b78a25;
+
+    --shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 14px 35px rgba(0, 0, 0, 0.12);
+
+    --radius: 12px;
+    --header-height: 86px;
 }
 
 * {
@@ -33,31 +46,59 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--light);
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
-/* =========================
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #edc450;
+}
+
+/* =========================================
    HEADER
-========================= */
+========================================= */
 
-header {
-    background: var(--dark);
-    border-bottom: 4px solid var(--gold);
-    padding: 13px 5%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
+.site-header {
+    min-height: var(--header-height);
 
     position: sticky;
     top: 0;
     z-index: 1000;
 
-    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+    padding: 12px 5%;
+
+    background: rgba(41, 41, 41, 0.98);
+    border-bottom: 3px solid var(--gold);
+
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -67,104 +108,190 @@ header {
 
     color: white;
     text-decoration: none;
-    flex-shrink: 0;
+
+    min-width: max-content;
 }
 
 .logo img {
-    width: 52px;
-    height: 52px;
+    width: 53px;
+    height: 53px;
+
     object-fit: contain;
 }
 
 .logo-text {
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 800;
+    font-size: 15px;
     line-height: 1.15;
+    letter-spacing: 0.2px;
 }
 
 .logo-text span {
+    display: block;
+
+    margin-top: 3px;
+
     color: var(--gold);
-    font-size: 11px;
-    letter-spacing: 0.4px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
 }
 
-nav {
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.main-nav {
     display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: flex-end;
+
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
-nav a {
-    color: white;
+.main-nav a {
+    position: relative;
+
+    color: #fff;
     text-decoration: none;
-    padding: 10px 14px;
+
+    padding: 9px 14px;
+
     border-radius: 6px;
-    font-size: 14px;
-    transition: 0.2s ease;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
-nav a:hover,
-nav a.active {
+.main-nav a:hover {
+    background: rgba(214, 170, 53, 0.16);
+    color: var(--gold);
+}
+
+.main-nav a.active {
     background: var(--gold);
     color: var(--text);
 }
 
-/* =========================
+.main-nav a.active:hover {
+    background: #e2b53f;
+    color: var(--text);
+}
+
+/* =========================================
    HERO
-========================= */
+========================================= */
 
 .hero {
-    background:
-        linear-gradient(
-            rgba(40,40,40,0.88),
-            rgba(40,40,40,0.88)
-        ),
-        url("https://cdn.discordapp.com/attachments/1537960316187582515/1543188549799518289/f4619c5a-44c6-48f8-8c14-544eb3967a9d.png?ex=6a93f5d5&is=6a92a455&hm=0adc4b8a74e982de2cb308ad64f0992c3c628bac4c3961964fc18920d944d633&");
+    position: relative;
 
-    background-size: cover;
-    background-position: center;
-
-    min-height: 330px;
-    padding: 85px 20px;
+    min-height: 370px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    padding: 80px 20px;
+
     text-align: center;
     color: white;
 
-    border-bottom: 1px solid rgba(214,170,53,0.25);
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(35, 35, 35, 0.9),
+            rgba(35, 35, 35, 0.9)
+        ),
+        url("https://cdn.discordapp.com/attachments/1537960316187582515/1543188549799518289/f4619c5a-44c6-48f8-8c14-544eb3967a9d.png?ex=6a93f5d5&is=6a92a455&hm=0adc4b8a74e982de2cb308ad64f0992c3c628bac4c3961964fc18920d944d633&");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214,170,53,0.09),
+            transparent 55%
+        );
+
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -90px;
+
+    width: 500px;
+    height: 180px;
+
+    transform: translateX(-50%);
+
+    border: 1px solid rgba(214,170,53,0.15);
+    border-radius: 50%;
+
+    pointer-events: none;
 }
 
 .hero-content {
-    max-width: 850px;
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 900px;
 }
 
 .hero-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 
-    background: rgba(214,170,53,0.12);
+    margin-bottom: 20px;
+
+    padding: 7px 15px;
+
     border: 1px solid rgba(214,170,53,0.55);
+    border-radius: 30px;
+
+    background: rgba(214,170,53,0.1);
 
     color: var(--gold);
 
-    padding: 7px 15px;
-    border-radius: 30px;
-
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
+}
 
-    margin-bottom: 18px;
+.hero-badge::before {
+    content: "⚖";
+    font-size: 14px;
 }
 
 .hero h1 {
-    font-size: clamp(38px, 6vw, 58px);
-    line-height: 1.1;
     margin-bottom: 15px;
+
+    font-size: clamp(42px, 7vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -1px;
 }
 
 .hero h1 span {
@@ -172,68 +299,108 @@ nav a.active {
 }
 
 .hero p {
-    color: #ddd;
-    font-size: 18px;
-    max-width: 720px;
-    margin: 0 auto;
+    max-width: 760px;
+    margin: auto;
+
+    color: #d8d8d8;
+
+    font-size: 17px;
 }
 
-/* =========================
-   CONTAINER
-========================= */
+/* =========================================
+   MAIN CONTAINER
+========================================= */
 
 .container {
     width: 90%;
     max-width: 1250px;
+
     margin: 45px auto;
 }
 
-/* =========================
+/* =========================================
    INTRO
-========================= */
+========================================= */
 
 .intro-box {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 28px 30px;
-    margin-bottom: 25px;
+    position: relative;
 
+    margin-bottom: 25px;
+    padding: 28px 30px;
+
+    background: var(--white);
+
+    border-radius: var(--radius);
     border-left: 5px solid var(--gold);
+
     box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+.intro-box::after {
+    content: "§";
+
+    position: absolute;
+
+    right: 25px;
+    bottom: -20px;
+
+    color: rgba(214,170,53,0.07);
+
+    font-size: 130px;
+    font-weight: 900;
+
+    line-height: 1;
 }
 
 .intro-box h2 {
-    color: var(--dark-2);
+    position: relative;
+    z-index: 1;
+
     margin-bottom: 8px;
+
+    color: var(--dark-2);
+
+    font-size: 23px;
 }
 
 .intro-box p {
+    position: relative;
+    z-index: 1;
+
+    max-width: 1000px;
+
     color: var(--muted);
 }
 
-/* =========================
+/* =========================================
    SEARCH
-========================= */
+========================================= */
 
 .search-box {
-    background: var(--white);
+    margin-bottom: 25px;
     padding: 25px;
-    border-radius: 12px;
+
+    background: var(--white);
+
+    border-radius: var(--radius);
 
     box-shadow: var(--shadow);
-
-    margin-bottom: 25px;
 }
 
 .search-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 15px;
+
     margin-bottom: 15px;
 }
 
 .search-header h2 {
+    color: var(--dark-2);
     font-size: 21px;
 }
 
@@ -248,47 +415,115 @@ nav a.active {
 
 .search-icon {
     position: absolute;
+
     left: 16px;
     top: 50%;
+
     transform: translateY(-50%);
+
     color: #777;
+
+    font-size: 21px;
+
     pointer-events: none;
 }
 
 #search {
     width: 100%;
-    padding: 15px 18px 15px 45px;
+
+    padding: 15px 45px;
 
     border: 1px solid #ccc;
     border-radius: 8px;
 
-    font-size: 16px;
+    background: white;
+
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 15px;
+
     outline: none;
 
-    transition: 0.2s;
+    transition:
+        border 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 #search:focus {
     border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(214,170,53,0.12);
+
+    box-shadow:
+        0 0 0 3px rgba(214,170,53,0.13);
 }
 
-/* =========================
+.clear-search {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: none;
+
+    width: 28px;
+    height: 28px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #eee;
+
+    color: #555;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+.clear-search:hover {
+    background: var(--gold);
+    color: var(--text);
+}
+
+/* =========================================
+   SEARCH STATUS
+========================================= */
+
+.search-status {
+    display: none;
+
+    margin-top: 12px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+.search-status strong {
+    color: var(--dark-2);
+}
+
+/* =========================================
    LAW NAVIGATION
-========================= */
+========================================= */
 
 .law-navigation {
-    background: var(--dark-2);
+    margin-bottom: 35px;
     padding: 18px;
 
-    border-radius: 12px;
-
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns:
+        repeat(auto-fit, minmax(175px, 1fr));
 
     gap: 10px;
 
-    margin-bottom: 35px;
+    background: var(--dark-2);
+
+    border-radius: var(--radius);
 
     box-shadow: var(--shadow);
 }
@@ -296,63 +531,89 @@ nav a.active {
 .law-navigation-title {
     grid-column: 1 / -1;
 
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
+    padding: 3px 4px 10px;
 
-    padding: 2px 4px 7px;
+    color: white;
 
     border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.law-navigation-title span {
+    color: var(--gold);
 }
 
 .law-navigation a {
-    background: #3e3e3e;
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    text-decoration: none;
+    min-height: 48px;
 
-    padding: 13px 12px;
+    padding: 10px;
+
+    background: var(--dark-3);
 
     border-radius: 7px;
-
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-
     border-bottom: 3px solid var(--gold);
 
-    transition: 0.2s ease;
+    color: white;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
 }
 
 .law-navigation a:hover {
     background: var(--gold);
     color: var(--text);
+
     transform: translateY(-2px);
 }
 
-/* =========================
+/* =========================================
    LAW BOOK
-========================= */
+========================================= */
 
 .law-book {
+    margin-bottom: 35px;
+
     background: var(--white);
 
+    border: 1px solid rgba(0,0,0,0.04);
     border-radius: 13px;
-
-    margin-bottom: 35px;
 
     box-shadow: var(--shadow);
 
     overflow: hidden;
 
-    border: 1px solid rgba(0,0,0,0.04);
+    scroll-margin-top: 105px;
+
+    transition:
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
 }
 
-/* =========================
+.law-book:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+/* =========================================
    BOOK HEADER
-========================= */
+========================================= */
 
 .book-header {
+    position: relative;
+
+    padding: 29px 30px;
+
     background:
         linear-gradient(
             135deg,
@@ -360,63 +621,83 @@ nav a.active {
             var(--dark)
         );
 
-    color: white;
-
-    padding: 27px 30px;
-
     border-left: 6px solid var(--gold);
 
-    position: relative;
+    color: white;
+
+    overflow: hidden;
 }
 
 .book-header::after {
-    content: "";
+    content: "§";
+
     position: absolute;
 
-    right: 25px;
+    right: 28px;
     top: 50%;
-
-    width: 70px;
-    height: 70px;
 
     transform: translateY(-50%);
 
-    border: 1px solid rgba(214,170,53,0.2);
-    border-radius: 50%;
+    color: rgba(214,170,53,0.08);
+
+    font-size: 115px;
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+.book-header-content {
+    position: relative;
+    z-index: 2;
 }
 
 .book-number {
-    color: var(--gold);
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-
     margin-bottom: 5px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
 }
 
 .book-header h2 {
-    color: var(--gold);
-    font-size: 27px;
     margin-bottom: 7px;
+
+    color: white;
+
+    font-size: 27px;
+    line-height: 1.2;
+}
+
+.book-header h2 span {
+    color: var(--gold);
 }
 
 .book-header p {
-    color: #ddd;
     max-width: 850px;
+
+    color: #d4d4d4;
+
     font-size: 14px;
 }
 
-/* =========================
+/* =========================================
    PARAGRAPH
-========================= */
+========================================= */
 
 .paragraph {
+    position: relative;
+
     padding: 23px 30px;
 
     border-bottom: 1px solid var(--border);
 
-    transition: 0.2s ease;
+    transition:
+        background 0.2s ease,
+        padding-left 0.2s ease;
 }
 
 .paragraph:last-child {
@@ -427,17 +708,26 @@ nav a.active {
     background: #fcfcfc;
 }
 
+.paragraph.highlight {
+    background: #fff9e8;
+
+    box-shadow:
+        inset 5px 0 0 var(--gold);
+}
+
 .paragraph-head {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+
     gap: 15px;
 
     margin-bottom: 9px;
 }
 
 .paragraph h3 {
-    color: #333;
+    color: #303030;
+
     font-size: 18px;
     line-height: 1.35;
 }
@@ -445,24 +735,32 @@ nav a.active {
 .paragraph-number {
     flex-shrink: 0;
 
+    padding: 4px 8px;
+
     background: var(--dark-2);
-    color: var(--gold);
 
     border-radius: 5px;
 
-    padding: 4px 8px;
+    color: var(--gold);
 
-    font-size: 11px;
-    font-weight: bold;
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 0.4px;
 }
 
 .paragraph p {
     color: #555;
+
     line-height: 1.75;
 }
 
 .paragraph ul {
-    margin: 10px 0 0 20px;
+    margin:
+        10px 0
+        0
+        20px;
+
     color: #555;
 }
 
@@ -470,46 +768,46 @@ nav a.active {
     margin-bottom: 5px;
 }
 
-/* =========================
+/* =========================================
    PENALTY
-========================= */
+========================================= */
 
 .penalty {
     display: inline-flex;
     align-items: center;
+
     gap: 7px;
 
     margin-top: 13px;
 
-    background: var(--gold-light);
-
-    color: #72570c;
-
     padding: 7px 11px;
+
+    background: var(--gold-light);
 
     border-radius: 5px;
 
-    font-size: 13px;
-    font-weight: bold;
+    color: #70550b;
+
+    font-size: 12px;
+    font-weight: 900;
 }
 
 .penalty::before {
     content: "⚖";
+    font-size: 14px;
 }
 
-/* =========================
-   SPECIAL INFO
-========================= */
+/* =========================================
+   INFO PANEL
+========================================= */
 
 .info-panel {
     margin-top: 15px;
+    padding: 15px 17px;
 
     background: #f8f8f8;
 
     border-left: 4px solid var(--gold);
-
-    padding: 15px 17px;
-
     border-radius: 6px;
 }
 
@@ -517,10 +815,15 @@ nav a.active {
     color: var(--dark-2);
 }
 
+/* =========================================
+   WEAPONS
+========================================= */
+
 .weapon-grid {
     display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
 
     gap: 14px;
 
@@ -530,15 +833,33 @@ nav a.active {
 .weapon-card {
     padding: 17px;
 
-    border-radius: 9px;
+    background: #fafafa;
 
     border: 1px solid var(--border);
+    border-radius: 9px;
 
-    background: #fafafa;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.weapon-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,0.07);
 }
 
 .weapon-card h4 {
     margin-bottom: 5px;
+
+    color: var(--dark-2);
+}
+
+.weapon-card p {
+    color: #666;
+
+    font-size: 13px;
 }
 
 .weapon-card.legal {
@@ -549,16 +870,14 @@ nav a.active {
     border-top: 4px solid var(--gold);
 }
 
-.weapon-card p {
-    font-size: 14px;
-}
-
-/* =========================
+/* =========================================
    BACK TO TOP
-========================= */
+========================================= */
 
 .back-top {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 
     margin: 0 30px 25px;
 
@@ -567,51 +886,65 @@ nav a.active {
     text-decoration: none;
 
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 800;
+
+    transition: 0.2s;
 }
 
 .back-top:hover {
-    color: #72570c;
+    color: var(--gold-dark);
 }
 
-/* =========================
+/* =========================================
    NO RESULTS
-========================= */
+========================================= */
 
 #noResults {
     display: none;
 
+    margin-bottom: 30px;
+    padding: 35px 20px;
+
     background: var(--white);
 
-    padding: 30px;
-
-    border-radius: 10px;
+    border-radius: var(--radius);
 
     text-align: center;
 
     color: var(--muted);
 
-    margin-bottom: 30px;
-
     box-shadow: var(--shadow);
 }
 
-/* =========================
+.no-results-icon {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--gold);
+
+    font-size: 32px;
+}
+
+#noResults strong {
+    color: var(--dark-2);
+}
+
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 footer {
+    margin-top: 60px;
+    padding: 38px 20px;
+
     background: var(--dark);
+
+    border-top: 3px solid var(--gold);
 
     color: #aaa;
 
     text-align: center;
-
-    padding: 35px 20px;
-
-    border-top: 3px solid var(--gold);
-
-    margin-top: 60px;
 }
 
 footer strong {
@@ -620,46 +953,122 @@ footer strong {
 
 .footer-small {
     margin-top: 8px;
-    font-size: 13px;
+
+    color: #777;
+
+    font-size: 12px;
 }
 
-/* =========================
+/* =========================================
+   FLOATING TOP BUTTON
+========================================= */
+
+#floatingTop {
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    z-index: 900;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+
+    background: var(--dark-2);
+
+    color: var(--gold);
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease,
+        background 0.2s ease;
+}
+
+#floatingTop.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#floatingTop:hover {
+    background: var(--gold);
+    color: var(--text);
+}
+
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
-@media(max-width: 750px) {
+@media (max-width: 800px) {
 
-    header {
-        flex-direction: column;
-        gap: 13px;
-        padding: 13px 20px;
+    :root {
+        --header-height: auto;
     }
 
-    nav {
+    .site-header {
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding:
+            12px
+            20px;
+    }
+
+    .logo {
+        width: 100%;
         justify-content: center;
     }
 
-    nav a {
-        font-size: 13px;
+    .main-nav {
+        justify-content: center;
+    }
+
+    .main-nav a {
         padding: 8px 10px;
+
+        font-size: 12px;
     }
 
     .hero {
-        min-height: 280px;
-        padding: 65px 20px;
+        min-height: 310px;
+
+        padding:
+            65px
+            20px;
     }
 
     .hero h1 {
-        font-size: 38px;
+        font-size: 42px;
     }
 
     .hero p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .container {
         width: 94%;
-        margin: 30px auto;
+
+        margin:
+            30px
+            auto;
     }
 
     .intro-box,
@@ -672,8 +1081,15 @@ footer strong {
         align-items: flex-start;
     }
 
+    .law-navigation {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        padding: 14px;
+    }
+
     .book-header {
-        padding: 23px 20px;
+        padding: 24px 20px;
     }
 
     .book-header h2 {
@@ -686,1830 +1102,2798 @@ footer strong {
 
     .paragraph-head {
         flex-direction: column-reverse;
-        gap: 7px;
+        gap: 8px;
     }
 
     .paragraph-number {
         align-self: flex-start;
     }
 
-    .law-navigation {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 14px;
+    .back-top {
+        margin-left: 20px;
     }
 }
 
-@media(max-width: 450px) {
+@media (max-width: 480px) {
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .logo-text {
+        font-size: 13px;
+    }
+
+    .logo-text span {
+        font-size: 8px;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
+    .main-nav a {
+        flex: 1;
+
+        text-align: center;
+    }
+
+    .hero {
+        min-height: 290px;
+    }
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .hero-badge {
+        font-size: 9px;
+    }
 
     .law-navigation {
         grid-template-columns: 1fr;
     }
 
-    .logo-text {
-        font-size: 14px;
+    .book-header::after {
+        display: none;
     }
 
-    .logo-text span {
-        font-size: 9px;
+    .weapon-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #floatingTop {
+        right: 15px;
+        bottom: 15px;
     }
 }
-</style>
 
+/* =========================================
+   PRINT
+========================================= */
+
+@media print {
+
+    .site-header,
+    .search-box,
+    .law-navigation,
+    .back-top,
+    #floatingTop {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    .container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .law-book {
+        box-shadow: none;
+        border: 1px solid #ccc;
+
+        page-break-inside: avoid;
+    }
+
+    .paragraph {
+        page-break-inside: avoid;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+</style>
 </head>
 
 <body id="top">
 
-<!-- =========================
+<!-- =========================================
      HEADER
-========================= -->
+========================================= -->
 
-<header>
+<header class="site-header">
 
-<a href="index.html" class="logo">
+    <a href="index.html" class="logo">
 
-<img src="doj-logo.png" alt="Final City DOJ">
+        <img
+            src="doj-logo.png"
+            alt="Final City Department of Justice Logo"
+        >
 
-<div class="logo-text">
-FINAL CITY
-<br>
-<span>DEPARTMENT OF JUSTICE</span>
-</div>
+        <div class="logo-text">
+            FINAL CITY
+            <span>DEPARTMENT OF JUSTICE</span>
+        </div>
 
-</a>
+    </a>
 
-<nav>
-<a href="index.html">Startseite</a>
-<a href="gesetzbuecher.html" class="active">Gesetzbücher</a>
-<a href="regierung.html">Regierung & DOJ</a>
-</nav>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+
+        <a href="index.html">
+            Startseite
+        </a>
+
+        <a href="gesetzbuecher.html" class="active">
+            Gesetzbücher
+        </a>
+
+        <a href="regierung.html">
+            Regierung &amp; DOJ
+        </a>
+
+    </nav>
 
 </header>
 
-<!-- =========================
+
+<!-- =========================================
      HERO
-========================= -->
+========================================= -->
 
 <section class="hero">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<div class="hero-badge">
-Republik Final City · Department of Justice
-</div>
+        <div class="hero-badge">
+            Republik Final City · Department of Justice
+        </div>
 
-<h1>
-Gesetz<span>bücher</span>
-</h1>
+        <h1>
+            Gesetz<span>bücher</span>
+        </h1>
 
-<p>
-Zentrale Sammlung der geltenden gesetzlichen Bestimmungen
-der Republik Final City. Hier finden Bürger, Behörden,
-Polizei und Gerichte eine übersichtliche Zusammenfassung
-der wichtigsten Rechtsgebiete.
-</p>
+        <p>
+            Zentrale Sammlung der geltenden gesetzlichen
+            Bestimmungen der Republik Final City.
+            Übersichtlich, strukturiert und zentral zugänglich
+            für Bürger, Behörden, Polizei und Gerichte.
+        </p>
 
-</div>
+    </div>
 
 </section>
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
 
 <main class="container">
 
-<!-- =========================
-     INTRO
-========================= -->
 
-<div class="intro-box">
+    <!-- INTRO -->
 
-<h2>Gesetzliche Ordnung von Final City</h2>
+    <section class="intro-box">
 
-<p>
-Die Gesetzbücher bilden die Grundlage für die öffentliche
-Ordnung, das Zusammenleben der Bürger sowie die Arbeit von
-Polizei, Behörden und Gerichten. Die nachfolgenden
-Bestimmungen dienen der Orientierung innerhalb der
-Republik Final City und beschreiben Straftaten,
-Ordnungswidrigkeiten, Rechte, Pflichten und staatliche
-Befugnisse.
-</p>
+        <h2>
+            Gesetzliche Ordnung von Final City
+        </h2>
 
-</div>
+        <p>
+            Die Gesetzbücher bilden die Grundlage für die
+            öffentliche Ordnung, das Zusammenleben der Bürger
+            sowie die Arbeit von Polizei, Behörden und Gerichten.
+            Die folgenden Bestimmungen dienen als zentrale
+            Orientierung innerhalb der Republik Final City und
+            beschreiben Straftaten, Ordnungswidrigkeiten,
+            Rechte, Pflichten und staatliche Befugnisse.
+        </p>
 
-<!-- =========================
-     SEARCH
-========================= -->
+    </section>
 
-<search class="search-box">
 
-<div class="search-header">
+    <!-- SEARCH -->
 
-<h2>Gesetzsuche</h2>
-
-<span class="search-info">
-Suche in allen Paragraphen
-</span>
-
-</div>
-
-<div class="search-wrapper">
-
-<span class="search-icon">⌕</span>
-
-<input
-type="search"
-id="search"
-placeholder="Nach Paragraphen, Begriffen oder Gesetzen suchen..."
-autocomplete="off"
-
->
-
-</div>
-
-</search>
-
-<div id="noResults">
-<strong>Keine Treffer gefunden.</strong>
-<br>
-Bitte überprüfe deine Suchanfrage oder versuche einen anderen Begriff.
-</div>
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
-<div class="law-navigation">
-
-<div class="law-navigation-title">
-Gesetzbücher auswählen
-</div>
-
-<a href="#stgb">StGB</a> <a href="#stvo">StVO</a> <a href="#waffen">Waffengesetz</a> <a href="#btmg">BtMG</a> <a href="#polizei">Polizeigesetz</a> <a href="#gericht">Gerichtsgesetz</a> <a href="#owig">OWiG</a> <a href="#versammlung">Versammlungsgesetz</a> <a href="#stpo">StPO</a> <a href="#zivil">Zivilgesetzbuch</a>
-
-</div>
-
-<!-- =========================================================
-     STGB
-========================================================= -->
-
-<section class="law-book" id="stgb">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch I</div>
-
-<h2>Strafgesetzbuch – StGB</h2>
-
-<p>
-Das Strafgesetzbuch definiert strafbare Handlungen,
-regelt die Verantwortlichkeit von Personen und legt
-die möglichen Rechtsfolgen für Verstöße gegen die
-öffentliche Ordnung und die Rechte anderer Bürger fest.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Geltungsbereich des Strafrechts</h3>
-<span class="paragraph-number">STGB-01</span>
-</div>
-<p>
-Dieses Gesetz gilt für alle Personen, die sich innerhalb
-des Staatsgebietes der Republik Final City aufhalten.
-Die gesetzlichen Bestimmungen gelten unabhängig davon,
-ob eine Person Bürger, Besucher oder Amtsträger ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Vorsatz und Fahrlässigkeit</h3>
-<span class="paragraph-number">STGB-02</span>
-</div>
-<p>
-Eine Handlung kann strafbar sein, wenn sie vorsätzlich
-begangen wurde oder wenn das Gesetz ausdrücklich eine
-fahrlässige Begehung unter Strafe stellt. Vorsatz liegt
-insbesondere dann vor, wenn die Person die Folgen ihres
-Handelns kennt und diese bewusst herbeiführt oder
-zumindest billigend in Kauf nimmt.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Versuch einer Straftat</h3>
-<span class="paragraph-number">STGB-03</span>
-</div>
-<p>
-Der Versuch einer Straftat liegt vor, wenn eine Person
-nach ihrem Tatplan unmittelbar zur Verwirklichung einer
-Straftat ansetzt, die Tat jedoch nicht vollständig
-vollendet wird. Auch der Versuch kann nach den Umständen
-des Einzelfalls strafbar sein.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Beihilfe</h3>
-<span class="paragraph-number">STGB-04</span>
-</div>
-<p>
-Wer vorsätzlich einer anderen Person bei der Vorbereitung
-oder Durchführung einer Straftat hilft, kann als Gehilfe
-zur Verantwortung gezogen werden. Die Art und der Umfang
-der Unterstützung werden bei der Strafzumessung berücksichtigt.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Körperverletzung</h3>
-<span class="paragraph-number">STGB-05</span>
-</div>
-<p>
-Wer eine andere Person körperlich misshandelt oder an ihrer
-Gesundheit schädigt, macht sich der Körperverletzung schuldig.
-Auch unnötige oder unverhältnismäßige körperliche Gewalt
-gegenüber einer anderen Person kann unter diesen Paragraphen
-fallen.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Gefährliche Körperverletzung</h3>
-<span class="paragraph-number">STGB-06</span>
-</div>
-<p>
-Eine Körperverletzung gilt als besonders schwerwiegend,
-wenn sie unter Verwendung eines gefährlichen Gegenstandes,
-einer Waffe oder durch gemeinschaftliches Handeln mehrerer
-Personen begangen wird.
-</p>
-<span class="penalty">Strafmaß: bis zu 18 HE / 18.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Freiheitsberaubung</h3>
-<span class="paragraph-number">STGB-07</span>
-</div>
-<p>
-Wer einen Menschen gegen dessen Willen einsperrt, festhält,
-fesselt oder auf andere Weise an der freien Fortbewegung
-hindert, macht sich der Freiheitsberaubung schuldig.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Nötigung</h3>
-<span class="paragraph-number">STGB-08</span>
-</div>
-<p>
-Wer eine andere Person durch Gewalt oder durch die Drohung
-mit einem empfindlichen Nachteil zu einer Handlung,
-Duldung oder Unterlassung zwingt, handelt rechtswidrig.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Bedrohung</h3>
-<span class="paragraph-number">STGB-09</span>
-</div>
-<p>
-Wer einer Person mit einer erheblichen Straftat gegen sie
-oder eine ihr nahestehende Person droht und dadurch Angst
-oder Unsicherheit verursacht, macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 10 – Diebstahl</h3>
-<span class="paragraph-number">STGB-10</span>
-</div>
-<p>
-Wer eine fremde bewegliche Sache einer anderen Person
-wegnimmt, um sie sich selbst oder einer dritten Person
-rechtswidrig zuzueignen, macht sich des Diebstahls schuldig.
-Die Höhe des Schadens kann bei der Strafzumessung
-berücksichtigt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 11 – Schwerer Diebstahl</h3>
-<span class="paragraph-number">STGB-11</span>
-</div>
-<p>
-Ein Diebstahl kann als schwerwiegender eingestuft werden,
-wenn besondere Schutzmaßnahmen überwunden, mehrere Personen
-geschädigt oder besonders wertvolle Gegenstände entwendet
-werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 12 – Raub</h3>
-<span class="paragraph-number">STGB-12</span>
-</div>
-<p>
-Wer einer anderen Person eine fremde Sache unter Anwendung
-oder unmittelbarer Androhung von Gewalt wegnimmt, macht
-sich des Raubes schuldig. Die Anwendung von Waffen kann
-eine zusätzliche Erschwerung darstellen.
-</p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 20.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 13 – Sachbeschädigung</h3>
-<span class="paragraph-number">STGB-13</span>
-</div>
-<p>
-Wer eine fremde Sache vorsätzlich beschädigt, zerstört
-oder ihre bestimmungsgemäße Nutzung erheblich beeinträchtigt,
-macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 14 – Betrug</h3>
-<span class="paragraph-number">STGB-14</span>
-</div>
-<p>
-Wer durch falsche Angaben oder das Verschweigen wesentlicher
-Tatsachen einen Irrtum hervorruft und dadurch einen
-Vermögensschaden verursacht, kann wegen Betruges verfolgt
-werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 15 – Unterschlagung</h3>
-<span class="paragraph-number">STGB-15</span>
-</div>
-<p>
-Wer eine fremde Sache, die sich bereits rechtmäßig in seinem
-Besitz befindet, sich rechtswidrig aneignet oder einer
-anderen Person vorenthält, macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 16 – Bestechlichkeit und Bestechung</h3>
-<span class="paragraph-number">STGB-16</span>
-</div>
-<p>
-Wer einem Amtsträger einen unzulässigen Vorteil anbietet,
-verspricht oder gewährt, um eine pflichtwidrige Handlung
-zu erreichen, macht sich strafbar. Gleiches gilt für
-Amtsträger, die einen solchen Vorteil fordern oder annehmen.
-</p>
-<span class="penalty">Strafmaß: bis zu 18 HE / 18.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 17 – Widerstand gegen Vollstreckungsbeamte</h3>
-<span class="paragraph-number">STGB-17</span>
-</div>
-<p>
-Wer einer rechtmäßigen polizeilichen oder behördlichen
-Vollstreckungshandlung durch Gewalt oder Gewaltandrohung
-Widerstand leistet, kann strafrechtlich verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 18 – Amtsanmaßung</h3>
-<span class="paragraph-number">STGB-18</span>
-</div>
-<p>
-Wer unbefugt vorgibt, ein öffentliches Amt auszuüben oder
-sich staatliche Befugnisse anmaßt, macht sich strafbar.
-Dies gilt insbesondere bei der missbräuchlichen Verwendung
-staatlicher Kennzeichen oder Amtsbezeichnungen.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 19 – Flucht vor Strafverfolgung</h3>
-<span class="paragraph-number">STGB-19</span>
-</div>
-<p>
-Wer sich einer rechtmäßigen polizeilichen Maßnahme durch
-Flucht entzieht, kann nach den Umständen des Einzelfalls
-zusätzlich belangt werden. Eine bloße Entfernung ohne
-weitere erschwerende Umstände ist entsprechend milder
-zu bewerten.
-</p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 20 – Bildung krimineller Vereinigungen</h3>
-<span class="paragraph-number">STGB-20</span>
-</div>
-<p>
-Wer sich dauerhaft mit mehreren Personen zusammenschließt,
-um gemeinsam erhebliche Straftaten zu planen oder durchzuführen,
-kann wegen der Bildung einer kriminellen Vereinigung
-strafrechtlich verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 20.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 21 – Erpressung</h3>
-<span class="paragraph-number">STGB-21</span>
-</div>
-<p>
-Wer einen anderen durch Gewalt, Drohung oder sonstigen
-rechtswidrigen Druck dazu bringt, einen Vermögensnachteil
-hinzunehmen oder einen Vermögensvorteil herauszugeben,
-macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 22 – Hausfriedensbruch</h3>
-<span class="paragraph-number">STGB-22</span>
-</div>
-<p>
-Wer widerrechtlich in ein geschütztes Gebäude, Grundstück
-oder einen abgegrenzten Bereich eindringt oder trotz
-Aufforderung nicht geht, kann wegen Hausfriedensbruchs
-belangt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 23 – Öffentliche Unruhe</h3>
-<span class="paragraph-number">STGB-23</span>
-</div>
-<p>
-Wer vorsätzlich durch gewalttätiges oder besonders
-rücksichtsloses Verhalten eine erhebliche Störung der
-öffentlichen Ordnung verursacht, kann strafrechtlich
-verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 24 – Terrorismus</h3>
-<span class="paragraph-number">STGB-24</span>
-</div>
-<p>
-Wer mit dem Ziel, die staatliche Ordnung zu destabilisieren,
-die Bevölkerung einzuschüchtern oder staatliche Einrichtungen
-zu zerstören, schwere Gewalttaten oder vergleichbare
-Straftaten organisiert, vorbereitet oder durchführt,
-macht sich des Terrorismus schuldig.
-</p>
-<span class="penalty">Strafmaß: bis zu 60 HE / 100.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 25 – Mord</h3>
-<span class="paragraph-number">STGB-25</span>
-</div>
-<p>
-Wer vorsätzlich einen anderen Menschen tötet, wird wegen
-Mordes bestraft. Bei der Strafzumessung können insbesondere
-die Planung der Tat, besondere Grausamkeit, mehrere Opfer
-oder andere erschwerende Umstände berücksichtigt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 60 HE / 90.000 €</span>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-<!-- =========================================================
-     STVO
-========================================================= -->
-
-<section class="law-book" id="stvo">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch II</div>
-
-<h2>Straßenverkehrsordnung – StVO</h2>
-
-<p>
-Die Straßenverkehrsordnung regelt die Teilnahme am öffentlichen
-Straßenverkehr. Sie soll Unfälle verhindern und einen sicheren,
-geordneten und rücksichtsvollen Straßenverkehr gewährleisten.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Allgemeine Sorgfaltspflicht</h3>
-<span class="paragraph-number">STVO-01</span>
-</div>
-<p>
-Jeder Verkehrsteilnehmer hat sich so zu verhalten, dass kein
-anderer geschädigt, gefährdet oder mehr als nach den Umständen
-unvermeidbar behindert oder belästigt wird.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Geschwindigkeit</h3>
-<span class="paragraph-number">STVO-02</span>
-</div>
-<p>
-Die Geschwindigkeit ist stets an Straßen-, Verkehrs-, Sicht-
-und Wetterverhältnisse anzupassen. Unnötig hohe Geschwindigkeit
-ist insbesondere innerhalb dicht besiedelter Bereiche zu vermeiden.
-</p>
-<span class="penalty">Strafmaß: bis zu 5 HE / 5.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Missachtung von Verkehrszeichen</h3>
-<span class="paragraph-number">STVO-03</span>
-</div>
-<p>
-Verkehrszeichen, Fahrbahnmarkierungen und Lichtzeichenanlagen
-sind zu beachten. Das bewusste Ignorieren eines Verkehrszeichens
-kann als Ordnungswidrigkeit verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 4 HE / 4.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Fahren unter Einfluss berauschender Mittel</h3>
-<span class="paragraph-number">STVO-04</span>
-</div>
-<p>
-Wer ein Kraftfahrzeug unter erheblichem Einfluss von Alkohol,
-Betäubungsmitteln oder anderen berauschenden Stoffen führt,
-gefährdet die Sicherheit des Straßenverkehrs und kann
-straf- oder ordnungsrechtlich belangt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Gefährliches Fahren</h3>
-<span class="paragraph-number">STVO-05</span>
-</div>
-<p>
-Wer durch grob rücksichtsloses oder besonders gefährliches
-Fahren andere Verkehrsteilnehmer erheblich gefährdet,
-kann strafrechtlich verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Vermummung und Schutzkleidung</h3>
-<span class="paragraph-number">STVO-06</span>
-</div>
-<p>
-Das Tragen eines Helmes oder einer Gesichtsmaske ist während
-der Fahrt auf einem Motorrad zulässig. Auch Insassen eines
-Kraftfahrzeuges dürfen ihr Gesicht verdecken, sofern dadurch
-die sichere Teilnahme am Straßenverkehr nicht beeinträchtigt wird.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Fahren ohne Fahrerlaubnis</h3>
-<span class="paragraph-number">STVO-07</span>
-</div>
-<p>
-Wer ein Kraftfahrzeug führt, ohne die erforderliche
-Fahrerlaubnis zu besitzen, macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Unfallflucht</h3>
-<span class="paragraph-number">STVO-08</span>
-</div>
-<p>
-Wer sich nach einem Verkehrsunfall unerlaubt vom Unfallort
-entfernt, obwohl die Feststellung der beteiligten Personen,
-Fahrzeuge oder Schäden erforderlich ist, kann strafrechtlich
-belangt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Parken und Halten</h3>
-<span class="paragraph-number">STVO-09</span>
-</div>
-<p>
-Fahrzeuge dürfen nur so abgestellt werden, dass andere
-Verkehrsteilnehmer nicht unnötig behindert oder gefährdet
-werden. Halte- und Parkverbote sind zu beachten.
-</p>
-<span class="penalty">Strafmaß: bis zu 2 HE / 2.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 10 – Vorfahrt</h3>
-<span class="paragraph-number">STVO-10</span>
-</div>
-<p>
-Die Vorfahrtsregeln sind jederzeit zu beachten. Wer anderen
-Verkehrsteilnehmern bewusst die Vorfahrt nimmt und dadurch
-eine Gefahr verursacht, kann entsprechend belangt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 4 HE / 4.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 11 – Sicherheitsabstand</h3>
-<span class="paragraph-number">STVO-11</span>
-</div>
-<p>
-Zwischen Fahrzeugen ist ein ausreichender Sicherheitsabstand
-einzuhalten. Der Abstand muss den Verkehrs-, Wetter- und
-Geschwindigkeitsverhältnissen entsprechen.
-</p>
-<span class="penalty">Strafmaß: bis zu 3 HE / 3.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 12 – Gefährliche Fahrmanöver</h3>
-<span class="paragraph-number">STVO-12</span>
-</div>
-<p>
-Absichtliche Fahrmanöver, die andere Verkehrsteilnehmer
-gefährden, sind untersagt. Hierzu zählen insbesondere
-unnötige Drifts, absichtliches Abdrängen oder gefährliche
-Überholmanöver.
-</p>
-<span class="penalty">Strafmaß: bis zu 7 HE / 7.000 €</span>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-<!-- =========================================================
-     WAFFENGESETZ
-========================================================= -->
-
-<section class="law-book" id="waffen">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch III</div>
-
-<h2>Waffengesetz – WaffG</h2>
-
-<p>
-Das Waffengesetz regelt Erwerb, Besitz, Führen und Verwendung
-von Waffen innerhalb der Republik Final City. Ziel ist es,
-den legalen Waffenbesitz klar von unerlaubtem Waffenbesitz
-zu unterscheiden und den Missbrauch von Waffen zu verhindern.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Erlaubnispflicht</h3>
-<span class="paragraph-number">WAFFG-01</span>
-</div>
-<p>
-Der Erwerb, Besitz und das Führen bestimmter Waffen können
-einer staatlichen Genehmigung unterliegen. Die entsprechende
-Erlaubnis ist auf Verlangen einer zuständigen Behörde
-nachzuweisen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Legale Waffen</h3>
-<span class="paragraph-number">WAFFG-02</span>
-</div>
-<p>
-Innerhalb der Republik Final City gelten folgende Waffen
-im Rahmen der jeweiligen Genehmigungen als legal:
-</p>
-
-<div class="weapon-grid">
-
-<div class="weapon-card legal">
-<h4>Pistole</h4>
-<p>
-Zulässige Standard-Pistole bei vorhandener Berechtigung.
-</p>
-</div>
-
-<div class="weapon-card legal">
-<h4>SNS Pistole</h4>
-<p>
-Zulässige Pistolenvariante bei entsprechender Berechtigung.
-</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Illegale Waffen</h3>
-<span class="paragraph-number">WAFFG-03</span>
-</div>
-<p>
-Folgende Waffen gelten innerhalb von Final City als illegal
-und dürfen nicht ohne entsprechende Sondergenehmigung
-besessen, geführt oder verwendet werden:
-</p>
-
-<div class="weapon-grid">
-
-<div class="weapon-card illegal">
-<h4>Pistole 50er</h4>
-<p>
-Gilt als nicht zugelassene Waffenvariante.
-</p>
-</div>
-
-<div class="weapon-card illegal">
-<h4>Pistole MK2</h4>
-<p>
-Gilt als nicht zugelassene Waffenvariante.
-</p>
-</div>
-
-<div class="weapon-card illegal">
-<h4>Micro SMG</h4>
-<p>
-Gilt als verbotene bzw. nicht zugelassene Waffe.
-</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Unerlaubter Waffenbesitz</h3>
-<span class="paragraph-number">WAFFG-04</span>
-</div>
-<p>
-Wer eine erlaubnispflichtige oder ausdrücklich verbotene Waffe
-ohne entsprechende Berechtigung besitzt, macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Unerlaubtes Führen</h3>
-<span class="paragraph-number">WAFFG-05</span>
-</div>
-<p>
-Wer eine Waffe außerhalb des erlaubten Bereichs oder ohne
-die erforderliche Berechtigung mit sich führt, kann strafrechtlich
-belangt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Verwendung einer Schusswaffe</h3>
-<span class="paragraph-number">WAFFG-06</span>
-</div>
-<p>
-Der Einsatz einer Schusswaffe gegen eine Person ist nur
-zulässig, wenn hierfür eine gesetzliche Rechtfertigung besteht.
-Unnötige oder unverhältnismäßige Verwendung einer Schusswaffe
-kann strafrechtliche Folgen haben.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Drohung mit einer Waffe</h3>
-<span class="paragraph-number">WAFFG-07</span>
-</div>
-<p>
-Wer eine Waffe dazu verwendet, eine andere Person rechtswidrig
-einzuschüchtern, zu bedrohen oder zu einer Handlung zu zwingen,
-kann zusätzlich zu einer eventuell begangenen Haupttat bestraft
-werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Handel mit illegalen Waffen</h3>
-<span class="paragraph-number">WAFFG-08</span>
-</div>
-<p>
-Wer verbotene oder nicht zugelassene Waffen verkauft,
-weitergibt, vermittelt oder gewerbsmäßig vertreibt,
-macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 18 HE / 18.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Lagerung von Waffen</h3>
-<span class="paragraph-number">WAFFG-09</span>
-</div>
-<p>
-Waffen sind so aufzubewahren, dass ein unbefugter Zugriff
-verhindert wird. Wer Waffen absichtlich oder grob fahrlässig
-für Unbefugte zugänglich macht, kann belangt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 10 – Waffenabgabe</h3>
-<span class="paragraph-number">WAFFG-10</span>
-</div>
-<p>
-Wer eine verbotene Waffe freiwillig bei einer zuständigen
-Behörde abgibt, kann abhängig von den Umständen milder
-behandelt werden, sofern keine weitere Straftat vorliegt.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-<!-- =========================================================
-     BTMG
-========================================================= -->
-
-<section class="law-book" id="btmg">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch IV</div>
-
-<h2>Betäubungsmittelgesetz – BtMG</h2>
-
-<p>
-Das Betäubungsmittelgesetz regelt den Umgang mit verbotenen
-und kontrollierten Substanzen. Es unterscheidet insbesondere
-zwischen Besitz, Herstellung, Handel und Einfuhr.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Unerlaubter Besitz</h3>
-<span class="paragraph-number">BTMG-01</span>
-</div>
-<p>
-Der Besitz nicht genehmigter Betäubungsmittel ist verboten.
-Art, Menge und Umstände des Besitzes können bei der
-Strafzumessung berücksichtigt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Handel mit Betäubungsmitteln</h3>
-<span class="paragraph-number">BTMG-02</span>
-</div>
-<p>
-Wer Betäubungsmittel unerlaubt anbietet, verkauft, vermittelt
-oder gewerbsmäßig weitergibt, macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Herstellung</h3>
-<span class="paragraph-number">BTMG-03</span>
-</div>
-<p>
-Die unerlaubte Herstellung oder Verarbeitung von
-Betäubungsmitteln ist verboten.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Einfuhr und Ausfuhr</h3>
-<span class="paragraph-number">BTMG-04</span>
-</div>
-<p>
-Die unerlaubte Einfuhr oder Ausfuhr von Betäubungsmitteln
-ist strafbar. Bei gewerbsmäßigem oder organisiertem Vorgehen
-kann eine höhere Strafe verhängt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Weitergabe</h3>
-<span class="paragraph-number">BTMG-05</span>
-</div>
-<p>
-Wer Betäubungsmittel unentgeltlich an eine andere Person
-weitergibt oder zur Verfügung stellt, kann ebenfalls
-strafrechtlich verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Konsum in geschützten Bereichen</h3>
-<span class="paragraph-number">BTMG-06</span>
-</div>
-<p>
-Der Konsum verbotener Substanzen in besonders geschützten
-oder öffentlich stark frequentierten Bereichen kann zusätzlich
-als Ordnungswidrigkeit oder Straftat verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 5 HE / 5.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Drogenhandel in größerem Umfang</h3>
-<span class="paragraph-number">BTMG-07</span>
-</div>
-<p>
-Wer wiederholt oder in erheblichem Umfang mit Betäubungsmitteln
-handelt, kann aufgrund der besonderen Schwere der Tat mit
-einer erhöhten Strafe belegt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 20.000 €</span>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-<!-- =========================================================
-     POLIZEIGESETZ
-========================================================= -->
-
-<section class="law-book" id="polizei">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch V</div>
-
-<h2>Polizeigesetz – PolG</h2>
-
-<p>
-Das Polizeigesetz bestimmt die Aufgaben und Befugnisse
-der staatlichen Polizeibehörden. Maßnahmen müssen auf einer
-gesetzlichen Grundlage beruhen und sich am jeweiligen
-Gefahrenfall orientieren.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Aufgaben der Polizei</h3>
-<span class="paragraph-number">POLG-01</span>
-</div>
-<p>
-Die Polizei gewährleistet die öffentliche Sicherheit und
-Ordnung und trifft die erforderlichen Maßnahmen zur Abwehr
-konkreter Gefahren.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Identitätsfeststellung</h3>
-<span class="paragraph-number">POLG-02</span>
-</div>
-<p>
-Die Polizei ist berechtigt, die Identität einer Person
-festzustellen, wenn hierfür eine gesetzliche Grundlage
-besteht oder eine konkrete Gefahr abgewehrt werden muss.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Platzverweis</h3>
-<span class="paragraph-number">POLG-03</span>
-</div>
-<p>
-Eine Person kann aus einem bestimmten Bereich verwiesen
-werden, wenn dies zur Abwehr einer konkreten Gefahr
-erforderlich ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Durchsuchung</h3>
-<span class="paragraph-number">POLG-04</span>
-</div>
-<p>
-Personen und Sachen dürfen unter den gesetzlich bestimmten
-Voraussetzungen durchsucht werden. Die Maßnahme muss
-verhältnismäßig sein.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Gewahrsam</h3>
-<span class="paragraph-number">POLG-05</span>
-</div>
-<p>
-Eine Person kann in Gewahrsam genommen werden, wenn dies
-zur Abwehr einer gegenwärtigen Gefahr oder aufgrund einer
-anderen gesetzlichen Grundlage erforderlich ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Sicherstellung</h3>
-<span class="paragraph-number">POLG-06</span>
-</div>
-<p>
-Gegenstände können sichergestellt werden, wenn von ihnen
-eine Gefahr ausgeht oder sie für ein Verfahren als Beweismittel
-benötigt werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Polizeiliche Anordnung</h3>
-<span class="paragraph-number">POLG-07</span>
-</div>
-<p>
-Polizeiliche Anordnungen sind zu befolgen, sofern sie
-rechtmäßig erlassen wurden. Gegen rechtswidrige Maßnahmen
-stehen die vorgesehenen Rechtsmittel zur Verfügung.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Anwendung unmittelbaren Zwangs</h3>
-<span class="paragraph-number">POLG-08</span>
-</div>
-<p>
-Unmittelbarer Zwang darf nur eingesetzt werden, wenn dies
-gesetzlich zulässig und zur Erfüllung einer rechtmäßigen
-polizeilichen Maßnahme erforderlich ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Verhältnismäßigkeit</h3>
-<span class="paragraph-number">POLG-09</span>
-</div>
-<p>
-Jede polizeiliche Maßnahme muss geeignet, erforderlich und
-angemessen sein. Die am wenigsten belastende geeignete
-Maßnahme ist grundsätzlich vorzuziehen.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-<!-- =========================================================
-     GERICHTSGESETZ
-========================================================= -->
-
-<section class="law-book" id="gericht">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch VI</div>
-
-<h2>Gerichtsgesetz – GVG</h2>
-
-<p>
-Das Gerichtsgesetz regelt Organisation, Zuständigkeit und
-grundlegende Arbeitsweise der Gerichte von Final City.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Unabhängigkeit der Rechtsprechung</h3>
-<span class="paragraph-number">GVG-01</span>
-</div>
-<p>
-Die Rechtsprechung ist unabhängig und wird ausschließlich
-nach Maßgabe der geltenden Gesetze ausgeübt.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Zuständigkeit</h3>
-<span class="paragraph-number">GVG-02</span>
-</div>
-<p>
-Die Gerichte entscheiden über die ihnen gesetzlich
-zugewiesenen Straf- und Zivilsachen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Gerichtliche Verhandlung</h3>
-<span class="paragraph-number">GVG-03</span>
-</div>
-<p>
-Gerichtliche Verfahren werden nach den geltenden
-Verfahrensvorschriften durchgeführt. Beteiligte Personen
-sind grundsätzlich anzuhören.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Urteil</h3>
-<span class="paragraph-number">GVG-04</span>
-</div>
-<p>
-Eine gerichtliche Entscheidung hat die maßgeblichen Tatsachen
-und die rechtliche Würdigung des Sachverhalts zu berücksichtigen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Richterliche Entscheidung</h3>
-<span class="paragraph-number">GVG-05</span>
-</div>
-<p>
-Richterliche Entscheidungen sind auf Grundlage der vorliegenden
-Beweise, der geltenden Gesetze und der im Verfahren festgestellten
-Tatsachen zu treffen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Befangenheit</h3>
-<span class="paragraph-number">GVG-06</span>
-</div>
-<p>
-Bestehen begründete Zweifel an der Unparteilichkeit eines
-Entscheidungsträgers, kann nach Maßgabe der Verfahrensordnung
-ein Antrag auf Ausschluss gestellt werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Rechtsmittel</h3>
-<span class="paragraph-number">GVG-07</span>
-</div>
-<p>
-Gegen gerichtliche Entscheidungen können, soweit gesetzlich
-vorgesehen, Rechtsmittel eingelegt werden.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-<!-- =========================================================
-     OWIG
-========================================================= -->
-
-<section class="law-book" id="owig">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch VII</div>
-
-<h2>Ordnungswidrigkeitengesetz – OWiG</h2>
-
-<p>
-Das Ordnungswidrigkeitengesetz regelt Verstöße mit geringerem
-Unrechtsgehalt. Ziel ist eine angemessene Reaktion auf
-Verstöße gegen Vorschriften, ohne dass jede Handlung als
-Straftat behandelt werden muss.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Ordnungswidrigkeiten</h3>
-<span class="paragraph-number">OWIG-01</span>
-</div>
-<p>
-Eine Handlung kann als Ordnungswidrigkeit verfolgt werden,
-wenn sie durch Gesetz oder Verordnung entsprechend bestimmt ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Verwarnung</h3>
-<span class="paragraph-number">OWIG-02</span>
-</div>
-<p>
-Bei geringfügigen Verstößen kann eine Verwarnung ausgesprochen
-werden. Ziel der Verwarnung ist insbesondere die Vermeidung
-weiterer Verstöße.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Bußgeld</h3>
-<span class="paragraph-number">OWIG-03</span>
-</div>
-<p>
-Bei einer Ordnungswidrigkeit kann ein angemessenes Bußgeld
-verhängt werden. Die Höhe richtet sich nach der Schwere
-des Verstoßes.
-</p>
-<span class="penalty">Bußgeld: bis zu 5.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Wiederholte Verstöße</h3>
-<span class="paragraph-number">OWIG-04</span>
-</div>
-<p>
-Bei wiederholten gleichartigen Verstößen kann ein höheres
-Bußgeld verhängt werden, sofern dies gesetzlich vorgesehen ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Fahrlässige Verstöße</h3>
-<span class="paragraph-number">OWIG-05</span>
-</div>
-<p>
-Auch fahrlässige Verstöße können als Ordnungswidrigkeit
-verfolgt werden, wenn dies ausdrücklich vorgesehen ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Absehen von der Verfolgung</h3>
-<span class="paragraph-number">OWIG-06</span>
-</div>
-<p>
-Bei besonders geringfügigen Verstößen oder besonderen
-Umständen kann von einer weiteren Verfolgung abgesehen werden.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-<!-- =========================================================
-     VERSAMMLUNG
-========================================================= -->
-
-<section class="law-book" id="versammlung">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch VIII</div>
-
-<h2>Versammlungsgesetz – VersG</h2>
-
-<p>
-Das Versammlungsgesetz regelt öffentliche Versammlungen,
-Kundgebungen und Demonstrationen. Friedliche Versammlungen
-stehen unter besonderem gesetzlichen Schutz.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Versammlungsfreiheit</h3>
-<span class="paragraph-number">VERSG-01</span>
-</div>
-<p>
-Jede Person darf sich im Rahmen der geltenden Gesetze
-friedlich zu einer öffentlichen Versammlung zusammenfinden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Friedliche Versammlung</h3>
-<span class="paragraph-number">VERSG-02</span>
-</div>
-<p>
-Eine Versammlung muss friedlich durchgeführt werden.
-Gewalttätige Handlungen oder die unmittelbare Androhung
-solcher Handlungen sind unzulässig.
-</p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Auflösung</h3>
-<span class="paragraph-number">VERSG-03</span>
-</div>
-<p>
-Eine Versammlung kann aufgelöst werden, wenn die gesetzlichen
-Voraussetzungen hierfür vorliegen oder eine konkrete erhebliche
-Gefahr für die öffentliche Sicherheit besteht.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Vermummung</h3>
-<span class="paragraph-number">VERSG-04</span>
-</div>
-<p>
-Das gezielte Verdecken der Identität während einer Versammlung
-kann eingeschränkt werden, wenn dies zur Durchsetzung
-gesetzlicher Vorschriften erforderlich ist.
-</p>
-<span class="penalty">Strafmaß: bis zu 4 HE / 4.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Waffen bei Versammlungen</h3>
-<span class="paragraph-number">VERSG-05</span>
-</div>
-<p>
-Das Mitführen von Waffen auf öffentlichen Versammlungen
-ist untersagt, soweit keine ausdrückliche gesetzliche
-Ausnahme besteht.
-</p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Störung einer Versammlung</h3>
-<span class="paragraph-number">VERSG-06</span>
-</div>
-<p>
-Wer eine friedliche Versammlung vorsätzlich erheblich stört
-oder Teilnehmer durch Gewalt an der Teilnahme hindert,
-kann strafrechtlich belangt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-<!-- =========================================================
-     STPO
-========================================================= -->
-
-<section class="law-book" id="stpo">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch IX</div>
-
-<h2>Strafprozessordnung – StPO</h2>
-
-<p>
-Die Strafprozessordnung regelt Ermittlungs- und Strafverfahren
-und beschreibt die grundlegenden Rechte und Pflichten von
-Beschuldigten, Zeugen, Behörden und Gerichten.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Ermittlungsverfahren</h3>
-<span class="paragraph-number">STPO-01</span>
-</div>
-<p>
-Bei einem Anfangsverdacht einer Straftat können die zuständigen
-Behörden ein Ermittlungsverfahren einleiten.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Beschuldigtenrechte</h3>
-<span class="paragraph-number">STPO-02</span>
-</div>
-<p>
-Eine beschuldigte Person ist über die gegen sie erhobenen
-Vorwürfe und ihre gesetzlich vorgesehenen Rechte zu belehren.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Beweismittel</h3>
-<span class="paragraph-number">STPO-03</span>
-</div>
-<p>
-Zur Aufklärung einer Straftat dürfen gesetzlich zulässige
-Beweismittel erhoben, gesichert und ausgewertet werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Haft</h3>
-<span class="paragraph-number">STPO-04</span>
-</div>
-<p>
-Eine Person darf nur unter den gesetzlich bestimmten
-Voraussetzungen in Untersuchungshaft genommen werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Zeugen</h3>
-<span class="paragraph-number">STPO-05</span>
-</div>
-<p>
-Zeugen können verpflichtet sein, zu einer ordnungsgemäß
-angeordneten Vernehmung zu erscheinen und wahrheitsgemäße
-Angaben zu machen, soweit kein gesetzliches Aussageverweigerungsrecht
-besteht.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Verteidigung</h3>
-<span class="paragraph-number">STPO-06</span>
-</div>
-<p>
-Eine beschuldigte Person hat das Recht, sich im Strafverfahren
-verteidigen zu lassen und im gesetzlich vorgesehenen Umfang
-anwaltliche Unterstützung in Anspruch zu nehmen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Einstellung des Verfahrens</h3>
-<span class="paragraph-number">STPO-07</span>
-</div>
-<p>
-Ein Ermittlungsverfahren kann eingestellt werden, wenn sich
-der Tatverdacht nicht bestätigt oder die gesetzlichen
-Voraussetzungen für eine weitere Verfolgung nicht vorliegen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Abschluss des Verfahrens</h3>
-<span class="paragraph-number">STPO-08</span>
-</div>
-<p>
-Nach Abschluss der Ermittlungen entscheidet die zuständige
-Stelle über das weitere Vorgehen. Je nach Ergebnis kann es
-zu einer Anklage, Einstellung oder anderen gesetzlich
-vorgesehenen Maßnahme kommen.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-<!-- =========================================================
-     ZGB
-========================================================= -->
-
-<section class="law-book" id="zivil">
-
-<div class="book-header">
-
-<div class="book-number">Gesetzbuch X</div>
-
-<h2>Zivilgesetzbuch – ZGB</h2>
-
-<p>
-Das Zivilgesetzbuch regelt die rechtlichen Beziehungen
-zwischen Privatpersonen und enthält grundlegende Bestimmungen
-zu Verträgen, Eigentum, Schadensersatz und Verpflichtungen.
-</p>
-
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Vertragliche Verpflichtungen</h3>
-<span class="paragraph-number">ZGB-01</span>
-</div>
-<p>
-Durch einen wirksam geschlossenen Vertrag entstehen
-gegenseitige Rechte und Pflichten. Die Vertragsparteien
-sind verpflichtet, ihre vereinbarten Leistungen grundsätzlich
-ordnungsgemäß zu erfüllen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Schadensersatz</h3>
-<span class="paragraph-number">ZGB-02</span>
-</div>
-<p>
-Wer vorsätzlich oder fahrlässig einen anderen rechtswidrig
-schädigt, ist zum Ersatz des entstandenen Schadens verpflichtet,
-soweit das Gesetz nichts anderes bestimmt.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Eigentum</h3>
-<span class="paragraph-number">ZGB-03</span>
-</div>
-<p>
-Das Eigentum an einer Sache berechtigt den Eigentümer,
-über diese im Rahmen der geltenden Gesetze zu verfügen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Vertragsbruch</h3>
-<span class="paragraph-number">ZGB-04</span>
-</div>
-<p>
-Wer eine vertraglich übernommene Verpflichtung schuldhaft
-nicht erfüllt, kann zum Ersatz des daraus entstandenen
-Schadens verpflichtet sein.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Kaufvertrag</h3>
-<span class="paragraph-number">ZGB-05</span>
-</div>
-<p>
-Durch einen Kaufvertrag verpflichtet sich der Verkäufer,
-die vereinbarte Sache zu übergeben, während der Käufer
-zur vereinbarten Gegenleistung verpflichtet ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Rückgabe von Eigentum</h3>
-<span class="paragraph-number">ZGB-06</span>
-</div>
-<p>
-Wer eine fremde Sache ohne rechtliche Grundlage besitzt,
-kann verpflichtet sein, diese an den rechtmäßigen Eigentümer
-zurückzugeben.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Schadenshöhe</h3>
-<span class="paragraph-number">ZGB-07</span>
-</div>
-<p>
-Bei der Bestimmung eines Schadensersatzes sind insbesondere
-die tatsächliche Schadenshöhe, ein möglicher Mitverursachungsanteil
-und die unmittelbaren Folgen des schädigenden Ereignisses
-zu berücksichtigen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Vertragskündigung</h3>
-<span class="paragraph-number">ZGB-08</span>
-</div>
-<p>
-Verträge können unter den vereinbarten oder gesetzlich
-vorgesehenen Voraussetzungen gekündigt oder beendet werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Eigentumsübertragung</h3>
-<span class="paragraph-number">ZGB-09</span>
-</div>
-<p>
-Eigentum kann durch eine wirksame Vereinbarung und die
-entsprechende Übergabe oder sonstige gesetzlich vorgesehene
-Übertragung auf eine andere Person übergehen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 10 – Zivilrechtliche Streitigkeiten</h3>
-<span class="paragraph-number">ZGB-10</span>
-</div>
-<p>
-Streitigkeiten zwischen Privatpersonen können vor den
-zuständigen Gerichten geklärt werden. Die Parteien sollen
-nach Möglichkeit zunächst versuchen, eine einvernehmliche
-Lösung zu erreichen.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
+    <section class="search-box">
+
+        <div class="search-header">
+
+            <h2>
+                Gesetzsuche
+            </h2>
+
+            <span class="search-info">
+                Suche in allen Paragraphen
+            </span>
+
+        </div>
+
+        <div class="search-wrapper">
+
+            <span
+                class="search-icon"
+                aria-hidden="true"
+            >
+                ⌕
+            </span>
+
+            <input
+                type="search"
+                id="search"
+                placeholder="Nach Paragraphen, Begriffen oder Gesetzen suchen..."
+                autocomplete="off"
+                aria-label="Gesetzsuche"
+            >
+
+            <button
+                type="button"
+                id="clearSearch"
+                class="clear-search"
+                aria-label="Suche löschen"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div
+            id="searchStatus"
+            class="search-status"
+        ></div>
+
+    </section>
+
+
+    <!-- NO RESULTS -->
+
+    <div id="noResults">
+
+        <span class="no-results-icon">
+            §
+        </span>
+
+        <strong>
+            Keine Treffer gefunden.
+        </strong>
+
+        <br>
+
+        Bitte überprüfe deine Suchanfrage
+        oder versuche einen anderen Begriff.
+
+    </div>
+
+
+    <!-- =====================================
+         LAW NAVIGATION
+    ====================================== -->
+
+    <nav
+        class="law-navigation"
+        aria-label="Gesetzbücher"
+    >
+
+        <div class="law-navigation-title">
+            Gesetzbücher <span>auswählen</span>
+        </div>
+
+        <a href="#stgb">StGB</a>
+        <a href="#stvo">StVO</a>
+        <a href="#waffen">Waffengesetz</a>
+        <a href="#btmg">BtMG</a>
+        <a href="#polizei">Polizeigesetz</a>
+        <a href="#gericht">Gerichtsgesetz</a>
+        <a href="#owig">OWiG</a>
+        <a href="#versammlung">Versammlungsgesetz</a>
+        <a href="#stpo">StPO</a>
+        <a href="#zivil">Zivilgesetzbuch</a>
+
+    </nav>
+
+
+    <!-- =====================================
+         STGB
+    ====================================== -->
+
+    <section class="law-book" id="stgb">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch I
+                </div>
+
+                <h2>
+                    Strafgesetzbuch –
+                    <span>StGB</span>
+                </h2>
+
+                <p>
+                    Das Strafgesetzbuch definiert strafbare
+                    Handlungen, regelt die Verantwortlichkeit
+                    von Personen und legt mögliche Rechtsfolgen
+                    für Verstöße gegen die öffentliche Ordnung
+                    und die Rechte anderer Bürger fest.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 1 – Geltungsbereich des Strafrechts</h3>
+                <span class="paragraph-number">STGB-01</span>
+            </div>
+
+            <p>
+                Dieses Gesetz gilt für alle Personen, die sich
+                innerhalb des Staatsgebietes der Republik Final
+                City aufhalten. Die gesetzlichen Bestimmungen
+                gelten unabhängig davon, ob eine Person Bürger,
+                Besucher oder Amtsträger ist.
+            </p>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 2 – Vorsatz und Fahrlässigkeit</h3>
+                <span class="paragraph-number">STGB-02</span>
+            </div>
+
+            <p>
+                Eine Handlung kann strafbar sein, wenn sie
+                vorsätzlich begangen wurde oder wenn das Gesetz
+                ausdrücklich eine fahrlässige Begehung unter
+                Strafe stellt. Vorsatz liegt insbesondere dann
+                vor, wenn die Person die Folgen ihres Handelns
+                kennt und diese bewusst herbeiführt oder
+                zumindest billigend in Kauf nimmt.
+            </p>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 3 – Versuch einer Straftat</h3>
+                <span class="paragraph-number">STGB-03</span>
+            </div>
+
+            <p>
+                Der Versuch einer Straftat liegt vor, wenn eine
+                Person nach ihrem Tatplan unmittelbar zur
+                Verwirklichung einer Straftat ansetzt, die Tat
+                jedoch nicht vollständig vollendet wird. Auch
+                der Versuch kann nach den Umständen des
+                Einzelfalls strafbar sein.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 10 HE / 10.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 4 – Beihilfe</h3>
+                <span class="paragraph-number">STGB-04</span>
+            </div>
+
+            <p>
+                Wer vorsätzlich einer anderen Person bei der
+                Vorbereitung oder Durchführung einer Straftat
+                hilft, kann als Gehilfe zur Verantwortung gezogen
+                werden. Die Art und der Umfang der Unterstützung
+                werden bei der Strafzumessung berücksichtigt.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 10 HE / 10.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 5 – Körperverletzung</h3>
+                <span class="paragraph-number">STGB-05</span>
+            </div>
+
+            <p>
+                Wer eine andere Person körperlich misshandelt
+                oder an ihrer Gesundheit schädigt, macht sich
+                der Körperverletzung schuldig. Auch unnötige
+                oder unverhältnismäßige körperliche Gewalt
+                gegenüber einer anderen Person kann unter
+                diesen Paragraphen fallen.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 12 HE / 12.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 6 – Gefährliche Körperverletzung</h3>
+                <span class="paragraph-number">STGB-06</span>
+            </div>
+
+            <p>
+                Eine Körperverletzung gilt als besonders
+                schwerwiegend, wenn sie unter Verwendung
+                eines gefährlichen Gegenstandes, einer Waffe
+                oder durch gemeinschaftliches Handeln mehrerer
+                Personen begangen wird.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 18 HE / 18.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 7 – Freiheitsberaubung</h3>
+                <span class="paragraph-number">STGB-07</span>
+            </div>
+
+            <p>
+                Wer einen Menschen gegen dessen Willen einsperrt,
+                festhält, fesselt oder auf andere Weise an der
+                freien Fortbewegung hindert, macht sich der
+                Freiheitsberaubung schuldig.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 15 HE / 15.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 8 – Nötigung</h3>
+                <span class="paragraph-number">STGB-08</span>
+            </div>
+
+            <p>
+                Wer eine andere Person durch Gewalt oder durch
+                die Drohung mit einem empfindlichen Nachteil
+                zu einer Handlung, Duldung oder Unterlassung
+                zwingt, handelt rechtswidrig.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 12 HE / 12.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 9 – Bedrohung</h3>
+                <span class="paragraph-number">STGB-09</span>
+            </div>
+
+            <p>
+                Wer einer Person mit einer erheblichen Straftat
+                gegen sie oder eine ihr nahestehende Person
+                droht und dadurch Angst oder Unsicherheit
+                verursacht, macht sich strafbar.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 8 HE / 8.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 10 – Diebstahl</h3>
+                <span class="paragraph-number">STGB-10</span>
+            </div>
+
+            <p>
+                Wer eine fremde bewegliche Sache einer anderen
+                Person wegnimmt, um sie sich selbst oder einer
+                dritten Person rechtswidrig zuzueignen, macht
+                sich des Diebstahls schuldig. Die Höhe des
+                Schadens kann bei der Strafzumessung
+                berücksichtigt werden.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 10 HE / 10.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 11 – Schwerer Diebstahl</h3>
+                <span class="paragraph-number">STGB-11</span>
+            </div>
+
+            <p>
+                Ein Diebstahl kann als schwerwiegender eingestuft
+                werden, wenn besondere Schutzmaßnahmen überwunden,
+                mehrere Personen geschädigt oder besonders
+                wertvolle Gegenstände entwendet werden.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 15 HE / 15.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 12 – Raub</h3>
+                <span class="paragraph-number">STGB-12</span>
+            </div>
+
+            <p>
+                Wer einer anderen Person eine fremde Sache unter
+                Anwendung oder unmittelbarer Androhung von Gewalt
+                wegnimmt, macht sich des Raubes schuldig. Die
+                Anwendung von Waffen kann eine zusätzliche
+                Erschwerung darstellen.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 20 HE / 20.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 13 – Sachbeschädigung</h3>
+                <span class="paragraph-number">STGB-13</span>
+            </div>
+
+            <p>
+                Wer eine fremde Sache vorsätzlich beschädigt,
+                zerstört oder ihre bestimmungsgemäße Nutzung
+                erheblich beeinträchtigt, macht sich strafbar.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 8 HE / 8.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 14 – Betrug</h3>
+                <span class="paragraph-number">STGB-14</span>
+            </div>
+
+            <p>
+                Wer durch falsche Angaben oder das Verschweigen
+                wesentlicher Tatsachen einen Irrtum hervorruft
+                und dadurch einen Vermögensschaden verursacht,
+                kann wegen Betruges verfolgt werden.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 12 HE / 12.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 15 – Unterschlagung</h3>
+                <span class="paragraph-number">STGB-15</span>
+            </div>
+
+            <p>
+                Wer eine fremde Sache, die sich bereits rechtmäßig
+                in seinem Besitz befindet, sich rechtswidrig
+                aneignet oder einer anderen Person vorenthält,
+                macht sich strafbar.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 8 HE / 8.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 16 – Bestechlichkeit und Bestechung</h3>
+                <span class="paragraph-number">STGB-16</span>
+            </div>
+
+            <p>
+                Wer einem Amtsträger einen unzulässigen Vorteil
+                anbietet, verspricht oder gewährt, um eine
+                pflichtwidrige Handlung zu erreichen, macht sich
+                strafbar. Gleiches gilt für Amtsträger, die einen
+                solchen Vorteil fordern oder annehmen.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 18 HE / 18.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 17 – Widerstand gegen Vollstreckungsbeamte</h3>
+                <span class="paragraph-number">STGB-17</span>
+            </div>
+
+            <p>
+                Wer einer rechtmäßigen polizeilichen oder
+                behördlichen Vollstreckungshandlung durch Gewalt
+                oder Gewaltandrohung Widerstand leistet, kann
+                strafrechtlich verfolgt werden.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 12 HE / 12.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 18 – Amtsanmaßung</h3>
+                <span class="paragraph-number">STGB-18</span>
+            </div>
+
+            <p>
+                Wer unbefugt vorgibt, ein öffentliches Amt
+                auszuüben oder sich staatliche Befugnisse anmaßt,
+                macht sich strafbar. Dies gilt insbesondere bei
+                der missbräuchlichen Verwendung staatlicher
+                Kennzeichen oder Amtsbezeichnungen.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 10 HE / 10.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 19 – Flucht vor Strafverfolgung</h3>
+                <span class="paragraph-number">STGB-19</span>
+            </div>
+
+            <p>
+                Wer sich einer rechtmäßigen polizeilichen
+                Maßnahme durch Flucht entzieht, kann nach den
+                Umständen des Einzelfalls zusätzlich belangt
+                werden. Eine bloße Entfernung ohne weitere
+                erschwerende Umstände ist entsprechend milder
+                zu bewerten.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 8 HE / 8.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 20 – Bildung krimineller Vereinigungen</h3>
+                <span class="paragraph-number">STGB-20</span>
+            </div>
+
+            <p>
+                Wer sich dauerhaft mit mehreren Personen
+                zusammenschließt, um gemeinsam erhebliche
+                Straftaten zu planen oder durchzuführen, kann
+                wegen der Bildung einer kriminellen Vereinigung
+                strafrechtlich verfolgt werden.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 20 HE / 20.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 21 – Erpressung</h3>
+                <span class="paragraph-number">STGB-21</span>
+            </div>
+
+            <p>
+                Wer einen anderen durch Gewalt, Drohung oder
+                sonstigen rechtswidrigen Druck dazu bringt,
+                einen Vermögensnachteil hinzunehmen oder einen
+                Vermögensvorteil herauszugeben, macht sich strafbar.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 15 HE / 15.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 22 – Hausfriedensbruch</h3>
+                <span class="paragraph-number">STGB-22</span>
+            </div>
+
+            <p>
+                Wer widerrechtlich in ein geschütztes Gebäude,
+                Grundstück oder einen abgegrenzten Bereich
+                eindringt oder trotz Aufforderung nicht geht,
+                kann wegen Hausfriedensbruchs belangt werden.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 6 HE / 6.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 23 – Öffentliche Unruhe</h3>
+                <span class="paragraph-number">STGB-23</span>
+            </div>
+
+            <p>
+                Wer vorsätzlich durch gewalttätiges oder
+                besonders rücksichtsloses Verhalten eine
+                erhebliche Störung der öffentlichen Ordnung
+                verursacht, kann strafrechtlich verfolgt werden.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 10 HE / 10.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 24 – Terrorismus</h3>
+                <span class="paragraph-number">STGB-24</span>
+            </div>
+
+            <p>
+                Wer mit dem Ziel, die staatliche Ordnung zu
+                destabilisieren, die Bevölkerung einzuschüchtern
+                oder staatliche Einrichtungen zu zerstören,
+                schwere Gewalttaten oder vergleichbare Straftaten
+                organisiert, vorbereitet oder durchführt, macht
+                sich des Terrorismus schuldig.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 60 HE / 100.000 €
+            </span>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 25 – Mord</h3>
+                <span class="paragraph-number">STGB-25</span>
+            </div>
+
+            <p>
+                Wer vorsätzlich einen anderen Menschen tötet,
+                wird wegen Mordes bestraft. Bei der Strafzumessung
+                können insbesondere die Planung der Tat, besondere
+                Grausamkeit, mehrere Opfer oder andere erschwerende
+                Umstände berücksichtigt werden.
+            </p>
+
+            <span class="penalty">
+                Strafmaß: bis zu 60 HE / 90.000 €
+            </span>
+
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
+
+
+    <!-- =====================================
+         STVO
+    ====================================== -->
+
+    <section class="law-book" id="stvo">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch II
+                </div>
+
+                <h2>
+                    Straßenverkehrsordnung –
+                    <span>StVO</span>
+                </h2>
+
+                <p>
+                    Die Straßenverkehrsordnung regelt die Teilnahme
+                    am öffentlichen Straßenverkehr. Sie soll Unfälle
+                    verhindern und einen sicheren, geordneten und
+                    rücksichtsvollen Straßenverkehr gewährleisten.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 1 – Allgemeine Sorgfaltspflicht</h3>
+                <span class="paragraph-number">STVO-01</span>
+            </div>
+            <p>
+                Jeder Verkehrsteilnehmer hat sich so zu verhalten,
+                dass kein anderer geschädigt, gefährdet oder mehr
+                als nach den Umständen unvermeidbar behindert
+                oder belästigt wird.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 2 – Geschwindigkeit</h3>
+                <span class="paragraph-number">STVO-02</span>
+            </div>
+            <p>
+                Die Geschwindigkeit ist stets an Straßen-, Verkehrs-,
+                Sicht- und Wetterverhältnisse anzupassen. Unnötig
+                hohe Geschwindigkeit ist insbesondere innerhalb
+                dicht besiedelter Bereiche zu vermeiden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 5 HE / 5.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 3 – Missachtung von Verkehrszeichen</h3>
+                <span class="paragraph-number">STVO-03</span>
+            </div>
+            <p>
+                Verkehrszeichen, Fahrbahnmarkierungen und
+                Lichtzeichenanlagen sind zu beachten. Das bewusste
+                Ignorieren eines Verkehrszeichens kann als
+                Ordnungswidrigkeit verfolgt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 4 HE / 4.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 4 – Fahren unter Einfluss berauschender Mittel</h3>
+                <span class="paragraph-number">STVO-04</span>
+            </div>
+            <p>
+                Wer ein Kraftfahrzeug unter erheblichem Einfluss
+                von Alkohol, Betäubungsmitteln oder anderen
+                berauschenden Stoffen führt, gefährdet die
+                Sicherheit des Straßenverkehrs und kann straf-
+                oder ordnungsrechtlich belangt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 10 HE / 10.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 5 – Gefährliches Fahren</h3>
+                <span class="paragraph-number">STVO-05</span>
+            </div>
+            <p>
+                Wer durch grob rücksichtsloses oder besonders
+                gefährliches Fahren andere Verkehrsteilnehmer
+                erheblich gefährdet, kann strafrechtlich
+                verfolgt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 12 HE / 12.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 6 – Vermummung und Schutzkleidung</h3>
+                <span class="paragraph-number">STVO-06</span>
+            </div>
+            <p>
+                Das Tragen eines Helmes oder einer Gesichtsmaske
+                ist während der Fahrt auf einem Motorrad zulässig.
+                Auch Insassen eines Kraftfahrzeuges dürfen ihr
+                Gesicht verdecken, sofern dadurch die sichere
+                Teilnahme am Straßenverkehr nicht beeinträchtigt wird.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 7 – Fahren ohne Fahrerlaubnis</h3>
+                <span class="paragraph-number">STVO-07</span>
+            </div>
+            <p>
+                Wer ein Kraftfahrzeug führt, ohne die erforderliche
+                Fahrerlaubnis zu besitzen, macht sich strafbar.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 8 HE / 8.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 8 – Unfallflucht</h3>
+                <span class="paragraph-number">STVO-08</span>
+            </div>
+            <p>
+                Wer sich nach einem Verkehrsunfall unerlaubt vom
+                Unfallort entfernt, obwohl die Feststellung der
+                beteiligten Personen, Fahrzeuge oder Schäden
+                erforderlich ist, kann strafrechtlich belangt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 10 HE / 10.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 9 – Parken und Halten</h3>
+                <span class="paragraph-number">STVO-09</span>
+            </div>
+            <p>
+                Fahrzeuge dürfen nur so abgestellt werden, dass
+                andere Verkehrsteilnehmer nicht unnötig behindert
+                oder gefährdet werden. Halte- und Parkverbote sind
+                zu beachten.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 2 HE / 2.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 10 – Vorfahrt</h3>
+                <span class="paragraph-number">STVO-10</span>
+            </div>
+            <p>
+                Die Vorfahrtsregeln sind jederzeit zu beachten.
+                Wer anderen Verkehrsteilnehmern bewusst die
+                Vorfahrt nimmt und dadurch eine Gefahr verursacht,
+                kann entsprechend belangt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 4 HE / 4.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 11 – Sicherheitsabstand</h3>
+                <span class="paragraph-number">STVO-11</span>
+            </div>
+            <p>
+                Zwischen Fahrzeugen ist ein ausreichender
+                Sicherheitsabstand einzuhalten. Der Abstand muss
+                den Verkehrs-, Wetter- und Geschwindigkeits-
+                verhältnissen entsprechen.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 3 HE / 3.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 12 – Gefährliche Fahrmanöver</h3>
+                <span class="paragraph-number">STVO-12</span>
+            </div>
+            <p>
+                Absichtliche Fahrmanöver, die andere Verkehrsteilnehmer
+                gefährden, sind untersagt. Hierzu zählen insbesondere
+                unnötige Drifts, absichtliches Abdrängen oder
+                gefährliche Überholmanöver.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 7 HE / 7.000 €
+            </span>
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
+
+
+    <!-- =====================================
+         WAFFENGESETZ
+    ====================================== -->
+
+    <section class="law-book" id="waffen">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch III
+                </div>
+
+                <h2>
+                    Waffengesetz –
+                    <span>WaffG</span>
+                </h2>
+
+                <p>
+                    Das Waffengesetz regelt Erwerb, Besitz, Führen
+                    und Verwendung von Waffen innerhalb der Republik
+                    Final City. Ziel ist es, legalen Waffenbesitz
+                    klar von unerlaubtem Waffenbesitz zu unterscheiden.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 1 – Erlaubnispflicht</h3>
+                <span class="paragraph-number">WAFFG-01</span>
+            </div>
+            <p>
+                Der Erwerb, Besitz und das Führen bestimmter Waffen
+                können einer staatlichen Genehmigung unterliegen.
+                Die entsprechende Erlaubnis ist auf Verlangen einer
+                zuständigen Behörde nachzuweisen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 2 – Legale Waffen</h3>
+                <span class="paragraph-number">WAFFG-02</span>
+            </div>
+
+            <p>
+                Innerhalb der Republik Final City gelten folgende
+                Waffen im Rahmen der jeweiligen Genehmigungen als legal:
+            </p>
+
+            <div class="weapon-grid">
+
+                <div class="weapon-card legal">
+                    <h4>Pistole</h4>
+                    <p>
+                        Zulässige Standard-Pistole bei
+                        vorhandener Berechtigung.
+                    </p>
+                </div>
+
+                <div class="weapon-card legal">
+                    <h4>SNS Pistole</h4>
+                    <p>
+                        Zulässige Pistolenvariante bei
+                        entsprechender Berechtigung.
+                    </p>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="paragraph">
+
+            <div class="paragraph-head">
+                <h3>§ 3 – Illegale Waffen</h3>
+                <span class="paragraph-number">WAFFG-03</span>
+            </div>
+
+            <p>
+                Folgende Waffen gelten innerhalb von Final City
+                als illegal und dürfen nicht ohne entsprechende
+                Sondergenehmigung besessen, geführt oder verwendet werden:
+            </p>
+
+            <div class="weapon-grid">
+
+                <div class="weapon-card illegal">
+                    <h4>Pistole 50er</h4>
+                    <p>
+                        Gilt als nicht zugelassene Waffenvariante.
+                    </p>
+                </div>
+
+                <div class="weapon-card illegal">
+                    <h4>Pistole MK2</h4>
+                    <p>
+                        Gilt als nicht zugelassene Waffenvariante.
+                    </p>
+                </div>
+
+                <div class="weapon-card illegal">
+                    <h4>Micro SMG</h4>
+                    <p>
+                        Gilt als verbotene bzw. nicht zugelassene Waffe.
+                    </p>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 4 – Unerlaubter Waffenbesitz</h3>
+                <span class="paragraph-number">WAFFG-04</span>
+            </div>
+            <p>
+                Wer eine erlaubnispflichtige oder ausdrücklich
+                verbotene Waffe ohne entsprechende Berechtigung
+                besitzt, macht sich strafbar.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 10 HE / 10.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 5 – Unerlaubtes Führen</h3>
+                <span class="paragraph-number">WAFFG-05</span>
+            </div>
+            <p>
+                Wer eine Waffe außerhalb des erlaubten Bereichs
+                oder ohne die erforderliche Berechtigung mit sich
+                führt, kann strafrechtlich belangt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 12 HE / 12.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 6 – Verwendung einer Schusswaffe</h3>
+                <span class="paragraph-number">WAFFG-06</span>
+            </div>
+            <p>
+                Der Einsatz einer Schusswaffe gegen eine Person
+                ist nur zulässig, wenn hierfür eine gesetzliche
+                Rechtfertigung besteht. Unnötige oder
+                unverhältnismäßige Verwendung einer Schusswaffe
+                kann strafrechtliche Folgen haben.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 15 HE / 15.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 7 – Drohung mit einer Waffe</h3>
+                <span class="paragraph-number">WAFFG-07</span>
+            </div>
+            <p>
+                Wer eine Waffe dazu verwendet, eine andere Person
+                rechtswidrig einzuschüchtern, zu bedrohen oder zu
+                einer Handlung zu zwingen, kann zusätzlich zu einer
+                eventuell begangenen Haupttat bestraft werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 10 HE / 10.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 8 – Handel mit illegalen Waffen</h3>
+                <span class="paragraph-number">WAFFG-08</span>
+            </div>
+            <p>
+                Wer verbotene oder nicht zugelassene Waffen verkauft,
+                weitergibt, vermittelt oder gewerbsmäßig vertreibt,
+                macht sich strafbar.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 18 HE / 18.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 9 – Lagerung von Waffen</h3>
+                <span class="paragraph-number">WAFFG-09</span>
+            </div>
+            <p>
+                Waffen sind so aufzubewahren, dass ein unbefugter
+                Zugriff verhindert wird. Wer Waffen absichtlich
+                oder grob fahrlässig für Unbefugte zugänglich macht,
+                kann belangt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 6 HE / 6.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 10 – Waffenabgabe</h3>
+                <span class="paragraph-number">WAFFG-10</span>
+            </div>
+            <p>
+                Wer eine verbotene Waffe freiwillig bei einer
+                zuständigen Behörde abgibt, kann abhängig von
+                den Umständen milder behandelt werden, sofern
+                keine weitere Straftat vorliegt.
+            </p>
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
+
+
+    <!-- =====================================
+         BTMG
+    ====================================== -->
+
+    <section class="law-book" id="btmg">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch IV
+                </div>
+
+                <h2>
+                    Betäubungsmittelgesetz –
+                    <span>BtMG</span>
+                </h2>
+
+                <p>
+                    Das Betäubungsmittelgesetz regelt den Umgang
+                    mit verbotenen und kontrollierten Substanzen.
+                    Es unterscheidet insbesondere zwischen Besitz,
+                    Herstellung, Handel und Einfuhr.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 1 – Unerlaubter Besitz</h3>
+                <span class="paragraph-number">BTMG-01</span>
+            </div>
+            <p>
+                Der Besitz nicht genehmigter Betäubungsmittel ist
+                verboten. Art, Menge und Umstände des Besitzes
+                können bei der Strafzumessung berücksichtigt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 6 HE / 6.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 2 – Handel mit Betäubungsmitteln</h3>
+                <span class="paragraph-number">BTMG-02</span>
+            </div>
+            <p>
+                Wer Betäubungsmittel unerlaubt anbietet, verkauft,
+                vermittelt oder gewerbsmäßig weitergibt, macht
+                sich strafbar.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 15 HE / 15.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 3 – Herstellung</h3>
+                <span class="paragraph-number">BTMG-03</span>
+            </div>
+            <p>
+                Die unerlaubte Herstellung oder Verarbeitung von
+                Betäubungsmitteln ist verboten.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 12 HE / 12.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 4 – Einfuhr und Ausfuhr</h3>
+                <span class="paragraph-number">BTMG-04</span>
+            </div>
+            <p>
+                Die unerlaubte Einfuhr oder Ausfuhr von
+                Betäubungsmitteln ist strafbar. Bei gewerbsmäßigem
+                oder organisiertem Vorgehen kann eine höhere Strafe
+                verhängt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 15 HE / 15.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 5 – Weitergabe</h3>
+                <span class="paragraph-number">BTMG-05</span>
+            </div>
+            <p>
+                Wer Betäubungsmittel unentgeltlich an eine andere
+                Person weitergibt oder zur Verfügung stellt, kann
+                ebenfalls strafrechtlich verfolgt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 8 HE / 8.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 6 – Konsum in geschützten Bereichen</h3>
+                <span class="paragraph-number">BTMG-06</span>
+            </div>
+            <p>
+                Der Konsum verbotener Substanzen in besonders
+                geschützten oder öffentlich stark frequentierten
+                Bereichen kann zusätzlich als Ordnungswidrigkeit
+                oder Straftat verfolgt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 5 HE / 5.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 7 – Drogenhandel in größerem Umfang</h3>
+                <span class="paragraph-number">BTMG-07</span>
+            </div>
+            <p>
+                Wer wiederholt oder in erheblichem Umfang mit
+                Betäubungsmitteln handelt, kann aufgrund der
+                besonderen Schwere der Tat mit einer erhöhten
+                Strafe belegt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 20 HE / 20.000 €
+            </span>
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
+
+
+    <!-- =====================================
+         POLIZEIGESETZ
+    ====================================== -->
+
+    <section class="law-book" id="polizei">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch V
+                </div>
+
+                <h2>
+                    Polizeigesetz –
+                    <span>PolG</span>
+                </h2>
+
+                <p>
+                    Das Polizeigesetz bestimmt die Aufgaben und
+                    Befugnisse der staatlichen Polizeibehörden.
+                    Maßnahmen müssen auf einer gesetzlichen
+                    Grundlage beruhen und sich am jeweiligen
+                    Gefahrenfall orientieren.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 1 – Aufgaben der Polizei</h3>
+                <span class="paragraph-number">POLG-01</span>
+            </div>
+            <p>
+                Die Polizei gewährleistet die öffentliche Sicherheit
+                und Ordnung und trifft die erforderlichen Maßnahmen
+                zur Abwehr konkreter Gefahren.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 2 – Identitätsfeststellung</h3>
+                <span class="paragraph-number">POLG-02</span>
+            </div>
+            <p>
+                Die Polizei ist berechtigt, die Identität einer
+                Person festzustellen, wenn hierfür eine gesetzliche
+                Grundlage besteht oder eine konkrete Gefahr
+                abgewehrt werden muss.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 3 – Platzverweis</h3>
+                <span class="paragraph-number">POLG-03</span>
+            </div>
+            <p>
+                Eine Person kann aus einem bestimmten Bereich
+                verwiesen werden, wenn dies zur Abwehr einer
+                konkreten Gefahr erforderlich ist.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 4 – Durchsuchung</h3>
+                <span class="paragraph-number">POLG-04</span>
+            </div>
+            <p>
+                Personen und Sachen dürfen unter den gesetzlich
+                bestimmten Voraussetzungen durchsucht werden.
+                Die Maßnahme muss verhältnismäßig sein.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 5 – Gewahrsam</h3>
+                <span class="paragraph-number">POLG-05</span>
+            </div>
+            <p>
+                Eine Person kann in Gewahrsam genommen werden,
+                wenn dies zur Abwehr einer gegenwärtigen Gefahr
+                oder aufgrund einer anderen gesetzlichen Grundlage
+                erforderlich ist.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 6 – Sicherstellung</h3>
+                <span class="paragraph-number">POLG-06</span>
+            </div>
+            <p>
+                Gegenstände können sichergestellt werden, wenn
+                von ihnen eine Gefahr ausgeht oder sie für ein
+                Verfahren als Beweismittel benötigt werden.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 7 – Polizeiliche Anordnung</h3>
+                <span class="paragraph-number">POLG-07</span>
+            </div>
+            <p>
+                Polizeiliche Anordnungen sind zu befolgen, sofern
+                sie rechtmäßig erlassen wurden. Gegen rechtswidrige
+                Maßnahmen stehen die vorgesehenen Rechtsmittel
+                zur Verfügung.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 8 – Anwendung unmittelbaren Zwangs</h3>
+                <span class="paragraph-number">POLG-08</span>
+            </div>
+            <p>
+                Unmittelbarer Zwang darf nur eingesetzt werden,
+                wenn dies gesetzlich zulässig und zur Erfüllung
+                einer rechtmäßigen polizeilichen Maßnahme
+                erforderlich ist.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 9 – Verhältnismäßigkeit</h3>
+                <span class="paragraph-number">POLG-09</span>
+            </div>
+            <p>
+                Jede polizeiliche Maßnahme muss geeignet,
+                erforderlich und angemessen sein. Die am wenigsten
+                belastende geeignete Maßnahme ist grundsätzlich
+                vorzuziehen.
+            </p>
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
+
+
+    <!-- =====================================
+         GERICHTSGESETZ
+    ====================================== -->
+
+    <section class="law-book" id="gericht">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch VI
+                </div>
+
+                <h2>
+                    Gerichtsgesetz –
+                    <span>GVG</span>
+                </h2>
+
+                <p>
+                    Das Gerichtsgesetz regelt Organisation,
+                    Zuständigkeit und grundlegende Arbeitsweise
+                    der Gerichte von Final City.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 1 – Unabhängigkeit der Rechtsprechung</h3>
+                <span class="paragraph-number">GVG-01</span>
+            </div>
+            <p>
+                Die Rechtsprechung ist unabhängig und wird
+                ausschließlich nach Maßgabe der geltenden
+                Gesetze ausgeübt.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 2 – Zuständigkeit</h3>
+                <span class="paragraph-number">GVG-02</span>
+            </div>
+            <p>
+                Die Gerichte entscheiden über die ihnen gesetzlich
+                zugewiesenen Straf- und Zivilsachen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 3 – Gerichtliche Verhandlung</h3>
+                <span class="paragraph-number">GVG-03</span>
+            </div>
+            <p>
+                Gerichtliche Verfahren werden nach den geltenden
+                Verfahrensvorschriften durchgeführt. Beteiligte
+                Personen sind grundsätzlich anzuhören.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 4 – Urteil</h3>
+                <span class="paragraph-number">GVG-04</span>
+            </div>
+            <p>
+                Eine gerichtliche Entscheidung hat die maßgeblichen
+                Tatsachen und die rechtliche Würdigung des
+                Sachverhalts zu berücksichtigen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 5 – Richterliche Entscheidung</h3>
+                <span class="paragraph-number">GVG-05</span>
+            </div>
+            <p>
+                Richterliche Entscheidungen sind auf Grundlage
+                der vorliegenden Beweise, der geltenden Gesetze
+                und der im Verfahren festgestellten Tatsachen
+                zu treffen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 6 – Befangenheit</h3>
+                <span class="paragraph-number">GVG-06</span>
+            </div>
+            <p>
+                Bestehen begründete Zweifel an der Unparteilichkeit
+                eines Entscheidungsträgers, kann nach Maßgabe
+                der Verfahrensordnung ein Antrag auf Ausschluss
+                gestellt werden.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 7 – Rechtsmittel</h3>
+                <span class="paragraph-number">GVG-07</span>
+            </div>
+            <p>
+                Gegen gerichtliche Entscheidungen können, soweit
+                gesetzlich vorgesehen, Rechtsmittel eingelegt werden.
+            </p>
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
+
+
+    <!-- =====================================
+         OWIG
+    ====================================== -->
+
+    <section class="law-book" id="owig">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch VII
+                </div>
+
+                <h2>
+                    Ordnungswidrigkeitengesetz –
+                    <span>OWiG</span>
+                </h2>
+
+                <p>
+                    Das Ordnungswidrigkeitengesetz regelt Verstöße
+                    mit geringerem Unrechtsgehalt. Ziel ist eine
+                    angemessene Reaktion auf Verstöße gegen
+                    Vorschriften.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 1 – Ordnungswidrigkeiten</h3>
+                <span class="paragraph-number">OWIG-01</span>
+            </div>
+            <p>
+                Eine Handlung kann als Ordnungswidrigkeit verfolgt
+                werden, wenn sie durch Gesetz oder Verordnung
+                entsprechend bestimmt ist.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 2 – Verwarnung</h3>
+                <span class="paragraph-number">OWIG-02</span>
+            </div>
+            <p>
+                Bei geringfügigen Verstößen kann eine Verwarnung
+                ausgesprochen werden. Ziel der Verwarnung ist
+                insbesondere die Vermeidung weiterer Verstöße.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 3 – Bußgeld</h3>
+                <span class="paragraph-number">OWIG-03</span>
+            </div>
+            <p>
+                Bei einer Ordnungswidrigkeit kann ein angemessenes
+                Bußgeld verhängt werden. Die Höhe richtet sich
+                nach der Schwere des Verstoßes.
+            </p>
+            <span class="penalty">
+                Bußgeld: bis zu 5.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 4 – Wiederholte Verstöße</h3>
+                <span class="paragraph-number">OWIG-04</span>
+            </div>
+            <p>
+                Bei wiederholten gleichartigen Verstößen kann
+                ein höheres Bußgeld verhängt werden, sofern
+                dies gesetzlich vorgesehen ist.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 5 – Fahrlässige Verstöße</h3>
+                <span class="paragraph-number">OWIG-05</span>
+            </div>
+            <p>
+                Auch fahrlässige Verstöße können als
+                Ordnungswidrigkeit verfolgt werden, wenn dies
+                ausdrücklich vorgesehen ist.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 6 – Absehen von der Verfolgung</h3>
+                <span class="paragraph-number">OWIG-06</span>
+            </div>
+            <p>
+                Bei besonders geringfügigen Verstößen oder
+                besonderen Umständen kann von einer weiteren
+                Verfolgung abgesehen werden.
+            </p>
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
+
+
+    <!-- =====================================
+         VERSAMMLUNG
+    ====================================== -->
+
+    <section class="law-book" id="versammlung">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch VIII
+                </div>
+
+                <h2>
+                    Versammlungsgesetz –
+                    <span>VersG</span>
+                </h2>
+
+                <p>
+                    Das Versammlungsgesetz regelt öffentliche
+                    Versammlungen, Kundgebungen und Demonstrationen.
+                    Friedliche Versammlungen stehen unter besonderem
+                    gesetzlichen Schutz.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 1 – Versammlungsfreiheit</h3>
+                <span class="paragraph-number">VERSG-01</span>
+            </div>
+            <p>
+                Jede Person darf sich im Rahmen der geltenden
+                Gesetze friedlich zu einer öffentlichen Versammlung
+                zusammenfinden.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 2 – Friedliche Versammlung</h3>
+                <span class="paragraph-number">VERSG-02</span>
+            </div>
+            <p>
+                Eine Versammlung muss friedlich durchgeführt werden.
+                Gewalttätige Handlungen oder die unmittelbare
+                Androhung solcher Handlungen sind unzulässig.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 6 HE / 6.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 3 – Auflösung</h3>
+                <span class="paragraph-number">VERSG-03</span>
+            </div>
+            <p>
+                Eine Versammlung kann aufgelöst werden, wenn die
+                gesetzlichen Voraussetzungen hierfür vorliegen
+                oder eine konkrete erhebliche Gefahr für die
+                öffentliche Sicherheit besteht.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 4 – Vermummung</h3>
+                <span class="paragraph-number">VERSG-04</span>
+            </div>
+            <p>
+                Das gezielte Verdecken der Identität während einer
+                Versammlung kann eingeschränkt werden, wenn dies
+                zur Durchsetzung gesetzlicher Vorschriften
+                erforderlich ist.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 4 HE / 4.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 5 – Waffen bei Versammlungen</h3>
+                <span class="paragraph-number">VERSG-05</span>
+            </div>
+            <p>
+                Das Mitführen von Waffen auf öffentlichen
+                Versammlungen ist untersagt, soweit keine
+                ausdrückliche gesetzliche Ausnahme besteht.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 8 HE / 8.000 €
+            </span>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 6 – Störung einer Versammlung</h3>
+                <span class="paragraph-number">VERSG-06</span>
+            </div>
+            <p>
+                Wer eine friedliche Versammlung vorsätzlich
+                erheblich stört oder Teilnehmer durch Gewalt
+                an der Teilnahme hindert, kann strafrechtlich
+                belangt werden.
+            </p>
+            <span class="penalty">
+                Strafmaß: bis zu 6 HE / 6.000 €
+            </span>
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
+
+
+    <!-- =====================================
+         STPO
+    ====================================== -->
+
+    <section class="law-book" id="stpo">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch IX
+                </div>
+
+                <h2>
+                    Strafprozessordnung –
+                    <span>StPO</span>
+                </h2>
+
+                <p>
+                    Die Strafprozessordnung regelt Ermittlungs-
+                    und Strafverfahren und beschreibt grundlegende
+                    Rechte und Pflichten von Beschuldigten,
+                    Zeugen, Behörden und Gerichten.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 1 – Ermittlungsverfahren</h3>
+                <span class="paragraph-number">STPO-01</span>
+            </div>
+            <p>
+                Bei einem Anfangsverdacht einer Straftat können
+                die zuständigen Behörden ein Ermittlungsverfahren
+                einleiten.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 2 – Beschuldigtenrechte</h3>
+                <span class="paragraph-number">STPO-02</span>
+            </div>
+            <p>
+                Eine beschuldigte Person ist über die gegen sie
+                erhobenen Vorwürfe und ihre gesetzlich vorgesehenen
+                Rechte zu belehren.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 3 – Beweismittel</h3>
+                <span class="paragraph-number">STPO-03</span>
+            </div>
+            <p>
+                Zur Aufklärung einer Straftat dürfen gesetzlich
+                zulässige Beweismittel erhoben, gesichert und
+                ausgewertet werden.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 4 – Haft</h3>
+                <span class="paragraph-number">STPO-04</span>
+            </div>
+            <p>
+                Eine Person darf nur unter den gesetzlich
+                bestimmten Voraussetzungen in Untersuchungshaft
+                genommen werden.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 5 – Zeugen</h3>
+                <span class="paragraph-number">STPO-05</span>
+            </div>
+            <p>
+                Zeugen können verpflichtet sein, zu einer
+                ordnungsgemäß angeordneten Vernehmung zu erscheinen
+                und wahrheitsgemäße Angaben zu machen, soweit kein
+                gesetzliches Aussageverweigerungsrecht besteht.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 6 – Verteidigung</h3>
+                <span class="paragraph-number">STPO-06</span>
+            </div>
+            <p>
+                Eine beschuldigte Person hat das Recht, sich im
+                Strafverfahren verteidigen zu lassen und im
+                gesetzlich vorgesehenen Umfang anwaltliche
+                Unterstützung in Anspruch zu nehmen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 7 – Einstellung des Verfahrens</h3>
+                <span class="paragraph-number">STPO-07</span>
+            </div>
+            <p>
+                Ein Ermittlungsverfahren kann eingestellt werden,
+                wenn sich der Tatverdacht nicht bestätigt oder die
+                gesetzlichen Voraussetzungen für eine weitere
+                Verfolgung nicht vorliegen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 8 – Abschluss des Verfahrens</h3>
+                <span class="paragraph-number">STPO-08</span>
+            </div>
+            <p>
+                Nach Abschluss der Ermittlungen entscheidet die
+                zuständige Stelle über das weitere Vorgehen.
+                Je nach Ergebnis kann es zu einer Anklage,
+                Einstellung oder anderen gesetzlich vorgesehenen
+                Maßnahme kommen.
+            </p>
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
+
+
+    <!-- =====================================
+         ZGB
+    ====================================== -->
+
+    <section class="law-book" id="zivil">
+
+        <div class="book-header">
+
+            <div class="book-header-content">
+
+                <div class="book-number">
+                    Gesetzbuch X
+                </div>
+
+                <h2>
+                    Zivilgesetzbuch –
+                    <span>ZGB</span>
+                </h2>
+
+                <p>
+                    Das Zivilgesetzbuch regelt die rechtlichen
+                    Beziehungen zwischen Privatpersonen und enthält
+                    grundlegende Bestimmungen zu Verträgen, Eigentum,
+                    Schadensersatz und Verpflichtungen.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 1 – Vertragliche Verpflichtungen</h3>
+                <span class="paragraph-number">ZGB-01</span>
+            </div>
+            <p>
+                Durch einen wirksam geschlossenen Vertrag entstehen
+                gegenseitige Rechte und Pflichten. Die Vertragsparteien
+                sind verpflichtet, ihre vereinbarten Leistungen
+                grundsätzlich ordnungsgemäß zu erfüllen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 2 – Schadensersatz</h3>
+                <span class="paragraph-number">ZGB-02</span>
+            </div>
+            <p>
+                Wer vorsätzlich oder fahrlässig einen anderen
+                rechtswidrig schädigt, ist zum Ersatz des entstandenen
+                Schadens verpflichtet, soweit das Gesetz nichts
+                anderes bestimmt.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 3 – Eigentum</h3>
+                <span class="paragraph-number">ZGB-03</span>
+            </div>
+            <p>
+                Das Eigentum an einer Sache berechtigt den Eigentümer,
+                über diese im Rahmen der geltenden Gesetze zu verfügen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 4 – Vertragsbruch</h3>
+                <span class="paragraph-number">ZGB-04</span>
+            </div>
+            <p>
+                Wer eine vertraglich übernommene Verpflichtung
+                schuldhaft nicht erfüllt, kann zum Ersatz des daraus
+                entstandenen Schadens verpflichtet sein.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 5 – Kaufvertrag</h3>
+                <span class="paragraph-number">ZGB-05</span>
+            </div>
+            <p>
+                Durch einen Kaufvertrag verpflichtet sich der
+                Verkäufer, die vereinbarte Sache zu übergeben,
+                während der Käufer zur vereinbarten Gegenleistung
+                verpflichtet ist.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 6 – Rückgabe von Eigentum</h3>
+                <span class="paragraph-number">ZGB-06</span>
+            </div>
+            <p>
+                Wer eine fremde Sache ohne rechtliche Grundlage
+                besitzt, kann verpflichtet sein, diese an den
+                rechtmäßigen Eigentümer zurückzugeben.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 7 – Schadenshöhe</h3>
+                <span class="paragraph-number">ZGB-07</span>
+            </div>
+            <p>
+                Bei der Bestimmung eines Schadensersatzes sind
+                insbesondere die tatsächliche Schadenshöhe,
+                ein möglicher Mitverursachungsanteil und die
+                unmittelbaren Folgen des schädigenden Ereignisses
+                zu berücksichtigen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 8 – Vertragskündigung</h3>
+                <span class="paragraph-number">ZGB-08</span>
+            </div>
+            <p>
+                Verträge können unter den vereinbarten oder
+                gesetzlich vorgesehenen Voraussetzungen gekündigt
+                oder beendet werden.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 9 – Eigentumsübertragung</h3>
+                <span class="paragraph-number">ZGB-09</span>
+            </div>
+            <p>
+                Eigentum kann durch eine wirksame Vereinbarung
+                und die entsprechende Übergabe oder sonstige
+                gesetzlich vorgesehene Übertragung auf eine
+                andere Person übergehen.
+            </p>
+        </article>
+
+
+        <article class="paragraph">
+            <div class="paragraph-head">
+                <h3>§ 10 – Zivilrechtliche Streitigkeiten</h3>
+                <span class="paragraph-number">ZGB-10</span>
+            </div>
+            <p>
+                Streitigkeiten zwischen Privatpersonen können
+                vor den zuständigen Gerichten geklärt werden.
+                Die Parteien sollen nach Möglichkeit zunächst
+                versuchen, eine einvernehmliche Lösung zu erreichen.
+            </p>
+        </article>
+
+
+        <a href="#top" class="back-top">
+            ↑ Zurück nach oben
+        </a>
+
+    </section>
 
 </main>
 
-<!-- =========================
+
+<!-- =========================================
      FOOTER
-========================= -->
+========================================= -->
 
 <footer>
 
-<p>
-© 2026 <strong>Final City</strong>
-– Department of Justice
-</p>
+    <p>
+        © 2026 <strong>Final City</strong>
+        – Department of Justice
+    </p>
 
-<p class="footer-small">
-Gesetzliche Ordnung der Republik Final City
-</p>
+    <p class="footer-small">
+        Gesetzliche Ordnung der Republik Final City
+    </p>
 
 </footer>
 
-<!-- =========================
-     SEARCH SCRIPT
-========================= -->
+
+<!-- =========================================
+     FLOATING TOP BUTTON
+========================================= -->
+
+<button
+    id="floatingTop"
+    type="button"
+    aria-label="Nach oben"
+    title="Nach oben"
+>
+    ↑
+</button>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
 
 <script>
 
-const searchInput = document.getElementById("search");
-const paragraphs = document.querySelectorAll(".paragraph");
-const lawBooks = document.querySelectorAll(".law-book");
-const noResults = document.getElementById("noResults");
+(function () {
 
-searchInput.addEventListener("input", function () {
+    "use strict";
 
-    const query = this.value.trim().toLowerCase();
 
-    let totalResults = 0;
+    const searchInput =
+        document.getElementById("search");
 
-    paragraphs.forEach(function (paragraph) {
+    const clearButton =
+        document.getElementById("clearSearch");
 
-        const text = paragraph.innerText.toLowerCase();
+    const searchStatus =
+        document.getElementById("searchStatus");
 
-        if (query === "" || text.includes(query)) {
+    const noResults =
+        document.getElementById("noResults");
 
-            paragraph.style.display = "";
+    const floatingTop =
+        document.getElementById("floatingTop");
 
-            if (query !== "") {
-                totalResults++;
+    const paragraphs =
+        Array.from(
+            document.querySelectorAll(".paragraph")
+        );
+
+    const lawBooks =
+        Array.from(
+            document.querySelectorAll(".law-book")
+        );
+
+
+    /*
+     * =========================================
+     * NORMALISIERT TEXT
+     * =========================================
+     */
+
+    function normalizeText(text) {
+
+        return text
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/ß/g, "ss");
+
+    }
+
+
+    /*
+     * =========================================
+     * SUCHE
+     * =========================================
+     */
+
+    function performSearch() {
+
+        const rawQuery =
+            searchInput.value.trim();
+
+        const query =
+            normalizeText(rawQuery);
+
+        let resultCount = 0;
+
+
+        paragraphs.forEach(function (paragraph) {
+
+            const text =
+                normalizeText(
+                    paragraph.innerText
+                );
+
+            const matches =
+                query === "" ||
+                text.includes(query);
+
+
+            paragraph.style.display =
+                matches ? "" : "none";
+
+
+            paragraph.classList.remove(
+                "highlight"
+            );
+
+
+            if (matches && query !== "") {
+
+                resultCount++;
+
+                paragraph.classList.add(
+                    "highlight"
+                );
+
             }
+
+        });
+
+
+        /*
+         * Bücher automatisch ausblenden,
+         * wenn keine Treffer enthalten sind.
+         */
+
+        lawBooks.forEach(function (book) {
+
+            const visibleParagraphs =
+                book.querySelectorAll(
+                    ".paragraph:not([style*='display: none'])"
+                );
+
+            const hasResults =
+                visibleParagraphs.length > 0;
+
+
+            if (query !== "" && !hasResults) {
+
+                book.style.display = "none";
+
+            } else {
+
+                book.style.display = "";
+
+            }
+
+        });
+
+
+        /*
+         * Suchstatus
+         */
+
+        if (query === "") {
+
+            noResults.style.display = "none";
+
+            searchStatus.style.display = "none";
+
+            clearButton.style.display = "none";
 
         } else {
 
-            paragraph.style.display = "none";
+            clearButton.style.display = "block";
+
+            searchStatus.style.display = "block";
+
+            if (resultCount === 1) {
+
+                searchStatus.innerHTML =
+                    "<strong>1 Treffer</strong> gefunden.";
+
+            } else {
+
+                searchStatus.innerHTML =
+                    "<strong>" +
+                    resultCount +
+                    " Treffer</strong> gefunden.";
+
+            }
+
+
+            if (resultCount === 0) {
+
+                noResults.style.display = "block";
+
+            } else {
+
+                noResults.style.display = "none";
+
+            }
 
         }
 
-    });
+    }
+
+
+    searchInput.addEventListener(
+        "input",
+        performSearch
+    );
+
+
+    /*
+     * =========================================
+     * SUCHE LÖSCHEN
+     * =========================================
+     */
+
+    clearButton.addEventListener(
+        "click",
+        function () {
+
+            searchInput.value = "";
+
+            performSearch();
+
+            searchInput.focus();
+
+        }
+    );
+
+
+    /*
+     * =========================================
+     * ESC = SUCHE LEEREN
+     * =========================================
+     */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                document.activeElement === searchInput
+            ) {
+
+                searchInput.value = "";
+
+                performSearch();
+
+                searchInput.focus();
+
+            }
+
+        }
+    );
+
+
+    /*
+     * =========================================
+     * STRG + K / CMD + K
+     * =========================================
+     */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                (event.ctrlKey || event.metaKey) &&
+                event.key.toLowerCase() === "k"
+            ) {
+
+                event.preventDefault();
+
+                searchInput.focus();
+
+                searchInput.select();
+
+            }
+
+        }
+    );
+
+
+    /*
+     * =========================================
+     * FLOATING TOP BUTTON
+     * =========================================
+     */
+
+    function updateTopButton() {
+
+        if (window.scrollY > 450) {
+
+            floatingTop.classList.add(
+                "visible"
+            );
+
+        } else {
+
+            floatingTop.classList.remove(
+                "visible"
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateTopButton,
+        { passive: true }
+    );
+
+
+    floatingTop.addEventListener(
+        "click",
+        function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+    /*
+     * =========================================
+     * NAVIGATION HIGHLIGHT
+     * =========================================
+     */
+
+    const navigationLinks =
+        document.querySelectorAll(
+            ".law-navigation a"
+        );
+
+
+    const observer =
+        new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+
+                    navigationLinks.forEach(
+                        function (link) {
+
+                            link.style.background =
+                                "";
+
+                            link.style.color =
+                                "";
+
+                        }
+                    );
+
+
+                    const activeLink =
+                        document.querySelector(
+                            '.law-navigation a[href="#' +
+                            entry.target.id +
+                            '"]'
+                        );
+
+
+                    if (activeLink) {
+
+                        activeLink.style.background =
+                            "var(--gold)";
+
+                        activeLink.style.color =
+                            "var(--text)";
+
+                    }
+
+                });
+
+            },
+            {
+                rootMargin:
+                    "-120px 0px -65% 0px"
+            }
+        );
 
 
     lawBooks.forEach(function (book) {
 
-        const visibleParagraphs =
-            book.querySelectorAll(
-                ".paragraph:not([style*='display: none'])"
-            );
-
-        if (query !== "" && visibleParagraphs.length === 0) {
-
-            book.style.display = "none";
-
-        } else {
-
-            book.style.display = "";
-
-        }
+        observer.observe(book);
 
     });
 
 
-    if (query !== "" && totalResults === 0) {
+    /*
+     * =========================================
+     * INITIALISIERUNG
+     * =========================================
+     */
 
-        noResults.style.display = "block";
+    performSearch();
+    updateTopButton();
 
-    } else {
-
-        noResults.style.display = "none";
-
-    }
-
-});
-
-
-/* ESC leert die Suche */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-        searchInput.value = "";
-
-        searchInput.dispatchEvent(
-            new Event("input")
-        );
-
-        searchInput.focus();
-
-    }
-
-});
+})();
 
 </script>
 
