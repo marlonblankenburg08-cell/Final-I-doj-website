@@ -6,26 +6,22 @@
 
 <title>Gesetzbücher | Final City</title>
 
-<meta name="description" content="Gesetzbücher der Republik Final City – Department of Justice">
-<meta name="theme-color" content="#303030">
-
 <style>
 :root {
     --dark: #292929;
     --dark-2: #343434;
-    --dark-3: #3d3d3d;
+    --dark-3: #3e3e3e;
     --gold: #d6aa35;
-    --gold-dark: #a98218;
+    --gold-dark: #a77f17;
     --gold-light: #f3e7bd;
     --light: #eeeeee;
     --white: #ffffff;
     --text: #222222;
-    --muted: #686868;
+    --muted: #666666;
     --border: #dedede;
-    --success: #6d8f63;
-    --danger: #9b5d55;
-    --shadow: 0 8px 25px rgba(0,0,0,.08);
-    --shadow-heavy: 0 15px 45px rgba(0,0,0,.15);
+    --green: #4f8a62;
+    --red: #a64b4b;
+    --shadow: 0 8px 28px rgba(0,0,0,.09);
 }
 
 * {
@@ -43,7 +39,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: var(--light);
     color: var(--text);
-    line-height: 1.65;
+    line-height: 1.7;
 }
 
 /* =========================
@@ -51,16 +47,20 @@ body {
 ========================= */
 
 header {
-    background: var(--dark);
-    border-bottom: 4px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    min-height: 82px;
     padding: 12px 5%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 25px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
+    background: var(--dark);
+    border-bottom: 4px solid var(--gold);
     box-shadow: 0 4px 18px rgba(0,0,0,.2);
 }
 
@@ -79,6 +79,19 @@ header {
     object-fit: contain;
 }
 
+.logo-fallback {
+    width: 52px;
+    height: 52px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 19px;
+}
+
 .logo-text {
     font-weight: bold;
     font-size: 16px;
@@ -87,8 +100,8 @@ header {
 
 .logo-text span {
     color: var(--gold);
-    font-size: 11px;
-    letter-spacing: .5px;
+    font-size: 10px;
+    letter-spacing: 1px;
 }
 
 nav {
@@ -101,7 +114,7 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    padding: 10px 14px;
+    padding: 9px 13px;
     border-radius: 6px;
     font-size: 14px;
     transition: .2s ease;
@@ -118,25 +131,27 @@ nav a.active {
 ========================= */
 
 .hero {
+    min-height: 360px;
+    padding: 85px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+
     background:
         linear-gradient(
-            rgba(35,35,35,.88),
-            rgba(35,35,35,.92)
+            rgba(38,38,38,.90),
+            rgba(38,38,38,.90)
         ),
         url("https://cdn.discordapp.com/attachments/1537960316187582515/1543188549799518289/f4619c5a-44c6-48f8-8c14-544eb3967a9d.png?ex=6a93f5d5&is=6a92a455&hm=0adc4b8a74e982de2cb308ad64f0992c3c628bac4c3961964fc18920d944d633&");
 
     background-size: cover;
     background-position: center;
 
-    min-height: 360px;
-    padding: 90px 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-    color: white;
+    border-bottom: 1px solid rgba(214,170,53,.3);
 }
 
 .hero-content {
@@ -145,22 +160,25 @@ nav a.active {
 
 .hero-badge {
     display: inline-block;
-    background: rgba(214,170,53,.12);
-    border: 1px solid rgba(214,170,53,.6);
-    color: var(--gold);
+
     padding: 7px 16px;
+    margin-bottom: 18px;
+
+    color: var(--gold);
+    background: rgba(214,170,53,.1);
+    border: 1px solid rgba(214,170,53,.55);
     border-radius: 30px;
+
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin-bottom: 18px;
 }
 
 .hero h1 {
-    font-size: clamp(40px, 6vw, 64px);
+    font-size: clamp(40px, 7vw, 64px);
     line-height: 1.1;
-    margin-bottom: 15px;
+    margin-bottom: 17px;
 }
 
 .hero h1 span {
@@ -168,10 +186,10 @@ nav a.active {
 }
 
 .hero p {
+    max-width: 780px;
+    margin: auto;
     color: #ddd;
     font-size: 18px;
-    max-width: 760px;
-    margin: auto;
 }
 
 /* =========================
@@ -179,7 +197,7 @@ nav a.active {
 ========================= */
 
 .container {
-    width: 90%;
+    width: 92%;
     max-width: 1250px;
     margin: 45px auto;
 }
@@ -190,10 +208,10 @@ nav a.active {
 
 .intro-box {
     background: white;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 25px;
     border-left: 5px solid var(--gold);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 25px;
     box-shadow: var(--shadow);
 }
 
@@ -207,37 +225,6 @@ nav a.active {
 }
 
 /* =========================
-   STATISTICS
-========================= */
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-.stat {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    border-top: 3px solid var(--gold);
-}
-
-.stat strong {
-    display: block;
-    color: var(--dark);
-    font-size: 27px;
-}
-
-.stat span {
-    color: var(--muted);
-    font-size: 12px;
-}
-
-/* =========================
    SEARCH
 ========================= */
 
@@ -245,16 +232,16 @@ nav a.active {
     background: white;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: var(--shadow);
     margin-bottom: 25px;
+    box-shadow: var(--shadow);
 }
 
 .search-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     gap: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 .search-header h2 {
@@ -276,73 +263,75 @@ nav a.active {
     top: 50%;
     transform: translateY(-50%);
     color: #777;
+    font-size: 21px;
     pointer-events: none;
-    font-size: 19px;
 }
 
 #search {
     width: 100%;
-    padding: 15px 50px 15px 45px;
+    padding: 15px 18px 15px 45px;
+
     border: 1px solid #ccc;
     border-radius: 8px;
+
     font-size: 16px;
     outline: none;
+
     transition: .2s;
 }
 
 #search:focus {
     border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(214,170,53,.12);
+    box-shadow: 0 0 0 3px rgba(214,170,53,.13);
 }
 
-.clear-search {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    color: #777;
-    font-size: 18px;
-    padding: 5px 10px;
+.search-status {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
 }
 
 /* =========================
-   NAVIGATION
+   LAW NAVIGATION
 ========================= */
 
 .law-navigation {
     background: var(--dark-2);
     padding: 18px;
     border-radius: 12px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 10px;
     margin-bottom: 35px;
     box-shadow: var(--shadow);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
 }
 
 .law-navigation-title {
     grid-column: 1 / -1;
     color: white;
-    font-weight: bold;
     font-size: 14px;
-    padding: 2px 4px 8px;
-    border-bottom: 1px solid rgba(255,255,255,.1);
+    font-weight: bold;
+    padding: 2px 4px 9px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
 .law-navigation a {
-    background: var(--dark-3);
     color: white;
     text-decoration: none;
-    padding: 12px;
-    border-radius: 7px;
     text-align: center;
-    font-weight: bold;
-    font-size: 13px;
+
+    background: var(--dark-3);
+
+    padding: 12px 10px;
+
+    border-radius: 7px;
     border-bottom: 3px solid var(--gold);
-    transition: .2s;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: .2s ease;
 }
 
 .law-navigation a:hover {
@@ -352,23 +341,52 @@ nav a.active {
 }
 
 /* =========================
-   LAW BOOK
+   LAW BOOK ACCORDION
 ========================= */
 
 .law-book {
     background: white;
     border-radius: 13px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     box-shadow: var(--shadow);
     overflow: hidden;
-    border: 1px solid rgba(0,0,0,.04);
+
+    border: 1px solid rgba(0,0,0,.05);
 }
 
-.book-header {
-    background: linear-gradient(135deg, var(--dark-2), var(--dark));
+.book-toggle {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+
     color: white;
-    padding: 28px 30px;
+
+    padding: 25px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--dark-2),
+            var(--dark)
+        );
+
     border-left: 6px solid var(--gold);
+
+    transition: .2s ease;
+}
+
+.book-toggle:hover {
+    background: #3b3b3b;
+}
+
+.book-title-area {
+    min-width: 0;
 }
 
 .book-number {
@@ -377,19 +395,80 @@ nav a.active {
     font-weight: bold;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
-.book-header h2 {
+.book-toggle h2 {
     color: var(--gold);
     font-size: 27px;
-    margin-bottom: 7px;
+    line-height: 1.3;
+    margin-bottom: 6px;
 }
 
-.book-header p {
+.book-toggle p {
     color: #ddd;
-    max-width: 900px;
+    max-width: 850px;
     font-size: 14px;
+}
+
+.book-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.paragraph-count {
+    padding: 6px 10px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 5px;
+    color: #ddd;
+    font-size: 12px;
+}
+
+.chevron {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(214,170,53,.5);
+    border-radius: 50%;
+
+    color: var(--gold);
+    font-size: 20px;
+
+    transition: transform .3s ease;
+}
+
+.law-book.open .chevron {
+    transform: rotate(180deg);
+}
+
+/* =========================
+   BOOK CONTENT
+========================= */
+
+.book-content {
+    display: none;
+}
+
+.law-book.open .book-content {
+    display: block;
+}
+
+.book-intro {
+    padding: 24px 30px;
+    background: #fafafa;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+}
+
+.book-intro strong {
+    color: var(--dark-2);
 }
 
 /* =========================
@@ -397,9 +476,9 @@ nav a.active {
 ========================= */
 
 .paragraph {
-    padding: 23px 30px;
+    padding: 27px 30px;
     border-bottom: 1px solid var(--border);
-    transition: .2s;
+    transition: .2s ease;
 }
 
 .paragraph:last-child {
@@ -410,42 +489,68 @@ nav a.active {
     background: #fcfcfc;
 }
 
+.paragraph.search-hit {
+    background: #fff9e6;
+    box-shadow: inset 5px 0 0 var(--gold);
+}
+
 .paragraph-head {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 15px;
-    margin-bottom: 9px;
+    margin-bottom: 12px;
 }
 
 .paragraph h3 {
     color: #333;
-    font-size: 18px;
-    line-height: 1.35;
+    font-size: 19px;
+    line-height: 1.4;
 }
 
 .paragraph-number {
     flex-shrink: 0;
+
     background: var(--dark-2);
     color: var(--gold);
+
+    padding: 4px 9px;
     border-radius: 5px;
-    padding: 4px 8px;
+
     font-size: 11px;
     font-weight: bold;
 }
 
 .paragraph p {
     color: #555;
-    line-height: 1.75;
+    line-height: 1.8;
+    margin-bottom: 10px;
 }
 
 .paragraph ul {
-    margin: 10px 0 0 20px;
+    margin: 10px 0 12px 22px;
     color: #555;
 }
 
 .paragraph li {
     margin-bottom: 5px;
+}
+
+.explanation {
+    margin-top: 15px;
+    padding: 15px 17px;
+
+    background: #f7f7f7;
+    border-left: 4px solid #999;
+
+    border-radius: 6px;
+
+    color: #555;
+    font-size: 14px;
+}
+
+.explanation strong {
+    color: var(--dark-2);
 }
 
 /* =========================
@@ -455,68 +560,69 @@ nav a.active {
 .penalty {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
+
     margin-top: 13px;
+
+    padding: 8px 12px;
+
     background: var(--gold-light);
-    color: #72570c;
-    padding: 7px 11px;
-    border-radius: 5px;
+    color: #70550b;
+
+    border: 1px solid rgba(167,127,23,.2);
+    border-radius: 6px;
+
     font-size: 13px;
     font-weight: bold;
 }
 
 .penalty::before {
     content: "⚖";
+    font-size: 15px;
+}
+
+.penalty.terror {
+    background: #ead3d3;
+    color: #7d2020;
+    border-color: rgba(125,32,32,.25);
+}
+
+.penalty.terror::before {
+    content: "⚠";
 }
 
 /* =========================
-   INFO
+   WEAPON CARDS
 ========================= */
 
-.info-panel {
-    margin-top: 15px;
-    background: #f8f8f8;
-    border-left: 4px solid var(--gold);
-    padding: 15px 17px;
-    border-radius: 6px;
-}
-
-.info-panel strong {
-    color: var(--dark-2);
-}
-
-/* =========================
-   CARDS
-========================= */
-
-.card-grid {
+.weapon-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 14px;
     margin-top: 16px;
 }
 
-.info-card {
+.weapon-card {
     padding: 17px;
-    border-radius: 9px;
     border: 1px solid var(--border);
+    border-radius: 9px;
     background: #fafafa;
 }
 
-.info-card h4 {
+.weapon-card h4 {
     margin-bottom: 5px;
 }
 
-.info-card p {
+.weapon-card p {
     font-size: 14px;
 }
 
-.info-card.legal {
-    border-top: 4px solid var(--success);
+.weapon-card.legal {
+    border-top: 4px solid var(--green);
 }
 
-.info-card.illegal {
-    border-top: 4px solid var(--gold);
+.weapon-card.illegal {
+    border-top: 4px solid var(--red);
 }
 
 /* =========================
@@ -525,9 +631,11 @@ nav a.active {
 
 .back-top {
     display: inline-block;
-    margin: 0 30px 25px;
+    margin: 18px 30px 25px;
+
     color: var(--dark-2);
     text-decoration: none;
+
     font-size: 13px;
     font-weight: bold;
 }
@@ -542,12 +650,17 @@ nav a.active {
 
 #noResults {
     display: none;
+
     background: white;
-    padding: 35px;
+    padding: 30px;
+
     border-radius: 10px;
     text-align: center;
+
     color: var(--muted);
+
     margin-bottom: 30px;
+
     box-shadow: var(--shadow);
 }
 
@@ -559,7 +672,9 @@ footer {
     background: var(--dark);
     color: #aaa;
     text-align: center;
+
     padding: 35px 20px;
+
     border-top: 3px solid var(--gold);
     margin-top: 60px;
 }
@@ -577,18 +692,12 @@ footer strong {
    MOBILE
 ========================= */
 
-@media(max-width: 850px) {
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media(max-width: 750px) {
 
     header {
         flex-direction: column;
-        gap: 13px;
-        padding: 13px 20px;
+        padding: 12px 20px;
+        gap: 12px;
     }
 
     nav {
@@ -601,12 +710,12 @@ footer strong {
     }
 
     .hero {
-        min-height: 280px;
+        min-height: 290px;
         padding: 65px 20px;
     }
 
     .hero h1 {
-        font-size: 38px;
+        font-size: 39px;
     }
 
     .hero p {
@@ -628,21 +737,29 @@ footer strong {
         align-items: flex-start;
     }
 
-    .book-header {
-        padding: 23px 20px;
+    .book-toggle {
+        padding: 22px 18px;
     }
 
-    .book-header h2 {
-        font-size: 23px;
+    .book-toggle h2 {
+        font-size: 22px;
+    }
+
+    .book-meta {
+        gap: 7px;
+    }
+
+    .paragraph-count {
+        display: none;
     }
 
     .paragraph {
-        padding: 20px;
+        padding: 22px 20px;
     }
 
     .paragraph-head {
         flex-direction: column-reverse;
-        gap: 7px;
+        gap: 8px;
     }
 
     .paragraph-number {
@@ -657,10 +774,6 @@ footer strong {
 
 @media(max-width: 450px) {
 
-    .stats {
-        grid-template-columns: 1fr;
-    }
-
     .law-navigation {
         grid-template-columns: 1fr;
     }
@@ -672,6 +785,19 @@ footer strong {
     .logo-text span {
         font-size: 9px;
     }
+
+    .book-toggle {
+        align-items: flex-start;
+    }
+
+    .book-meta {
+        padding-top: 5px;
+    }
+
+    .chevron {
+        width: 34px;
+        height: 34px;
+    }
 }
 </style>
 </head>
@@ -681,12 +807,21 @@ footer strong {
 <header>
 
 <a href="index.html" class="logo">
-<img src="doj-logo.png" alt="Final City DOJ">
+
+<img
+    src="doj-logo.png"
+    alt="Final City DOJ"
+    onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex';"
+>
+
+<div id="logoFallback" class="logo-fallback">FC</div>
+
 <div class="logo-text">
 FINAL CITY
 <br>
 <span>DEPARTMENT OF JUSTICE</span>
 </div>
+
 </a>
 
 <nav>
@@ -711,9 +846,8 @@ Gesetz<span>bücher</span>
 
 <p>
 Zentrale Sammlung der geltenden gesetzlichen Bestimmungen
-der Republik Final City. Die Gesetzbücher dienen als
-Orientierung für Bürger, Behörden, Polizei, Staatsanwaltschaft
-und Gerichte.
+der Republik Final City. Öffne ein Gesetzbuch, um sämtliche
+Paragraphen und deren ausführliche Erläuterungen einzusehen.
 </p>
 
 </div>
@@ -728,53 +862,26 @@ und Gerichte.
 
 <p>
 Die Gesetzbücher bilden die Grundlage für die öffentliche
-Ordnung, das Zusammenleben der Bürger sowie die Arbeit
-staatlicher Einrichtungen. Diese Sammlung enthält die
-wesentlichen Bestimmungen zu Strafrecht, Straßenverkehr,
-Waffen, Betäubungsmitteln, Polizei, Gerichten, Verfahren,
-Zivilrecht und weiteren Rechtsgebieten.
+Ordnung, das Zusammenleben der Bürger sowie die Arbeit von
+Polizei, Behörden und Gerichten. Die nachfolgenden Regelungen
+beschreiben Straftaten, Ordnungswidrigkeiten, staatliche
+Befugnisse, Rechte und Pflichten. Jeder Paragraph enthält
+eine ausführliche Beschreibung sowie ein vorgesehenes
+Straf- oder Bußgeldmaß.
 </p>
-
-<div class="info-panel">
-<strong>Hinweis:</strong>
-Die nachfolgenden Bestimmungen stellen das fiktive
-Rechtssystem der Republik Final City dar und sind für
-die Verwendung innerhalb des Final-City-Universums vorgesehen.
-</div>
-
-</div>
-
-<div class="stats">
-
-<div class="stat">
-<strong id="bookCount">15</strong>
-<span>Gesetzbücher</span>
-</div>
-
-<div class="stat">
-<strong id="paragraphCount">0</strong>
-<span>Paragraphen</span>
-</div>
-
-<div class="stat">
-<strong>2026</strong>
-<span>Rechtsstand</span>
-</div>
-
-<div class="stat">
-<strong>DOJ</strong>
-<span>Herausgeber</span>
-</div>
 
 </div>
 
 <div class="search-box">
 
 <div class="search-header">
+
 <h2>Gesetzsuche</h2>
-<span class="search-info" id="searchInfo">
+
+<span class="search-info">
 Suche in allen Paragraphen
 </span>
+
 </div>
 
 <div class="search-wrapper">
@@ -782,16 +889,16 @@ Suche in allen Paragraphen
 <span class="search-icon">⌕</span>
 
 <input
-type="search"
-id="search"
-placeholder="Nach Paragraphen, Begriffen oder Gesetzen suchen..."
-autocomplete="off"
+    type="search"
+    id="search"
+    placeholder="Nach Paragraphen, Begriffen oder Gesetzen suchen..."
+    autocomplete="off"
 >
 
-<button class="clear-search" id="clearSearch" title="Suche löschen">
-×
-</button>
+</div>
 
+<div class="search-status" id="searchStatus">
+Bereit zur Suche.
 </div>
 
 </div>
@@ -818,14 +925,8 @@ Gesetzbücher auswählen
 <a href="#versammlung">VersG</a>
 <a href="#stpo">StPO</a>
 <a href="#zivil">ZGB</a>
-<a href="#jvollzug">JVollzG</a>
-<a href="#datenschutz">DSG</a>
-<a href="#beamte">BeamtG</a>
-<a href="#notstand">NotstandG</a>
-<a href="#wirtschaft">GewO</a>
 
 </div>
-
 
 <!-- =========================================================
      STGB
@@ -833,15 +934,36 @@ Gesetzbücher auswählen
 
 <section class="law-book" id="stgb">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+
+<div class="book-title-area">
+
 <div class="book-number">Gesetzbuch I</div>
+
 <h2>Strafgesetzbuch – StGB</h2>
+
 <p>
-Das Strafgesetzbuch definiert strafbare Handlungen,
-deren Voraussetzungen und die möglichen Rechtsfolgen.
-Es schützt insbesondere Leben, körperliche Unversehrtheit,
-Eigentum, Freiheit und die öffentliche Sicherheit.
+Das Strafgesetzbuch bestimmt strafbare Handlungen und legt
+die grundlegenden Rechtsfolgen für schwere Verstöße fest.
 </p>
+
+</div>
+
+<div class="book-meta">
+<span class="paragraph-count">30 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Geltungsbereich:</strong>
+Das StGB dient dem Schutz von Leben, körperlicher
+Unversehrtheit, Eigentum, Freiheit, staatlichen Einrichtungen
+und der öffentlichen Ordnung. Das Strafmaß richtet sich nach
+Schwere, Vorsatz, Folgen und Umständen der jeweiligen Tat.
 </div>
 
 <div class="paragraph">
@@ -850,11 +972,21 @@ Eigentum, Freiheit und die öffentliche Sicherheit.
 <span class="paragraph-number">STGB-01</span>
 </div>
 <p>
-Dieses Gesetz gilt für alle Personen, die sich innerhalb
-des Staatsgebietes der Republik Final City aufhalten.
-Die Bestimmungen gelten unabhängig davon, ob eine Person
-Bürger, Besucher oder Amtsträger ist.
+Dieses Gesetz gilt für sämtliche Personen, die sich innerhalb
+des Staatsgebietes von Final City aufhalten. Die Anwendung
+erfolgt unabhängig von Staatsangehörigkeit, Aufenthaltsstatus
+oder beruflicher Stellung. Auch Amtsträger unterliegen den
+allgemeinen strafrechtlichen Vorschriften, sofern keine
+besondere gesetzliche Regelung besteht.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der Paragraph stellt sicher, dass das Strafrecht grundsätzlich
+für alle Personen innerhalb des Zuständigkeitsbereichs gilt.
+Eine Person kann sich nicht allein deshalb einer Strafverfolgung
+entziehen, weil sie Besucher, Ausländer oder Amtsträger ist.
+</div>
+<span class="penalty">Strafmaß: 10–20 HE / 10.000–20.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -863,12 +995,20 @@ Bürger, Besucher oder Amtsträger ist.
 <span class="paragraph-number">STGB-02</span>
 </div>
 <p>
-Eine Handlung kann strafbar sein, wenn sie vorsätzlich
-begangen wurde oder das Gesetz ausdrücklich eine
-fahrlässige Begehung unter Strafe stellt. Vorsatz liegt
-insbesondere vor, wenn die Person die Folgen ihres
-Handelns kennt und bewusst herbeiführt.
+Eine vorsätzliche Handlung liegt vor, wenn eine Person die
+Tat bewusst begeht und die wesentlichen Folgen kennt oder
+billigend in Kauf nimmt. Fahrlässigkeit liegt vor, wenn eine
+Person die erforderliche Sorgfalt außer Acht lässt und dadurch
+einen vorhersehbaren Schaden verursacht.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Bei der Strafzumessung wird unterschieden, ob eine Handlung
+bewusst geplant oder lediglich durch mangelnde Sorgfalt
+verursacht wurde. Vorsätzliches Handeln wird grundsätzlich
+schwerer bewertet.
+</div>
+<span class="penalty">Strafmaß: 10–25 HE / 10.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -877,11 +1017,19 @@ Handelns kennt und bewusst herbeiführt.
 <span class="paragraph-number">STGB-03</span>
 </div>
 <p>
-Der Versuch einer Straftat liegt vor, wenn eine Person
-nach ihrem Tatplan unmittelbar zur Verwirklichung einer
-Straftat ansetzt, diese jedoch nicht vollständig vollendet.
+Der Versuch beginnt, sobald eine Person nach ihrem Tatplan
+unmittelbar zur Verwirklichung einer Straftat ansetzt, diese
+jedoch nicht vollständig beendet wird. Auch ein gescheiterter
+Versuch kann strafrechtliche Konsequenzen haben.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Ein Täter muss nicht zwingend den vollständigen Erfolg seiner
+Tat herbeiführen, damit ein strafbarer Versuch vorliegen kann.
+Bei der Strafzumessung werden insbesondere Tatplan, Gefährlichkeit
+und der Abstand zur Vollendung berücksichtigt.
+</div>
+<span class="penalty">Strafmaß: 15–30 HE / 15.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -890,11 +1038,21 @@ Straftat ansetzt, diese jedoch nicht vollständig vollendet.
 <span class="paragraph-number">STGB-04</span>
 </div>
 <p>
-Wer vorsätzlich einer anderen Person bei Vorbereitung
-oder Durchführung einer Straftat hilft, kann als Gehilfe
-zur Verantwortung gezogen werden.
+Wer vorsätzlich eine andere Person bei der Vorbereitung,
+Durchführung oder Absicherung einer Straftat unterstützt,
+kann als Gehilfe zur Verantwortung gezogen werden. Die Hilfe
+kann beispielsweise durch Bereitstellung von Gegenständen,
+Informationen, Transportmöglichkeiten oder sonstige Unterstützung
+erfolgen.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Strafbarkeit setzt voraus, dass die Unterstützung bewusst
+zur Förderung der rechtswidrigen Tat erfolgt. Die konkrete
+Bedeutung der Hilfe wird bei der Festlegung des Strafmaßes
+berücksichtigt.
+</div>
+<span class="penalty">Strafmaß: 15–30 HE / 15.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -903,11 +1061,19 @@ zur Verantwortung gezogen werden.
 <span class="paragraph-number">STGB-05</span>
 </div>
 <p>
-Wer eine andere Person körperlich misshandelt oder an
-ihrer Gesundheit schädigt, macht sich der Körperverletzung
-schuldig.
+Wer eine andere Person vorsätzlich körperlich misshandelt oder
+an ihrer Gesundheit schädigt, macht sich der Körperverletzung
+schuldig. Auch wiederholte körperliche Gewalt oder eine
+gezielte Verletzung kann unter diesen Paragraphen fallen.
 </p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Bei der Bewertung werden Art und Intensität der Gewalt,
+Verletzungsfolgen, Dauer der Beeinträchtigung und die Umstände
+der Tat berücksichtigt. Notwehr oder andere gesetzliche
+Rechtfertigungsgründe bleiben unberührt.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -916,12 +1082,18 @@ schuldig.
 <span class="paragraph-number">STGB-06</span>
 </div>
 <p>
-Eine Körperverletzung gilt als besonders schwerwiegend,
-wenn sie unter Verwendung einer Waffe, eines gefährlichen
-Gegenstandes oder durch gemeinschaftliches Handeln mehrerer
-Personen begangen wird.
+Eine Körperverletzung gilt als besonders schwerwiegend, wenn
+sie beispielsweise unter Verwendung einer Waffe oder eines
+gefährlichen Gegenstandes, durch mehrere Personen oder auf
+eine Weise begangen wird, die das Opfer erheblich gefährdet.
 </p>
-<span class="penalty">Strafmaß: bis zu 18 HE / 18.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der erhöhte Strafrahmen berücksichtigt die gesteigerte Gefahr
+für das Opfer. Auch die konkrete Verwendung eines Gegenstands
+und die Intensität der Verletzung können die Strafe erhöhen.
+</div>
+<span class="penalty">Strafmaß: 30–45 HE / 30.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -930,11 +1102,17 @@ Personen begangen wird.
 <span class="paragraph-number">STGB-07</span>
 </div>
 <p>
-Wer einen Menschen gegen dessen Willen einsperrt, festhält,
-fesselt oder anderweitig an der freien Fortbewegung hindert,
-macht sich der Freiheitsberaubung schuldig.
+Wer eine andere Person gegen ihren Willen einsperrt, fesselt,
+festhält oder anderweitig daran hindert, einen Ort frei zu
+verlassen, macht sich der Freiheitsberaubung schuldig.
 </p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Entscheidend ist, dass das Opfer seine Bewegungsfreiheit nicht
+mehr selbstbestimmt ausüben kann. Dauer, Art der Einschränkung
+und die dabei angewandte Gewalt wirken sich auf die Strafe aus.
+</div>
+<span class="penalty">Strafmaß: 25–40 HE / 25.000–40.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -943,11 +1121,17 @@ macht sich der Freiheitsberaubung schuldig.
 <span class="paragraph-number">STGB-08</span>
 </div>
 <p>
-Wer eine andere Person durch Gewalt oder durch Drohung
-mit einem empfindlichen Nachteil zu einer Handlung,
-Duldung oder Unterlassung zwingt, handelt rechtswidrig.
+Wer eine andere Person durch Gewalt, Drohung oder einen
+vergleichbaren rechtswidrigen Druck zu einer Handlung,
+Duldung oder Unterlassung zwingt, handelt strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Geschützt wird die freie Willensentscheidung. Je stärker
+die Drohung, der Druck oder die eingesetzte Gewalt ist,
+desto höher kann das Strafmaß ausfallen.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -956,11 +1140,18 @@ Duldung oder Unterlassung zwingt, handelt rechtswidrig.
 <span class="paragraph-number">STGB-09</span>
 </div>
 <p>
-Wer einer Person mit einer erheblichen Straftat gegen
-sie oder eine nahestehende Person droht und dadurch
-Angst oder Unsicherheit verursacht, macht sich strafbar.
+Wer einer anderen Person ernsthaft mit einer erheblichen
+rechtswidrigen Handlung gegen sie oder eine nahestehende
+Person droht, kann wegen Bedrohung verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Bei der Bewertung ist entscheidend, ob die Drohung geeignet
+war, bei einem verständigen Menschen ernsthafte Angst oder
+Unsicherheit auszulösen. Konkretheit und Schwere der Drohung
+können das Strafmaß erhöhen.
+</div>
+<span class="penalty">Strafmaß: 15–30 HE / 15.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -973,7 +1164,13 @@ Wer eine fremde bewegliche Sache einer anderen Person
 wegnimmt, um sie sich selbst oder einer dritten Person
 rechtswidrig zuzueignen, macht sich des Diebstahls schuldig.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Höhe des Schadens, der Wert der Sache, die Vorbereitung
+der Tat und die Frage, ob die Tat wiederholt begangen wurde,
+können bei der Strafzumessung berücksichtigt werden.
+</div>
+<span class="penalty">Strafmaß: 15–30 HE / 15.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -982,11 +1179,19 @@ rechtswidrig zuzueignen, macht sich des Diebstahls schuldig.
 <span class="paragraph-number">STGB-11</span>
 </div>
 <p>
-Ein Diebstahl kann als schwerwiegender eingestuft werden,
-wenn besondere Schutzmaßnahmen überwunden, mehrere Personen
-geschädigt oder besonders wertvolle Gegenstände entwendet werden.
+Ein Diebstahl kann als schwerer Diebstahl bewertet werden,
+wenn besondere Sicherungen überwunden, besonders wertvolle
+Gegenstände entwendet oder mehrere erschwerende Umstände
+verwirklicht werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift soll Fälle erfassen, die deutlich über einen
+gewöhnlichen Diebstahl hinausgehen. Die konkrete Vorgehensweise
+und der entstandene Schaden sind bei der Strafzumessung
+maßgeblich.
+</div>
+<span class="penalty">Strafmaß: 25–40 HE / 25.000–40.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -996,10 +1201,17 @@ geschädigt oder besonders wertvolle Gegenstände entwendet werden.
 </div>
 <p>
 Wer einer anderen Person eine fremde Sache unter Anwendung
-oder unmittelbarer Androhung von Gewalt wegnimmt, macht
-sich des Raubes schuldig.
+oder unmittelbarer Androhung von Gewalt wegnimmt, macht sich
+des Raubes schuldig.
 </p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 20.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der entscheidende Unterschied zum Diebstahl besteht in der
+Verwendung von Gewalt oder einer unmittelbar bevorstehenden
+Gewaltdrohung. Der Einsatz einer Waffe oder erhebliche
+Verletzungsfolgen können zu einer strengeren Bewertung führen.
+</div>
+<span class="penalty">Strafmaß: 35–50 HE / 35.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1008,11 +1220,17 @@ sich des Raubes schuldig.
 <span class="paragraph-number">STGB-13</span>
 </div>
 <p>
-Wer eine fremde Sache vorsätzlich beschädigt, zerstört
-oder ihre bestimmungsgemäße Nutzung erheblich beeinträchtigt,
+Wer eine fremde Sache vorsätzlich beschädigt, zerstört oder
+ihre bestimmungsgemäße Nutzung erheblich beeinträchtigt,
 macht sich strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Neben dem entstandenen Sachschaden können die Art der Tat,
+Vorsatz, Wiederholung und die Bedeutung des beschädigten
+Gegenstands berücksichtigt werden.
+</div>
+<span class="penalty">Strafmaß: 10–25 HE / 10.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1021,11 +1239,18 @@ macht sich strafbar.
 <span class="paragraph-number">STGB-14</span>
 </div>
 <p>
-Wer durch falsche Angaben oder das Verschweigen wesentlicher
-Tatsachen einen Irrtum hervorruft und dadurch einen
-Vermögensschaden verursacht, kann wegen Betruges verfolgt werden.
+Wer durch falsche Angaben oder das bewusste Verschweigen
+wesentlicher Tatsachen einen Irrtum verursacht und dadurch
+einen Vermögensschaden herbeiführt, kann wegen Betruges
+verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Bei der Strafzumessung werden insbesondere die Schadenshöhe,
+die Anzahl der Geschädigten, die Planung und eine mögliche
+gewerbsmäßige Vorgehensweise berücksichtigt.
+</div>
+<span class="penalty">Strafmaß: 20–40 HE / 20.000–40.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1035,10 +1260,16 @@ Vermögensschaden verursacht, kann wegen Betruges verfolgt werden.
 </div>
 <p>
 Wer eine fremde Sache, die sich bereits rechtmäßig in seinem
-Besitz befindet, sich rechtswidrig aneignet oder einer
-anderen Person vorenthält, macht sich strafbar.
+Besitz befindet, rechtswidrig für sich selbst verwendet oder
+dem Eigentümer vorenthält, macht sich strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Anders als beim klassischen Diebstahl gelangt die Sache
+zunächst rechtmäßig in den Besitz der handelnden Person.
+Erst die spätere rechtswidrige Aneignung begründet den Verstoß.
+</div>
+<span class="penalty">Strafmaß: 15–30 HE / 15.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1050,9 +1281,15 @@ anderen Person vorenthält, macht sich strafbar.
 Wer einem Amtsträger einen unzulässigen Vorteil anbietet,
 verspricht oder gewährt, um eine pflichtwidrige Handlung
 zu erreichen, macht sich strafbar. Gleiches gilt für
-Amtsträger, die einen solchen Vorteil fordern oder annehmen.
+Amtsträger, die solche Vorteile fordern oder annehmen.
 </p>
-<span class="penalty">Strafmaß: bis zu 18 HE / 18.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der Paragraph schützt die Integrität staatlicher Einrichtungen.
+Besonders schwer wiegt ein systematisches Vorgehen oder die
+Beeinflussung wichtiger staatlicher Entscheidungen.
+</div>
+<span class="penalty">Strafmaß: 30–50 HE / 30.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1062,10 +1299,16 @@ Amtsträger, die einen solchen Vorteil fordern oder annehmen.
 </div>
 <p>
 Wer einer rechtmäßigen polizeilichen oder behördlichen
-Vollstreckungshandlung durch Gewalt oder Gewaltandrohung
+Vollstreckungsmaßnahme durch Gewalt oder Gewaltandrohung
 Widerstand leistet, kann strafrechtlich verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Geschützt wird die rechtmäßige Durchführung staatlicher
+Maßnahmen. Die Intensität des Widerstands sowie eine mögliche
+Verletzung von Beamten wirken sich auf die Strafzumessung aus.
+</div>
+<span class="penalty">Strafmaß: 25–40 HE / 25.000–40.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1074,23 +1317,39 @@ Widerstand leistet, kann strafrechtlich verfolgt werden.
 <span class="paragraph-number">STGB-18</span>
 </div>
 <p>
-Wer unbefugt vorgibt, ein öffentliches Amt auszuüben
-oder sich staatliche Befugnisse anmaßt, macht sich strafbar.
+Wer unbefugt vorgibt, ein öffentliches Amt auszuüben oder
+sich staatliche Befugnisse anmaßt, macht sich strafbar.
+Dies umfasst auch die missbräuchliche Verwendung amtlicher
+Bezeichnungen, Kennzeichen oder Uniformen.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der Paragraph schützt das Vertrauen der Bevölkerung in
+staatliche Institutionen. Besonders relevant ist eine Handlung,
+durch die Bürger zu einer vermeintlich rechtmäßigen Befolgung
+einer Anordnung gebracht werden.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 19 – Flucht vor Strafverfolgung</h3>
+<h3>§ 19 – Flucht vor einer rechtmäßigen Maßnahme</h3>
 <span class="paragraph-number">STGB-19</span>
 </div>
 <p>
 Wer sich einer rechtmäßigen polizeilichen Maßnahme durch
-Flucht entzieht, kann nach den Umständen des Einzelfalls
-zusätzlich belangt werden.
+Flucht entzieht und dadurch weitere Gefahren oder erhebliche
+Behinderungen verursacht, kann zusätzlich belangt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine bloße Bewegung von einem Ort weg ist nicht automatisch
+eine schwere Straftat. Maßgeblich sind insbesondere die
+konkreten Umstände, die Dauer der Flucht und mögliche weitere
+Gefährdungen.
+</div>
+<span class="penalty">Strafmaß: 10–25 HE / 10.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1103,7 +1362,13 @@ Wer sich dauerhaft mit mehreren Personen zusammenschließt,
 um gemeinsam erhebliche Straftaten zu planen oder durchzuführen,
 kann wegen Bildung einer kriminellen Vereinigung verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 20.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Entscheidend sind Dauer, Organisation und gemeinsames Ziel
+des Zusammenschlusses. Ein zufälliges gemeinsames Handeln
+stellt nicht automatisch eine Vereinigung dar.
+</div>
+<span class="penalty">Strafmaß: 40–55 HE / 40.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1117,7 +1382,14 @@ rechtswidrigen Druck dazu bringt, einen Vermögensnachteil
 hinzunehmen oder einen Vermögensvorteil herauszugeben,
 macht sich strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift schützt Personen vor der Durchsetzung
+finanzieller Forderungen durch rechtswidrige Einschüchterung.
+Höhe des Vorteils, Intensität der Drohung und Dauer der
+Erpressung beeinflussen die Strafe.
+</div>
+<span class="penalty">Strafmaß: 30–45 HE / 30.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1128,10 +1400,16 @@ macht sich strafbar.
 <p>
 Wer widerrechtlich in ein geschütztes Gebäude, Grundstück
 oder einen abgegrenzten Bereich eindringt oder trotz
-Aufforderung nicht geht, kann wegen Hausfriedensbruchs
-belangt werden.
+rechtmäßiger Aufforderung nicht geht, kann wegen
+Hausfriedensbruchs belangt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Geschützt wird das Hausrecht. Bei der Strafzumessung können
+das Verhalten gegenüber dem Berechtigten, die Dauer des
+Aufenthalts und ein gewaltsames Eindringen berücksichtigt werden.
+</div>
+<span class="penalty">Strafmaß: 10–25 HE / 10.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1140,12 +1418,17 @@ belangt werden.
 <span class="paragraph-number">STGB-23</span>
 </div>
 <p>
-Wer vorsätzlich durch gewalttätiges oder besonders
-rücksichtsloses Verhalten eine erhebliche Störung der
-öffentlichen Ordnung verursacht, kann strafrechtlich
-verfolgt werden.
+Wer durch gewalttätiges oder besonders rücksichtsloses
+Verhalten eine erhebliche Störung der öffentlichen Ordnung
+verursacht, kann strafrechtlich verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Erfasst werden Situationen, in denen das Verhalten deutlich
+über eine gewöhnliche Ruhestörung hinausgeht und eine größere
+Gefahr oder erhebliche Störung für die Allgemeinheit entsteht.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1156,10 +1439,19 @@ verfolgt werden.
 <p>
 Wer mit dem Ziel, die staatliche Ordnung zu destabilisieren,
 die Bevölkerung einzuschüchtern oder staatliche Einrichtungen
-zu zerstören, schwere Gewalttaten organisiert, vorbereitet
-oder durchführt, macht sich des Terrorismus schuldig.
+zu zerstören, schwere Gewalttaten oder vergleichbare schwere
+Straftaten organisiert, vorbereitet oder durchführt, macht
+sich des Terrorismus schuldig.
 </p>
-<span class="penalty">Strafmaß: bis zu 60 HE / 100.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Terrorismus stellt innerhalb des Gesetzbuches einen
+außergewöhnlich schweren Angriff auf die staatliche und
+gesellschaftliche Ordnung dar. Maßgeblich sind insbesondere
+Zielsetzung, Planung, Organisation, Anzahl der Betroffenen,
+Schadensumfang und Gefährdung der Allgemeinheit.
+</div>
+<span class="penalty terror">Strafmaß: 60–90 HE / 60.000–100.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1170,10 +1462,18 @@ oder durchführt, macht sich des Terrorismus schuldig.
 <p>
 Wer vorsätzlich einen anderen Menschen tötet, wird wegen
 Mordes bestraft. Bei der Strafzumessung können insbesondere
-Planung, besondere Grausamkeit, mehrere Opfer oder andere
-erschwerende Umstände berücksichtigt werden.
+Planung, Beweggründe, besondere Brutalität, mehrere Opfer
+oder andere erschwerende Umstände berücksichtigt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 60 HE / 90.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die vorsätzliche Tötung eines Menschen gehört zu den
+schwersten gewöhnlichen Straftaten. Eine Überschreitung
+von 60 HE ist für diesen Paragraphen nicht vorgesehen;
+die Sonderobergrenze von 90 HE bleibt ausschließlich
+dem Terrorismus vorbehalten.
+</div>
+<span class="penalty">Strafmaß: 50–60 HE / 50.000–90.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1184,22 +1484,35 @@ erschwerende Umstände berücksichtigt werden.
 <p>
 Wer einen anderen Menschen vorsätzlich tötet, ohne dass
 die besonderen Voraussetzungen des Mordes erfüllt sind,
-macht sich des Totschlags schuldig.
+kann wegen Totschlags bestraft werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 40 HE / 70.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Bei der Abgrenzung werden die konkreten Umstände der Tat,
+Motivation, Planung und die Situation zwischen Täter und
+Opfer berücksichtigt.
+</div>
+<span class="penalty">Strafmaß: 45–60 HE / 45.000–60.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 27 – Versuchter Totschlag</h3>
+<h3>§ 27 – Entführung</h3>
 <span class="paragraph-number">STGB-27</span>
 </div>
 <p>
-Wer mit Tötungsvorsatz unmittelbar zur Ausführung ansetzt,
-die Tötung jedoch nicht vollendet, kann wegen versuchten
-Totschlags verfolgt werden.
+Wer einen Menschen gegen dessen Willen an einen anderen
+Ort verbringt oder festhält, um ihn der freien Entscheidung
+zu berauben oder einen bestimmten Zweck durchzusetzen,
+macht sich strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 30 HE / 50.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Besonders schwer wiegen die Verwendung von Gewalt,
+Bedrohungen, eine längere Dauer oder die Forderung nach
+einem Vermögensvorteil.
+</div>
+<span class="penalty">Strafmaß: 40–55 HE / 40.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1208,172 +1521,63 @@ Totschlags verfolgt werden.
 <span class="paragraph-number">STGB-28</span>
 </div>
 <p>
-Wer eine Person gegen ihren Willen festhält und die Freilassung
-von einer Handlung, Zahlung oder sonstigen Forderung abhängig
-macht, begeht eine Geiselnahme.
+Wer eine Person festhält und deren Freilassung von einer
+Handlung, Zahlung oder Entscheidung einer anderen Person
+oder staatlichen Stelle abhängig macht, handelt strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 35 HE / 60.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die besondere Schwere ergibt sich aus der Verbindung von
+Freiheitsberaubung, Druck auf Dritte und der erheblichen
+Gefährdung des Opfers.
+</div>
+<span class="penalty">Strafmaß: 50–60 HE / 50.000–60.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 29 – Entführung</h3>
+<h3>§ 29 – Brandstiftung</h3>
 <span class="paragraph-number">STGB-29</span>
 </div>
 <p>
-Wer eine Person gegen deren Willen an einen anderen Ort
-bringt oder deren Bewegungsfreiheit zur Durchführung einer
-weiteren Straftat einschränkt, kann wegen Entführung verfolgt werden.
+Wer vorsätzlich ein Gebäude, Fahrzeug oder eine andere
+fremde Sache in Brand setzt oder durch Feuer erheblich
+beschädigt, macht sich strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 30 HE / 50.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Bei der Strafzumessung werden insbesondere die Gefahr für
+Menschen, die Größe des Brandes, der Sachschaden und die
+Planung berücksichtigt.
+</div>
+<span class="penalty">Strafmaß: 35–55 HE / 35.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 30 – Freiheitsentziehung durch Amtsträger</h3>
+<h3>§ 30 – Gefährlicher Eingriff in den öffentlichen Verkehr</h3>
 <span class="paragraph-number">STGB-30</span>
 </div>
 <p>
-Ein Amtsträger, der eine Person ohne gesetzliche Grundlage
-festhält oder ihre Freiheit missbräuchlich einschränkt,
-kann strafrechtlich verantwortlich sein.
+Wer vorsätzlich Hindernisse schafft, Fahrzeuge manipuliert
+oder auf andere Weise erheblich in den öffentlichen Verkehr
+eingreift und dadurch Menschen gefährdet, kann strafrechtlich
+verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 30.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift schützt die Allgemeinheit vor Handlungen,
+die Verkehrsunfälle oder erhebliche Gefahren verursachen
+können. Die konkrete Gefahr und mögliche Verletzungsfolgen
+sind entscheidend.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 31 – Verleumdung</h3>
-<span class="paragraph-number">STGB-31</span>
-</div>
-<p>
-Wer wider besseres Wissen unwahre Tatsachen über eine
-andere Person behauptet oder verbreitet und dadurch deren
-Ansehen erheblich schädigt, kann wegen Verleumdung verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 32 – Beleidigung</h3>
-<span class="paragraph-number">STGB-32</span>
-</div>
-<p>
-Eine ehrverletzende Äußerung gegenüber einer anderen Person
-kann als Beleidigung verfolgt werden. Die konkreten Umstände
-der Äußerung sind bei der Bewertung zu berücksichtigen.
-</p>
-<span class="penalty">Strafmaß: bis zu 5 HE / 5.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 33 – Falschaussage</h3>
-<span class="paragraph-number">STGB-33</span>
-</div>
-<p>
-Wer in einem offiziellen Verfahren bewusst falsche Angaben
-macht, obwohl eine Wahrheitspflicht besteht, kann wegen
-Falschaussage verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 34 – Urkundenfälschung</h3>
-<span class="paragraph-number">STGB-34</span>
-</div>
-<p>
-Wer eine unechte Urkunde herstellt, eine echte Urkunde
-verfälscht oder eine gefälschte Urkunde zur Täuschung
-im Rechtsverkehr verwendet, macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 35 – Identitätsmissbrauch</h3>
-<span class="paragraph-number">STGB-35</span>
-</div>
-<p>
-Wer bewusst die Identität einer anderen Person verwendet,
-um sich einen rechtlichen oder wirtschaftlichen Vorteil
-zu verschaffen oder Behörden zu täuschen, macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 36 – Missbrauch staatlicher Dokumente</h3>
-<span class="paragraph-number">STGB-36</span>
-</div>
-<p>
-Staatliche Ausweise, Genehmigungen und Dokumente dürfen
-nicht gefälscht, verändert oder missbräuchlich verwendet werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 37 – Brandstiftung</h3>
-<span class="paragraph-number">STGB-37</span>
-</div>
-<p>
-Wer vorsätzlich ein Gebäude, Fahrzeug oder eine andere
-Sache in Brand setzt und dadurch fremdes Eigentum oder
-Personen gefährdet, macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 25 HE / 35.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 38 – Gefährlicher Eingriff in den Verkehr</h3>
-<span class="paragraph-number">STGB-38</span>
-</div>
-<p>
-Wer absichtlich Hindernisse errichtet, Verkehrseinrichtungen
-beschädigt oder auf andere Weise den Straßenverkehr
-erheblich gefährdet, kann strafrechtlich verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 20.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 39 – Menschenhandel</h3>
-<span class="paragraph-number">STGB-39</span>
-</div>
-<p>
-Wer Menschen durch Gewalt, Drohung, Täuschung oder Ausnutzung
-einer Zwangslage zur Ausbeutung vermittelt oder transportiert,
-macht sich strafbar.
-</p>
-<span class="penalty">Strafmaß: bis zu 40 HE / 70.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 40 – organisierte Kriminalität</h3>
-<span class="paragraph-number">STGB-40</span>
-</div>
-<p>
-Wer sich dauerhaft mit anderen Personen organisiert, um
-wiederholt schwere Straftaten zu begehen, kann wegen
-organisierter Kriminalität zusätzlich verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 30 HE / 50.000 €</span>
+<span class="penalty">Strafmaß: 35–55 HE / 35.000–55.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
 
+</div>
 </section>
-
 
 <!-- =========================================================
      STVO
@@ -1381,13 +1585,25 @@ organisierter Kriminalität zusätzlich verfolgt werden.
 
 <section class="law-book" id="stvo">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+<div class="book-title-area">
 <div class="book-number">Gesetzbuch II</div>
 <h2>Straßenverkehrsordnung – StVO</h2>
-<p>
-Die Straßenverkehrsordnung regelt die Teilnahme am öffentlichen
-Straßenverkehr und dient der Sicherheit aller Verkehrsteilnehmer.
-</p>
+<p>Regelungen für einen sicheren, geordneten und rücksichtsvollen Straßenverkehr.</p>
+</div>
+<div class="book-meta">
+<span class="paragraph-count">15 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Geltungsbereich:</strong>
+Die StVO gilt für alle Personen, die am öffentlichen Straßenverkehr
+teilnehmen. Fahrzeugführer tragen dabei eine besondere Verantwortung
+für die Sicherheit anderer Verkehrsteilnehmer.
 </div>
 
 <div class="paragraph">
@@ -1396,9 +1612,17 @@ Straßenverkehr und dient der Sicherheit aller Verkehrsteilnehmer.
 <span class="paragraph-number">STVO-01</span>
 </div>
 <p>
-Jeder Verkehrsteilnehmer hat sich so zu verhalten, dass
-kein anderer geschädigt, gefährdet oder unnötig behindert wird.
+Jeder Verkehrsteilnehmer hat sich so zu verhalten, dass kein
+anderer geschädigt, gefährdet oder mehr als unvermeidbar
+behindert oder belästigt wird.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Rücksichtnahme ist die Grundlage des Straßenverkehrs. Auch
+wenn ein bestimmtes Verhalten nicht ausdrücklich verboten
+ist, darf dadurch keine vermeidbare Gefahr entstehen.
+</div>
+<span class="penalty">Strafmaß: 10–20 HE / 10.000–20.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1407,10 +1631,19 @@ kein anderer geschädigt, gefährdet oder unnötig behindert wird.
 <span class="paragraph-number">STVO-02</span>
 </div>
 <p>
-Die Geschwindigkeit ist an Straßen-, Verkehrs-, Sicht-
-und Wetterverhältnisse anzupassen.
+Die Geschwindigkeit muss jederzeit an Straßen-, Verkehrs-,
+Sicht- und Wetterverhältnisse angepasst werden. Besonders
+in dicht besiedelten Bereichen ist unnötig hohe Geschwindigkeit
+zu vermeiden.
 </p>
-<span class="penalty">Strafmaß: bis zu 5 HE / 5.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Nicht allein das Überschreiten eines festgelegten Wertes ist
+entscheidend. Auch unangepasste Geschwindigkeit bei schlechter
+Sicht, starkem Verkehr oder gefährlichen Straßenverhältnissen
+kann einen Verstoß darstellen.
+</div>
+<span class="penalty">Strafmaß: 10–25 HE / 10.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1420,14 +1653,22 @@ und Wetterverhältnisse anzupassen.
 </div>
 <p>
 Verkehrszeichen, Fahrbahnmarkierungen und Lichtzeichenanlagen
-sind zu beachten.
+sind zu beachten. Das bewusste Missachten kann als
+Ordnungswidrigkeit oder bei konkreter Gefährdung als schwererer
+Verstoß verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 4 HE / 4.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Verkehrszeichen schaffen eindeutige Regeln für alle
+Verkehrsteilnehmer. Ihre Missachtung kann besonders gefährlich
+sein, wenn dadurch Vorfahrten oder Fußgänger gefährdet werden.
+</div>
+<span class="penalty">Strafmaß: 10–20 HE / 10.000–20.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 4 – Alkohol und berauschende Mittel</h3>
+<h3>§ 4 – Fahren unter berauschendem Einfluss</h3>
 <span class="paragraph-number">STVO-04</span>
 </div>
 <p>
@@ -1435,7 +1676,13 @@ Wer ein Kraftfahrzeug unter erheblichem Einfluss von Alkohol,
 Betäubungsmitteln oder anderen berauschenden Stoffen führt,
 gefährdet die Sicherheit des Straßenverkehrs.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift soll verhindern, dass eingeschränkte Reaktions-
+und Wahrnehmungsfähigkeit zu Verkehrsunfällen führt.
+Bei konkreter Gefährdung anderer kann das Strafmaß erhöht werden.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1444,21 +1691,37 @@ gefährdet die Sicherheit des Straßenverkehrs.
 <span class="paragraph-number">STVO-05</span>
 </div>
 <p>
-Grob rücksichtsloses Fahren, Abdrängen oder bewusstes
-Gefährden anderer Verkehrsteilnehmer ist verboten.
+Grob rücksichtsloses oder besonders gefährliches Fahren,
+durch das andere Verkehrsteilnehmer erheblich gefährdet
+werden, ist verboten.
 </p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Hierzu können beispielsweise bewusstes Abdrängen,
+riskantes Überholen oder wiederholtes Fahren mit erheblicher
+Gefährdung anderer zählen.
+</div>
+<span class="penalty">Strafmaß: 25–45 HE / 25.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 6 – Schutzkleidung</h3>
+<h3>§ 6 – Helm und Schutzkleidung</h3>
 <span class="paragraph-number">STVO-06</span>
 </div>
 <p>
-Schutzkleidung darf getragen werden, sofern sie die sichere
-Teilnahme am Straßenverkehr nicht beeinträchtigt.
+Bei der Nutzung von Motorrädern und vergleichbaren Fahrzeugen
+sind die vorgeschriebenen Schutzvorrichtungen zu verwenden.
+Sicherheitsausrüstung darf die sichere Fahrzeugführung
+nicht beeinträchtigen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Regel dient dem Schutz des Fahrzeugführers und der
+Mitfahrer. Verstöße können insbesondere bei wiederholtem
+Verhalten geahndet werden.
+</div>
+<span class="penalty">Strafmaß: 10–15 HE / 10.000–15.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1467,22 +1730,35 @@ Teilnahme am Straßenverkehr nicht beeinträchtigt.
 <span class="paragraph-number">STVO-07</span>
 </div>
 <p>
-Wer ein Kraftfahrzeug ohne erforderliche Fahrerlaubnis führt,
-macht sich strafbar.
+Wer ein Kraftfahrzeug führt, ohne die erforderliche
+Fahrerlaubnis zu besitzen, macht sich strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Fahrerlaubnis bestätigt, dass eine Person grundsätzlich
+berechtigt und geeignet ist, ein entsprechendes Fahrzeug
+im öffentlichen Straßenverkehr zu führen.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 8 – Unfallflucht</h3>
+<h3>§ 8 – Unerlaubtes Entfernen vom Unfallort</h3>
 <span class="paragraph-number">STVO-08</span>
 </div>
 <p>
-Wer sich nach einem Verkehrsunfall unerlaubt vom Unfallort
-entfernt, kann strafrechtlich belangt werden.
+Wer sich nach einem Verkehrsunfall entfernt, ohne die
+erforderlichen Feststellungen zu ermöglichen oder angemessene
+Hilfe zu leisten, kann strafrechtlich belangt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Nach einem Unfall soll sichergestellt werden, dass Verletzte
+versorgt und Schäden sowie beteiligte Personen festgestellt
+werden können.
+</div>
+<span class="penalty">Strafmaß: 25–40 HE / 25.000–40.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1491,10 +1767,16 @@ entfernt, kann strafrechtlich belangt werden.
 <span class="paragraph-number">STVO-09</span>
 </div>
 <p>
-Fahrzeuge dürfen nur so abgestellt werden, dass andere
-Verkehrsteilnehmer nicht unnötig behindert oder gefährdet werden.
+Fahrzeuge dürfen nur so gehalten oder abgestellt werden,
+dass andere Verkehrsteilnehmer nicht unnötig behindert
+oder gefährdet werden.
 </p>
-<span class="penalty">Bußgeld: bis zu 2.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Besonders kritisch sind blockierte Rettungswege,
+Fahrbahnen, Kreuzungen und Zufahrten zu wichtigen Einrichtungen.
+</div>
+<span class="penalty">Strafmaß: 10–15 HE / 10.000–15.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1503,11 +1785,16 @@ Verkehrsteilnehmer nicht unnötig behindert oder gefährdet werden.
 <span class="paragraph-number">STVO-10</span>
 </div>
 <p>
-Die Vorfahrtsregeln sind jederzeit zu beachten.
-Wer anderen bewusst die Vorfahrt nimmt und dadurch
+Die Vorfahrtsregeln sind jederzeit zu beachten. Wer anderen
+Verkehrsteilnehmern bewusst die Vorfahrt nimmt und dadurch
 eine Gefahr verursacht, kann belangt werden.
 </p>
-<span class="penalty">Bußgeld: bis zu 4.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Regelung soll Zusammenstöße verhindern. Bei einem
+tatsächlich verursachten Unfall kann die Strafe erhöht werden.
+</div>
+<span class="penalty">Strafmaß: 10–25 HE / 10.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1516,11 +1803,16 @@ eine Gefahr verursacht, kann belangt werden.
 <span class="paragraph-number">STVO-11</span>
 </div>
 <p>
-Zwischen Fahrzeugen ist ein ausreichender Sicherheitsabstand
-einzuhalten. Der Abstand muss Geschwindigkeit und
-Witterungsverhältnissen entsprechen.
+Zwischen Fahrzeugen ist ein ausreichender Abstand einzuhalten.
+Der erforderliche Abstand richtet sich insbesondere nach
+Geschwindigkeit, Wetter, Sicht und Verkehrslage.
 </p>
-<span class="penalty">Bußgeld: bis zu 3.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Ein ausreichender Sicherheitsabstand ermöglicht eine rechtzeitige
+Reaktion auf Bremsmanöver oder unerwartete Hindernisse.
+</div>
+<span class="penalty">Strafmaß: 10–20 HE / 10.000–20.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1529,128 +1821,104 @@ Witterungsverhältnissen entsprechen.
 <span class="paragraph-number">STVO-12</span>
 </div>
 <p>
-Absichtliche Fahrmanöver, die andere Verkehrsteilnehmer
-gefährden, sind untersagt.
+Absichtliche Fahrmanöver, die andere gefährden, sind untersagt.
+Hierzu zählen insbesondere gefährliches Driften, Abdrängen,
+riskante Überholmanöver und absichtliches Ausbremsen.
 </p>
-<span class="penalty">Strafmaß: bis zu 7 HE / 7.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Fahrzeuge dürfen nicht als Mittel zur Einschüchterung oder
+Gefährdung anderer eingesetzt werden.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 13 – Überholen</h3>
+<h3>§ 13 – Fahren auf Gehwegen</h3>
 <span class="paragraph-number">STVO-13</span>
 </div>
 <p>
-Überholvorgänge dürfen nur durchgeführt werden, wenn
-die Verkehrslage dies sicher zulässt.
+Das Befahren von Gehwegen mit Kraftfahrzeugen ist grundsätzlich
+untersagt, sofern keine ausdrückliche Freigabe besteht.
 </p>
-<span class="penalty">Bußgeld: bis zu 3.500 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Gehwege sind besonders schutzbedürftige Bereiche. Das Befahren
+mit Fahrzeugen kann Fußgänger erheblich gefährden.
+</div>
+<span class="penalty">Strafmaß: 10–25 HE / 10.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 14 – Rote Ampel</h3>
+<h3>§ 14 – Rennen im öffentlichen Straßenverkehr</h3>
 <span class="paragraph-number">STVO-14</span>
 </div>
 <p>
-Das Überfahren eines roten Lichtzeichens ist verboten.
-Eine besondere Gefährdung kann zu einer erhöhten Sanktion führen.
+Das Veranstalten, Organisieren oder bewusste Durchführen
+nicht genehmigter Straßenrennen ist verboten, wenn dadurch
+der öffentliche Straßenverkehr gefährdet oder erheblich
+beeinträchtigt wird.
 </p>
-<span class="penalty">Bußgeld: bis zu 4.500 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Straßenrennen verbinden hohe Geschwindigkeit mit fehlender
+Kontrolle und stellen daher eine erhebliche Gefahr für
+unbeteiligte Verkehrsteilnehmer dar.
+</div>
+<span class="penalty">Strafmaß: 30–50 HE / 30.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 15 – Fahren auf Gehwegen</h3>
+<h3>§ 15 – Gefährdung von Fußgängern</h3>
 <span class="paragraph-number">STVO-15</span>
 </div>
 <p>
-Gehwege und andere ausschließlich für Fußgänger bestimmte
-Bereiche dürfen mit Kraftfahrzeugen grundsätzlich nicht
-befahren werden.
+Fahrzeugführer haben auf Fußgänger besondere Rücksicht zu
+nehmen. Wer Fußgänger absichtlich oder grob fahrlässig
+gefährdet, kann strafrechtlich belangt werden.
 </p>
-<span class="penalty">Bußgeld: bis zu 2.500 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Fußgänger besitzen keinen vergleichbaren Schutz wie Insassen
+eines Fahrzeugs. Deshalb gilt bei Begegnungen und Kreuzungen
+eine erhöhte Sorgfaltspflicht.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 16 – Fahrzeugbeleuchtung</h3>
-<span class="paragraph-number">STVO-16</span>
-</div>
-<p>
-Fahrzeuge müssen bei Dunkelheit und eingeschränkter Sicht
-über die vorgeschriebene Beleuchtung verfügen.
-</p>
-<span class="penalty">Bußgeld: bis zu 1.500 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 17 – Fahrzeugzustand</h3>
-<span class="paragraph-number">STVO-17</span>
-</div>
-<p>
-Ein Fahrzeug darf nur betrieben werden, wenn es sich
-in einem verkehrssicheren Zustand befindet.
-</p>
-<span class="penalty">Bußgeld: bis zu 2.500 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 18 – Kennzeichenpflicht</h3>
-<span class="paragraph-number">STVO-18</span>
-</div>
-<p>
-Kraftfahrzeuge müssen mit den vorgeschriebenen amtlichen
-Kennzeichen ausgestattet sein.
-</p>
-<span class="penalty">Bußgeld: bis zu 2.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 19 – Illegale Fahrzeugmodifikationen</h3>
-<span class="paragraph-number">STVO-19</span>
-</div>
-<p>
-Umbauten, die die Verkehrssicherheit erheblich beeinträchtigen
-oder gesetzliche Vorgaben umgehen, sind unzulässig.
-</p>
-<span class="penalty">Bußgeld: bis zu 5.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 20 – Öffentliche Rennen</h3>
-<span class="paragraph-number">STVO-20</span>
-</div>
-<p>
-Nicht genehmigte Straßenrennen sowie das vorsätzliche
-Durchführen vergleichbarer Wettbewerbe im öffentlichen
-Verkehrsraum sind verboten.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
+<span class="penalty">Strafmaß: 20–40 HE / 20.000–40.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
-
+</div>
 </section>
 
-
 <!-- =========================================================
-     WAFFG
+     WAFFENGESETZ
 ========================================================= -->
 
 <section class="law-book" id="waffen">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+<div class="book-title-area">
 <div class="book-number">Gesetzbuch III</div>
 <h2>Waffengesetz – WaffG</h2>
-<p>
-Das Waffengesetz regelt Erwerb, Besitz, Führen und Verwendung
-von Waffen innerhalb der Republik Final City.
-</p>
+<p>Regelt Erwerb, Besitz, Führen und Verwendung von Waffen.</p>
+</div>
+<div class="book-meta">
+<span class="paragraph-count">12 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Geltungsbereich:</strong>
+Das Waffengesetz unterscheidet zwischen erlaubten Waffen,
+genehmigungspflichtigen Waffen und ausdrücklich verbotenen
+Waffen. Jede Waffenhandlung muss innerhalb der geltenden
+Genehmigungen erfolgen.
 </div>
 
 <div class="paragraph">
@@ -1659,9 +1927,18 @@ von Waffen innerhalb der Republik Final City.
 <span class="paragraph-number">WAFFG-01</span>
 </div>
 <p>
-Der Erwerb, Besitz und das Führen bestimmter Waffen
-können einer staatlichen Genehmigung unterliegen.
+Der Erwerb, Besitz und das Führen bestimmter Waffen können
+einer staatlichen Genehmigung unterliegen. Eine entsprechende
+Erlaubnis ist auf Verlangen einer zuständigen Behörde
+nachzuweisen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine vorhandene Waffe bedeutet nicht automatisch, dass ihr
+Besitz oder das Führen erlaubt ist. Entscheidend ist die
+gültige Berechtigung für die konkrete Waffe und Situation.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1670,28 +1947,24 @@ können einer staatlichen Genehmigung unterliegen.
 <span class="paragraph-number">WAFFG-02</span>
 </div>
 <p>
-Im Rahmen einer gültigen Genehmigung können zugelassene
-Waffen besessen und geführt werden.
+Folgende Waffen gelten bei vorhandener entsprechender
+Berechtigung als zulässige Standardwaffen innerhalb
+von Final City:
 </p>
 
-<div class="card-grid">
-
-<div class="info-card legal">
+<div class="weapon-grid">
+<div class="weapon-card legal">
 <h4>Pistole</h4>
 <p>Zulässige Standard-Pistole bei vorhandener Berechtigung.</p>
 </div>
 
-<div class="info-card legal">
+<div class="weapon-card legal">
 <h4>SNS Pistole</h4>
 <p>Zulässige Pistolenvariante bei entsprechender Berechtigung.</p>
 </div>
-
-<div class="info-card legal">
-<h4>Revolver</h4>
-<p>Zulässige Waffe bei entsprechender Genehmigung.</p>
 </div>
 
-</div>
+<span class="penalty">Strafmaß bei unerlaubter Nutzung: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1700,33 +1973,28 @@ Waffen besessen und geführt werden.
 <span class="paragraph-number">WAFFG-03</span>
 </div>
 <p>
-Nicht zugelassene oder ausdrücklich verbotene Waffen dürfen
-nicht ohne Sondergenehmigung besessen, geführt oder verwendet werden.
+Folgende Waffen gelten als nicht zugelassen, sofern keine
+ausdrückliche Sondergenehmigung besteht:
 </p>
 
-<div class="card-grid">
-
-<div class="info-card illegal">
+<div class="weapon-grid">
+<div class="weapon-card illegal">
 <h4>Pistole 50er</h4>
 <p>Nicht zugelassene Waffenvariante.</p>
 </div>
 
-<div class="info-card illegal">
+<div class="weapon-card illegal">
 <h4>Pistole MK2</h4>
 <p>Nicht zugelassene Waffenvariante.</p>
 </div>
 
-<div class="info-card illegal">
+<div class="weapon-card illegal">
 <h4>Micro SMG</h4>
 <p>Verbotene bzw. nicht zugelassene Waffe.</p>
 </div>
-
-<div class="info-card illegal">
-<h4>Schwere Waffen</h4>
-<p>Nur mit ausdrücklicher staatlicher Sondergenehmigung.</p>
 </div>
 
-</div>
+<span class="penalty">Strafmaß: 30–45 HE / 30.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1736,9 +2004,16 @@ nicht ohne Sondergenehmigung besessen, geführt oder verwendet werden.
 </div>
 <p>
 Wer eine erlaubnispflichtige oder ausdrücklich verbotene
-Waffe ohne Berechtigung besitzt, macht sich strafbar.
+Waffe ohne entsprechende Berechtigung besitzt, macht sich
+strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift erfasst bereits den unerlaubten Besitz.
+Eine tatsächliche Verwendung der Waffe ist für die Erfüllung
+dieses Paragraphen nicht erforderlich.
+</div>
+<span class="penalty">Strafmaß: 30–45 HE / 30.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1747,11 +2022,17 @@ Waffe ohne Berechtigung besitzt, macht sich strafbar.
 <span class="paragraph-number">WAFFG-05</span>
 </div>
 <p>
-Wer eine Waffe außerhalb des erlaubten Bereichs oder
-ohne erforderliche Berechtigung mit sich führt, kann
+Wer eine Waffe außerhalb des erlaubten Bereichs oder ohne
+die erforderliche Berechtigung mit sich führt, kann
 strafrechtlich belangt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Das Führen beschreibt das tatsächliche Mitführen einer Waffe
+außerhalb eines erlaubten Besitzbereichs. Die konkrete Situation
+und mögliche Gefährdung beeinflussen die Strafe.
+</div>
+<span class="penalty">Strafmaß: 35–50 HE / 35.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1762,8 +2043,17 @@ strafrechtlich belangt werden.
 <p>
 Der Einsatz einer Schusswaffe gegen eine Person ist nur
 zulässig, wenn hierfür eine gesetzliche Rechtfertigung besteht.
+Unnötiger oder unverhältnismäßiger Einsatz kann strafrechtliche
+Folgen haben.
 </p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift schützt Menschen vor einem ungerechtfertigten
+Einsatz von Schusswaffen. Rechtfertigende Situationen müssen
+gesondert anhand der gesetzlichen Voraussetzungen beurteilt
+werden.
+</div>
+<span class="penalty">Strafmaß: 40–55 HE / 40.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1772,11 +2062,17 @@ zulässig, wenn hierfür eine gesetzliche Rechtfertigung besteht.
 <span class="paragraph-number">WAFFG-07</span>
 </div>
 <p>
-Wer eine Waffe dazu verwendet, eine andere Person
-rechtswidrig einzuschüchtern oder zu bedrohen, kann
-zusätzlich bestraft werden.
+Wer eine Waffe verwendet, um eine andere Person rechtswidrig
+einzuschüchtern, zu bedrohen oder zu einer Handlung zu zwingen,
+kann zusätzlich zur Haupttat bestraft werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die sichtbare oder angedrohte Verwendung einer Waffe kann
+die Gefahr einer Situation erheblich erhöhen und wird daher
+besonders berücksichtigt.
+</div>
+<span class="penalty">Strafmaß: 30–45 HE / 30.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1789,19 +2085,31 @@ Wer verbotene oder nicht zugelassene Waffen verkauft,
 weitergibt, vermittelt oder gewerbsmäßig vertreibt,
 macht sich strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 18 HE / 18.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der organisierte Waffenhandel wird schwerer bewertet als
+ein bloßer Besitz, weil dadurch weitere Personen mit
+unerlaubten Waffen versorgt werden können.
+</div>
+<span class="penalty">Strafmaß: 45–60 HE / 45.000–60.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 9 – Lagerung von Waffen</h3>
+<h3>§ 9 – Unsachgemäße Lagerung</h3>
 <span class="paragraph-number">WAFFG-09</span>
 </div>
 <p>
 Waffen sind so aufzubewahren, dass ein unbefugter Zugriff
-verhindert wird.
+verhindert wird. Wer Waffen absichtlich oder grob fahrlässig
+für Unbefugte zugänglich macht, kann belangt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Ziel ist es, zu verhindern, dass Waffen in die Hände von
+Personen gelangen, die keine Berechtigung besitzen.
+</div>
+<span class="penalty">Strafmaß: 15–30 HE / 15.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1810,75 +2118,60 @@ verhindert wird.
 <span class="paragraph-number">WAFFG-10</span>
 </div>
 <p>
-Eine verbotene Waffe kann freiwillig bei einer zuständigen
-Behörde abgegeben werden. Unter bestimmten Voraussetzungen
-kann dies bei der Bewertung des Sachverhalts berücksichtigt werden.
+Eine verbotene oder nicht zugelassene Waffe kann freiwillig
+bei einer zuständigen Behörde abgegeben werden. Die freiwillige
+Abgabe kann bei der Bewertung eines vorherigen unerlaubten
+Besitzes berücksichtigt werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Regelung schafft einen Anreiz, unerlaubte Waffen aus
+dem Verkehr zu nehmen und freiwillig an Behörden zu übergeben.
+</div>
+<span class="penalty">Strafmaß bei Nichtbefolgung: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 11 – Waffenlizenz</h3>
+<h3>§ 11 – Waffen in öffentlichen Einrichtungen</h3>
 <span class="paragraph-number">WAFFG-11</span>
 </div>
 <p>
-Eine Waffenlizenz kann durch die zuständige Behörde erteilt,
-beschränkt, ausgesetzt oder widerrufen werden.
+Das Mitführen von Waffen in besonders geschützten öffentlichen
+Einrichtungen kann untersagt sein. Entsprechende Verbote
+sind zu beachten.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Schutzbereiche sollen das Risiko bewaffneter Zwischenfälle
+in Einrichtungen mit besonderer öffentlicher Bedeutung
+reduzieren.
+</div>
+<span class="penalty">Strafmaß: 25–40 HE / 25.000–40.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 12 – Entzug der Waffenlizenz</h3>
+<h3>§ 12 – Weitergabe einer Waffenberechtigung</h3>
 <span class="paragraph-number">WAFFG-12</span>
 </div>
 <p>
-Bei wiederholten Verstößen, Missbrauch einer Waffe oder
-fehlender Zuverlässigkeit kann eine Waffenlizenz entzogen werden.
+Eine Waffenberechtigung darf nicht an andere Personen
+übertragen oder für Personen verwendet werden, die selbst
+keine entsprechende Berechtigung besitzen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Genehmigungen sind grundsätzlich personenbezogen. Eine
+Person darf ihre Berechtigung nicht dazu verwenden,
+unerlaubten Waffenbesitz anderer Personen zu ermöglichen.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 13 – Waffenhandel ohne Genehmigung</h3>
-<span class="paragraph-number">WAFFG-13</span>
-</div>
-<p>
-Der gewerbliche Handel mit Waffen bedarf einer entsprechenden
-staatlichen Zulassung.
-</p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 20.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 14 – Übergabe einer Waffe</h3>
-<span class="paragraph-number">WAFFG-14</span>
-</div>
-<p>
-Eine Waffe darf nur an Personen übergeben werden, die
-zum Besitz oder Führen der betreffenden Waffe berechtigt sind.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 15 – Waffen in Sicherheitsbereichen</h3>
-<span class="paragraph-number">WAFFG-15</span>
-</div>
-<p>
-Das Mitführen von Waffen in besonders geschützten
-staatlichen Bereichen kann unabhängig von einer allgemeinen
-Waffenlizenz untersagt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
-
+</div>
 </section>
-
 
 <!-- =========================================================
      BTMG
@@ -1886,13 +2179,25 @@ Waffenlizenz untersagt werden.
 
 <section class="law-book" id="btmg">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+<div class="book-title-area">
 <div class="book-number">Gesetzbuch IV</div>
 <h2>Betäubungsmittelgesetz – BtMG</h2>
-<p>
-Das Betäubungsmittelgesetz regelt Besitz, Herstellung,
-Handel, Weitergabe und Einfuhr kontrollierter Substanzen.
-</p>
+<p>Regelt Besitz, Weitergabe, Handel und sonstigen Umgang mit verbotenen Substanzen.</p>
+</div>
+<div class="book-meta">
+<span class="paragraph-count">10 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Geltungsbereich:</strong>
+Das BtMG regelt den Umgang mit kontrollierten und verbotenen
+Substanzen. Menge, Zweck, Wiederholung und Beteiligung an
+Handelsstrukturen können bei der Strafzumessung berücksichtigt werden.
 </div>
 
 <div class="paragraph">
@@ -1902,22 +2207,33 @@ Handel, Weitergabe und Einfuhr kontrollierter Substanzen.
 </div>
 <p>
 Der Besitz nicht genehmigter Betäubungsmittel ist verboten.
-Art, Menge und Umstände können bei der Strafzumessung
-berücksichtigt werden.
+Art, Menge und Umstände des Besitzes können bei der
+Strafzumessung berücksichtigt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Bereits der bewusste Besitz einer verbotenen Substanz kann
+einen Verstoß darstellen. Größere Mengen oder Hinweise auf
+eine Weitergabe können zu einer höheren Bewertung führen.
+</div>
+<span class="penalty">Strafmaß: 15–30 HE / 15.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 2 – Handel</h3>
+<h3>§ 2 – Handel mit Betäubungsmitteln</h3>
 <span class="paragraph-number">BTMG-02</span>
 </div>
 <p>
-Wer Betäubungsmittel unerlaubt anbietet, verkauft,
-vermittelt oder gewerbsmäßig weitergibt, macht sich strafbar.
+Wer Betäubungsmittel unerlaubt anbietet, verkauft, vermittelt
+oder gewerbsmäßig weitergibt, macht sich strafbar.
 </p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Handel wird schwerer bewertet, weil dadurch verbotene
+Substanzen gezielt weiteren Personen zugänglich gemacht werden.
+</div>
+<span class="penalty">Strafmaß: 35–50 HE / 35.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1929,7 +2245,13 @@ vermittelt oder gewerbsmäßig weitergibt, macht sich strafbar.
 Die unerlaubte Herstellung oder Verarbeitung von
 Betäubungsmitteln ist verboten.
 </p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Herstellung stellt eine aktive Vergrößerung des
+verbotenen Angebots dar. Umfang, Organisation und Zweck
+können die Strafe erhöhen.
+</div>
+<span class="penalty">Strafmaß: 30–45 HE / 30.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1939,9 +2261,15 @@ Betäubungsmitteln ist verboten.
 </div>
 <p>
 Die unerlaubte Einfuhr oder Ausfuhr von Betäubungsmitteln
-ist strafbar.
+ist strafbar. Organisiertes oder gewerbsmäßiges Vorgehen
+kann zu einer höheren Strafe führen.
 </p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der grenzüberschreitende Transport erschwert die Kontrolle
+verbotener Substanzen und wird deshalb besonders berücksichtigt.
+</div>
+<span class="penalty">Strafmaß: 35–50 HE / 35.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1951,10 +2279,16 @@ ist strafbar.
 </div>
 <p>
 Wer Betäubungsmittel unentgeltlich an eine andere Person
-weitergibt oder zur Verfügung stellt, kann ebenfalls
-strafrechtlich verfolgt werden.
+weitergibt oder zur Verfügung stellt, kann strafrechtlich
+verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine Zahlung ist nicht zwingend erforderlich. Auch die
+kostenlose Weitergabe kann dazu führen, dass eine weitere
+Person Zugang zu verbotenen Substanzen erhält.
+</div>
+<span class="penalty">Strafmaß: 25–40 HE / 25.000–40.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -1964,15 +2298,21 @@ strafrechtlich verfolgt werden.
 </div>
 <p>
 Der Konsum verbotener Substanzen in besonders geschützten
-oder stark frequentierten öffentlichen Bereichen kann
-zusätzlich verfolgt werden.
+oder öffentlich stark frequentierten Bereichen kann zusätzlich
+als Verstoß verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 5 HE / 5.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Besonders berücksichtigt wird, wenn durch den Konsum
+unbeteiligte Personen, Minderjährige oder Einrichtungen
+mit besonderem Schutzbedarf betroffen werden.
+</div>
+<span class="penalty">Strafmaß: 10–25 HE / 10.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 7 – Handel in größerem Umfang</h3>
+<h3>§ 7 – Drogenhandel in größerem Umfang</h3>
 <span class="paragraph-number">BTMG-07</span>
 </div>
 <p>
@@ -1980,76 +2320,74 @@ Wer wiederholt oder in erheblichem Umfang mit
 Betäubungsmitteln handelt, kann aufgrund der besonderen
 Schwere der Tat mit einer erhöhten Strafe belegt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 20.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Wiederholter Handel und große Mengen können auf eine
+organisierte oder gewerbsmäßige Struktur hinweisen.
+</div>
+<span class="penalty">Strafmaß: 45–60 HE / 45.000–60.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 8 – Besitz in öffentlichen Einrichtungen</h3>
+<h3>§ 8 – Besitz zum Zweck der Weitergabe</h3>
 <span class="paragraph-number">BTMG-08</span>
 </div>
 <p>
-Der Besitz verbotener Substanzen innerhalb besonders
-geschützter öffentlicher Einrichtungen kann erschwerend
-berücksichtigt werden.
+Wer Betäubungsmittel bewusst mitführt oder lagert, um diese
+später an andere Personen weiterzugeben, kann entsprechend
+der geplanten Weitergabe bestraft werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Entscheidend ist der nachweisbare Zweck der Weitergabe.
+Menge, Verpackung und sonstige Umstände können bei der
+Bewertung berücksichtigt werden.
+</div>
+<span class="penalty">Strafmaß: 30–45 HE / 30.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 9 – Verteilung</h3>
+<h3>§ 9 – Verdeckter Drogenhandel</h3>
 <span class="paragraph-number">BTMG-09</span>
 </div>
 <p>
-Die organisierte Verteilung verbotener Substanzen an
-mehrere Personen stellt einen erschwerten Verstoß dar.
+Wer den Handel mit Betäubungsmitteln durch Täuschung,
+Scheingeschäfte oder andere Verschleierungsmaßnahmen
+organisiert, kann wegen erschwerender Umstände höher
+bestraft werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 18 HE / 18.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die zusätzliche Verschleierung erschwert die Aufklärung
+und kann auf eine geplante Vorgehensweise hinweisen.
+</div>
+<span class="penalty">Strafmaß: 40–55 HE / 40.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 10 – Drogenorganisation</h3>
+<h3>§ 10 – Organisierter Betäubungsmittelhandel</h3>
 <span class="paragraph-number">BTMG-10</span>
 </div>
 <p>
-Wer sich mit anderen Personen zusammenschließt, um
-systematisch mit Betäubungsmitteln zu handeln, kann
-zusätzlich wegen organisierter Drogenkriminalität verfolgt werden.
+Wer sich dauerhaft mit mehreren Personen organisiert, um
+Betäubungsmittel herzustellen, zu transportieren oder zu
+verkaufen, kann wegen besonders schweren Handels verfolgt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 25 HE / 30.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Kombination aus Organisation, Dauer und Umfang erhöht
+die Gefährlichkeit der Tat und rechtfertigt den höchsten
+Strafrahmen dieses Gesetzbuches.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 11 – Besitz großer Mengen</h3>
-<span class="paragraph-number">BTMG-11</span>
-</div>
-<p>
-Der Besitz einer erheblichen Menge kann als besonders
-schwerer Verstoß eingestuft werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 25.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 12 – Drogenlager</h3>
-<span class="paragraph-number">BTMG-12</span>
-</div>
-<p>
-Das Betreiben eines Ortes zur Lagerung oder systematischen
-Verteilung verbotener Substanzen stellt einen schweren
-Verstoß dar.
-</p>
-<span class="penalty">Strafmaß: bis zu 25 HE / 30.000 €</span>
+<span class="penalty">Strafmaß: 50–60 HE / 50.000–60.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
-
+</div>
 </section>
-
 
 <!-- =========================================================
      POLIZEIGESETZ
@@ -2057,13 +2395,25 @@ Verstoß dar.
 
 <section class="law-book" id="polizei">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+<div class="book-title-area">
 <div class="book-number">Gesetzbuch V</div>
 <h2>Polizeigesetz – PolG</h2>
-<p>
-Das Polizeigesetz bestimmt Aufgaben, Befugnisse und Grenzen
-staatlicher Polizeibehörden.
-</p>
+<p>Bestimmt Aufgaben, Befugnisse und Grenzen der Polizeibehörden.</p>
+</div>
+<div class="book-meta">
+<span class="paragraph-count">10 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Grundsatz:</strong>
+Polizeiliche Maßnahmen müssen auf einer gesetzlichen Grundlage
+beruhen und verhältnismäßig sein. Die Polizei dient der Abwehr
+konkreter Gefahren und dem Schutz der öffentlichen Sicherheit.
 </div>
 
 <div class="paragraph">
@@ -2073,8 +2423,16 @@ staatlicher Polizeibehörden.
 </div>
 <p>
 Die Polizei gewährleistet die öffentliche Sicherheit und
-Ordnung und trifft erforderliche Maßnahmen zur Gefahrenabwehr.
+Ordnung und trifft die erforderlichen Maßnahmen zur Abwehr
+konkreter Gefahren.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Polizei schützt Personen, Eigentum und staatliche
+Einrichtungen. Sie darf dabei nur Maßnahmen ergreifen,
+für die eine entsprechende gesetzliche Grundlage besteht.
+</div>
+<span class="penalty">Verstoß gegen polizeiliche Anordnung: 10–20 HE / 10.000–20.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2083,10 +2441,17 @@ Ordnung und trifft erforderliche Maßnahmen zur Gefahrenabwehr.
 <span class="paragraph-number">POLG-02</span>
 </div>
 <p>
-Die Polizei darf die Identität einer Person feststellen,
-wenn hierfür eine gesetzliche Grundlage besteht oder
-eine konkrete Gefahr abgewehrt werden muss.
+Die Polizei ist berechtigt, die Identität einer Person
+festzustellen, wenn hierfür eine gesetzliche Grundlage
+besteht oder eine konkrete Gefahr abgewehrt werden muss.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine Identitätsfeststellung kann insbesondere erforderlich
+sein, wenn eine Person mit einem Vorfall in Verbindung
+steht oder eine konkrete Gefahr besteht.
+</div>
+<span class="penalty">Verweigerung einer rechtmäßigen Maßnahme: 15–25 HE / 15.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2099,6 +2464,12 @@ Eine Person kann aus einem bestimmten Bereich verwiesen
 werden, wenn dies zur Abwehr einer konkreten Gefahr
 erforderlich ist.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der Platzverweis soll eine Gefahr schnell beenden, ohne
+dass zwingend eine weitergehende Maßnahme erforderlich ist.
+</div>
+<span class="penalty">Missachtung: 15–30 HE / 15.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2111,6 +2482,13 @@ Personen und Sachen dürfen unter den gesetzlich bestimmten
 Voraussetzungen durchsucht werden. Die Maßnahme muss
 verhältnismäßig sein.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Durchsuchungen sind Eingriffe in persönliche Rechte und
+dürfen daher nicht ohne rechtliche Grundlage oder ohne
+entsprechenden Grund durchgeführt werden.
+</div>
+<span class="penalty">Widerstand gegen rechtmäßige Durchsuchung: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2123,6 +2501,13 @@ Eine Person kann in Gewahrsam genommen werden, wenn dies
 zur Abwehr einer gegenwärtigen Gefahr oder aufgrund einer
 anderen gesetzlichen Grundlage erforderlich ist.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Gewahrsam ist eine besonders eingriffsintensive Maßnahme
+und darf deshalb nur bei Vorliegen der entsprechenden
+Voraussetzungen eingesetzt werden.
+</div>
+<span class="penalty">Widerstand: 25–40 HE / 25.000–40.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2132,8 +2517,16 @@ anderen gesetzlichen Grundlage erforderlich ist.
 </div>
 <p>
 Gegenstände können sichergestellt werden, wenn von ihnen
-eine Gefahr ausgeht oder sie als Beweismittel benötigt werden.
+eine Gefahr ausgeht oder sie für ein Verfahren als
+Beweismittel benötigt werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine Sicherstellung verhindert, dass gefährliche oder
+verfahrensrelevante Gegenstände verschwinden, benutzt
+oder verändert werden.
+</div>
+<span class="penalty">Widerrechtliche Rücknahme: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2142,9 +2535,17 @@ eine Gefahr ausgeht oder sie als Beweismittel benötigt werden.
 <span class="paragraph-number">POLG-07</span>
 </div>
 <p>
-Polizeiliche Anordnungen sind zu befolgen, sofern sie
-rechtmäßig erlassen wurden.
+Rechtmäßige polizeiliche Anordnungen sind grundsätzlich
+zu befolgen. Gegen rechtswidrige Maßnahmen stehen die
+vorgesehenen Rechtsmittel zur Verfügung.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Bürger sollen rechtmäßige Anweisungen befolgen und können
+gleichzeitig eine Überprüfung einer möglicherweise
+rechtswidrigen Maßnahme verlangen.
+</div>
+<span class="penalty">Missachtung: 15–30 HE / 15.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2153,9 +2554,17 @@ rechtmäßig erlassen wurden.
 <span class="paragraph-number">POLG-08</span>
 </div>
 <p>
-Unmittelbarer Zwang darf nur eingesetzt werden, wenn
-dies gesetzlich zulässig und erforderlich ist.
+Unmittelbarer Zwang darf nur eingesetzt werden, wenn dies
+gesetzlich zulässig und zur Erfüllung einer rechtmäßigen
+polizeilichen Maßnahme erforderlich ist.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Anwendung staatlicher Gewalt muss immer auf das
+erforderliche Maß begrenzt bleiben. Unnötige oder
+unverhältnismäßige Gewalt ist unzulässig.
+</div>
+<span class="penalty">Missbrauch: 30–50 HE / 30.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2164,152 +2573,65 @@ dies gesetzlich zulässig und erforderlich ist.
 <span class="paragraph-number">POLG-09</span>
 </div>
 <p>
-Jede polizeiliche Maßnahme muss geeignet, erforderlich
-und angemessen sein.
+Jede polizeiliche Maßnahme muss geeignet, erforderlich und
+angemessen sein. Grundsätzlich ist die mildeste geeignete
+Maßnahme vorzuziehen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift bildet eine zentrale Grenze staatlicher
+Eingriffe und verhindert unnötig starke Maßnahmen.
+</div>
+<span class="penalty">Schwerer Missbrauch: 35–55 HE / 35.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 10 – Gefahrenabwehr</h3>
+<h3>§ 10 – Schutz staatlicher Einrichtungen</h3>
 <span class="paragraph-number">POLG-10</span>
 </div>
 <p>
-Die Polizei darf Maßnahmen treffen, wenn eine konkrete
-Gefahr für Personen, Eigentum oder öffentliche Einrichtungen
-besteht.
+Die Polizei darf besondere Schutzmaßnahmen für gefährdete
+staatliche Einrichtungen treffen, wenn konkrete Anhaltspunkte
+für eine Gefahr bestehen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Dazu können Absperrungen, Kontrollen oder zusätzliche
+Sicherheitsmaßnahmen gehören, sofern sie gesetzlich
+gerechtfertigt und verhältnismäßig sind.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 11 – Absperrung</h3>
-<span class="paragraph-number">POLG-11</span>
-</div>
-<p>
-Gefahrenbereiche können abgesperrt werden, wenn dies
-zur Verhinderung weiterer Schäden erforderlich ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 12 – Beschlagnahme</h3>
-<span class="paragraph-number">POLG-12</span>
-</div>
-<p>
-Gegenstände können nach Maßgabe der gesetzlichen
-Voraussetzungen beschlagnahmt werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 13 – Polizeiliche Kontrolle</h3>
-<span class="paragraph-number">POLG-13</span>
-</div>
-<p>
-Die Polizei darf Kontrollen durchführen, wenn hierfür
-eine gesetzliche Grundlage oder ein konkreter Anlass besteht.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 14 – Vorläufige Festnahme</h3>
-<span class="paragraph-number">POLG-14</span>
-</div>
-<p>
-Eine vorläufige Festnahme ist unter den gesetzlich
-vorgesehenen Voraussetzungen zulässig.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 15 – Schutz staatlicher Einrichtungen</h3>
-<span class="paragraph-number">POLG-15</span>
-</div>
-<p>
-Staatliche Einrichtungen können durch besondere
-Sicherheitsmaßnahmen geschützt werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 16 – Schutz gefährdeter Personen</h3>
-<span class="paragraph-number">POLG-16</span>
-</div>
-<p>
-Die Polizei kann Schutzmaßnahmen für Personen treffen,
-wenn eine konkrete Gefährdung besteht.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 17 – Polizeiliche Dokumentation</h3>
-<span class="paragraph-number">POLG-17</span>
-</div>
-<p>
-Wesentliche polizeiliche Maßnahmen sind entsprechend
-den internen und gesetzlichen Vorgaben zu dokumentieren.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 18 – Zeugenschutz</h3>
-<span class="paragraph-number">POLG-18</span>
-</div>
-<p>
-Bei erheblicher Gefährdung können geeignete Maßnahmen
-zum Schutz von Zeugen getroffen werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 19 – Polizeilicher Notstand</h3>
-<span class="paragraph-number">POLG-19</span>
-</div>
-<p>
-Bei außergewöhnlichen Gefahrenlagen können besondere
-polizeiliche Maßnahmen angeordnet werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 20 – Verantwortlichkeit</h3>
-<span class="paragraph-number">POLG-20</span>
-</div>
-<p>
-Polizeiliche Maßnahmen richten sich grundsätzlich gegen
-die Person oder Sache, von der eine konkrete Gefahr ausgeht,
-soweit gesetzlich nichts anderes bestimmt ist.
-</p>
+<span class="penalty">Missachtung einer Schutzmaßnahme: 20–40 HE / 20.000–40.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
-
+</div>
 </section>
 
-
 <!-- =========================================================
-     GERICHT
+     GERICHTSGESETZ
 ========================================================= -->
 
 <section class="law-book" id="gericht">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+<div class="book-title-area">
 <div class="book-number">Gesetzbuch VI</div>
 <h2>Gerichtsgesetz – GVG</h2>
-<p>
-Das Gerichtsgesetz regelt Organisation, Zuständigkeit
-und grundlegende Arbeitsweise der Gerichte von Final City.
-</p>
+<p>Regelt Organisation, Zuständigkeit und grundlegende Arbeitsweise der Gerichte.</p>
+</div>
+<div class="book-meta">
+<span class="paragraph-count">10 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Grundsatz:</strong>
+Die Gerichte entscheiden unabhängig auf Grundlage der geltenden
+Gesetze und der im Verfahren festgestellten Tatsachen.
 </div>
 
 <div class="paragraph">
@@ -2321,6 +2643,13 @@ und grundlegende Arbeitsweise der Gerichte von Final City.
 Die Rechtsprechung ist unabhängig und wird ausschließlich
 nach Maßgabe der geltenden Gesetze ausgeübt.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Gerichtliche Entscheidungen dürfen nicht aufgrund persönlicher
+Vorteile, politischer Einflussnahme oder sonstiger unzulässiger
+Einwirkungen getroffen werden.
+</div>
+<span class="penalty">Verstoß: 30–50 HE / 30.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2329,9 +2658,16 @@ nach Maßgabe der geltenden Gesetze ausgeübt.
 <span class="paragraph-number">GVG-02</span>
 </div>
 <p>
-Gerichte entscheiden über die ihnen gesetzlich
+Die Gerichte entscheiden über die ihnen gesetzlich
 zugewiesenen Straf- und Zivilsachen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Jedes Gericht verfügt über einen bestimmten Zuständigkeitsbereich.
+Verfahren sollen dort durchgeführt werden, wo die gesetzliche
+Zuständigkeit gegeben ist.
+</div>
+<span class="penalty">Missachtung: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2341,8 +2677,16 @@ zugewiesenen Straf- und Zivilsachen.
 </div>
 <p>
 Gerichtliche Verfahren werden nach den geltenden
-Verfahrensvorschriften durchgeführt.
+Verfahrensvorschriften durchgeführt. Beteiligte Personen
+sind grundsätzlich anzuhören.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine geordnete Verhandlung soll gewährleisten, dass die
+Beteiligten ihre Sicht darstellen und das Gericht den
+Sachverhalt vollständig beurteilen kann.
+</div>
+<span class="penalty">Störung der Verhandlung: 10–25 HE / 10.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2351,9 +2695,16 @@ Verfahrensvorschriften durchgeführt.
 <span class="paragraph-number">GVG-04</span>
 </div>
 <p>
-Eine gerichtliche Entscheidung hat die maßgeblichen
-Tatsachen und die rechtliche Würdigung zu berücksichtigen.
+Eine gerichtliche Entscheidung hat die maßgeblichen Tatsachen
+und die rechtliche Würdigung des Sachverhalts zu berücksichtigen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Ein Urteil soll nachvollziehbar erkennen lassen, welche
+Tatsachen festgestellt und welche gesetzlichen Vorschriften
+angewendet wurden.
+</div>
+<span class="penalty">Manipulation: 35–55 HE / 35.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2362,9 +2713,16 @@ Tatsachen und die rechtliche Würdigung zu berücksichtigen.
 <span class="paragraph-number">GVG-05</span>
 </div>
 <p>
-Richterliche Entscheidungen sind auf Grundlage der
-vorliegenden Beweise und geltenden Gesetze zu treffen.
+Richterliche Entscheidungen sind auf Grundlage der vorliegenden
+Beweise, der geltenden Gesetze und der im Verfahren
+festgestellten Tatsachen zu treffen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Persönliche Interessen oder externe Einflussnahme dürfen
+die gerichtliche Entscheidung nicht bestimmen.
+</div>
+<span class="penalty">Korruption: 45–60 HE / 45.000–60.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2373,9 +2731,17 @@ vorliegenden Beweise und geltenden Gesetze zu treffen.
 <span class="paragraph-number">GVG-06</span>
 </div>
 <p>
-Bei begründeten Zweifeln an der Unparteilichkeit eines
-Entscheidungsträgers kann ein Ausschluss beantragt werden.
+Bestehen begründete Zweifel an der Unparteilichkeit eines
+Entscheidungsträgers, kann nach Maßgabe der Verfahrensordnung
+ein Antrag auf Ausschluss gestellt werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Regel schützt die Glaubwürdigkeit des Gerichts und
+stellt sicher, dass Fälle von neutralen Entscheidungsträgern
+bearbeitet werden.
+</div>
+<span class="penalty">Vorsätzliche Verschleierung: 30–50 HE / 30.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2384,70 +2750,76 @@ Entscheidungsträgers kann ein Ausschluss beantragt werden.
 <span class="paragraph-number">GVG-07</span>
 </div>
 <p>
-Gegen gerichtliche Entscheidungen können, soweit vorgesehen,
-Rechtsmittel eingelegt werden.
+Gegen gerichtliche Entscheidungen können, soweit gesetzlich
+vorgesehen, Rechtsmittel eingelegt werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Rechtsmittel ermöglichen eine erneute Prüfung bestimmter
+Entscheidungen und dienen damit der Kontrolle gerichtlicher
+Verfahren.
+</div>
+<span class="penalty">Missbrauch: 10–20 HE / 10.000–20.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 8 – Öffentlichkeit</h3>
+<h3>§ 8 – Gerichtliche Ordnung</h3>
 <span class="paragraph-number">GVG-08</span>
 </div>
 <p>
-Gerichtsverhandlungen sind grundsätzlich öffentlich,
-soweit gesetzliche Gründe einen Ausschluss rechtfertigen.
+Während einer Gerichtsverhandlung ist die erforderliche
+Ordnung einzuhalten. Anweisungen des Gerichts sind zu beachten,
+sofern sie rechtmäßig erlassen wurden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine geordnete Verhandlung ermöglicht es allen Beteiligten,
+ihre Rechte wahrzunehmen und verhindert Störungen des Verfahrens.
+</div>
+<span class="penalty">Strafmaß: 10–20 HE / 10.000–20.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 9 – Gerichtsordnung</h3>
+<h3>§ 9 – Beeinflussung eines Gerichts</h3>
 <span class="paragraph-number">GVG-09</span>
 </div>
 <p>
-Alle Beteiligten haben die Ordnung innerhalb des Gerichts
-zu beachten.
+Wer einen Richter oder eine andere am Verfahren beteiligte
+Person durch rechtswidrige Drohungen oder Vorteile beeinflussen
+will, macht sich strafbar.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift schützt die Unabhängigkeit der Rechtsprechung
+vor Druck, Bestechung und Einschüchterung.
+</div>
+<span class="penalty">Strafmaß: 35–55 HE / 35.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 10 – Richterliche Weisungen</h3>
+<h3>§ 10 – Missachtung gerichtlicher Anordnungen</h3>
 <span class="paragraph-number">GVG-10</span>
 </div>
 <p>
-Richterliche Anordnungen während einer Verhandlung sind
-zu beachten, soweit sie rechtmäßig erlassen wurden.
+Wer eine rechtmäßige gerichtliche Anordnung bewusst und
+wiederholt missachtet, kann entsprechend den gesetzlichen
+Voraussetzungen belangt werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Gerichtliche Verfahren funktionieren nur, wenn rechtmäßige
+Anordnungen umgesetzt werden. Wiederholte oder besonders
+schwere Verstöße können das Strafmaß erhöhen.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 11 – Gerichtsgebäude</h3>
-<span class="paragraph-number">GVG-11</span>
-</div>
-<p>
-Das Gerichtsgebäude ist ein geschützter staatlicher Bereich.
-Sicherheitskontrollen können angeordnet werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 12 – Gerichtspersonal</h3>
-<span class="paragraph-number">GVG-12</span>
-</div>
-<p>
-Gerichtspersonal hat seine Aufgaben neutral, gewissenhaft
-und nach den gesetzlichen Vorgaben auszuführen.
-</p>
+<span class="penalty">Strafmaß: 20–40 HE / 20.000–40.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
-
+</div>
 </section>
-
 
 <!-- =========================================================
      OWIG
@@ -2455,13 +2827,25 @@ und nach den gesetzlichen Vorgaben auszuführen.
 
 <section class="law-book" id="owig">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+<div class="book-title-area">
 <div class="book-number">Gesetzbuch VII</div>
 <h2>Ordnungswidrigkeitengesetz – OWiG</h2>
-<p>
-Das OWiG regelt Verstöße mit geringerem Unrechtsgehalt
-und die dafür vorgesehenen Verwarnungen und Bußgelder.
-</p>
+<p>Regelt geringere Verstöße und angemessene Bußgelder.</p>
+</div>
+<div class="book-meta">
+<span class="paragraph-count">8 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Grundsatz:</strong>
+Ordnungswidrigkeiten sind Verstöße mit geringerem Unrechtsgehalt.
+Je nach Schwere kann eine Verwarnung, ein Bußgeld oder eine
+weitergehende Maßnahme erfolgen.
 </div>
 
 <div class="paragraph">
@@ -2471,8 +2855,15 @@ und die dafür vorgesehenen Verwarnungen und Bußgelder.
 </div>
 <p>
 Eine Handlung kann als Ordnungswidrigkeit verfolgt werden,
-wenn sie durch Gesetz oder Verordnung entsprechend bestimmt ist.
+wenn sie durch Gesetz oder Verordnung ausdrücklich bestimmt ist.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Nicht jeder unerwünschte Sachverhalt ist automatisch eine
+Ordnungswidrigkeit. Eine entsprechende gesetzliche Grundlage
+muss vorhanden sein.
+</div>
+<span class="penalty">Bußgeld: 10–15 HE / 1.000–5.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2481,8 +2872,16 @@ wenn sie durch Gesetz oder Verordnung entsprechend bestimmt ist.
 <span class="paragraph-number">OWIG-02</span>
 </div>
 <p>
-Bei geringfügigen Verstößen kann eine Verwarnung ausgesprochen werden.
+Bei geringfügigen Verstößen kann eine Verwarnung ausgesprochen
+werden. Ziel ist insbesondere die Vermeidung weiterer Verstöße.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Verwarnung ermöglicht eine angemessene Reaktion auf
+geringfügiges Fehlverhalten, ohne unmittelbar eine schwere
+Sanktion anzuwenden.
+</div>
+<span class="penalty">Bußgeld bei Nichtbeachtung: 10–15 HE / 1.000–3.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2492,9 +2891,16 @@ Bei geringfügigen Verstößen kann eine Verwarnung ausgesprochen werden.
 </div>
 <p>
 Bei einer Ordnungswidrigkeit kann ein angemessenes Bußgeld
-verhängt werden.
+verhängt werden. Die Höhe richtet sich nach der Schwere
+des Verstoßes.
 </p>
-<span class="penalty">Bußgeld: bis zu 5.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Wiederholte Verstöße, erhebliche Folgen oder eine bewusste
+Missachtung von Vorschriften können zu einem höheren
+Bußgeld führen.
+</div>
+<span class="penalty">Bußgeld: 10–30 HE / 1.000–10.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2504,8 +2910,14 @@ verhängt werden.
 </div>
 <p>
 Bei wiederholten gleichartigen Verstößen kann ein höheres
-Bußgeld verhängt werden.
+Bußgeld verhängt werden, sofern dies gesetzlich vorgesehen ist.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Wiederholung zeigt, dass vorherige Maßnahmen keine
+ausreichende Wirkung erzielt haben.
+</div>
+<span class="penalty">Bußgeld: 15–35 HE / 2.000–15.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2514,9 +2926,16 @@ Bußgeld verhängt werden.
 <span class="paragraph-number">OWIG-05</span>
 </div>
 <p>
-Auch fahrlässige Verstöße können verfolgt werden,
-wenn dies ausdrücklich vorgesehen ist.
+Auch fahrlässige Verstöße können als Ordnungswidrigkeit
+verfolgt werden, wenn dies ausdrücklich vorgesehen ist.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine Person muss nicht immer absichtlich handeln. Wenn eine
+Vorschrift auch fahrlässiges Verhalten erfasst, kann bereits
+mangelnde Sorgfalt ausreichen.
+</div>
+<span class="penalty">Bußgeld: 10–20 HE / 1.000–5.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2525,73 +2944,83 @@ wenn dies ausdrücklich vorgesehen ist.
 <span class="paragraph-number">OWIG-06</span>
 </div>
 <p>
-Bei besonders geringfügigen Verstößen kann von einer
-weiteren Verfolgung abgesehen werden.
+Bei besonders geringfügigen Verstößen oder besonderen
+Umständen kann von einer weiteren Verfolgung abgesehen werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Regelung ermöglicht eine flexible und verhältnismäßige
+Behandlung geringfügiger Fälle.
+</div>
+<span class="penalty">Missbräuchliches Verhalten: 10–20 HE / 1.000–5.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 7 – Bußgeldbemessung</h3>
+<h3>§ 7 – Vollstreckung von Bußgeldern</h3>
 <span class="paragraph-number">OWIG-07</span>
 </div>
 <p>
-Bei der Bemessung des Bußgeldes können Schwere, Dauer,
-Folgen und Wiederholung des Verstoßes berücksichtigt werden.
+Rechtskräftig festgesetzte Bußgelder sind innerhalb der
+vorgesehenen Frist zu entrichten, sofern keine abweichende
+Regelung getroffen wurde.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die fristgerechte Zahlung verhindert zusätzliche Vollstreckungs-
+maßnahmen. Bei berechtigten Gründen können gesetzliche
+Erleichterungen vorgesehen werden.
+</div>
+<span class="penalty">Missachtung: 15–30 HE / 2.000–10.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 8 – Verwarnungsgeld</h3>
+<h3>§ 8 – Umgehung von Sanktionen</h3>
 <span class="paragraph-number">OWIG-08</span>
 </div>
 <p>
-Bei geringfügigen Verstößen kann anstelle eines regulären
-Bußgeldverfahrens ein Verwarnungsgeld erhoben werden.
+Wer bewusst versucht, ein rechtskräftiges Bußgeld durch
+Täuschung, falsche Angaben oder andere rechtswidrige Mittel
+zu umgehen, kann zusätzlich belangt werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift schützt die Durchsetzbarkeit rechtskräftiger
+Entscheidungen.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Einspruch</h3>
-<span class="paragraph-number">OWIG-09</span>
-</div>
-<p>
-Gegen einen Bußgeldbescheid kann innerhalb der vorgesehenen
-Frist Einspruch eingelegt werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 10 – Vollstreckung</h3>
-<span class="paragraph-number">OWIG-10</span>
-</div>
-<p>
-Rechtskräftige Bußgeldentscheidungen können nach den
-geltenden Vorschriften vollstreckt werden.
-</p>
+<span class="penalty">Strafmaß: 20–35 HE / 5.000–15.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
-
+</div>
 </section>
 
-
 <!-- =========================================================
-     VERSAMMLUNG
+     VERSG
 ========================================================= -->
 
 <section class="law-book" id="versammlung">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+<div class="book-title-area">
 <div class="book-number">Gesetzbuch VIII</div>
 <h2>Versammlungsgesetz – VersG</h2>
-<p>
-Das Versammlungsgesetz schützt friedliche Versammlungen
-und regelt deren Durchführung und Auflösung.
-</p>
+<p>Regelt öffentliche Versammlungen, Kundgebungen und Demonstrationen.</p>
+</div>
+<div class="book-meta">
+<span class="paragraph-count">8 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Grundsatz:</strong>
+Friedliche Versammlungen stehen unter besonderem Schutz.
+Gewalt, erhebliche Störungen und verbotene Gegenstände
+können jedoch zu Maßnahmen und Sanktionen führen.
 </div>
 
 <div class="paragraph">
@@ -2603,6 +3032,12 @@ und regelt deren Durchführung und Auflösung.
 Jede Person darf sich im Rahmen der geltenden Gesetze
 friedlich zu einer öffentlichen Versammlung zusammenfinden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der Paragraph schützt das Recht, gemeinsam öffentlich
+Meinungen auszutauschen und Anliegen vorzutragen.
+</div>
+<span class="penalty">Missbrauch der Versammlung: 10–20 HE / 10.000–20.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2612,9 +3047,15 @@ friedlich zu einer öffentlichen Versammlung zusammenfinden.
 </div>
 <p>
 Eine Versammlung muss friedlich durchgeführt werden.
-Gewalttätige Handlungen sind unzulässig.
+Gewalttätige Handlungen oder die unmittelbare Androhung
+solcher Handlungen sind unzulässig.
 </p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Versammlungsfreiheit schützt friedliches Verhalten,
+nicht jedoch Gewalt oder gezielte Angriffe auf andere Personen.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2623,9 +3064,16 @@ Gewalttätige Handlungen sind unzulässig.
 <span class="paragraph-number">VERSG-03</span>
 </div>
 <p>
-Eine Versammlung kann aufgelöst werden, wenn die
-gesetzlichen Voraussetzungen hierfür vorliegen.
+Eine Versammlung kann aufgelöst werden, wenn die gesetzlichen
+Voraussetzungen erfüllt sind oder eine konkrete erhebliche
+Gefahr für die öffentliche Sicherheit besteht.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine Auflösung stellt einen erheblichen Eingriff dar und
+soll deshalb nur bei entsprechender Gefahrenlage erfolgen.
+</div>
+<span class="penalty">Widerstand: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2634,11 +3082,17 @@ gesetzlichen Voraussetzungen hierfür vorliegen.
 <span class="paragraph-number">VERSG-04</span>
 </div>
 <p>
-Das gezielte Verdecken der Identität während einer
-Versammlung kann unter den gesetzlichen Voraussetzungen
-eingeschränkt werden.
+Das gezielte Verdecken der Identität während einer Versammlung
+kann eingeschränkt werden, wenn dies zur Durchsetzung
+gesetzlicher Vorschriften erforderlich ist.
 </p>
-<span class="penalty">Strafmaß: bis zu 4 HE / 4.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Vorschrift soll ermöglichen, Personen bei schweren
+Verstößen eindeutig zu identifizieren, ohne friedliche
+Teilnahme unnötig einzuschränken.
+</div>
+<span class="penalty">Strafmaß: 15–25 HE / 15.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2648,9 +3102,16 @@ eingeschränkt werden.
 </div>
 <p>
 Das Mitführen von Waffen auf öffentlichen Versammlungen
-ist untersagt, soweit keine ausdrückliche Ausnahme besteht.
+ist untersagt, soweit keine ausdrückliche gesetzliche
+Ausnahme besteht.
 </p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Waffen erhöhen das Risiko von Eskalationen und gefährlichen
+Auseinandersetzungen. Deshalb gelten innerhalb von
+Versammlungsbereichen besondere Einschränkungen.
+</div>
+<span class="penalty">Strafmaß: 30–45 HE / 30.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2659,63 +3120,60 @@ ist untersagt, soweit keine ausdrückliche Ausnahme besteht.
 <span class="paragraph-number">VERSG-06</span>
 </div>
 <p>
-Wer eine friedliche Versammlung vorsätzlich erheblich
-stört oder Teilnehmer durch Gewalt an der Teilnahme hindert,
+Wer eine friedliche Versammlung vorsätzlich erheblich stört
+oder Teilnehmer durch Gewalt an der Teilnahme hindert,
 kann strafrechtlich belangt werden.
 </p>
-<span class="penalty">Strafmaß: bis zu 6 HE / 6.000 €</span>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Geschützt werden sowohl die Veranstalter als auch die
+Teilnehmer einer rechtmäßigen friedlichen Versammlung.
+</div>
+<span class="penalty">Strafmaß: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 7 – Versammlungsleitung</h3>
+<h3>§ 7 – Gewalt gegen Teilnehmer</h3>
 <span class="paragraph-number">VERSG-07</span>
 </div>
 <p>
-Die Versammlungsleitung ist für einen ordnungsgemäßen
-Ablauf der Versammlung verantwortlich.
+Wer Teilnehmer einer Versammlung körperlich angreift oder
+durch Gewalt an der friedlichen Teilnahme hindert, wird
+nach den einschlägigen gesetzlichen Vorschriften verfolgt.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Neben diesem Paragraphen können bei einer tatsächlichen
+Körperverletzung weitere Vorschriften des Strafgesetzbuches
+Anwendung finden.
+</div>
+<span class="penalty">Strafmaß: 30–50 HE / 30.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 8 – Polizeiliche Begleitung</h3>
+<h3>§ 8 – Missbrauch einer Versammlung</h3>
 <span class="paragraph-number">VERSG-08</span>
 </div>
 <p>
-Die zuständige Polizei kann eine Versammlung begleiten,
-wenn dies zum Schutz der Teilnehmer oder Dritter erforderlich ist.
+Wer eine Versammlung gezielt als Deckmantel für schwere
+Straftaten, Gewalttaten oder organisierte rechtswidrige
+Handlungen nutzt, kann entsprechend der begangenen Taten
+zusätzlich verfolgt werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der friedliche Charakter einer Versammlung schützt keine
+Person, die diese bewusst zur Durchführung schwerer
+Straftaten missbraucht.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Gefährliche Gegenstände</h3>
-<span class="paragraph-number">VERSG-09</span>
-</div>
-<p>
-Das Mitführen gefährlicher Gegenstände kann bei öffentlichen
-Versammlungen untersagt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 8 HE / 8.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 10 – Behinderung einer Versammlung</h3>
-<span class="paragraph-number">VERSG-10</span>
-</div>
-<p>
-Wer eine rechtmäßig stattfindende Versammlung vorsätzlich
-und erheblich behindert, kann belangt werden.
-</p>
-<span class="penalty">Bußgeld: bis zu 5.000 €</span>
+<span class="penalty">Strafmaß: 35–55 HE / 35.000–55.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
-
+</div>
 </section>
-
 
 <!-- =========================================================
      STPO
@@ -2723,13 +3181,25 @@ und erheblich behindert, kann belangt werden.
 
 <section class="law-book" id="stpo">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+<div class="book-title-area">
 <div class="book-number">Gesetzbuch IX</div>
 <h2>Strafprozessordnung – StPO</h2>
-<p>
-Die StPO regelt Ermittlungs- und Strafverfahren sowie
-die Rechte und Pflichten der Verfahrensbeteiligten.
-</p>
+<p>Regelt Ermittlungsverfahren, Beschuldigtenrechte, Beweise und Strafverfahren.</p>
+</div>
+<div class="book-meta">
+<span class="paragraph-count">10 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Grundsatz:</strong>
+Die StPO soll ein geordnetes und faires Strafverfahren
+gewährleisten. Ermittlungsbehörden und Gerichte müssen
+gesetzliche Verfahrensregeln und Rechte beachten.
 </div>
 
 <div class="paragraph">
@@ -2738,9 +3208,16 @@ die Rechte und Pflichten der Verfahrensbeteiligten.
 <span class="paragraph-number">STPO-01</span>
 </div>
 <p>
-Bei einem Anfangsverdacht einer Straftat können die
-zuständigen Behörden ein Ermittlungsverfahren einleiten.
+Bei einem Anfangsverdacht einer Straftat können die zuständigen
+Behörden ein Ermittlungsverfahren einleiten.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Das Ermittlungsverfahren dient dazu, den Sachverhalt zu
+klären, Beweise zu sichern und festzustellen, ob ein
+hinreichender Tatverdacht besteht.
+</div>
+<span class="penalty">Behinderung eines rechtmäßigen Verfahrens: 20–35 HE / 20.000–35.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2752,6 +3229,12 @@ zuständigen Behörden ein Ermittlungsverfahren einleiten.
 Eine beschuldigte Person ist über die gegen sie erhobenen
 Vorwürfe und ihre gesetzlich vorgesehenen Rechte zu belehren.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine Person soll wissen, weshalb gegen sie ermittelt wird
+und welche Rechte sie im Verfahren besitzt.
+</div>
+<span class="penalty">Verletzung wesentlicher Rechte: 30–50 HE / 30.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2763,6 +3246,13 @@ Vorwürfe und ihre gesetzlich vorgesehenen Rechte zu belehren.
 Zur Aufklärung einer Straftat dürfen gesetzlich zulässige
 Beweismittel erhoben, gesichert und ausgewertet werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Beweise sollen den tatsächlichen Sachverhalt möglichst
+zuverlässig feststellen. Unzulässige Manipulation oder
+bewusste Verfälschung kann zusätzliche Konsequenzen haben.
+</div>
+<span class="penalty">Beweismanipulation: 35–55 HE / 35.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2771,9 +3261,15 @@ Beweismittel erhoben, gesichert und ausgewertet werden.
 <span class="paragraph-number">STPO-04</span>
 </div>
 <p>
-Eine Person darf nur unter gesetzlich bestimmten
+Eine Person darf nur unter den gesetzlich bestimmten
 Voraussetzungen in Untersuchungshaft genommen werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Untersuchungshaft ist keine Vorabstrafe. Sie dient ausschließlich
+den gesetzlich vorgesehenen Zwecken des Strafverfahrens.
+</div>
+<span class="penalty">Missbrauch der Haftbefugnis: 40–60 HE / 40.000–60.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2783,8 +3279,17 @@ Voraussetzungen in Untersuchungshaft genommen werden.
 </div>
 <p>
 Zeugen können verpflichtet sein, zu einer ordnungsgemäß
-angeordneten Vernehmung zu erscheinen.
+angeordneten Vernehmung zu erscheinen und wahrheitsgemäße
+Angaben zu machen, soweit kein gesetzliches Aussageverweigerungsrecht
+besteht.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Zeugenaussagen können für die Aufklärung einer Straftat
+entscheidend sein. Gesetzliche Aussageverweigerungsrechte
+müssen jedoch berücksichtigt werden.
+</div>
+<span class="penalty">Bewusste Falschaussage: 25–45 HE / 25.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2793,20 +3298,35 @@ angeordneten Vernehmung zu erscheinen.
 <span class="paragraph-number">STPO-06</span>
 </div>
 <p>
-Eine beschuldigte Person hat das Recht, sich verteidigen
-zu lassen und anwaltliche Unterstützung in Anspruch zu nehmen.
+Eine beschuldigte Person hat das Recht, sich im Strafverfahren
+verteidigen zu lassen und im gesetzlich vorgesehenen Umfang
+anwaltliche Unterstützung in Anspruch zu nehmen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Das Recht auf Verteidigung ist ein wesentlicher Bestandteil
+eines fairen Strafverfahrens.
+</div>
+<span class="penalty">Unzulässige Behinderung der Verteidigung: 30–50 HE / 30.000–50.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 7 – Einstellung</h3>
+<h3>§ 7 – Einstellung des Verfahrens</h3>
 <span class="paragraph-number">STPO-07</span>
 </div>
 <p>
-Ein Ermittlungsverfahren kann eingestellt werden, wenn
-sich der Tatverdacht nicht bestätigt.
+Ein Ermittlungsverfahren kann eingestellt werden, wenn sich
+der Tatverdacht nicht bestätigt oder die gesetzlichen
+Voraussetzungen für eine weitere Verfolgung nicht vorliegen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Nicht jedes Ermittlungsverfahren endet mit einer Anklage.
+Fehlende Beweise oder andere gesetzliche Gründe können
+zur Einstellung führen.
+</div>
+<span class="penalty">Missbrauch: 35–55 HE / 35.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2816,103 +3336,59 @@ sich der Tatverdacht nicht bestätigt.
 </div>
 <p>
 Nach Abschluss der Ermittlungen entscheidet die zuständige
-Stelle über das weitere Vorgehen.
+Stelle über das weitere Vorgehen. Je nach Ergebnis kann es
+zu einer Anklage, Einstellung oder anderen gesetzlich
+vorgesehenen Maßnahme kommen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der Abschluss des Ermittlungsverfahrens führt zu einer
+formalen Entscheidung über den weiteren Verlauf.
+</div>
+<span class="penalty">Manipulation: 35–55 HE / 35.000–55.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 9 – Aussageverweigerung</h3>
+<h3>§ 9 – Aktenmanipulation</h3>
 <span class="paragraph-number">STPO-09</span>
 </div>
 <p>
-Eine beschuldigte Person darf im Rahmen der gesetzlichen
-Vorschriften die Aussage verweigern.
+Wer Verfahrensakten vorsätzlich verändert, vernichtet,
+verfälscht oder wesentliche Informationen unrechtmäßig
+entfernt, macht sich strafbar.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Akten müssen vollständig und nachvollziehbar bleiben.
+Manipulation kann ein gesamtes Verfahren beeinträchtigen
+und wird daher besonders streng behandelt.
+</div>
+<span class="penalty">Strafmaß: 45–60 HE / 45.000–60.000 €</span>
 </div>
 
 <div class="paragraph">
 <div class="paragraph-head">
-<h3>§ 10 – Akteneinsicht</h3>
+<h3>§ 10 – Verschleppung eines Strafverfahrens</h3>
 <span class="paragraph-number">STPO-10</span>
 </div>
 <p>
-Berechtigte Verfahrensbeteiligte können nach Maßgabe der
-gesetzlichen Vorschriften Einsicht in Verfahrensakten erhalten.
+Wer ein Strafverfahren vorsätzlich und ohne rechtmäßigen
+Grund erheblich verzögert, kann bei entsprechendem
+Missbrauch seiner Stellung strafrechtlich belangt werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Verfahren sollen innerhalb eines angemessenen Zeitraums
+durchgeführt werden. Bewusste Verzögerungen zum Vorteil
+einer Partei können die Integrität der Rechtspflege beeinträchtigen.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 11 – Durchsuchungsbeschluss</h3>
-<span class="paragraph-number">STPO-11</span>
-</div>
-<p>
-Durchsuchungen sollen grundsätzlich auf einer gesetzlichen
-Grundlage oder einer entsprechenden richterlichen Anordnung beruhen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 12 – Beschlagnahme</h3>
-<span class="paragraph-number">STPO-12</span>
-</div>
-<p>
-Gegenstände können beschlagnahmt werden, wenn sie für
-ein Strafverfahren von Bedeutung sein können.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 13 – Anklage</h3>
-<span class="paragraph-number">STPO-13</span>
-</div>
-<p>
-Nach Abschluss der Ermittlungen kann bei ausreichendem
-Tatverdacht Anklage erhoben werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 14 – Hauptverhandlung</h3>
-<span class="paragraph-number">STPO-14</span>
-</div>
-<p>
-Die Hauptverhandlung dient der umfassenden Prüfung des
-Sachverhalts und der vorliegenden Beweismittel.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 15 – Freispruch</h3>
-<span class="paragraph-number">STPO-15</span>
-</div>
-<p>
-Ist die Schuld einer angeklagten Person nicht nachweisbar,
-ist nach Maßgabe der gesetzlichen Voraussetzungen ein
-Freispruch zu erlassen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 16 – Schuldspruch</h3>
-<span class="paragraph-number">STPO-16</span>
-</div>
-<p>
-Wird eine Straftat nach Abschluss des Verfahrens
-nachgewiesen, kann das Gericht einen Schuldspruch erlassen.
-</p>
+<span class="penalty">Strafmaß: 30–50 HE / 30.000–50.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
-
+</div>
 </section>
-
 
 <!-- =========================================================
      ZGB
@@ -2920,13 +3396,25 @@ nachgewiesen, kann das Gericht einen Schuldspruch erlassen.
 
 <section class="law-book" id="zivil">
 
-<div class="book-header">
+<button class="book-toggle" type="button" aria-expanded="false">
+<div class="book-title-area">
 <div class="book-number">Gesetzbuch X</div>
 <h2>Zivilgesetzbuch – ZGB</h2>
-<p>
-Das Zivilgesetzbuch regelt rechtliche Beziehungen zwischen
-Privatpersonen sowie Verträge, Eigentum und Schadensersatz.
-</p>
+<p>Regelt Verträge, Eigentum, Schadensersatz und private Rechtsbeziehungen.</p>
+</div>
+<div class="book-meta">
+<span class="paragraph-count">10 Paragraphen</span>
+<span class="chevron">⌄</span>
+</div>
+</button>
+
+<div class="book-content">
+
+<div class="book-intro">
+<strong>Grundsatz:</strong>
+Das Zivilgesetzbuch regelt Rechtsbeziehungen zwischen
+Privatpersonen und Unternehmen. Schwerpunkt sind Verträge,
+Eigentum, Schadensersatz und zivilrechtliche Streitigkeiten.
 </div>
 
 <div class="paragraph">
@@ -2936,8 +3424,16 @@ Privatpersonen sowie Verträge, Eigentum und Schadensersatz.
 </div>
 <p>
 Durch einen wirksam geschlossenen Vertrag entstehen
-gegenseitige Rechte und Pflichten.
+gegenseitige Rechte und Pflichten. Die Vertragsparteien
+sind verpflichtet, vereinbarte Leistungen grundsätzlich
+ordnungsgemäß zu erfüllen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Ein Vertrag verpflichtet beide Seiten zur Einhaltung der
+vereinbarten Bedingungen, sofern diese rechtmäßig sind.
+</div>
+<span class="penalty">Vertragsverstoß: 10–25 HE / 5.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2947,9 +3443,15 @@ gegenseitige Rechte und Pflichten.
 </div>
 <p>
 Wer vorsätzlich oder fahrlässig einen anderen rechtswidrig
-schädigt, ist grundsätzlich zum Ersatz des entstandenen
-Schadens verpflichtet.
+schädigt, ist zum Ersatz des entstandenen Schadens verpflichtet,
+soweit das Gesetz nichts anderes bestimmt.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der Schadensersatz soll die geschädigte Person grundsätzlich
+so stellen, wie sie ohne das schädigende Ereignis stehen würde.
+</div>
+<span class="penalty">Schadensersatz: 10–40 HE / abhängig vom Schaden</span>
 </div>
 
 <div class="paragraph">
@@ -2961,6 +3463,13 @@ Schadens verpflichtet.
 Das Eigentum an einer Sache berechtigt den Eigentümer,
 über diese im Rahmen der geltenden Gesetze zu verfügen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eigentum umfasst insbesondere die Möglichkeit, eine Sache
+zu nutzen, zu verwalten oder unter den gesetzlichen
+Voraussetzungen zu übertragen.
+</div>
+<span class="penalty">Unrechtmäßiger Eingriff: 15–30 HE / 10.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2973,6 +3482,13 @@ Wer eine vertraglich übernommene Verpflichtung schuldhaft
 nicht erfüllt, kann zum Ersatz des daraus entstandenen
 Schadens verpflichtet sein.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Ein Vertragsbruch führt nicht automatisch zu einer
+strafrechtlichen Sanktion. Im Vordergrund stehen regelmäßig
+zivilrechtliche Ansprüche und Schadensersatz.
+</div>
+<span class="penalty">Strafmaß: 10–30 HE / abhängig vom Schaden</span>
 </div>
 
 <div class="paragraph">
@@ -2985,6 +3501,13 @@ Durch einen Kaufvertrag verpflichtet sich der Verkäufer,
 die vereinbarte Sache zu übergeben, während der Käufer
 zur vereinbarten Gegenleistung verpflichtet ist.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Beide Seiten müssen ihre vertraglichen Pflichten erfüllen.
+Bei erheblichen Pflichtverletzungen können Rückabwicklung
+oder Schadensersatzansprüche entstehen.
+</div>
+<span class="penalty">Vertragsmissbrauch: 10–25 HE / 5.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -2997,6 +3520,13 @@ Wer eine fremde Sache ohne rechtliche Grundlage besitzt,
 kann verpflichtet sein, diese an den rechtmäßigen Eigentümer
 zurückzugeben.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Das Eigentumsrecht wird dadurch geschützt, dass eine Person
+eine fremde Sache nicht dauerhaft ohne rechtlichen Grund
+behalten darf.
+</div>
+<span class="penalty">Verweigerung: 15–30 HE / 10.000–30.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -3005,10 +3535,17 @@ zurückzugeben.
 <span class="paragraph-number">ZGB-07</span>
 </div>
 <p>
-Bei der Bestimmung eines Schadensersatzes sind tatsächliche
-Schadenshöhe, Mitverursachung und unmittelbare Folgen
-des Ereignisses zu berücksichtigen.
+Bei der Bestimmung eines Schadensersatzes sind insbesondere
+die tatsächliche Schadenshöhe, ein möglicher Mitverursachungsanteil
+und die unmittelbaren Folgen des schädigenden Ereignisses
+zu berücksichtigen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Der Anspruch soll angemessen sein und sowohl den tatsächlichen
+Schaden als auch eine mögliche Mitverantwortung berücksichtigen.
+</div>
+<span class="penalty">Falsche Schadensangabe: 20–40 HE / 10.000–40.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -3018,8 +3555,15 @@ des Ereignisses zu berücksichtigen.
 </div>
 <p>
 Verträge können unter den vereinbarten oder gesetzlich
-vorgesehenen Voraussetzungen gekündigt werden.
+vorgesehenen Voraussetzungen gekündigt oder beendet werden.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine Vertragspartei kann einen Vertrag nicht beliebig
+beenden, wenn dadurch gesetzliche oder vereinbarte
+Kündigungsbedingungen verletzt werden.
+</div>
+<span class="penalty">Missbräuchliche Kündigung: 10–25 HE / 5.000–25.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -3028,9 +3572,17 @@ vorgesehenen Voraussetzungen gekündigt werden.
 <span class="paragraph-number">ZGB-09</span>
 </div>
 <p>
-Eigentum kann durch wirksame Vereinbarung und entsprechende
-Übergabe oder gesetzlich vorgesehene Übertragung übergehen.
+Eigentum kann durch eine wirksame Vereinbarung und die
+entsprechende Übergabe oder sonstige gesetzlich vorgesehene
+Übertragung auf eine andere Person übergehen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Die Übertragung von Eigentum muss nachvollziehbar und
+rechtlich wirksam erfolgen. Täuschung oder gefälschte
+Übertragungen können zusätzliche Straftaten darstellen.
+</div>
+<span class="penalty">Manipulation: 25–45 HE / 25.000–45.000 €</span>
 </div>
 
 <div class="paragraph">
@@ -3040,743 +3592,21 @@ Eigentum kann durch wirksame Vereinbarung und entsprechende
 </div>
 <p>
 Streitigkeiten zwischen Privatpersonen können vor den
-zuständigen Gerichten geklärt werden.
+zuständigen Gerichten geklärt werden. Die Parteien sollen
+nach Möglichkeit zunächst versuchen, eine einvernehmliche
+Lösung zu erreichen.
 </p>
+<div class="explanation">
+<strong>Ausführliche Erklärung:</strong>
+Eine außergerichtliche Einigung kann Zeit und Kosten sparen.
+Wenn keine Einigung möglich ist, kann ein zuständiges
+Gericht verbindlich entscheiden.
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 11 – Miete</h3>
-<span class="paragraph-number">ZGB-11</span>
-</div>
-<p>
-Durch einen Mietvertrag wird dem Mieter die Nutzung
-einer Sache gegen eine vereinbarte Gegenleistung ermöglicht.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 12 – Mietpflichten</h3>
-<span class="paragraph-number">ZGB-12</span>
-</div>
-<p>
-Mieter haben die vereinbarte Gegenleistung fristgerecht
-zu erbringen und die Mietsache ordnungsgemäß zu behandeln.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 13 – Eigentumsschädigung</h3>
-<span class="paragraph-number">ZGB-13</span>
-</div>
-<p>
-Wer fremdes Eigentum beschädigt, kann unabhängig von
-einer strafrechtlichen Verantwortlichkeit zum Ersatz
-des entstandenen Schadens verpflichtet sein.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 14 – Abtretung</h3>
-<span class="paragraph-number">ZGB-14</span>
-</div>
-<p>
-Forderungen können unter den gesetzlichen Voraussetzungen
-auf eine andere Person übertragen werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 15 – Verjährung</h3>
-<span class="paragraph-number">ZGB-15</span>
-</div>
-<p>
-Ansprüche können nach Ablauf der gesetzlich vorgesehenen
-Frist verjähren.
-</p>
+<span class="penalty">Missachtung einer rechtskräftigen Entscheidung: 20–40 HE / 20.000–40.000 €</span>
 </div>
 
 <a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-
-<!-- =========================================================
-     JVOLLZUG
-========================================================= -->
-
-<section class="law-book" id="jvollzug">
-
-<div class="book-header">
-<div class="book-number">Gesetzbuch XI</div>
-<h2>Justizvollzugsgesetz – JVollzG</h2>
-<p>
-Das Justizvollzugsgesetz regelt den Vollzug von Freiheitsstrafen,
-den Betrieb von Justizvollzugsanstalten und die Rechte von
-inhaftierten Personen.
-</p>
 </div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Zweck des Justizvollzugs</h3>
-<span class="paragraph-number">JV-01</span>
-</div>
-<p>
-Der Justizvollzug dient der sicheren Unterbringung verurteilter
-Personen und der Aufrechterhaltung einer geordneten
-Vollzugsstruktur.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Aufnahme</h3>
-<span class="paragraph-number">JV-02</span>
-</div>
-<p>
-Bei Aufnahme einer Person sind Identität, Haftgrund,
-persönliche Daten und relevante Sicherheitsinformationen
-nach den geltenden Vorschriften zu erfassen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Hausordnung</h3>
-<span class="paragraph-number">JV-03</span>
-</div>
-<p>
-In Justizvollzugsanstalten gilt eine verbindliche Hausordnung.
-Den rechtmäßigen Anweisungen des Vollzugspersonals ist Folge zu leisten.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Sicherheitskontrollen</h3>
-<span class="paragraph-number">JV-04</span>
-</div>
-<p>
-Personen, Räume und Gegenstände können nach den gesetzlichen
-Voraussetzungen kontrolliert werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Verbotene Gegenstände</h3>
-<span class="paragraph-number">JV-05</span>
-</div>
-<p>
-Waffen, unerlaubte Betäubungsmittel und andere gefährliche
-Gegenstände dürfen innerhalb einer Justizvollzugsanstalt
-nicht besessen werden.
-</p>
-<span class="penalty">Zusätzliche Sanktion nach Vollzugsordnung</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Besuch</h3>
-<span class="paragraph-number">JV-06</span>
-</div>
-<p>
-Besuche können unter Beachtung der Sicherheitsanforderungen
-zugelassen und kontrolliert werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Briefverkehr</h3>
-<span class="paragraph-number">JV-07</span>
-</div>
-<p>
-Der Schriftverkehr inhaftierter Personen richtet sich nach
-den gesetzlichen Vorgaben und kann aus Sicherheitsgründen
-eingeschränkt werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Disziplinarmaßnahmen</h3>
-<span class="paragraph-number">JV-08</span>
-</div>
-<p>
-Bei schweren oder wiederholten Verstößen gegen die
-Vollzugsordnung können Disziplinarmaßnahmen angeordnet werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Flucht aus dem Vollzug</h3>
-<span class="paragraph-number">JV-09</span>
-</div>
-<p>
-Das unbefugte Verlassen einer Justizvollzugsanstalt oder
-eines gesicherten Vollzugsbereichs ist verboten und kann
-zusätzliche rechtliche Folgen haben.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 10 – Vollzugssicherheit</h3>
-<span class="paragraph-number">JV-10</span>
-</div>
-<p>
-Alle Maßnahmen innerhalb des Vollzugs müssen dem Schutz
-von Personal, Gefangenen und Öffentlichkeit dienen.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-
-<!-- =========================================================
-     DATENSCHUTZ
-========================================================= -->
-
-<section class="law-book" id="datenschutz">
-
-<div class="book-header">
-<div class="book-number">Gesetzbuch XII</div>
-<h2>Datenschutzgesetz – DSG</h2>
-<p>
-Das Datenschutzgesetz schützt personenbezogene Informationen
-und regelt deren Erhebung, Verarbeitung und Weitergabe.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Schutz personenbezogener Daten</h3>
-<span class="paragraph-number">DSG-01</span>
-</div>
-<p>
-Personenbezogene Daten sind vor unbefugtem Zugriff,
-Missbrauch und unrechtmäßiger Weitergabe zu schützen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Datenerhebung</h3>
-<span class="paragraph-number">DSG-02</span>
-</div>
-<p>
-Daten dürfen grundsätzlich nur erhoben werden, wenn
-hierfür eine rechtliche Grundlage oder eine wirksame
-Einwilligung besteht.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Zweckbindung</h3>
-<span class="paragraph-number">DSG-03</span>
-</div>
-<p>
-Erhobene Daten dürfen grundsätzlich nur für den Zweck
-verwendet werden, für den sie rechtmäßig erhoben wurden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Datenweitergabe</h3>
-<span class="paragraph-number">DSG-04</span>
-</div>
-<p>
-Die Weitergabe personenbezogener Daten an Dritte bedarf
-einer gesetzlichen Grundlage oder einer zulässigen Einwilligung.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Datensicherheit</h3>
-<span class="paragraph-number">DSG-05</span>
-</div>
-<p>
-Behörden und Unternehmen haben angemessene technische
-und organisatorische Maßnahmen zum Schutz von Daten zu treffen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Auskunftsrecht</h3>
-<span class="paragraph-number">DSG-06</span>
-</div>
-<p>
-Betroffene Personen können im Rahmen der gesetzlichen
-Vorschriften Auskunft über gespeicherte personenbezogene
-Daten verlangen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Löschung</h3>
-<span class="paragraph-number">DSG-07</span>
-</div>
-<p>
-Daten sind zu löschen, wenn ihre Speicherung nicht mehr
-erforderlich oder gesetzlich nicht mehr zulässig ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Datenmissbrauch</h3>
-<span class="paragraph-number">DSG-08</span>
-</div>
-<p>
-Wer personenbezogene Daten unbefugt beschafft, verändert
-oder weitergibt, kann nach den geltenden Vorschriften
-belangt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-
-<!-- =========================================================
-     BEAMTENRECHT
-========================================================= -->
-
-<section class="law-book" id="beamte">
-
-<div class="book-header">
-<div class="book-number">Gesetzbuch XIII</div>
-<h2>Beamtengesetz – BeamtG</h2>
-<p>
-Das Beamtengesetz regelt Rechte, Pflichten und
-Verantwortlichkeiten staatlicher Amtsträger.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Amtspflicht</h3>
-<span class="paragraph-number">BEAMTG-01</span>
-</div>
-<p>
-Jeder Amtsträger hat seine Aufgaben gewissenhaft,
-neutral und im Interesse der Republik auszuführen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Neutralität</h3>
-<span class="paragraph-number">BEAMTG-02</span>
-</div>
-<p>
-Amtsträger haben Entscheidungen unabhängig von
-persönlichen Interessen oder Vorteilen zu treffen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Amtsmissbrauch</h3>
-<span class="paragraph-number">BEAMTG-03</span>
-</div>
-<p>
-Die Nutzung staatlicher Befugnisse für persönliche
-Vorteile oder zur Schädigung anderer Personen ist verboten.
-</p>
-<span class="penalty">Strafmaß: bis zu 15 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Korruption</h3>
-<span class="paragraph-number">BEAMTG-04</span>
-</div>
-<p>
-Amtsträger dürfen keine unzulässigen Vorteile fordern,
-annehmen oder sich versprechen lassen.
-</p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 20.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Dienstgeheimnisse</h3>
-<span class="paragraph-number">BEAMTG-05</span>
-</div>
-<p>
-Vertrauliche dienstliche Informationen dürfen nicht
-unbefugt an Dritte weitergegeben werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 12.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Dienstkleidung</h3>
-<span class="paragraph-number">BEAMTG-06</span>
-</div>
-<p>
-Dienstkleidung und staatliche Kennzeichen dürfen nur
-im Rahmen der dienstlichen Befugnisse verwendet werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Dienstvergehen</h3>
-<span class="paragraph-number">BEAMTG-07</span>
-</div>
-<p>
-Verstöße gegen dienstliche Pflichten können disziplinarisch
-geahndet werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Suspendierung</h3>
-<span class="paragraph-number">BEAMTG-08</span>
-</div>
-<p>
-Bei schwerwiegenden Vorwürfen kann ein Amtsträger
-vorläufig vom Dienst entbunden werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Entlassung</h3>
-<span class="paragraph-number">BEAMTG-09</span>
-</div>
-<p>
-Bei besonders schweren oder wiederholten Dienstvergehen
-kann eine Entlassung ausgesprochen werden.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-
-<!-- =========================================================
-     NOTSTAND
-========================================================= -->
-
-<section class="law-book" id="notstand">
-
-<div class="book-header">
-<div class="book-number">Gesetzbuch XIV</div>
-<h2>Notstands- und Sicherheitsgesetz – NotstandG</h2>
-<p>
-Das Notstands- und Sicherheitsgesetz regelt außergewöhnliche
-Gefahrenlagen und besondere staatliche Maßnahmen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Notstandslage</h3>
-<span class="paragraph-number">NOT-01</span>
-</div>
-<p>
-Ein Notstand kann festgestellt werden, wenn eine erhebliche
-Gefahr für die Bevölkerung, staatliche Einrichtungen oder
-die öffentliche Ordnung besteht.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Feststellung des Notstands</h3>
-<span class="paragraph-number">NOT-02</span>
-</div>
-<p>
-Die zuständige staatliche Stelle kann einen Notstand
-förmlich feststellen und dessen Umfang bestimmen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Schutzmaßnahmen</h3>
-<span class="paragraph-number">NOT-03</span>
-</div>
-<p>
-Während eines Notstands können zusätzliche Schutzmaßnahmen
-angeordnet werden, soweit diese zur Gefahrenabwehr erforderlich sind.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Ausgangsbeschränkung</h3>
-<span class="paragraph-number">NOT-04</span>
-</div>
-<p>
-Bei außergewöhnlichen Gefahren können zeitlich und räumlich
-begrenzte Ausgangsbeschränkungen angeordnet werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Sperrbereiche</h3>
-<span class="paragraph-number">NOT-05</span>
-</div>
-<p>
-Gefährdete Gebiete können vorübergehend gesperrt werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Evakuierung</h3>
-<span class="paragraph-number">NOT-06</span>
-</div>
-<p>
-Zum Schutz der Bevölkerung kann die Evakuierung eines
-gefährdeten Gebietes angeordnet werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Ende des Notstands</h3>
-<span class="paragraph-number">NOT-07</span>
-</div>
-<p>
-Der Notstand ist aufzuheben, sobald die Voraussetzungen
-für seine Aufrechterhaltung nicht mehr bestehen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Verhältnismäßigkeit</h3>
-<span class="paragraph-number">NOT-08</span>
-</div>
-<p>
-Auch während eines Notstands müssen staatliche Maßnahmen
-geeignet, erforderlich und angemessen sein.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
-</section>
-
-
-<!-- =========================================================
-     GEWERBE
-========================================================= -->
-
-<section class="law-book" id="wirtschaft">
-
-<div class="book-header">
-<div class="book-number">Gesetzbuch XV</div>
-<h2>Gewerbe- und Wirtschaftsgesetz – GewO</h2>
-<p>
-Das Gewerbe- und Wirtschaftsgesetz regelt die Ausübung
-gewerblicher Tätigkeiten, Genehmigungen und wirtschaftliche
-Verantwortlichkeiten.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 1 – Gewerbefreiheit</h3>
-<span class="paragraph-number">GEWO-01</span>
-</div>
-<p>
-Eine gewerbliche Tätigkeit darf grundsätzlich ausgeübt
-werden, sofern keine besondere Genehmigung erforderlich ist.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 2 – Gewerbeanmeldung</h3>
-<span class="paragraph-number">GEWO-02</span>
-</div>
-<p>
-Die Aufnahme eines genehmigungspflichtigen Gewerbes ist
-bei der zuständigen Behörde anzumelden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 3 – Gewerbelizenz</h3>
-<span class="paragraph-number">GEWO-03</span>
-</div>
-<p>
-Für besonders regulierte Gewerbe kann eine staatliche
-Lizenz erforderlich sein.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 4 – Lizenzpflichtige Tätigkeiten</h3>
-<span class="paragraph-number">GEWO-04</span>
-</div>
-<p>
-Tätigkeiten mit besonderem Sicherheits- oder
-Gefährdungspotential können einer gesonderten Zulassung
-unterliegen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 5 – Gewerbebetrug</h3>
-<span class="paragraph-number">GEWO-05</span>
-</div>
-<p>
-Wer Behörden oder Kunden durch falsche geschäftliche
-Angaben vorsätzlich täuscht, kann rechtlich belangt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 6 – Steuerliche Pflichten</h3>
-<span class="paragraph-number">GEWO-06</span>
-</div>
-<p>
-Gewerbetreibende haben die für ihre Tätigkeit geltenden
-steuerlichen und dokumentarischen Pflichten einzuhalten.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 7 – Geschäftsbetrieb</h3>
-<span class="paragraph-number">GEWO-07</span>
-</div>
-<p>
-Geschäftsbetriebe müssen die geltenden Sicherheits-,
-Arbeits- und Ordnungsvorschriften beachten.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 8 – Widerruf einer Lizenz</h3>
-<span class="paragraph-number">GEWO-08</span>
-</div>
-<p>
-Eine Gewerbelizenz kann bei schweren oder wiederholten
-Verstößen widerrufen werden.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 9 – Illegale Geschäfte</h3>
-<span class="paragraph-number">GEWO-09</span>
-</div>
-<p>
-Geschäfte mit illegalen Waren oder Dienstleistungen sind
-verboten und können neben strafrechtlichen Folgen zum
-Entzug sämtlicher gewerblicher Genehmigungen führen.
-</p>
-<span class="penalty">Strafmaß: bis zu 20 HE / 25.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 10 – Geschäftliche Dokumentation</h3>
-<span class="paragraph-number">GEWO-10</span>
-</div>
-<p>
-Gewerbetreibende haben geschäftlich relevante Unterlagen
-ordnungsgemäß aufzubewahren und auf gesetzliche Anforderung
-vorzulegen.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 11 – Verbraucherschutz</h3>
-<span class="paragraph-number">GEWO-11</span>
-</div>
-<p>
-Unternehmen dürfen Kunden nicht vorsätzlich über Preis,
-Eigenschaften oder Bedingungen einer Leistung täuschen.
-</p>
-<span class="penalty">Bußgeld: bis zu 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 12 – Wucher</h3>
-<span class="paragraph-number">GEWO-12</span>
-</div>
-<p>
-Das bewusste Ausnutzen einer erheblichen Notlage zur
-Erzielung eines unangemessenen wirtschaftlichen Vorteils
-kann untersagt und verfolgt werden.
-</p>
-<span class="penalty">Strafmaß: bis zu 12 HE / 15.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 13 – Gewerbliche Verschleierung</h3>
-<span class="paragraph-number">GEWO-13</span>
-</div>
-<p>
-Geschäftliche Tätigkeiten dürfen nicht absichtlich
-verschleiert werden, um gesetzliche Pflichten zu umgehen.
-</p>
-<span class="penalty">Strafmaß: bis zu 10 HE / 10.000 €</span>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 14 – Zusammenarbeit mit Behörden</h3>
-<span class="paragraph-number">GEWO-14</span>
-</div>
-<p>
-Gewerbetreibende sind verpflichtet, rechtmäßige behördliche
-Anfragen im Rahmen der geltenden Vorschriften zu beantworten.
-</p>
-</div>
-
-<div class="paragraph">
-<div class="paragraph-head">
-<h3>§ 15 – Gewerbeuntersagung</h3>
-<span class="paragraph-number">GEWO-15</span>
-</div>
-<p>
-Bei erheblicher Unzuverlässigkeit kann die zuständige
-Behörde die Ausübung eines Gewerbes untersagen.
-</p>
-</div>
-
-<a href="#top" class="back-top">↑ Zurück nach oben</a>
-
 </section>
 
 </main>
@@ -3795,47 +3625,89 @@ Gesetzliche Ordnung der Republik Final City
 </footer>
 
 <script>
+/* =========================================================
+   ACCORDION
+========================================================= */
 
-/* =========================
-   ELEMENTE
-========================= */
+const lawBooks = document.querySelectorAll(".law-book");
+
+lawBooks.forEach(function(book) {
+
+    const button = book.querySelector(".book-toggle");
+
+    button.addEventListener("click", function() {
+
+        const isOpen = book.classList.contains("open");
+
+        book.classList.toggle("open", !isOpen);
+
+        button.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+        );
+
+    });
+
+});
+
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
+
+document.querySelectorAll(".law-navigation a").forEach(function(link) {
+
+    link.addEventListener("click", function(event) {
+
+        const targetId = this.getAttribute("href");
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        target.classList.add("open");
+
+        const button = target.querySelector(".book-toggle");
+
+        if (button) {
+            button.setAttribute("aria-expanded", "true");
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   SUCHE
+========================================================= */
 
 const searchInput = document.getElementById("search");
-const clearSearch = document.getElementById("clearSearch");
 const paragraphs = document.querySelectorAll(".paragraph");
-const lawBooks = document.querySelectorAll(".law-book");
 const noResults = document.getElementById("noResults");
-const searchInfo = document.getElementById("searchInfo");
-const paragraphCount = document.getElementById("paragraphCount");
+const searchStatus = document.getElementById("searchStatus");
 
-/* =========================
-   PARAGRAPHEN ZÄHLEN
-========================= */
+searchInput.addEventListener("input", function() {
 
-paragraphCount.textContent = paragraphs.length;
-
-/* =========================
-   SUCHE
-========================= */
-
-function performSearch() {
-
-    const query = searchInput.value.trim().toLowerCase();
+    const query = this.value.trim().toLowerCase();
 
     let totalResults = 0;
-    let visibleBooks = 0;
 
     paragraphs.forEach(function(paragraph) {
 
+        paragraph.classList.remove("search-hit");
+
         const text = paragraph.innerText.toLowerCase();
 
-        if (query === "" || text.includes(query)) {
+        if (query === "") {
 
             paragraph.style.display = "";
 
-            if (query !== "") {
-                totalResults++;
-            }
+        } else if (text.includes(query)) {
+
+            paragraph.style.display = "";
+            paragraph.classList.add("search-hit");
+
+            totalResults++;
 
         } else {
 
@@ -3845,15 +3717,13 @@ function performSearch() {
 
     });
 
+
     lawBooks.forEach(function(book) {
 
         const visibleParagraphs =
-            Array.from(
-                book.querySelectorAll(".paragraph")
-            ).filter(function(paragraph) {
-
+            [...book.querySelectorAll(".paragraph")]
+            .filter(function(paragraph) {
                 return paragraph.style.display !== "none";
-
             });
 
         if (query !== "" && visibleParagraphs.length === 0) {
@@ -3863,141 +3733,142 @@ function performSearch() {
         } else {
 
             book.style.display = "";
-            visibleBooks++;
+
+        }
+
+
+        if (query !== "" && visibleParagraphs.length > 0) {
+
+            book.classList.add("open");
+
+            const button = book.querySelector(".book-toggle");
+
+            if (button) {
+                button.setAttribute("aria-expanded", "true");
+            }
 
         }
 
     });
 
-    if (query === "") {
-
-        searchInfo.textContent =
-            "Suche in allen Paragraphen";
-
-    } else {
-
-        searchInfo.textContent =
-            totalResults +
-            " Treffer in " +
-            visibleBooks +
-            " Gesetzbüchern";
-
-    }
 
     if (query !== "" && totalResults === 0) {
 
         noResults.style.display = "block";
 
+        searchStatus.textContent =
+            "Keine Treffer für „" + this.value + "“.";
+
+    } else if (query !== "") {
+
+        noResults.style.display = "none";
+
+        searchStatus.textContent =
+            totalResults +
+            (totalResults === 1
+                ? " Treffer gefunden."
+                : " Treffer gefunden.");
+
     } else {
 
         noResults.style.display = "none";
 
+        searchStatus.textContent =
+            "Bereit zur Suche.";
+
     }
-
-}
-
-searchInput.addEventListener("input", performSearch);
-
-/* =========================
-   SUCHE LÖSCHEN
-========================= */
-
-clearSearch.addEventListener("click", function() {
-
-    searchInput.value = "";
-    performSearch();
-    searchInput.focus();
 
 });
 
-/* =========================
+
+/* =========================================================
    ESC = SUCHE LEEREN
-========================= */
+========================================================= */
 
 document.addEventListener("keydown", function(event) {
 
     if (event.key === "Escape") {
 
         searchInput.value = "";
-        performSearch();
+
+        searchInput.dispatchEvent(
+            new Event("input")
+        );
+
         searchInput.focus();
 
     }
 
 });
 
-/* =========================
-   ENTER = ERSTEN TREFFER
-========================= */
 
-searchInput.addEventListener("keydown", function(event) {
+/* =========================================================
+   BEI DIREKTEM HASH AUFKLAPPEN
+========================================================= */
 
-    if (event.key === "Enter") {
+function openHashBook() {
 
-        const firstVisible =
-            Array.from(paragraphs).find(function(paragraph) {
+    const hash = window.location.hash;
 
-                return paragraph.style.display !== "none";
+    if (!hash) return;
 
-            });
+    const book = document.querySelector(hash);
 
-        if (firstVisible && searchInput.value.trim() !== "") {
+    if (!book || !book.classList.contains("law-book")) return;
 
-            firstVisible.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+    book.classList.add("open");
 
-        }
+    const button = book.querySelector(".book-toggle");
 
+    if (button) {
+        button.setAttribute("aria-expanded", "true");
     }
 
-});
+}
 
-/* =========================
-   NAVIGATION AKTIV
-========================= */
+window.addEventListener("load", openHashBook);
+window.addEventListener("hashchange", openHashBook);
+
+
+/* =========================================================
+   AKTIVE NAVIGATION
+========================================================= */
 
 const navigationLinks =
     document.querySelectorAll(".law-navigation a");
 
-const observer =
-    new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(
+    function(entries) {
 
         entries.forEach(function(entry) {
 
-            if (entry.isIntersecting) {
+            if (!entry.isIntersecting) return;
 
-                navigationLinks.forEach(function(link) {
+            navigationLinks.forEach(function(link) {
+                link.classList.remove("active");
+            });
 
-                    link.classList.remove("active");
+            const active =
+                document.querySelector(
+                    '.law-navigation a[href="#' +
+                    entry.target.id +
+                    '"]'
+                );
 
-                });
-
-                const activeLink =
-                    document.querySelector(
-                        '.law-navigation a[href="#' +
-                        entry.target.id +
-                        '"]'
-                    );
-
-                if (activeLink) {
-                    activeLink.classList.add("active");
-                }
-
+            if (active) {
+                active.classList.add("active");
             }
 
         });
 
-    }, {
-        rootMargin: "-120px 0px -60% 0px",
-        threshold: 0
-    });
+    },
+    {
+        rootMargin: "-20% 0px -70% 0px"
+    }
+);
 
-lawBooks.forEach(function(book) {
-
+document.querySelectorAll(".law-book").forEach(function(book) {
     observer.observe(book);
-
 });
 
 </script>
