@@ -7,7 +7,6 @@
     <title>Regierung & DOJ | Final City</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -16,12 +15,14 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 105px;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #eeeeee;
             color: #222;
+            line-height: 1.6;
         }
 
         /* =========================
@@ -31,17 +32,18 @@
         header {
             background: #303030;
             border-bottom: 4px solid #d6aa35;
-
-            padding: 15px 6%;
+            padding: 13px 6%;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 25px;
 
             position: sticky;
             top: 0;
-
             z-index: 1000;
+
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
         }
 
         .logo {
@@ -51,12 +53,13 @@
 
             color: white;
             text-decoration: none;
+
+            min-width: max-content;
         }
 
         .logo img {
             width: 52px;
             height: 52px;
-
             object-fit: contain;
         }
 
@@ -78,7 +81,6 @@
         nav {
             display: flex;
             gap: 6px;
-
             flex-wrap: wrap;
             justify-content: flex-end;
         }
@@ -88,12 +90,12 @@
             text-decoration: none;
 
             padding: 10px 14px;
-
             border-radius: 6px;
 
             font-size: 14px;
+            font-weight: bold;
 
-            transition: 0.2s;
+            transition: 0.2s ease;
         }
 
         nav a:hover,
@@ -107,13 +109,12 @@
         ========================= */
 
         .hero {
-
-            min-height: 430px;
+            min-height: 440px;
 
             background:
                 linear-gradient(
-                    rgba(40,40,40,0.86),
-                    rgba(40,40,40,0.86)
+                    rgba(40, 40, 40, 0.86),
+                    rgba(40, 40, 40, 0.86)
                 ),
                 url("https://cdn.discordapp.com/attachments/1537960316187582515/1543188549799518289/f4619c5a-44c6-48f8-8c14-544eb3967a9d.png?ex=6a93f5d5&is=6a92a455&hm=0adc4b8a74e982de2cb308ad64f0992c3c628bac4c3961964fc18920d944d633&");
 
@@ -125,18 +126,34 @@
             justify-content: center;
 
             text-align: center;
-
             padding: 60px 20px;
 
             color: white;
         }
 
         .hero-content {
-            max-width: 850px;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 7px 14px;
+            margin-bottom: 18px;
+
+            border: 1px solid #d6aa35;
+            border-radius: 30px;
+
+            color: #d6aa35;
+
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 50px;
             margin-bottom: 15px;
         }
 
@@ -147,7 +164,50 @@
         .hero p {
             color: #dddddd;
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            padding: 12px 20px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.2s ease;
+        }
+
+        .hero-button.primary {
+            background: #d6aa35;
+            color: #222;
+        }
+
+        .hero-button.primary:hover {
+            background: #b68e20;
+            color: white;
+        }
+
+        .hero-button.secondary {
+            background: #343434;
+            color: white;
+            border: 1px solid #666;
+        }
+
+        .hero-button.secondary:hover {
+            background: #d6aa35;
+            color: #222;
+            border-color: #d6aa35;
         }
 
         /* =========================
@@ -156,18 +216,33 @@
 
         .container {
             width: 90%;
-            max-width: 1150px;
-
+            max-width: 1200px;
             margin: 55px auto;
         }
 
         /* =========================
-           SECTION TITLE
+           SECTION
         ========================= */
+
+        .section {
+            margin-bottom: 55px;
+        }
 
         .section-title {
             text-align: center;
             margin-bottom: 30px;
+        }
+
+        .section-title .small-title {
+            color: #d6aa35;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            margin-bottom: 7px;
         }
 
         .section-title h2 {
@@ -178,6 +253,65 @@
         .section-title p {
             margin-top: 8px;
             color: #666;
+        }
+
+        /* =========================
+           QUICK NAVIGATION
+        ========================= */
+
+        .quick-navigation {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 14px;
+
+            margin-bottom: 55px;
+        }
+
+        .quick-card {
+            display: block;
+
+            background: white;
+
+            padding: 22px;
+
+            border-radius: 10px;
+
+            border-bottom: 4px solid #d6aa35;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.07);
+
+            color: #222;
+            text-decoration: none;
+
+            transition: 0.2s ease;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-4px);
+            background: #343434;
+            color: white;
+        }
+
+        .quick-card .icon {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .quick-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .quick-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .quick-card:hover p {
+            color: #dddddd;
         }
 
         /* =========================
@@ -194,7 +328,7 @@
             border-left: 5px solid #d6aa35;
 
             box-shadow:
-                0 4px 15px rgba(0,0,0,0.07);
+                0 4px 15px rgba(0, 0, 0, 0.07);
 
             margin-bottom: 30px;
         }
@@ -212,11 +346,11 @@
 
         .info-box p {
             color: #555;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         /* =========================
-           PRÄSIDENT
+           PRESIDENT
         ========================= */
 
         .president-box {
@@ -224,16 +358,16 @@
 
             color: white;
 
-            padding: 35px;
+            padding: 40px;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
             border-left: 5px solid #d6aa35;
 
             box-shadow:
-                0 4px 18px rgba(0,0,0,0.10);
+                0 4px 18px rgba(0, 0, 0, 0.10);
 
-            margin-bottom: 45px;
+            margin-bottom: 35px;
 
             text-align: center;
         }
@@ -253,13 +387,12 @@
         }
 
         .president-box h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
+            font-size: 34px;
+            margin-bottom: 8px;
         }
 
         .president-box p {
             color: #cccccc;
-            line-height: 1.6;
         }
 
         .status {
@@ -281,39 +414,37 @@
         }
 
         /* =========================
-           MITARBEITERLISTE
+           STAFF
         ========================= */
 
         .staff-container {
-
             display: grid;
 
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
 
             gap: 18px;
-
-            margin-bottom: 45px;
         }
 
         .staff-card {
-
             background: white;
 
-            padding: 22px;
+            padding: 24px;
 
             border-radius: 10px;
 
             border-left: 5px solid #777;
 
             box-shadow:
-                0 4px 15px rgba(0,0,0,0.07);
+                0 4px 15px rgba(0, 0, 0, 0.07);
 
-            transition: 0.2s;
+            transition: 0.2s ease;
         }
 
         .staff-card:hover {
             transform: translateY(-3px);
+            box-shadow:
+                0 8px 22px rgba(0, 0, 0, 0.10);
         }
 
         .staff-card.president {
@@ -321,18 +452,18 @@
         }
 
         .staff-rank {
-
             color: #777;
 
-            font-size: 14px;
+            font-size: 13px;
 
             font-weight: bold;
 
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+
+            text-transform: uppercase;
         }
 
         .staff-name {
-
             font-size: 21px;
 
             font-weight: bold;
@@ -342,10 +473,18 @@
             margin-bottom: 10px;
         }
 
+        .staff-description {
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 12px;
+        }
+
         .staff-status {
-
             font-size: 13px;
-
             font-weight: bold;
         }
 
@@ -358,23 +497,19 @@
         }
 
         /* =========================
-           BEHÖRDEN
+           AUTHORITIES
         ========================= */
 
         .authority-grid {
-
             display: grid;
 
             grid-template-columns:
                 repeat(auto-fit, minmax(260px, 1fr));
 
             gap: 20px;
-
-            margin-bottom: 45px;
         }
 
         .authority-card {
-
             background: white;
 
             padding: 28px;
@@ -384,7 +519,26 @@
             border-top: 4px solid #d6aa35;
 
             box-shadow:
-                0 4px 15px rgba(0,0,0,0.07);
+                0 4px 15px rgba(0, 0, 0, 0.07);
+
+            transition: 0.2s ease;
+        }
+
+        .authority-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .authority-card .authority-number {
+            color: #d6aa35;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 8px;
         }
 
         .authority-card h3 {
@@ -394,7 +548,77 @@
 
         .authority-card p {
             color: #666;
-            line-height: 1.6;
+            line-height: 1.65;
+            font-size: 14px;
+        }
+
+        /* =========================
+           DOJ
+        ========================= */
+
+        .doj-box {
+            background: #343434;
+
+            color: white;
+
+            padding: 38px;
+
+            border-radius: 12px;
+
+            border-left: 5px solid #d6aa35;
+
+            box-shadow:
+                0 4px 18px rgba(0, 0, 0, 0.10);
+        }
+
+        .doj-box h2 {
+            color: #d6aa35;
+            margin-bottom: 15px;
+        }
+
+        .doj-box h3 {
+            color: white;
+            margin-top: 28px;
+            margin-bottom: 10px;
+        }
+
+        .doj-box p {
+            color: #dddddd;
+            line-height: 1.75;
+        }
+
+        .doj-list {
+            margin-top: 15px;
+            padding-left: 22px;
+            color: #dddddd;
+        }
+
+        .doj-list li {
+            margin-bottom: 7px;
+        }
+
+        .gold-button {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            background: #d6aa35;
+            color: #222;
+
+            text-decoration: none;
+
+            padding: 12px 20px;
+
+            border-radius: 7px;
+
+            font-weight: bold;
+
+            transition: 0.2s ease;
+        }
+
+        .gold-button:hover {
+            background: #b68e20;
+            color: white;
         }
 
         /* =========================
@@ -402,21 +626,18 @@
         ========================= */
 
         .secret-service {
-
-            background: #343434;
+            background: #303030;
 
             color: white;
 
-            padding: 35px;
+            padding: 38px;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
             border-left: 5px solid #d6aa35;
 
             box-shadow:
-                0 4px 18px rgba(0,0,0,0.10);
-
-            margin-bottom: 45px;
+                0 4px 18px rgba(0, 0, 0, 0.10);
         }
 
         .secret-service h2 {
@@ -426,48 +647,45 @@
 
         .secret-service h3 {
             color: white;
-            margin-top: 25px;
+            margin-top: 27px;
             margin-bottom: 10px;
         }
 
         .secret-service p {
             color: #dddddd;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         .secret-service ul {
-
             margin-top: 15px;
-
             padding-left: 25px;
-
             color: #dddddd;
+        }
 
-            line-height: 1.8;
+        .secret-service li {
+            margin-bottom: 7px;
         }
 
         /* =========================
-           DISCORD
+           CONTACT / DISCORD
         ========================= */
 
         .discord {
-
             text-align: center;
 
             background: white;
 
-            padding: 40px 20px;
+            padding: 42px 20px;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
             box-shadow:
-                0 4px 15px rgba(0,0,0,0.07);
-
-            margin-top: 20px;
+                0 4px 15px rgba(0, 0, 0, 0.07);
         }
 
         .discord h2 {
             margin-bottom: 10px;
+            color: #333;
         }
 
         .discord p {
@@ -476,11 +694,9 @@
         }
 
         .discord a {
-
             display: inline-block;
 
             background: #d6aa35;
-
             color: #222;
 
             text-decoration: none;
@@ -491,10 +707,55 @@
 
             font-weight: bold;
 
-            transition: 0.2s;
+            transition: 0.2s ease;
         }
 
         .discord a:hover {
+            background: #b68e20;
+            color: white;
+        }
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+
+        #backToTop {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #d6aa35;
+            color: #222;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: 0.2s ease;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.20);
+
+            z-index: 999;
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
             background: #b68e20;
             color: white;
         }
@@ -504,7 +765,6 @@
         ========================= */
 
         footer {
-
             background: #303030;
 
             color: #aaa;
@@ -522,6 +782,15 @@
             color: #d6aa35;
         }
 
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #d6aa35;
+        }
+
         /* =========================
            MOBILE
         ========================= */
@@ -530,11 +799,22 @@
 
             header {
                 flex-direction: column;
-                gap: 15px;
+                gap: 12px;
+
+                padding: 12px 5%;
             }
 
             nav {
                 justify-content: center;
+            }
+
+            nav a {
+                padding: 9px 10px;
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 390px;
             }
 
             .hero h1 {
@@ -545,19 +825,52 @@
                 font-size: 16px;
             }
 
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-button {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .container {
+                width: 92%;
+                margin: 40px auto;
+            }
+
+            .section-title h2 {
+                font-size: 27px;
+            }
+
             .info-box,
+            .doj-box,
             .secret-service {
                 padding: 24px;
             }
 
+            .president-box {
+                padding: 30px 20px;
+            }
+
+            .president-box h2 {
+                font-size: 28px;
+            }
+
+            .quick-navigation {
+                grid-template-columns: 1fr;
+            }
+
+            #backToTop {
+                right: 15px;
+                bottom: 15px;
+            }
         }
-
     </style>
-
 </head>
 
 <body>
-
 
 <!-- =========================
      HEADER
@@ -573,19 +886,12 @@
         >
 
         <div class="logo-text">
-
             FINAL CITY
-
             <br>
-
-            <span>
-                DEPARTMENT OF JUSTICE
-            </span>
-
+            <span>DEPARTMENT OF JUSTICE</span>
         </div>
 
     </a>
-
 
     <nav>
 
@@ -614,14 +920,37 @@
 
     <div class="hero-content">
 
+        <div class="hero-badge">
+            Republik Final City
+        </div>
+
         <h1>
             Regierung <span>& DOJ</span>
         </h1>
 
         <p>
-            Staatliche Institutionen, Amtsträger und
-            Sicherheitsbehörden von Final City
+            Offizielle Übersicht über die staatliche Führung,
+            das Department of Justice, die Justiz und die
+            zentralen Sicherheitsbehörden der Republik Final City.
         </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#regierung"
+                class="hero-button primary"
+            >
+                Regierung ansehen
+            </a>
+
+            <a
+                href="#behoerden"
+                class="hero-button secondary"
+            >
+                Behörden ansehen
+            </a>
+
+        </div>
 
     </div>
 
@@ -632,520 +961,778 @@
 
 
 <!-- =========================
-     PRÄSIDENT
+     SCHNELLNAVIGATION
 ========================= -->
 
-<div class="section-title">
+<section class="section">
 
-    <h2>
-        Staatsführung
-    </h2>
+    <div class="section-title">
 
-    <p>
-        Oberste staatliche Führung von Final City
-    </p>
+        <div class="small-title">
+            Übersicht
+        </div>
 
-</div>
+        <h2>
+            Schnellnavigation
+        </h2>
 
+        <p>
+            Direkt zu den wichtigsten Bereichen der staatlichen
+            Verwaltung von Final City.
+        </p>
 
-<div class="president-box">
-
-    <div class="rank">
-        [22] → President
     </div>
 
-    <h2>
-        Olaf Holz
-    </h2>
 
-    <p>
-        Präsident von Final City
-    </p>
+    <div class="quick-navigation">
 
-    <div class="status">
-        ● Im Amt
+        <a href="#regierung" class="quick-card">
+
+            <div class="icon">🏛️</div>
+
+            <h3>
+                Staatsführung
+            </h3>
+
+            <p>
+                Präsident und Regierung von Final City.
+            </p>
+
+        </a>
+
+
+        <a href="#doj" class="quick-card">
+
+            <div class="icon">⚖️</div>
+
+            <h3>
+                Department of Justice
+            </h3>
+
+            <p>
+                Aufgaben und Zuständigkeiten des DOJ.
+            </p>
+
+        </a>
+
+
+        <a href="#behoerden" class="quick-card">
+
+            <div class="icon">🏢</div>
+
+            <h3>
+                Behörden
+            </h3>
+
+            <p>
+                Zentrale staatliche Institutionen.
+            </p>
+
+        </a>
+
+
+        <a href="#secret-service" class="quick-card">
+
+            <div class="icon">🛡️</div>
+
+            <h3>
+                Secret Service
+            </h3>
+
+            <p>
+                Staatlicher Personen- und Objektschutz.
+            </p>
+
+        </a>
+
+
+        <a href="#discord" class="quick-card">
+
+            <div class="icon">💬</div>
+
+            <h3>
+                Kommunikation
+            </h3>
+
+            <p>
+                Offizieller Final City Discord.
+            </p>
+
+        </a>
+
     </div>
 
-</div>
+</section>
 
 
 <!-- =========================
-     MITARBEITER
+     REGIERUNG
 ========================= -->
 
-<div class="section-title">
+<section
+    class="section"
+    id="regierung"
+>
 
-    <h2>
-        Regierung & DOJ Mitarbeiter
-    </h2>
+    <div class="section-title">
 
-    <p>
-        Übersicht der derzeit besetzten und unbesetzten Ämter
-    </p>
-
-</div>
-
-
-<div class="staff-container">
-
-
-    <!-- [21] VICE PRESIDENT -->
-
-    <div class="staff-card">
-
-        <div class="staff-rank">
-            [21] → Vice President
+        <div class="small-title">
+            Staatsführung
         </div>
 
-        <div class="staff-name">
-            Unbesetzt
+        <h2>
+            Regierung von Final City
+        </h2>
+
+        <p>
+            Übersicht der obersten staatlichen Ämter.
+        </p>
+
+    </div>
+
+
+    <div class="president-box">
+
+        <div class="rank">
+            [22] → President
         </div>
 
-        <div class="staff-status vacant">
-            ● Amt unbesetzt
+        <h2>
+            Olaf Holz
+        </h2>
+
+        <p>
+            Präsident der Republik Final City
+        </p>
+
+        <div class="status">
+            ● Im Amt
         </div>
 
     </div>
 
 
-    <!-- [20] SCHATTEN - SMOKE -->
+    <div class="staff-container">
 
-    <div class="staff-card">
 
-        <div class="staff-rank">
-            [20] → Schatten
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [21] → Vice President
+            </div>
+
+            <div class="staff-name">
+                Unbesetzt
+            </div>
+
+            <div class="staff-description">
+                Stellvertretende staatliche Führung und
+                Unterstützung des Präsidenten.
+            </div>
+
+            <div class="staff-status vacant">
+                ● Amt unbesetzt
+            </div>
+
         </div>
 
-        <div class="staff-name">
-            Smoke
+
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [20] → Schatten
+            </div>
+
+            <div class="staff-name">
+                Smoke
+            </div>
+
+            <div class="staff-description">
+                Mitglied der besonderen staatlichen Führung
+                innerhalb der vorgesehenen Zuständigkeiten.
+            </div>
+
+            <div class="staff-status occupied">
+                ● Besetzt
+            </div>
+
         </div>
 
-        <div class="staff-status occupied">
-            ● Besetzt
+
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [20] → Schatten
+            </div>
+
+            <div class="staff-name">
+                Shadow
+            </div>
+
+            <div class="staff-description">
+                Mitglied der besonderen staatlichen Führung
+                innerhalb der vorgesehenen Zuständigkeiten.
+            </div>
+
+            <div class="staff-status occupied">
+                ● Besetzt
+            </div>
+
+        </div>
+
+
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [19] → Chief of Staff
+            </div>
+
+            <div class="staff-name">
+                Unbesetzt
+            </div>
+
+            <div class="staff-description">
+                Koordination der administrativen Abläufe
+                innerhalb der staatlichen Führung.
+            </div>
+
+            <div class="staff-status vacant">
+                ● Amt unbesetzt
+            </div>
+
+        </div>
+
+
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [18] → Attorney General
+            </div>
+
+            <div class="staff-name">
+                Unbesetzt
+            </div>
+
+            <div class="staff-description">
+                Oberste Zuständigkeit für rechtliche
+                Angelegenheiten des Staates.
+            </div>
+
+            <div class="staff-status vacant">
+                ● Amt unbesetzt
+            </div>
+
+        </div>
+
+
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [17] → Deputy Attorney General
+            </div>
+
+            <div class="staff-name">
+                Unbesetzt
+            </div>
+
+            <div class="staff-description">
+                Stellvertretende Leitung und Unterstützung
+                des Attorney General.
+            </div>
+
+            <div class="staff-status vacant">
+                ● Amt unbesetzt
+            </div>
+
+        </div>
+
+
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [16] → Director
+            </div>
+
+            <div class="staff-name">
+                Unbesetzt
+            </div>
+
+            <div class="staff-description">
+                Leitung eines übergeordneten staatlichen
+                Aufgabenbereichs.
+            </div>
+
+            <div class="staff-status vacant">
+                ● Amt unbesetzt
+            </div>
+
+        </div>
+
+
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [15] → Deputy Director
+            </div>
+
+            <div class="staff-name">
+                Unbesetzt
+            </div>
+
+            <div class="staff-description">
+                Stellvertretende Leitung und organisatorische
+                Unterstützung des Director.
+            </div>
+
+            <div class="staff-status vacant">
+                ● Amt unbesetzt
+            </div>
+
+        </div>
+
+
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [14] → Chief
+            </div>
+
+            <div class="staff-name">
+                Unbesetzt
+            </div>
+
+            <div class="staff-description">
+                Führungsverantwortung innerhalb des
+                jeweiligen Behördenbereichs.
+            </div>
+
+            <div class="staff-status vacant">
+                ● Amt unbesetzt
+            </div>
+
+        </div>
+
+
+        <div class="staff-card">
+
+            <div class="staff-rank">
+                [13] → Assistant Chief
+            </div>
+
+            <div class="staff-name">
+                Unbesetzt
+            </div>
+
+            <div class="staff-description">
+                Unterstützung der Behördenleitung und
+                Übernahme zugewiesener Aufgaben.
+            </div>
+
+            <div class="staff-status vacant">
+                ● Amt unbesetzt
+            </div>
+
         </div>
 
     </div>
 
-
-    <!-- [20] SCHATTEN - SHADOW -->
-
-    <div class="staff-card">
-
-        <div class="staff-rank">
-            [20] → Schatten
-        </div>
-
-        <div class="staff-name">
-            Shadow
-        </div>
-
-        <div class="staff-status occupied">
-            ● Besetzt
-        </div>
-
-    </div>
-
-
-    <!-- [19] CHIEF OF STAFF -->
-
-    <div class="staff-card">
-
-        <div class="staff-rank">
-            [19] → Chief of Staff
-        </div>
-
-        <div class="staff-name">
-            Unbesetzt
-        </div>
-
-        <div class="staff-status vacant">
-            ● Amt unbesetzt
-        </div>
-
-    </div>
-
-
-    <!-- [18] ATTORNEY GENERAL -->
-
-    <div class="staff-card">
-
-        <div class="staff-rank">
-            [18] → Attorney General
-        </div>
-
-        <div class="staff-name">
-            Unbesetzt
-        </div>
-
-        <div class="staff-status vacant">
-            ● Amt unbesetzt
-        </div>
-
-    </div>
-
-
-    <!-- [17] DEPUTY ATTORNEY GENERAL -->
-
-    <div class="staff-card">
-
-        <div class="staff-rank">
-            [17] → Deputy Attorney General
-        </div>
-
-        <div class="staff-name">
-            Unbesetzt
-        </div>
-
-        <div class="staff-status vacant">
-            ● Amt unbesetzt
-        </div>
-
-    </div>
-
-
-    <!-- [16] DIRECTOR -->
-
-    <div class="staff-card">
-
-        <div class="staff-rank">
-            [16] → Director
-        </div>
-
-        <div class="staff-name">
-            Unbesetzt
-        </div>
-
-        <div class="staff-status vacant">
-            ● Amt unbesetzt
-        </div>
-
-    </div>
-
-
-    <!-- [15] DEPUTY DIRECTOR -->
-
-    <div class="staff-card">
-
-        <div class="staff-rank">
-            [15] → Deputy Director
-        </div>
-
-        <div class="staff-name">
-            Unbesetzt
-        </div>
-
-        <div class="staff-status vacant">
-            ● Amt unbesetzt
-        </div>
-
-    </div>
-
-
-    <!-- [14] CHIEF -->
-
-    <div class="staff-card">
-
-        <div class="staff-rank">
-            [14] → Chief
-        </div>
-
-        <div class="staff-name">
-            Unbesetzt
-        </div>
-
-        <div class="staff-status vacant">
-            ● Amt unbesetzt
-        </div>
-
-    </div>
-
-
-    <!-- [13] ASSISTANT CHIEF -->
-
-    <div class="staff-card">
-
-        <div class="staff-rank">
-            [13] → Assistant Chief
-        </div>
-
-        <div class="staff-name">
-            Unbesetzt
-        </div>
-
-        <div class="staff-status vacant">
-            ● Amt unbesetzt
-        </div>
-
-    </div>
-
-</div>
+</section>
 
 
 <!-- =========================
-     DEPARTMENT OF JUSTICE
+     DOJ
 ========================= -->
 
-<div class="section-title">
+<section
+    class="section"
+    id="doj"
+>
 
-    <h2>
-        Department of Justice
-    </h2>
+    <div class="section-title">
 
-    <p>
-        Justiz und Rechtsordnung von Final City
-    </p>
+        <div class="small-title">
+            Justiz
+        </div>
 
-</div>
-
-
-<div class="info-box">
-
-    <h2>
-        Department of Justice
-    </h2>
-
-    <p>
-        Das Department of Justice ist für die Umsetzung
-        und Aufrechterhaltung der geltenden Gesetze von
-        Final City zuständig.
-    </p>
-
-    <br>
-
-    <p>
-        Das Department of Justice arbeitet eng mit den
-        staatlichen Behörden, Strafverfolgungsbehörden
-        und Gerichten zusammen.
-    </p>
-
-    <h3>
-        Zuständigkeiten
-    </h3>
-
-    <p>
-        Zu den Aufgaben des Department of Justice gehören
-        insbesondere die Wahrung der Rechtsordnung, die
-        Unterstützung der Rechtsprechung sowie die
-        Zusammenarbeit mit den zuständigen staatlichen
-        Behörden.
-    </p>
-
-    <h3>
-        Gesetzbücher
-    </h3>
-
-    <p>
-        Die geltenden Gesetzbücher von Final City können
-        über den Bereich Gesetzbücher eingesehen werden.
-    </p>
-
-    <br>
-
-    <a
-        href="gesetzbuecher.html"
-        style="
-            display:inline-block;
-            background:#d6aa35;
-            color:#222;
-            text-decoration:none;
-            padding:12px 20px;
-            border-radius:6px;
-            font-weight:bold;
-        "
-    >
-        Gesetzbücher öffnen
-    </a>
-
-</div>
-
-
-<!-- =========================
-     STAATLICHE BEHÖRDEN
-========================= -->
-
-<div class="section-title">
-
-    <h2>
-        Staatliche Behörden
-    </h2>
-
-    <p>
-        Zentrale Institutionen des Staates
-    </p>
-
-</div>
-
-
-<div class="authority-grid">
-
-
-    <div class="authority-card">
-
-        <h3>
+        <h2>
             Department of Justice
-        </h3>
+        </h2>
 
         <p>
-            Zuständig für die Rechtsordnung, gesetzliche
-            Angelegenheiten und die Zusammenarbeit mit
-            den staatlichen Justizbehörden.
+            Zentrale Institution für Recht und Justiz.
         </p>
 
     </div>
 
 
-    <div class="authority-card">
+    <div class="doj-box">
+
+        <h2>
+            Department of Justice
+        </h2>
+
+        <p>
+            Das Department of Justice, kurz DOJ, ist eine
+            zentrale staatliche Institution der Republik
+            Final City. Es beschäftigt sich mit der
+            Aufrechterhaltung und Umsetzung der geltenden
+            Rechtsordnung und arbeitet mit den zuständigen
+            staatlichen Stellen zusammen.
+        </p>
+
 
         <h3>
-            Polizei
+            Aufgaben und Zuständigkeiten
         </h3>
 
         <p>
-            Zuständig für die Aufrechterhaltung der
-            öffentlichen Sicherheit und Ordnung sowie
-            die Gefahrenabwehr.
+            Das Department of Justice unterstützt die
+            rechtliche Verwaltung des Staates und dient
+            als zentrale Schnittstelle zwischen staatlicher
+            Führung, Strafverfolgung und Justiz.
         </p>
 
-    </div>
 
+        <ul class="doj-list">
 
-    <div class="authority-card">
+            <li>
+                Verwaltung und Weiterentwicklung der staatlichen
+                Rechtsordnung
+            </li>
+
+            <li>
+                Zusammenarbeit mit Gerichten und
+                Strafverfolgungsbehörden
+            </li>
+
+            <li>
+                Bearbeitung rechtlicher Angelegenheiten
+            </li>
+
+            <li>
+                Unterstützung staatlicher Behörden bei
+                rechtlichen Fragestellungen
+            </li>
+
+            <li>
+                Wahrung der gesetzlichen Ordnung
+            </li>
+
+            <li>
+                Koordination zwischen verschiedenen
+                Justizinstitutionen
+            </li>
+
+        </ul>
+
 
         <h3>
-            Secret Service
+            Gesetzbücher
         </h3>
 
         <p>
-            Zuständig für den besonderen Schutz von
-            Regierungsmitgliedern und staatlichen
-            Einrichtungen.
+            Die geltenden Regelungen und Gesetzbücher von
+            Final City können zentral über die Seite
+            „Gesetzbücher“ eingesehen werden.
+        </p>
+
+
+        <a
+            href="gesetzbuecher.html"
+            class="gold-button"
+        >
+            Gesetzbücher öffnen →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BEHÖRDEN
+========================= -->
+
+<section
+    class="section"
+    id="behoerden"
+>
+
+    <div class="section-title">
+
+        <div class="small-title">
+            Staatliche Institutionen
+        </div>
+
+        <h2>
+            Staatliche Behörden
+        </h2>
+
+        <p>
+            Die wichtigsten staatlichen Institutionen von Final City.
         </p>
 
     </div>
 
 
-    <div class="authority-card">
+    <div class="authority-grid">
 
-        <h3>
-            Gerichte
-        </h3>
 
-        <p>
-            Zuständig für die unabhängige Rechtsprechung
-            und die Entscheidung über strafrechtliche
-            und zivilrechtliche Angelegenheiten.
-        </p>
+        <div class="authority-card">
+
+            <div class="authority-number">
+                Behörde 01
+            </div>
+
+            <h3>
+                Department of Justice
+            </h3>
+
+            <p>
+                Zuständig für rechtliche Angelegenheiten,
+                die Verwaltung der Rechtsordnung sowie die
+                Zusammenarbeit mit Gerichten und anderen
+                staatlichen Stellen.
+            </p>
+
+        </div>
+
+
+        <div class="authority-card">
+
+            <div class="authority-number">
+                Behörde 02
+            </div>
+
+            <h3>
+                Polizei
+            </h3>
+
+            <p>
+                Zuständig für die Aufrechterhaltung der
+                öffentlichen Sicherheit und Ordnung,
+                Gefahrenabwehr und Strafverfolgung im
+                Rahmen der geltenden Gesetze.
+            </p>
+
+        </div>
+
+
+        <div class="authority-card">
+
+            <div class="authority-number">
+                Behörde 03
+            </div>
+
+            <h3>
+                Secret Service
+            </h3>
+
+            <p>
+                Besondere Sicherheitsbehörde zum Schutz
+                staatlicher Personen, Einrichtungen und
+                besonderer Veranstaltungen.
+            </p>
+
+        </div>
+
+
+        <div class="authority-card">
+
+            <div class="authority-number">
+                Behörde 04
+            </div>
+
+            <h3>
+                Gerichte
+            </h3>
+
+            <p>
+                Zuständig für die unabhängige Entscheidung
+                über Strafsachen, zivilrechtliche Streitigkeiten
+                und weitere gesetzlich zugewiesene Verfahren.
+            </p>
+
+        </div>
+
+
+        <div class="authority-card">
+
+            <div class="authority-number">
+                Behörde 05
+            </div>
+
+            <h3>
+                Strafverfolgung
+            </h3>
+
+            <p>
+                Untersuchung und Bearbeitung von Sachverhalten,
+                bei denen ein möglicher Verstoß gegen die
+                geltenden Gesetze vorliegt.
+            </p>
+
+        </div>
+
+
+        <div class="authority-card">
+
+            <div class="authority-number">
+                Behörde 06
+            </div>
+
+            <h3>
+                Staatliche Verwaltung
+            </h3>
+
+            <p>
+                Koordination und Verwaltung staatlicher
+                Aufgaben sowie Unterstützung der einzelnen
+                Behörden und Institutionen.
+            </p>
+
+        </div>
 
     </div>
 
-</div>
+</section>
 
 
 <!-- =========================
      SECRET SERVICE
 ========================= -->
 
-<div class="section-title">
+<section
+    class="section"
+    id="secret-service"
+>
 
-    <h2>
-        Secret Service
-    </h2>
+    <div class="section-title">
 
-    <p>
-        Personenschutz und staatliche Sicherheitsaufgaben
-    </p>
+        <div class="small-title">
+            Sicherheit
+        </div>
 
-</div>
+        <h2>
+            Secret Service
+        </h2>
 
+        <p>
+            Personenschutz und besondere staatliche
+            Sicherheitsaufgaben.
+        </p>
 
-<section class="secret-service">
-
-    <h2>
-        Über den Secret Service
-    </h2>
-
-    <p>
-        Der Secret Service ist eine besondere staatliche
-        Sicherheitsbehörde von Final City. Seine Aufgabe
-        besteht insbesondere im Schutz besonders
-        schutzwürdiger Personen sowie wichtiger staatlicher
-        Einrichtungen.
-    </p>
+    </div>
 
 
-    <h3>
-        Aufgaben
-    </h3>
+    <div class="secret-service">
 
-    <ul>
+        <h2>
+            Über den Secret Service
+        </h2>
 
-        <li>
-            Schutz des Präsidenten und weiterer
-            schutzwürdiger Personen
-        </li>
-
-        <li>
-            Absicherung staatlicher Einrichtungen
-        </li>
-
-        <li>
-            Absicherung offizieller Veranstaltungen
-        </li>
-
-        <li>
-            Durchführung von Sicherheitsmaßnahmen
-        </li>
-
-        <li>
-            Gefahrenabwehr im unmittelbaren Schutzbereich
-        </li>
-
-        <li>
-            Zusammenarbeit mit Polizei und
-            Department of Justice
-        </li>
-
-        <li>
-            Unterstützung bei besonderen Sicherheitslagen
-        </li>
-
-    </ul>
+        <p>
+            Der Secret Service ist eine besondere
+            Sicherheitsbehörde der Republik Final City.
+            Sein Schwerpunkt liegt auf dem Schutz
+            besonders schutzwürdiger Personen sowie
+            wichtiger staatlicher Einrichtungen und
+            Veranstaltungen.
+        </p>
 
 
-    <h3>
-        Personenschutz
-    </h3>
+        <h3>
+            Hauptaufgaben
+        </h3>
 
-    <p>
-        Der Personenschutz stellt einen wesentlichen
-        Bestandteil der Tätigkeit des Secret Service dar.
-        Vor offiziellen Veranstaltungen werden mögliche
-        Gefahren bewertet und geeignete
-        Sicherheitsmaßnahmen vorbereitet.
-    </p>
+        <ul>
+
+            <li>
+                Schutz des Präsidenten und weiterer
+                schutzwürdiger Personen
+            </li>
+
+            <li>
+                Absicherung staatlicher Einrichtungen
+            </li>
+
+            <li>
+                Schutz offizieller Veranstaltungen
+            </li>
+
+            <li>
+                Bewertung möglicher Sicherheitsrisiken
+            </li>
+
+            <li>
+                Durchführung geeigneter
+                Sicherheitsmaßnahmen
+            </li>
+
+            <li>
+                Unterstützung bei besonderen
+                Sicherheitslagen
+            </li>
+
+            <li>
+                Zusammenarbeit mit Polizei und
+                Department of Justice
+            </li>
+
+        </ul>
 
 
-    <h3>
-        Zusammenarbeit mit anderen Behörden
-    </h3>
+        <h3>
+            Personenschutz
+        </h3>
 
-    <p>
-        Der Secret Service arbeitet bei besonderen
-        Sicherheitslagen mit dem Department of Justice,
-        der Polizei und weiteren staatlichen Behörden
-        zusammen.
-    </p>
+        <p>
+            Der Personenschutz stellt einen zentralen
+            Aufgabenbereich des Secret Service dar.
+            Dabei werden Sicherheitslagen bewertet,
+            Schutzmaßnahmen vorbereitet und die zu
+            schützenden Personen während offizieller
+            Termine abgesichert.
+        </p>
 
 
-    <h3>
-        Sicherheitsgrundsatz
-    </h3>
+        <h3>
+            Schutz staatlicher Einrichtungen
+        </h3>
 
-    <p>
-        Interne Einsatzverfahren, taktische Maßnahmen und
-        sicherheitsrelevante Informationen werden nicht
-        öffentlich bekannt gegeben.
-    </p>
+        <p>
+            Neben dem Personenschutz kann der Secret Service
+            mit der Absicherung besonders wichtiger
+            staatlicher Gebäude und Einrichtungen betraut
+            werden. Umfang und Art der Maßnahmen richten
+            sich nach der jeweiligen Sicherheitslage.
+        </p>
+
+
+        <h3>
+            Zusammenarbeit
+        </h3>
+
+        <p>
+            Bei besonderen Einsatzlagen arbeitet der
+            Secret Service mit anderen staatlichen
+            Behörden zusammen. Dazu können insbesondere
+            die Polizei und das Department of Justice gehören.
+        </p>
+
+
+        <h3>
+            Vertraulichkeit
+        </h3>
+
+        <p>
+            Interne Einsatzverfahren, taktische Maßnahmen,
+            Sicherheitskonzepte und sicherheitsrelevante
+            Informationen werden nicht öffentlich
+            bekannt gegeben.
+        </p>
+
+    </div>
 
 </section>
 
@@ -1154,28 +1741,49 @@
      DISCORD
 ========================= -->
 
-<section class="discord">
+<section
+    class="section"
+    id="discord"
+>
 
-    <h2>
-        Offizieller Final City Discord
-    </h2>
+    <div class="discord">
 
-    <p>
-        Der offizielle Kommunikationskanal von Final City.
-    </p>
+        <h2>
+            Offizieller Final City Discord
+        </h2>
 
-    <a
-        href="https://discord.gg/ztZtzbQ9h"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        Zum Discord-Server
-    </a>
+        <p>
+            Der offizielle Kommunikationskanal für
+            Informationen und Austausch innerhalb von Final City.
+        </p>
+
+        <a
+            href="https://discord.gg/ztZtzbQ9h"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Zum Discord-Server →
+        </a>
+
+    </div>
 
 </section>
 
 
 </main>
+
+
+<!-- =========================
+     BACK TO TOP
+========================= -->
+
+<button
+    id="backToTop"
+    aria-label="Nach oben"
+    title="Nach oben"
+>
+    ↑
+</button>
 
 
 <!-- =========================
@@ -1193,8 +1801,115 @@
         Regierung und staatliche Institutionen
     </p>
 
+    <p style="margin-top:12px; font-size:13px;">
+        <a href="index.html">Startseite</a>
+        &nbsp;|&nbsp;
+        <a href="gesetzbuecher.html">Gesetzbücher</a>
+        &nbsp;|&nbsp;
+        <a href="regierung.html">Regierung & DOJ</a>
+    </p>
+
 </footer>
 
+
+<script>
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 450) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
+        }
+
+    });
+
+
+    backToTop.addEventListener("click", function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+
+    /* =========================
+       ACTIVE NAVIGATION
+    ========================= */
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+    const navLinks =
+        document.querySelectorAll("nav a");
+
+    navLinks.forEach(function (link) {
+
+        const linkPage =
+            link.getAttribute("href")
+                .split("/")
+                .pop()
+                .toLowerCase();
+
+        if (
+            linkPage === currentPage ||
+            (
+                currentPage === "" &&
+                linkPage === "index.html"
+            )
+        ) {
+            link.classList.add("active");
+        }
+
+    });
+
+
+    /* =========================
+       ESCAPE / FEHLERFREIE
+       ANKER-NAVIGATION
+    ========================= */
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+
+        link.addEventListener("click", function (event) {
+
+            const targetId =
+                this.getAttribute("href");
+
+            if (targetId === "#") {
+                return;
+            }
+
+            const target =
+                document.querySelector(targetId);
+
+            if (target) {
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        });
+
+    });
+
+</script>
 
 </body>
 </html>
