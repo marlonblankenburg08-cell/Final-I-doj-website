@@ -6,12 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ```
-<title>Final City | Department of Justice</title>
+<title>Regierung & DOJ | Final City</title>
 
-<meta name="description" content="Offizielle Website des Department of Justice von Final City.">
-<meta name="theme-color" content="#1f3b5b">
+<meta name="description" content="Regierung und Department of Justice des Staates Final City.">
 
 <style>
+    :root {
+        --dark: #303236;
+        --dark-2: #242528;
+        --gray: #686b70;
+        --light: #f1f1f1;
+        --white: #ffffff;
+        --gold: #d2a93b;
+        --gold-light: #e4c66d;
+        --text: #292a2d;
+        --muted: #707277;
+        --border: #dedede;
+    }
+
     * {
         margin: 0;
         padding: 0;
@@ -24,174 +36,167 @@
 
     body {
         font-family: Arial, Helvetica, sans-serif;
-        background: #f4f6f8;
-        color: #1d2733;
+        background: var(--light);
+        color: var(--text);
         line-height: 1.6;
     }
 
     /* NAVIGATION */
+
     header {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.96);
-        border-bottom: 1px solid #e2e6ea;
+        right: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.97);
+        border-bottom: 1px solid var(--border);
         backdrop-filter: blur(10px);
     }
 
     .nav {
-        max-width: 1200px;
+        max-width: 1180px;
+        height: 74px;
         margin: auto;
-        height: 76px;
+        padding: 0 20px;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 25px;
     }
 
     .brand {
         display: flex;
         align-items: center;
-        gap: 13px;
+        gap: 12px;
+
+        color: var(--text);
         text-decoration: none;
-        color: #172536;
     }
 
     .logo {
         width: 48px;
         height: 48px;
+
         border-radius: 50%;
-        background: #1f3b5b;
-        color: white;
+        background: var(--dark);
+
+        border: 3px solid var(--gold);
+
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
-        font-size: 15px;
-        border: 3px solid #d7b56d;
+
+        color: white;
+        font-size: 12px;
+        font-weight: 900;
     }
 
-    .brand-text strong {
-        display: block;
-        font-size: 16px;
+    .brand-name {
+        font-weight: 900;
         letter-spacing: 1px;
     }
 
-    .brand-text span {
-        font-size: 11px;
-        color: #687583;
+    .brand-sub {
+        display: block;
+
+        color: var(--muted);
+        font-size: 10px;
         text-transform: uppercase;
         letter-spacing: 1.5px;
     }
 
     nav {
         display: flex;
-        gap: 28px;
+        align-items: center;
+        gap: 22px;
     }
 
     nav a {
-        color: #465463;
+        color: #55575b;
         text-decoration: none;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 700;
+
         transition: 0.2s;
     }
 
     nav a:hover {
-        color: #1f3b5b;
+        color: var(--gold);
     }
 
-    .discord-button {
-        background: #1f3b5b;
+    .discord {
+        background: var(--dark);
         color: white !important;
-        padding: 11px 18px;
+
+        padding: 11px 17px;
         border-radius: 6px;
     }
 
-    .discord-button:hover {
-        background: #162c44;
+    .discord:hover {
+        background: var(--gold);
+        color: var(--dark) !important;
     }
 
     /* HERO */
+
     .hero {
-        margin-top: 76px;
-        min-height: 600px;
-        position: relative;
+        margin-top: 74px;
+
+        min-height: 430px;
+
         display: flex;
         align-items: center;
-        overflow: hidden;
 
         background:
             linear-gradient(
-                rgba(20, 38, 57, 0.68),
-                rgba(20, 38, 57, 0.68)
+                rgba(35, 36, 39, 0.84),
+                rgba(35, 36, 39, 0.84)
             ),
             url("https://cdn.discordapp.com/attachments/1537960316187582515/1543188549799518289/f4619c5a-44c6-48f8-8c14-544eb3967a9d.png?ex=6a93f5d5&is=6a92a455&hm=0adc4b8a74e982de2cb308ad64f0992c3c628bac4c3961964fc18920d944d633&");
 
-        background-size: cover;
         background-position: center;
+        background-size: cover;
     }
 
     .hero-content {
-        width: 1200px;
-        max-width: calc(100% - 50px);
+        max-width: 1180px;
+        width: 100%;
+
         margin: auto;
+        padding: 60px 20px;
+
         color: white;
     }
 
-    .hero-small {
+    .eyebrow {
+        color: var(--gold-light);
+
+        font-size: 12px;
+        font-weight: 900;
+
+        letter-spacing: 2px;
         text-transform: uppercase;
-        letter-spacing: 3px;
-        font-size: 13px;
-        font-weight: bold;
-        color: #e4c47d;
-        margin-bottom: 12px;
     }
 
     .hero h1 {
-        font-size: clamp(42px, 6vw, 72px);
+        font-size: clamp(42px, 6vw, 68px);
         line-height: 1.05;
-        margin-bottom: 20px;
-        font-weight: 700;
+
+        margin: 10px 0 18px;
     }
 
     .hero p {
-        max-width: 650px;
-        font-size: 18px;
-        color: #edf2f6;
-        margin-bottom: 32px;
-    }
+        max-width: 680px;
 
-    .hero-buttons {
-        display: flex;
-        gap: 13px;
-        flex-wrap: wrap;
-    }
-
-    .button {
-        display: inline-block;
-        text-decoration: none;
-        padding: 13px 23px;
-        border-radius: 5px;
-        font-weight: bold;
-        font-size: 14px;
-    }
-
-    .button-primary {
-        background: white;
-        color: #1f3b5b;
-    }
-
-    .button-secondary {
-        border: 1px solid rgba(255,255,255,0.6);
-        color: white;
+        color: #e0e0e0;
+        font-size: 17px;
     }
 
     /* GENERAL */
+
     section {
-        padding: 90px 25px;
+        padding: 80px 20px;
     }
 
     .container {
@@ -199,217 +204,324 @@
         margin: auto;
     }
 
-    .section-header {
-        margin-bottom: 45px;
-    }
-
     .section-label {
-        color: #b08a42;
-        text-transform: uppercase;
+        color: var(--gold);
+
         font-size: 12px;
+        font-weight: 900;
+
         letter-spacing: 2px;
-        font-weight: bold;
-        margin-bottom: 8px;
+        text-transform: uppercase;
     }
 
-    h2 {
+    .section-title {
         font-size: 36px;
-        color: #172536;
-        margin-bottom: 10px;
+        margin: 5px 0 10px;
     }
 
     .section-description {
-        color: #687583;
-        max-width: 650px;
+        max-width: 720px;
+        color: var(--muted);
     }
 
-    /* INFO CARDS */
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
-    }
+    /* PRESIDENT */
 
-    .card {
+    .president-section {
         background: white;
-        padding: 30px;
-        border: 1px solid #e1e6ea;
-        border-radius: 8px;
-        transition: 0.25s;
     }
 
-    .card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(26, 43, 60, 0.08);
+    .president-card {
+        margin-top: 35px;
+
+        background: #fafafa;
+
+        border: 1px solid var(--border);
+        border-radius: 10px;
+
+        padding: 32px;
+
+        display: grid;
+        grid-template-columns: 110px 1fr auto;
+
+        align-items: center;
+
+        gap: 25px;
+
+        box-shadow: 0 8px 25px rgba(0,0,0,0.04);
     }
 
-    .card-icon {
-        width: 45px;
-        height: 45px;
-        border-radius: 6px;
-        background: #edf2f6;
-        color: #1f3b5b;
+    .profile-image {
+        width: 100px;
+        height: 100px;
+
+        border-radius: 50%;
+
+        background: var(--dark);
+
+        border: 4px solid var(--gold);
+
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
-        margin-bottom: 20px;
+
+        color: white;
+
+        font-size: 27px;
+        font-weight: 900;
     }
 
-    .card h3 {
-        margin-bottom: 10px;
-        color: #1c2d3f;
+    .profile-info h3 {
+        font-size: 25px;
+        margin-bottom: 4px;
     }
 
-    .card p {
-        color: #6d7883;
+    .profile-position {
+        color: var(--gold);
+        font-weight: 800;
         font-size: 14px;
     }
 
-    /* ABOUT */
-    .about {
+    .profile-description {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 7px;
+    }
+
+    .official {
+        background: var(--dark);
+
+        color: white;
+
+        padding: 8px 13px;
+
+        border-radius: 5px;
+
+        font-size: 11px;
+        font-weight: 800;
+
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* DOJ */
+
+    .doj-section {
+        background: var(--light);
+    }
+
+    .department-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+
+        margin-top: 35px;
+    }
+
+    .department {
+        background: white;
+
+        border: 1px solid var(--border);
+
+        border-radius: 8px;
+
+        padding: 25px;
+
+        position: relative;
+    }
+
+    .department-number {
+        color: var(--gold);
+
+        font-size: 12px;
+        font-weight: 900;
+
+        letter-spacing: 2px;
+    }
+
+    .department h3 {
+        margin: 8px 0 5px;
+    }
+
+    .department p {
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    .vacant {
+        display: inline-block;
+
+        margin-top: 16px;
+
+        padding: 7px 10px;
+
+        border-radius: 5px;
+
+        background: #eeeeee;
+
+        color: #777;
+
+        font-size: 11px;
+        font-weight: 800;
+
+        text-transform: uppercase;
+        letter-spacing: .7px;
+    }
+
+    /* ALL POSITIONS */
+
+    .positions {
         background: white;
     }
 
-    .about-grid {
+    .position-list {
+        margin-top: 35px;
+
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 60px;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 14px;
+    }
+
+    .position {
+        border: 1px solid var(--border);
+
+        background: #fafafa;
+
+        border-radius: 7px;
+
+        padding: 20px;
+
+        display: flex;
+
         align-items: center;
-    }
 
-    .about-text p {
-        color: #5f6d79;
-        margin-bottom: 18px;
-    }
+        justify-content: space-between;
 
-    .official-box {
-        background: #f4f6f8;
-        border-left: 4px solid #1f3b5b;
-        padding: 28px;
-    }
-
-    .official-box strong {
-        display: block;
-        color: #1f3b5b;
-        margin-bottom: 5px;
-    }
-
-    .official-box span {
-        color: #687583;
-        font-size: 14px;
-    }
-
-    /* NEWS */
-    .news {
-        background: #f4f6f8;
-    }
-
-    .news-list {
-        display: grid;
         gap: 15px;
     }
 
-    .news-item {
-        background: white;
-        border: 1px solid #e1e6ea;
-        padding: 23px 27px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-        border-radius: 7px;
+    .position-name {
+        font-weight: 800;
     }
 
-    .news-item h3 {
-        color: #1f2f40;
-        font-size: 17px;
-    }
+    .position-status {
+        color: #858585;
 
-    .news-item p {
-        color: #71808d;
-        font-size: 13px;
-    }
+        font-size: 11px;
+        font-weight: 800;
 
-    .date {
-        color: #9a7a3d;
-        font-size: 12px;
+        text-transform: uppercase;
         white-space: nowrap;
     }
 
-    /* CONTACT */
+    .position-status.filled {
+        color: var(--gold);
+    }
+
+    /* DISCORD */
+
     .contact {
-        background: #1f3b5b;
+        background: var(--dark);
+
         color: white;
+
         text-align: center;
     }
 
     .contact h2 {
-        color: white;
+        font-size: 36px;
     }
 
     .contact p {
-        color: #d8e0e7;
         max-width: 650px;
-        margin: 0 auto 28px;
+
+        margin: 10px auto 25px;
+
+        color: #d4d4d4;
+    }
+
+    .contact-button {
+        display: inline-block;
+
+        padding: 13px 22px;
+
+        background: var(--gold);
+
+        color: var(--dark);
+
+        border-radius: 6px;
+
+        text-decoration: none;
+
+        font-weight: 900;
+    }
+
+    .contact-button:hover {
+        background: var(--gold-light);
     }
 
     /* FOOTER */
+
     footer {
-        background: #14283c;
-        color: #b9c4ce;
-        padding: 35px 25px;
+        background: var(--dark-2);
+
+        color: #aaa;
+
+        padding: 30px 20px;
     }
 
     .footer-inner {
         max-width: 1100px;
+
         margin: auto;
+
         display: flex;
+
         justify-content: space-between;
-        gap: 25px;
-        align-items: center;
+
+        gap: 20px;
     }
 
     .footer-title {
         color: white;
-        font-weight: bold;
-    }
-
-    footer small {
-        color: #8795a2;
+        font-weight: 900;
     }
 
     /* MOBILE */
-    @media (max-width: 800px) {
-        nav {
+
+    @media (max-width: 850px) {
+
+        nav a:not(.discord) {
             display: none;
         }
 
-        .cards {
+        .president-card {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .profile-image {
+            margin: auto;
+        }
+
+        .department-grid {
             grid-template-columns: 1fr;
         }
 
-        .about-grid {
+        .position-list {
             grid-template-columns: 1fr;
-            gap: 30px;
         }
 
-        .news-item {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .hero {
-            min-height: 540px;
-        }
-
-        section {
-            padding: 65px 20px;
+        .official {
+            width: fit-content;
+            margin: auto;
         }
 
         .footer-inner {
             flex-direction: column;
-            align-items: flex-start;
         }
     }
 </style>
@@ -420,27 +532,55 @@
 <body>
 
 <header>
-    <div class="nav">
 
 ```
-    <a href="#" class="brand">
-        <div class="logo">DOJ</div>
+<div class="nav">
 
-        <div class="brand-text">
-            <strong>FINAL CITY</strong>
-            <span>Department of Justice</span>
+    <a class="brand" href="index.html">
+
+        <div class="logo">
+            DOJ
         </div>
+
+        <div>
+            <div class="brand-name">
+                FINAL CITY
+            </div>
+
+            <span class="brand-sub">
+                Department of Justice
+            </span>
+        </div>
+
     </a>
 
     <nav>
-        <a href="#start">Startseite</a>
-        <a href="#doj">Das DOJ</a>
-        <a href="#bereiche">Bereiche</a>
-        <a href="#news">Aktuelles</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="https://discord.gg/" target="_blank" class="discord-button">
+
+        <a href="index.html">
+            Startseite
+        </a>
+
+        <a href="index.html#gesetzbuch">
+            Gesetzbücher
+        </a>
+
+        <a href="regierung.html">
+            Regierung & DOJ
+        </a>
+
+        <a href="index.html#kontakt">
+            Kontakt
+        </a>
+
+        <a
+            class="discord"
+            href="https://discord.gg/ztZtzbQ9h"
+            target="_blank"
+            rel="noopener"
+        >
             Discord
         </a>
+
     </nav>
 
 </div>
@@ -452,32 +592,77 @@
 
 ```
 <!-- HERO -->
-<section class="hero" id="start">
+
+<section class="hero">
 
     <div class="hero-content">
 
-        <div class="hero-small">
+        <div class="eyebrow">
             Staat Final City
         </div>
 
         <h1>
-            Department<br>
-            of Justice
+            Regierung<br>
+            & Department of Justice
         </h1>
 
         <p>
-            Willkommen auf der offiziellen Website des Department of Justice
-            von Final City. Recht, Ordnung und Gerechtigkeit für unsere Stadt.
+            Informationen über die politische Führung des Staates
+            sowie die zuständigen Stellen des Department of Justice.
         </p>
 
-        <div class="hero-buttons">
-            <a href="#doj" class="button button-primary">
-                Mehr über das DOJ
-            </a>
+    </div>
 
-            <a href="#kontakt" class="button button-secondary">
-                Kontakt aufnehmen
-            </a>
+</section>
+
+
+<!-- PRESIDENT -->
+
+<section class="president-section">
+
+    <div class="container">
+
+        <div class="section-label">
+            Staatsführung
+        </div>
+
+        <h2 class="section-title">
+            Präsident
+        </h2>
+
+        <p class="section-description">
+            Der Präsident ist das Staatsoberhaupt von Final City
+            und steht an der Spitze der staatlichen Führung.
+        </p>
+
+
+        <div class="president-card">
+
+            <div class="profile-image">
+                OH
+            </div>
+
+            <div class="profile-info">
+
+                <h3>
+                    Olaf Holz
+                </h3>
+
+                <div class="profile-position">
+                    Präsident von Final City
+                </div>
+
+                <div class="profile-description">
+                    Staatspräsident und oberste politische Vertretung
+                    des Staates Final City.
+                </div>
+
+            </div>
+
+            <div class="official">
+                Amt besetzt
+            </div>
+
         </div>
 
     </div>
@@ -486,46 +671,88 @@
 
 
 <!-- DOJ -->
-<section class="about" id="doj">
+
+<section class="doj-section">
 
     <div class="container">
 
-        <div class="about-grid">
+        <div class="section-label">
+            Department of Justice
+        </div>
 
-            <div class="about-text">
+        <h2 class="section-title">
+            Führung des DOJ
+        </h2>
 
-                <div class="section-label">
-                    Department of Justice
+        <p class="section-description">
+            Die folgenden Positionen bilden die zukünftige Führung
+            und Organisation des Department of Justice.
+        </p>
+
+
+        <div class="department-grid">
+
+            <div class="department">
+
+                <div class="department-number">
+                    DOJ · 01
                 </div>
 
-                <h2>
-                    Für Recht und Gerechtigkeit.
-                </h2>
+                <h3>
+                    Oberster Richter
+                </h3>
 
                 <p>
-                    Das Department of Justice ist eine zentrale Institution
-                    des Staates Final City. Unsere Aufgabe ist es, für die
-                    Einhaltung der geltenden Gesetze zu sorgen und die
-                    Interessen der Bürger zu vertreten.
+                    Leitung der höchsten gerichtlichen Instanz
+                    von Final City.
                 </p>
 
-                <p>
-                    Gemeinsam mit Gerichten, Staatsanwaltschaft und weiteren
-                    staatlichen Institutionen setzen wir uns für einen
-                    funktionierenden Rechtsstaat ein.
-                </p>
+                <span class="vacant">
+                    Noch nicht besetzt
+                </span>
 
             </div>
 
-            <div class="official-box">
 
-                <strong>
-                    Offizielle Behörde
-                </strong>
+            <div class="department">
 
-                <span>
-                    Department of Justice<br>
-                    Staat Final City
+                <div class="department-number">
+                    DOJ · 02
+                </div>
+
+                <h3>
+                    Generalstaatsanwalt
+                </h3>
+
+                <p>
+                    Leitung der Staatsanwaltschaft und
+                    oberste Vertretung der Anklage.
+                </p>
+
+                <span class="vacant">
+                    Noch nicht besetzt
+                </span>
+
+            </div>
+
+
+            <div class="department">
+
+                <div class="department-number">
+                    DOJ · 03
+                </div>
+
+                <h3>
+                    Justizminister
+                </h3>
+
+                <p>
+                    Verantwortlich für die politische und
+                    organisatorische Leitung des Justizwesens.
+                </p>
+
+                <span class="vacant">
+                    Noch nicht besetzt
                 </span>
 
             </div>
@@ -537,178 +764,136 @@
 </section>
 
 
-<!-- BEREICHE -->
-<section id="bereiche">
+<!-- POSITIONS -->
 
-    <div class="container">
-
-        <div class="section-header">
-
-            <div class="section-label">
-                Unsere Aufgaben
-            </div>
-
-            <h2>
-                Bereiche des DOJ
-            </h2>
-
-            <p class="section-description">
-                Das Department of Justice umfasst verschiedene Bereiche,
-                die gemeinsam für Recht und Ordnung sorgen.
-            </p>
-
-        </div>
-
-
-        <div class="cards">
-
-            <div class="card">
-
-                <div class="card-icon">⚖</div>
-
-                <h3>
-                    Gerichte
-                </h3>
-
-                <p>
-                    Organisation und Durchführung von Gerichtsverfahren
-                    sowie die Rechtsprechung innerhalb von Final City.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">§</div>
-
-                <h3>
-                    Staatsanwaltschaft
-                </h3>
-
-                <p>
-                    Untersuchung und Verfolgung von Straftaten sowie
-                    Vertretung des öffentlichen Interesses.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">▣</div>
-
-                <h3>
-                    Rechtswesen
-                </h3>
-
-                <p>
-                    Verwaltung und Pflege der geltenden Gesetze,
-                    Verordnungen und rechtlichen Vorschriften.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- NEWS -->
-<section class="news" id="news">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <div class="section-label">
-                Informationen
-            </div>
-
-            <h2>
-                Aktuelles
-            </h2>
-
-            <p class="section-description">
-                Offizielle Mitteilungen und Neuigkeiten des Department
-                of Justice.
-            </p>
-
-        </div>
-
-
-        <div class="news-list">
-
-            <div class="news-item">
-
-                <div>
-                    <h3>
-                        Willkommen beim Department of Justice
-                    </h3>
-
-                    <p>
-                        Die offizielle Website des Final City DOJ ist online.
-                    </p>
-                </div>
-
-                <div class="date">
-                    29.08.2026
-                </div>
-
-            </div>
-
-
-            <div class="news-item">
-
-                <div>
-                    <h3>
-                        Neue Informationen folgen
-                    </h3>
-
-                    <p>
-                        Weitere Inhalte und Bekanntmachungen werden
-                        demnächst veröffentlicht.
-                    </p>
-                </div>
-
-                <div class="date">
-                    OFFIZIELL
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- KONTAKT -->
-<section class="contact" id="kontakt">
+<section class="positions">
 
     <div class="container">
 
         <div class="section-label">
-            Kontakt
+            Organisation
+        </div>
+
+        <h2 class="section-title">
+            Weitere Positionen
+        </h2>
+
+        <p class="section-description">
+            Diese Stellen können später besetzt und direkt auf
+            der Website aktualisiert werden.
+        </p>
+
+
+        <div class="position-list">
+
+            <div class="position">
+
+                <span class="position-name">
+                    Richter
+                </span>
+
+                <span class="position-status">
+                    Noch nicht besetzt
+                </span>
+
+            </div>
+
+
+            <div class="position">
+
+                <span class="position-name">
+                    Staatsanwalt
+                </span>
+
+                <span class="position-status">
+                    Noch nicht besetzt
+                </span>
+
+            </div>
+
+
+            <div class="position">
+
+                <span class="position-name">
+                    Stellvertretender Staatsanwalt
+                </span>
+
+                <span class="position-status">
+                    Noch nicht besetzt
+                </span>
+
+            </div>
+
+
+            <div class="position">
+
+                <span class="position-name">
+                    Pflichtverteidiger
+                </span>
+
+                <span class="position-status">
+                    Noch nicht besetzt
+                </span>
+
+            </div>
+
+
+            <div class="position">
+
+                <span class="position-name">
+                    Justizbeamter
+                </span>
+
+                <span class="position-status">
+                    Noch nicht besetzt
+                </span>
+
+            </div>
+
+
+            <div class="position">
+
+                <span class="position-name">
+                    Gerichtsverwaltung
+                </span>
+
+                <span class="position-status">
+                    Noch nicht besetzt
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DISCORD -->
+
+<section class="contact">
+
+    <div class="container">
+
+        <div class="section-label">
+            Final City
         </div>
 
         <h2>
-            Fragen oder Anliegen?
+            Fragen an Regierung oder DOJ?
         </h2>
 
         <p>
-            Du möchtest mit dem Department of Justice in Kontakt treten
-            oder hast ein rechtliches Anliegen? Besuche unseren Discord-
-            Server und wende dich an unser Team.
+            Besuche unseren offiziellen Discord-Server,
+            um Kontakt mit dem Team von Final City aufzunehmen.
         </p>
 
         <a
-            href="https://discord.gg/"
+            class="contact-button"
+            href="https://discord.gg/ztZtzbQ9h"
             target="_blank"
-            class="button button-primary"
+            rel="noopener"
         >
             Zum Discord Server
         </a>
@@ -720,21 +905,21 @@
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
 
 ```
 <div class="footer-inner">
 
     <div>
+
         <div class="footer-title">
             FINAL CITY — DEPARTMENT OF JUSTICE
         </div>
 
         <small>
-            Offizielle Website des Department of Justice
+            Fiktive Website für FiveM Roleplay
         </small>
+
     </div>
 
     <small>
