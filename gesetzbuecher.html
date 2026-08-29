@@ -1,609 +1,333 @@
+```html
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gesetzbücher | Final City DOJ</title>
+<title>Gesetzbücher | Final City</title>
 
 <style>
-:root{
-    --dark:#303236;
-    --dark2:#222326;
-    --gray:#686b70;
-    --light:#f1f1f1;
-    --white:#ffffff;
-    --gold:#d2a93b;
-    --gold-light:#e5c96b;
-    --text:#292a2d;
-    --muted:#73757a;
-    --border:#dddddd;
-    --green:#3e7954;
-    --red:#934444;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+html {
+    scroll-behavior: smooth;
 }
 
-html{
-    scroll-behavior:smooth;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eeeeee;
+    color: #222;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:var(--light);
-    color:var(--text);
-    line-height:1.6;
+/* HEADER */
+
+header {
+    background: #303030;
+    border-bottom: 4px solid #d6aa35;
+    padding: 15px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* NAVIGATION */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:1000;
-
-    background:rgba(255,255,255,.97);
-    border-bottom:1px solid var(--border);
-
-    backdrop-filter:blur(10px);
+    color: white;
+    text-decoration: none;
 }
 
-.nav{
-    max-width:1200px;
-    height:74px;
-    margin:auto;
-    padding:0 20px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+.logo img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    text-decoration:none;
-    color:var(--text);
+.logo-text {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.2;
 }
 
-.logo{
-    width:48px;
-    height:48px;
-
-    border-radius:50%;
-
-    background:var(--dark);
-    border:3px solid var(--gold);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:white;
-    font-size:12px;
-    font-weight:900;
+.logo-text span {
+    color: #d6aa35;
+    font-size: 12px;
 }
 
-.brand-name{
-    font-weight:900;
-    letter-spacing:1px;
+nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
-.brand-sub{
-    display:block;
-
-    color:var(--muted);
-
-    font-size:10px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
-nav{
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-
-nav a{
-    color:#55575b;
-    text-decoration:none;
-
-    font-size:14px;
-    font-weight:700;
-
-    transition:.2s;
-}
-
-nav a:hover{
-    color:var(--gold);
-}
-
-.discord{
-    background:var(--dark);
-    color:white!important;
-
-    padding:11px 17px;
-
-    border-radius:6px;
-}
-
-.discord:hover{
-    background:var(--gold);
-    color:var(--dark)!important;
+nav a:hover,
+nav a.active {
+    background: #d6aa35;
+    color: #222;
 }
 
 /* HERO */
 
-.hero{
-    margin-top:74px;
-
-    padding:90px 20px;
-
+.hero {
     background:
-    linear-gradient(
-        rgba(35,36,39,.88),
-        rgba(35,36,39,.88)
-    ),
-    url("https://cdn.discordapp.com/attachments/1537960316187582515/1543188549799518289/f4619c5a-44c6-48f8-8c14-544eb3967a9d.png?ex=6a93f5d5&is=6a92a455&hm=0adc4b8a74e982de2cb308ad64f0992c3c628bac4c3961964fc18920d944d633&");
+        linear-gradient(
+            rgba(40,40,40,0.86),
+            rgba(40,40,40,0.86)
+        ),
+        url("https://cdn.discordapp.com/attachments/1537960316187582515/1543188549799518289/f4619c5a-44c6-48f8-8c14-544eb3967a9d.png?ex=6a93f5d5&is=6a92a455&hm=0adc4b8a74e982de2cb308ad64f0992c3c628bac4c3961964fc18920d944d633&");
 
-    background-size:cover;
-    background-position:center;
+    background-size: cover;
+    background-position: center;
 
-    color:white;
+    padding: 80px 20px;
+
+    text-align: center;
+    color: white;
 }
 
-.hero-inner{
-    max-width:1100px;
-    margin:auto;
+.hero h1 {
+    font-size: 46px;
+    margin-bottom: 12px;
 }
 
-.eyebrow{
-    color:var(--gold-light);
-
-    font-size:12px;
-    font-weight:900;
-
-    letter-spacing:2px;
-    text-transform:uppercase;
+.hero h1 span {
+    color: #d6aa35;
 }
 
-.hero h1{
-    font-size:clamp(42px,6vw,68px);
-    line-height:1.05;
-
-    margin:10px 0 18px;
+.hero p {
+    color: #ddd;
+    font-size: 18px;
 }
 
-.hero p{
-    max-width:750px;
+/* CONTAINER */
 
-    color:#dedede;
-
-    font-size:17px;
-}
-
-/* MAIN */
-
-main{
-    padding:70px 20px;
-}
-
-.container{
-    max-width:1100px;
-    margin:auto;
-}
-
-.label{
-    color:var(--gold);
-
-    font-size:12px;
-    font-weight:900;
-
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
-
-.title{
-    font-size:38px;
-    margin:5px 0 10px;
-}
-
-.description{
-    color:var(--muted);
-    max-width:800px;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 45px auto;
 }
 
 /* SEARCH */
 
-.search{
-    margin:30px 0;
+.search-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+
+    margin-bottom: 35px;
 }
 
-.search input{
-    width:100%;
-
-    padding:17px 18px;
-
-    border:1px solid var(--border);
-    border-radius:8px;
-
-    background:white;
-
-    font-size:16px;
-
-    outline:none;
+.search-box h2 {
+    margin-bottom: 15px;
 }
 
-.search input:focus{
-    border-color:var(--gold);
+#search {
+    width: 100%;
+    padding: 14px 16px;
 
-    box-shadow:
-    0 0 0 3px rgba(210,169,59,.15);
+    border: 1px solid #ccc;
+    border-radius: 7px;
+
+    font-size: 16px;
+    outline: none;
 }
 
-/* CATEGORY MENU */
+#search:focus {
+    border-color: #d6aa35;
+}
 
-.categories{
-    display:grid;
+/* LAW NAVIGATION */
+
+.law-navigation {
+    display: grid;
 
     grid-template-columns:
-    repeat(4,1fr);
+        repeat(auto-fit, minmax(180px, 1fr));
 
-    gap:12px;
+    gap: 12px;
 
-    margin-bottom:60px;
+    margin-bottom: 40px;
 }
 
-.category{
-    padding:18px;
+.law-navigation a {
+    background: #343434;
+    color: white;
 
-    background:white;
+    text-decoration: none;
 
-    border:1px solid var(--border);
-    border-radius:8px;
+    padding: 15px;
 
-    text-decoration:none;
-    color:var(--text);
+    border-radius: 7px;
 
-    transition:.2s;
+    text-align: center;
+    font-weight: bold;
+
+    border-bottom: 3px solid #d6aa35;
+
+    transition: 0.2s;
 }
 
-.category:hover{
-    border-color:var(--gold);
-
-    transform:translateY(-2px);
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.05);
+.law-navigation a:hover {
+    background: #d6aa35;
+    color: #222;
 }
 
-.category strong{
-    display:block;
+/* LAW BOOK */
+
+.law-book {
+    background: white;
+
+    border-radius: 12px;
+
+    margin-bottom: 40px;
+
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+
+    overflow: hidden;
 }
 
-.category span{
-    display:block;
+.book-header {
+    background: #343434;
 
-    color:var(--muted);
+    color: white;
 
-    font-size:12px;
+    padding: 25px 30px;
+
+    border-left: 5px solid #d6aa35;
 }
 
-/* LAW */
-
-.law{
-    margin-bottom:55px;
-
-    scroll-margin-top:95px;
+.book-header h2 {
+    color: #d6aa35;
+    font-size: 28px;
+    margin-bottom: 7px;
 }
 
-.law-title{
-    background:var(--dark);
-
-    color:white;
-
-    padding:23px 25px;
-
-    border-radius:9px 9px 0 0;
-
-    border-bottom:4px solid var(--gold);
+.book-header p {
+    color: #ddd;
 }
 
-.law-title h2{
-    font-size:26px;
+/* PARAGRAPH */
+
+.paragraph {
+    padding: 25px 30px;
+
+    border-bottom: 1px solid #e2e2e2;
 }
 
-.law-title p{
-    color:#ccc;
-
-    font-size:13px;
+.paragraph:last-child {
+    border-bottom: none;
 }
 
-.paragraph{
-    background:white;
-
-    border:1px solid var(--border);
-
-    border-top:none;
+.paragraph h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 19px;
 }
 
-.paragraph summary{
-    list-style:none;
-
-    cursor:pointer;
-
-    padding:20px 22px;
-
-    display:grid;
-
-    grid-template-columns:
-    100px 1fr auto;
-
-    align-items:center;
-
-    gap:15px;
+.paragraph p {
+    color: #555;
+    line-height: 1.7;
 }
 
-.paragraph summary::-webkit-details-marker{
-    display:none;
-}
+.penalty {
+    display: inline-block;
 
-.paragraph summary:hover{
-    background:#fafafa;
-}
+    margin-top: 13px;
 
-.paragraph-number{
-    color:var(--gold);
+    background: #f3e7bd;
 
-    font-weight:900;
-}
+    color: #72570c;
 
-.paragraph-name{
-    font-weight:800;
-}
+    padding: 7px 11px;
 
-.penalty{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    justify-content:flex-end;
-}
+    border-radius: 5px;
 
-.he{
-    background:#eeeeee;
-
-    padding:5px 9px;
-
-    border-radius:5px;
-
-    font-size:11px;
-    font-weight:900;
-}
-
-.fine{
-    background:#fff4cf;
-
-    color:#735b16;
-
-    padding:5px 9px;
-
-    border-radius:5px;
-
-    font-size:11px;
-    font-weight:900;
-}
-
-.arrow{
-    color:var(--gold);
-    font-size:18px;
-}
-
-/* DETAILS */
-
-.explanation{
-    padding:0 25px 25px;
-
-    border-top:1px solid var(--border);
-
-    background:#fcfcfc;
-}
-
-.explanation-grid{
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:18px;
-
-    padding-top:20px;
-}
-
-.info-box{
-    padding:18px;
-
-    background:white;
-
-    border:1px solid var(--border);
-
-    border-radius:7px;
-}
-
-.info-box.full{
-    grid-column:1/-1;
-}
-
-.info-box h4{
-    margin-bottom:7px;
-
-    font-size:14px;
-
-    color:var(--dark);
-}
-
-.info-box p{
-    color:#555;
-
-    font-size:14px;
-}
-
-.example{
-    margin-top:10px;
-
-    padding:12px;
-
-    border-radius:6px;
-
-    font-size:13px;
-}
-
-.example.good{
-    background:#edf7ef;
-    border-left:4px solid var(--green);
-}
-
-.example.bad{
-    background:#faf0f0;
-    border-left:4px solid var(--red);
-}
-
-.example strong{
-    display:block;
-    margin-bottom:3px;
-}
-
-.exception{
-    margin-top:18px;
-
-    padding:15px;
-
-    background:#fff8df;
-
-    border-left:4px solid var(--gold);
-
-    font-size:13px;
-
-    color:#645423;
-}
-
-/* GENERAL NOTE */
-
-.general-note{
-    margin:40px 0;
-
-    padding:20px;
-
-    background:#fff8df;
-
-    border:1px solid #e7d48b;
-
-    border-radius:8px;
-}
-
-.general-note strong{
-    display:block;
-    margin-bottom:5px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* FOOTER */
 
-footer{
-    background:var(--dark2);
+footer {
+    background: #303030;
 
-    color:#aaa;
+    color: #aaa;
 
-    padding:30px 20px;
+    text-align: center;
+
+    padding: 30px;
+
+    border-top: 3px solid #d6aa35;
+
+    margin-top: 60px;
 }
 
-.footer{
-    max-width:1100px;
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:20px;
-}
-
-.footer strong{
-    color:white;
+footer strong {
+    color: #d6aa35;
 }
 
 /* MOBILE */
 
-@media(max-width:900px){
+@media(max-width:750px) {
 
-    nav a:not(.discord){
-        display:none;
+    header {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .categories{
-        grid-template-columns:
-        repeat(2,1fr);
+    nav {
+        justify-content: center;
     }
 
-    .paragraph summary{
-        grid-template-columns:1fr;
+    .hero h1 {
+        font-size: 34px;
     }
 
-    .penalty{
-        justify-content:flex-start;
-    }
-
-    .explanation-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:550px){
-
-    .categories{
-        grid-template-columns:1fr;
-    }
-
-    .hero h1{
-        font-size:45px;
-    }
-
-    .footer{
-        flex-direction:column;
+    .paragraph {
+        padding: 20px;
     }
 }
 </style>
-
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
-<div class="nav">
+<a href="index.html" class="logo">
 
-<a class="brand" href="index.html">
+<img src="doj-logo.png" alt="Final City DOJ">
 
-<div class="logo">
-DOJ
-</div>
-
-<div>
-<div class="brand-name">
+<div class="logo-text">
 FINAL CITY
-</div>
-
-<span class="brand-sub">
-Department of Justice
-</span>
+<br>
+<span>DEPARTMENT OF JUSTICE</span>
 </div>
 
 </a>
@@ -614,7 +338,7 @@ Department of Justice
 Startseite
 </a>
 
-<a href="gesetzbuecher.html">
+<a href="gesetzbuecher.html" class="active">
 Gesetzbücher
 </a>
 
@@ -622,4140 +346,1187 @@ Gesetzbücher
 Regierung & DOJ
 </a>
 
-<a
-class="discord"
-href="https://discord.gg/ztZtzbQ9h"
-target="_blank"
-rel="noopener">
-Discord </a>
-
 </nav>
-
-</div>
 
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero">
 
-<div class="hero-inner">
-
-<div class="eyebrow">
-Final City · Department of Justice
-</div>
-
 <h1>
-Gesetzbücher
+Gesetz<span>bücher</span>
 </h1>
 
 <p>
-Die Rechtsgrundlagen des Staates Final City.
-Jeder Paragraph enthält neben dem Strafmaß eine
-ausführliche Auslegung, Beispiele und mögliche Ausnahmen.
+Gesetzliche Ordnung der Republik Final City
 </p>
-
-</div>
 
 </section>
 
-<main>
 
-<div class="container">
+<main class="container">
 
-<div class="label">
-Rechtsgrundlagen
-</div>
 
-<h1 class="title">
-Gesetzbücher von Final City
-</h1>
+<!-- SUCHFUNKTION -->
 
-<p class="description">
-Dieses Gesetzbuch ist eine fiktive Regelgrundlage für das
-Final City FiveM Roleplay. Es ersetzt kein echtes Gesetz
-und gilt ausschließlich innerhalb des Servers.
-</p>
+<div class="search-box">
 
-<div class="general-note">
-
-<strong>
-⚖ Allgemeine Strafmaßregel
-</strong>
-
-Ein einzelner Gesetzesverstoß darf grundsätzlich mit
-maximal <strong>60 HE</strong> geahndet werden.
-Eine Geldstrafe von <strong>100.000 $</strong> ist ausschließlich
-für den Tatbestand Terrorismus vorgesehen.
-
-</div>
-
-<div class="search">
+<h2>
+Gesetzsuche
+</h2>
 
 <input
+type="text"
 id="search"
-type="search"
-placeholder="🔎 Gesetz, Paragraph oder Begriff suchen..."
-
+placeholder="Nach Paragraphen, Begriffen oder Gesetzen suchen..."
+onkeyup="searchLaws()"
 >
 
 </div>
 
-<div class="categories">
 
-<a class="category" href="#stgb">
-<strong>StGB</strong>
-<span>Strafgesetzbuch</span>
-</a>
+<!-- NAVIGATION -->
 
-<a class="category" href="#stvo">
-<strong>StVO</strong>
-<span>Straßenverkehrsordnung</span>
-</a>
+<div class="law-navigation">
 
-<a class="category" href="#waffg">
-<strong>WaffG</strong>
-<span>Waffengesetz</span>
-</a>
-
-<a class="category" href="#btmg">
-<strong>BtMG</strong>
-<span>Betäubungsmittelgesetz</span>
-</a>
-
-<a class="category" href="#polg">
-<strong>PolG</strong>
-<span>Polizeigesetz</span>
-</a>
-
-<a class="category" href="#owig">
-<strong>OWiG</strong>
-<span>Ordnungswidrigkeiten</span>
-</a>
-
-<a class="category" href="#gewo">
-<strong>GewO</strong>
-<span>Gewerbeordnung</span>
-</a>
-
-<a class="category" href="#stpo">
-<strong>StPO</strong>
-<span>Strafprozessordnung</span>
-</a>
-
-<a class="category" href="#jgg">
-<strong>JGG</strong>
-<span>Jugendgerichtsgesetz</span>
-</a>
-
-<a class="category" href="#dienst">
-<strong>Dienstgesetzbuch</strong>
-<span>Behördenrecht</span>
-</a>
-
-<a class="category" href="#korruption">
-<strong>Korruptionsgesetz</strong>
-<span>Amt & Integrität</span>
-</a>
-
-<a class="category" href="#lizenzen">
-<strong>Lizenzgesetz</strong>
-<span>Führer- & Waffenlizenzen</span>
-</a>
+<a href="#stgb">StGB</a>
+<a href="#stvo">StVO</a>
+<a href="#waffen">Waffengesetz</a>
+<a href="#btmg">BtMG</a>
+<a href="#polizei">Polizeigesetz</a>
+<a href="#gericht">Gerichtsgesetz</a>
+<a href="#owig">OWiG</a>
+<a href="#versammlung">Versammlungsgesetz</a>
+<a href="#stpo">StPO</a>
+<a href="#zivil">Zivilgesetzbuch</a>
 
 </div>
 
-<!-- STGB -->
 
-<section class="law" id="stgb">
+<!-- =========================
+     STGB
+========================= -->
 
-<div class="law-title">
+<section class="law-book" id="stgb">
 
-<h2>
-StGB – Strafgesetzbuch
-</h2>
+<div class="book-header">
+
+<h2>Strafgesetzbuch – StGB</h2>
 
 <p>
-Strafbare Handlungen und deren Sanktionen
+Das Strafgesetzbuch regelt die strafbaren Handlungen
+und deren Rechtsfolgen innerhalb von Final City.
 </p>
 
 </div>
 
-<!-- §1 -->
 
-<details class="paragraph">
+<div class="paragraph">
 
-<summary>
+<h3>§ 1 – Geltungsbereich des Strafrechts</h3>
 
-<span class="paragraph-number">
-§ 1
-</span>
+<p>
+Dieses Gesetz gilt für alle Personen, die sich innerhalb
+des Staatsgebietes von Final City aufhalten.
+</p>
 
-<span class="paragraph-name">
-Beleidigung
-</span>
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 2 – Vorsatz und Fahrlässigkeit</h3>
+
+<p>
+Eine strafbare Handlung liegt grundsätzlich vor, wenn eine
+Person die Tat vorsätzlich oder aufgrund gesetzlich bestimmter
+Fahrlässigkeit begeht.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 3 – Versuch einer Straftat</h3>
+
+<p>
+Der Versuch einer Straftat ist strafbar, wenn die betreffende
+Person unmittelbar zur Verwirklichung der Tat ansetzt.
+</p>
 
 <span class="penalty">
-<span class="he">5 HE</span>
-<span class="fine">1.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 30 HE / 30.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-
-<h4>Tatbestand</h4>
+<h3>§ 4 – Beihilfe</h3>
 
 <p>
-Eine Beleidigung liegt vor, wenn eine Person eine andere
-Person im RP gezielt herabwürdigt, beschimpft oder deren
-Ehre verletzt.
+Wer vorsätzlich einer anderen Person bei der Begehung einer
+Straftat Hilfe leistet, kann als Gehilfe bestraft werden.
 </p>
-
-</div>
-
-<div class="info-box">
-
-<h4>Auslegung</h4>
-
-<p>
-Nicht jede unfreundliche Aussage stellt automatisch einen
-Verstoß dar. Entscheidend sind Inhalt, Situation,
-Intensität und RP-Kontext.
-</p>
-
-</div>
-
-<div class="info-box">
-
-<h4>Beispiel – Verstoß</h4>
-
-<div class="example good">
-
-<strong>🟢 Gesetz greift</strong>
-
-Eine Person beleidigt einen Beamten wiederholt und gezielt,
-um ihn persönlich herabzuwürdigen.
-
-</div>
-
-</div>
-
-<div class="info-box">
-
-<h4>Beispiel – kein Verstoß</h4>
-
-<div class="example bad">
-
-<strong>🔴 Gesetz greift nicht automatisch</strong>
-
-Eine kurze verbale Auseinandersetzung zwischen zwei
-Charakteren im Rahmen einer glaubwürdigen RP-Situation.
-
-</div>
-
-</div>
-
-</div>
-
-<div class="exception">
-
-<strong>Hinweis:</strong>
-Charakterbezogene Aussagen können Bestandteil von RP sein.
-OOC-Beleidigungen werden nicht durch diesen Paragraphen
-gerechtfertigt.
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §2 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 2</span>
-
-<span class="paragraph-name">
-Verleumdung
-</span>
 
 <span class="penalty">
-<span class="he">8 HE</span>
-<span class="fine">2.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 30 HE / 30.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 5 – Körperverletzung</h3>
 
 <p>
-Das bewusste Verbreiten einer unwahren Behauptung über
-eine andere Person, die geeignet ist, deren Ansehen zu
-schädigen.
+Wer eine andere Person körperlich misshandelt oder an der
+Gesundheit schädigt, macht sich der Körperverletzung schuldig.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Es muss sich um eine unwahre Tatsachenbehauptung handeln.
-Eine bloße persönliche Meinung ist nicht automatisch
-Verleumdung.
-</p>
-</div>
-
-<div class="info-box full">
-
-<h4>Beispiele</h4>
-
-<div class="example good">
-<strong>🟢 Gesetz greift</strong>
-Eine Person behauptet wissentlich, ein anderer Charakter
-habe einen schweren Raub begangen, obwohl dies nicht stimmt.
-</div>
-
-<div class="example bad">
-<strong>🔴 Kein automatischer Verstoß</strong>
-Eine Person äußert lediglich ihre persönliche Meinung über
-das Verhalten eines anderen Charakters.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §3 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 3</span>
-
-<span class="paragraph-name">
-Bedrohung
-</span>
 
 <span class="penalty">
-<span class="he">10 HE</span>
-<span class="fine">2.500 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 30 HE / 25.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-
-<h4>Tatbestand</h4>
+<h3>§ 6 – Gefährliche Körperverletzung</h3>
 
 <p>
-Das ernsthafte Androhen eines erheblichen Nachteils
-gegenüber einer anderen Person.
+Eine Körperverletzung ist insbesondere dann gefährlich,
+wenn sie unter Verwendung eines gefährlichen Gegenstandes,
+einer Waffe oder durch gemeinschaftliches Handeln begangen wird.
 </p>
-
-</div>
-
-<div class="info-box">
-
-<h4>Auslegung</h4>
-
-<p>
-Die Äußerung muss aus Sicht der konkreten RP-Situation
-geeignet sein, bei der betroffenen Person begründete Angst
-auszulösen.
-</p>
-
-</div>
-
-<div class="info-box full">
-
-<h4>Beispiele</h4>
-
-<div class="example good">
-<strong>🟢 Gesetz greift</strong>
-Eine Person hält einer anderen Person eine Waffe vor und
-kündigt ausdrücklich deren Tötung an.
-</div>
-
-<div class="example bad">
-<strong>🔴 Kein automatischer Verstoß</strong>
-Eine offensichtlich nicht ernst gemeinte Aussage innerhalb
-einer erkennbaren RP-Situation.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §4 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 4</span>
-
-<span class="paragraph-name">
-Nötigung
-</span>
 
 <span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 45 HE / 40.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 7 – Freiheitsberaubung</h3>
 
 <p>
-Eine Person zwingt eine andere Person durch Gewalt oder
-eine ernsthafte Drohung zu einer bestimmten Handlung,
-Duldung oder Unterlassung.
+Wer einen Menschen gegen dessen Willen einsperrt, festhält
+oder auf andere Weise seiner persönlichen Freiheit beraubt,
+macht sich strafbar.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Entscheidend ist, dass die betroffene Person durch das
-eingesetzte Mittel tatsächlich unter Druck gesetzt wird.
-</p>
-</div>
-
-<div class="info-box full">
-
-<h4>Beispiel</h4>
-
-<div class="example good">
-<strong>🟢 Gesetz greift</strong>
-Eine Person bedroht einen Zeugen mit einer Waffe und zwingt
-ihn dadurch, eine Aussage zurückzunehmen.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §5 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 5</span>
-
-<span class="paragraph-name">
-Freiheitsberaubung
-</span>
 
 <span class="penalty">
-<span class="he">20 HE</span>
-<span class="fine">7.500 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 40 HE / 40.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 8 – Nötigung</h3>
 
 <p>
-Das unrechtmäßige Einsperren, Festhalten oder sonstige
-Verhindern der freien Fortbewegung einer Person.
+Wer eine Person rechtswidrig durch Gewalt oder durch Drohung
+mit einem empfindlichen Übel zu einer Handlung, Duldung oder
+Unterlassung zwingt, macht sich strafbar.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Eine Freiheitsberaubung kann auch dann vorliegen, wenn
-keine geschlossene Räumlichkeit verwendet wird.
-</p>
-</div>
-
-<div class="info-box full">
-
-<h4>Beispiel</h4>
-
-<div class="example good">
-<strong>🟢 Gesetz greift</strong>
-Eine Person wird gegen ihren Willen gefesselt und daran
-gehindert, den Ort zu verlassen.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §6 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 6</span>
-
-<span class="paragraph-name">
-Entführung
-</span>
 
 <span class="penalty">
-<span class="he">40 HE</span>
-<span class="fine">25.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 35 HE / 35.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 9 – Bedrohung</h3>
 
 <p>
-Das gewaltsame oder durch Drohung erzwungene Verbringen
-einer Person an einen anderen Ort.
+Wer einer Person mit der Begehung einer erheblichen Straftat
+gegen sie oder eine ihr nahestehende Person droht, macht sich
+strafbar.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Eine Entführung liegt insbesondere vor, wenn das Opfer
-gegen seinen Willen transportiert und seiner
-Entscheidungsfreiheit beraubt wird.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §7 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 7</span>
-
-<span class="paragraph-name">
-Geiselnahme
-</span>
 
 <span class="penalty">
-<span class="he">45 HE</span>
-<span class="fine">35.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 25 HE / 25.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 10 – Diebstahl</h3>
 
 <p>
-Das Festhalten einer Person als Druckmittel, um von
-Behörden, Unternehmen oder anderen Personen eine bestimmte
-Handlung zu erzwingen.
+Wer eine fremde bewegliche Sache einer anderen Person in der
+Absicht wegnimmt, sie sich oder einer dritten Person
+rechtswidrig zuzueignen, macht sich des Diebstahls schuldig.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Geisel wird bewusst als Mittel zur Durchsetzung einer
-Forderung eingesetzt.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §8 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 8</span>
-
-<span class="paragraph-name">
-Hausfriedensbruch
-</span>
 
 <span class="penalty">
-<span class="he">8 HE</span>
-<span class="fine">2.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 25 HE / 25.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 11 – Raub</h3>
 
 <p>
-Das unbefugte Betreten oder Verweilen auf einem
-geschützten Privat- oder Behördenbereich trotz bestehender
-Aufforderung zum Verlassen.
+Wer einer Person eine fremde Sache unter Anwendung oder
+Androhung von Gewalt wegnimmt, macht sich des Raubes schuldig.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Ein öffentlich zugänglicher Bereich darf grundsätzlich
-betreten werden. Ein Verstoß entsteht insbesondere durch
-das Betreten eines nicht freigegebenen Bereichs oder das
-Nichtbefolgen einer rechtmäßigen Aufforderung.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §9 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 9</span>
-
-<span class="paragraph-name">
-Sachbeschädigung
-</span>
 
 <span class="penalty">
-<span class="he">10 HE</span>
-<span class="fine">3.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 50 HE / 50.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 12 – Sachbeschädigung</h3>
 
 <p>
-Das vorsätzliche Beschädigen, Zerstören oder unbrauchbar
-Machen einer fremden Sache.
+Wer rechtswidrig eine fremde Sache beschädigt, zerstört oder
+deren bestimmungsgemäße Nutzung erheblich beeinträchtigt,
+macht sich strafbar.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Der Schaden muss vorsätzlich oder zumindest bewusst
-herbeigeführt worden sein.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §10 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 10</span>
-
-<span class="paragraph-name">
-Schwere Sachbeschädigung
-</span>
 
 <span class="penalty">
-<span class="he">20 HE</span>
-<span class="fine">7.500 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 20 HE / 20.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 13 – Betrug</h3>
 
 <p>
-Eine besonders erhebliche oder gezielt gegen wichtige
-Infrastruktur gerichtete Sachbeschädigung.
+Wer durch Täuschung über Tatsachen einen Irrtum hervorruft
+und dadurch einen Vermögensschaden verursacht, macht sich
+des Betruges schuldig.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Schwere richtet sich nach Schadenshöhe, Bedeutung
-des Objekts und den Folgen der Tat.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §11 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 11</span>
-
-<span class="paragraph-name">
-Diebstahl
-</span>
 
 <span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 35 HE / 40.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 14 – Bestechlichkeit und Bestechung</h3>
 
 <p>
-Die rechtswidrige Wegnahme einer fremden beweglichen Sache
-mit dem Ziel, sie sich oder einer anderen Person anzueignen.
+Wer einem Amtsträger einen Vorteil für eine pflichtwidrige
+Handlung anbietet, verspricht oder gewährt oder einen solchen
+Vorteil fordert, macht sich strafbar.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Entscheidend ist, dass der Gegenstand einer anderen Person
-gehört und ohne deren Zustimmung weggenommen wird.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §12 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 12</span>
-
-<span class="paragraph-name">
-Schwerer Diebstahl
-</span>
 
 <span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">15.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 45 HE / 50.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 15 – Widerstand gegen Vollstreckungsbeamte</h3>
 
 <p>
-Ein Diebstahl unter besonders erschwerenden Umständen,
-beispielsweise durch das Überwinden besonderer
-Sicherheitsvorkehrungen.
+Wer einer rechtmäßigen Vollstreckungshandlung eines
+Amtsträgers mit Gewalt oder Drohung mit Gewalt Widerstand
+leistet, macht sich strafbar.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die erhöhte Strafbarkeit setzt einen deutlich schwereren
-Tathergang voraus.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §13 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 13</span>
-
-<span class="paragraph-name">
-Raub
-</span>
 
 <span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">20.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 40 HE / 40.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 16 – Amtsanmaßung</h3>
 
 <p>
-Die Wegnahme fremden Eigentums unter Anwendung von Gewalt
-oder unter unmittelbarer Drohung mit Gewalt.
+Wer unbefugt eine öffentliche Amtsstellung oder eine mit
+einem öffentlichen Amt verbundene Befugnis ausübt, macht
+sich strafbar.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Der Einsatz oder die konkrete Androhung von Gewalt muss
-mit der Wegnahme zusammenhängen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §14 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 14</span>
-
-<span class="paragraph-name">
-Schwerer Raub
-</span>
 
 <span class="penalty">
-<span class="he">45 HE</span>
-<span class="fine">30.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 30 HE / 30.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 17 – Flucht vor Strafverfolgung</h3>
 
 <p>
-Ein Raub unter besonders gefährlichen Umständen,
-insbesondere unter Einsatz einer Schusswaffe oder
-vergleichbarer erheblicher Gewalt.
+Wer sich einer rechtmäßigen polizeilichen oder gerichtlichen
+Maßnahme durch Flucht entzieht, kann nach Maßgabe dieses
+Gesetzes bestraft werden.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die besondere Gefährlichkeit der Tat muss über einen
-gewöhnlichen Raub deutlich hinausgehen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §15 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 15</span>
-
-<span class="paragraph-name">
-Betrug
-</span>
 
 <span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">7.500 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 30 HE / 30.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 18 – Bildung krimineller Vereinigungen</h3>
 
 <p>
-Das bewusste Täuschen einer Person mit dem Ziel, sich
-einen rechtswidrigen finanziellen oder sonstigen Vorteil
-zu verschaffen.
+Wer sich mit mehreren Personen dauerhaft zusammenschließt,
+um gemeinsam erhebliche Straftaten zu begehen, macht sich
+strafbar.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Eine bloße schlechte Geschäftsentscheidung ist nicht
-automatisch Betrug. Eine gezielte Täuschung muss
-nachweisbar sein.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §16 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 16</span>
-
-<span class="paragraph-name">
-Schwerer Betrug
-</span>
 
 <span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">20.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 55 HE / 75.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 19 – Terrorismus</h3>
 
 <p>
-Betrug mit besonders hohem Schaden, erheblicher
-Planmäßigkeit oder gegenüber mehreren Geschädigten.
+Wer mit dem Ziel, die staatliche Ordnung zu destabilisieren,
+die Bevölkerung einzuschüchtern oder staatliche Einrichtungen
+zu zerstören, schwere Gewalttaten oder vergleichbare
+Straftaten organisiert, vorbereitet oder durchführt,
+macht sich des Terrorismus schuldig.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Einstufung richtet sich nach Umfang und Auswirkungen
-der Täuschung.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §17 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 17</span>
-
-<span class="paragraph-name">
-Erpressung
-</span>
 
 <span class="penalty">
-<span class="he">25 HE</span>
-<span class="fine">12.500 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 60 HE / 100.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 20 – Mord</h3>
 
 <p>
-Das Erzwingen einer Vermögens- oder sonstigen Leistung
-durch Drohung mit einem erheblichen Nachteil.
+Wer vorsätzlich einen anderen Menschen tötet, wird wegen
+Mordes bestraft.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Drohung muss dazu dienen, das Opfer zu einer
-bestimmten Handlung zu bewegen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §18 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 18</span>
-
-<span class="paragraph-name">
-Körperverletzung
-</span>
 
 <span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 60 HE / 90.000 €
 </span>
 
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das vorsätzliche Verletzen oder körperliche Misshandeln
-einer anderen Person.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Auch kleinere Verletzungen können erfasst sein. Die konkrete
-Schwere bestimmt die Einordnung.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §19 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 19</span>
-
-<span class="paragraph-name">
-Gefährliche Körperverletzung
-</span>
-
-<span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">15.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Eine Körperverletzung unter Verwendung einer Waffe,
-eines gefährlichen Gegenstands oder durch eine besonders
-gefährliche Vorgehensweise.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die erhöhte Strafe ergibt sich aus der besonderen Gefahr
-für das Opfer.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §20 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 20</span>
-
-<span class="paragraph-name">
-Schwere Körperverletzung
-</span>
-
-<span class="penalty">
-<span class="he">45 HE</span>
-<span class="fine">25.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Eine Körperverletzung mit besonders schweren oder
-langanhaltenden Folgen für das Opfer.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Folgen der Verletzung müssen deutlich über eine
-gewöhnliche Körperverletzung hinausgehen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §21 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 21</span>
-
-<span class="paragraph-name">
-Versuchter Mord
-</span>
-
-<span class="penalty">
-<span class="he">50 HE</span>
-<span class="fine">35.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Der Täter setzt unmittelbar zu einer vorsätzlichen Tötung
-an, erreicht den Tod des Opfers jedoch nicht.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Es muss eine konkrete Tötungsabsicht und eine unmittelbare
-Ausführungshandlung erkennbar sein.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §22 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 22</span>
-
-<span class="paragraph-name">
-Mord
-</span>
-
-<span class="penalty">
-<span class="he">60 HE</span>
-<span class="fine">50.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-
-<h4>Tatbestand</h4>
-
-<p>
-Die vorsätzliche Tötung einer anderen Person.
-</p>
-
-</div>
-
-<div class="info-box">
-
-<h4>Auslegung</h4>
-
-<p>
-Der Tod muss durch das bewusste Handeln des Täters
-verursacht worden sein. Vor einer Bestrafung ist zu prüfen,
-ob eine Rechtfertigung wie Notwehr oder Notstand vorliegt.
-</p>
-
-</div>
-
-<div class="info-box full">
-
-<h4>Beispiele</h4>
-
-<div class="example good">
-
-<strong>🟢 Gesetz greift</strong>
-
-Eine Person erschießt eine andere Person gezielt und ohne
-Rechtfertigungsgrund.
-
-</div>
-
-<div class="example bad">
-
-<strong>🔴 Nicht automatisch Mord</strong>
-
-Eine Person verursacht einen tödlichen Unfall ohne
-Tötungsabsicht. Hier ist gegebenenfalls ein anderer
-Paragraph anzuwenden.
-
-</div>
-
-</div>
-
-</div>
-
-<div class="exception">
-
-<strong>Besondere Prüfung:</strong>
-Bei Notwehr, Notstand oder anderen Rechtfertigungsgründen
-ist vor der Anwendung dieses Paragraphen zu prüfen, ob die
-Handlung rechtmäßig war.
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §23 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 23</span>
-
-<span class="paragraph-name">
-Totschlag
-</span>
-
-<span class="penalty">
-<span class="he">50 HE</span>
-<span class="fine">40.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Die vorsätzliche Tötung eines Menschen ohne die besonderen
-Voraussetzungen eines Mordes.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die konkrete Situation, der Vorsatz und die Umstände der
-Tat sind bei der Einordnung zu berücksichtigen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §24 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 24</span>
-
-<span class="paragraph-name">
-Fahrlässige Tötung
-</span>
-
-<span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">15.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Der Tod einer Person wird durch eine vermeidbare
-Sorgfaltspflichtverletzung verursacht.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Es liegt keine vorsätzliche Tötung vor. Entscheidend ist,
-ob die Person die erforderliche Sorgfalt missachtet hat.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §25 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 25</span>
-
-<span class="paragraph-name">
-Geiselnahme mit Todesfolge
-</span>
-
-<span class="penalty">
-<span class="he">60 HE</span>
-<span class="fine">60.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Während einer Geiselnahme kommt eine Geisel oder eine
-andere unmittelbar betroffene Person ums Leben.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Todesfolge muss in einem nachvollziehbaren Zusammenhang
-mit der Geiselnahme stehen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §26 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 26</span>
-
-<span class="paragraph-name">
-Widerstand gegen Vollstreckungsbeamte
-</span>
-
-<span class="penalty">
-<span class="he">20 HE</span>
-<span class="fine">7.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Aktiver körperlicher Widerstand gegen eine rechtmäßige
-Vollstreckungsmaßnahme.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die bloße Unzufriedenheit mit einer Maßnahme oder das
-ruhige Äußern von Kritik stellt keinen Widerstand dar.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §27 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 27</span>
-
-<span class="paragraph-name">
-Angriff auf Vollstreckungsbeamte
-</span>
-
-<span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">15.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Ein gezielter körperlicher Angriff auf einen
-Vollstreckungsbeamten während oder wegen seiner Tätigkeit.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die besondere Stellung des Beamten während der
-Diensthandlung ist zu berücksichtigen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §28 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 28</span>
-
-<span class="paragraph-name">
-Flucht vor der Polizei
-</span>
-
-<span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das bewusste Entziehen einer angeordneten polizeilichen
-Kontrolle oder Festnahme durch Flucht.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Eine bloße Verzögerung oder ein unbeabsichtigtes
-Nichtwahrnehmen einer Anweisung reicht nicht aus.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §29 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 29</span>
-
-<span class="paragraph-name">
-Gefangenenbefreiung
-</span>
-
-<span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">15.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das vorsätzliche Befreien oder Unterstützen bei der
-Befreiung einer in staatlichem Gewahrsam befindlichen
-Person.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Auch die aktive Unterstützung einer Flucht kann erfasst
-sein.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §30 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 30</span>
-
-<span class="paragraph-name">
-Strafvereitelung
-</span>
-
-<span class="penalty">
-<span class="he">20 HE</span>
-<span class="fine">7.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das bewusste Verhindern oder Erschweren der Verfolgung
-einer strafbaren Handlung.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Handlung muss gezielt darauf ausgerichtet sein, die
-strafrechtliche Verfolgung zu erschweren.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §31 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 31</span>
-
-<span class="paragraph-name">
-Behinderung polizeilicher Maßnahmen
-</span>
-
-<span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das vorsätzliche Stören oder Erschweren einer laufenden
-polizeilichen Maßnahme.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Normale Beobachtung oder sachliche Kommunikation ist
-nicht automatisch eine Behinderung.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §32 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 32</span>
-
-<span class="paragraph-name">
-Bestechung
-</span>
-
-<span class="penalty">
-<span class="he">25 HE</span>
-<span class="fine">15.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das Anbieten, Versprechen oder Gewähren eines Vorteils,
-um eine Amtshandlung zu beeinflussen.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Der Vorteil muss einen Zusammenhang mit der erwarteten
-dienstlichen Handlung haben.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §33 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 33</span>
-
-<span class="paragraph-name">
-Bestechlichkeit
-</span>
-
-<span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">20.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Ein Amtsträger fordert, verlangt oder nimmt einen Vorteil
-für eine dienstliche Handlung an.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Auch der Versuch, eine solche Gegenleistung anzubahnen,
-kann entsprechend berücksichtigt werden.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §34 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 34</span>
-
-<span class="paragraph-name">
-Amtsmissbrauch
-</span>
-
-<span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">20.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das bewusste Ausnutzen einer staatlichen Position für
-unrechtmäßige persönliche oder fremde Vorteile.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die besondere Befugnis des Amtes muss bei der Handlung
-ausgenutzt worden sein.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §35 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 35</span>
-
-<span class="paragraph-name">
-Korruption
-</span>
-
-<span class="penalty">
-<span class="he">40 HE</span>
-<span class="fine">30.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das organisierte oder wiederholte Ausnutzen staatlicher
-oder wirtschaftlicher Positionen für unrechtmäßige Vorteile.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Korruption kann sowohl das Anbieten als auch die Annahme
-unrechtmäßiger Vorteile umfassen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §36 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 36</span>
-
-<span class="paragraph-name">
-Urkundenfälschung
-</span>
-
-<span class="penalty">
-<span class="he">20 HE</span>
-<span class="fine">10.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das Fälschen, Verändern oder bewusste Verwenden eines
-gefälschten offiziellen Dokuments.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Das Dokument muss geeignet sein, im RP als offizieller
-Nachweis verwendet zu werden.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §37 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 37</span>
-
-<span class="paragraph-name">
-Identitätsmissbrauch
-</span>
-
-<span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">7.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das bewusste Auftreten unter der Identität einer anderen
-Person mit dem Ziel, sich einen Vorteil zu verschaffen
-oder diese Person zu schädigen.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Ein bloßer Namensfehler ohne Täuschungsabsicht erfüllt den
-Tatbestand nicht automatisch.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §38 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 38</span>
-
-<span class="paragraph-name">
-Falschaussage
-</span>
-
-<span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das bewusste Abgeben einer unwahren Aussage gegenüber
-einer zuständigen Behörde oder einem Gericht.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Eine Aussage muss bewusst falsch sein. Ein Irrtum oder
-eine fehlerhafte Erinnerung ist nicht automatisch eine
-Falschaussage.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §39 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 39</span>
-
-<span class="paragraph-name">
-Meineid
-</span>
-
-<span class="penalty">
-<span class="he">25 HE</span>
-<span class="fine">12.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Eine bewusst falsche Aussage nach einer ausdrücklich
-vorgesehenen Wahrheitsbekräftigung.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die besondere Form der Aussage muss im jeweiligen
-Gerichtsverfahren tatsächlich verlangt worden sein.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §40 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 40</span>
-
-<span class="paragraph-name">
-Besitz illegaler Gegenstände
-</span>
-
-<span class="penalty">
-<span class="he">20 HE</span>
-<span class="fine">10.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Der bewusste Besitz eines Gegenstands, dessen Besitz nach
-den Final-City-Gesetzen verboten ist.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Es muss bekannt oder aufgrund der Umstände erkennbar sein,
-dass sich der verbotene Gegenstand im Besitz der Person
-befindet.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §41 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 41</span>
-
-<span class="paragraph-name">
-Handel mit illegalen Gegenständen
-</span>
-
-<span class="penalty">
-<span class="he">35 HE</span>
-<span class="fine">25.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das Verkaufen, Tauschen oder organisierte Weitergeben
-illegaler Gegenstände.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Ein einzelner Besitz ist nicht automatisch Handel.
-Entscheidend ist eine tatsächliche Weitergabe gegen
-Geld, Gegenstände oder einen sonstigen Vorteil.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §42 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 42</span>
-
-<span class="paragraph-name">
-Organisierte Kriminalität
-</span>
-
-<span class="penalty">
-<span class="he">45 HE</span>
-<span class="fine">35.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das planmäßige und längerfristige gemeinsame Begehen
-schwerer Straftaten durch mehrere Personen.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Eine spontane Zusammenarbeit bei einer einzelnen Tat
-reicht nicht automatisch aus.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §43 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 43</span>
-
-<span class="paragraph-name">
-Bildung einer kriminellen Vereinigung
-</span>
-
-<span class="penalty">
-<span class="he">45 HE</span>
-<span class="fine">35.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das bewusste Zusammenschließen mehrerer Personen mit dem
-gemeinsamen Ziel, wiederholt erhebliche Straftaten zu
-begehen.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Es muss ein erkennbarer organisatorischer oder dauerhafter
-Zusammenhang bestehen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §44 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 44</span>
-
-<span class="paragraph-name">
-Geldwäsche
-</span>
-
-<span class="penalty">
-<span class="he">35 HE</span>
-<span class="fine">25.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das Verschleiern der Herkunft illegal erworbener Vermögenswerte
-oder das bewusste Einschleusen dieser Werte in den legalen
-Wirtschaftskreislauf.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Person muss wissen oder billigend in Kauf nehmen,
-dass das Vermögen aus einer illegalen Quelle stammt.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §45 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 45</span>
-
-<span class="paragraph-name">
-Erpressung mit Waffengewalt
-</span>
-
-<span class="penalty">
-<span class="he">45 HE</span>
-<span class="fine">30.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Eine Erpressung, bei der eine Schusswaffe oder vergleichbar
-gefährliche Waffe eingesetzt oder unmittelbar angedroht wird.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Waffe muss als Druckmittel innerhalb der Erpressung
-eingesetzt werden.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §46 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 46</span>
-
-<span class="paragraph-name">
-Brandstiftung
-</span>
-
-<span class="penalty">
-<span class="he">35 HE</span>
-<span class="fine">20.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das vorsätzliche Inbrandsetzen oder gezielte Beschädigen
-eines Gebäudes oder einer Sache durch Feuer.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Handlung muss vorsätzlich erfolgen. Ein Unfall ist
-nicht automatisch Brandstiftung.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §47 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 47</span>
-
-<span class="paragraph-name">
-Schwere Brandstiftung
-</span>
-
-<span class="penalty">
-<span class="he">50 HE</span>
-<span class="fine">40.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Eine Brandstiftung, durch die eine besonders hohe Gefahr
-für Menschen oder wichtige Infrastruktur entsteht.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die konkrete Gefährdung und die Bedeutung des betroffenen
-Objekts sind entscheidend.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §48 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 48</span>
-
-<span class="paragraph-name">
-Gefährlicher Eingriff in den Verkehr
-</span>
-
-<span class="penalty">
-<span class="he">25 HE</span>
-<span class="fine">12.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das vorsätzliche Schaffen einer erheblichen Gefahr für
-andere Verkehrsteilnehmer.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Beispiele sind bewusst errichtete Hindernisse oder
-vorsätzliche gefährliche Eingriffe in den Straßenverkehr.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §49 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 49</span>
-
-<span class="paragraph-name">
-Amtsanmaßung
-</span>
-
-<span class="penalty">
-<span class="he">20 HE</span>
-<span class="fine">10.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das Auftreten als Amtsträger oder Beamter ohne die dafür
-erforderliche Befugnis.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Die Handlung muss geeignet sein, bei anderen Personen den
-Eindruck einer tatsächlichen staatlichen Befugnis zu erzeugen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §50 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 50</span>
-
-<span class="paragraph-name">
-Vortäuschung einer Straftat
-</span>
-
-<span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das bewusste Erfinden oder Vortäuschen einer Straftat
-gegenüber Polizei oder anderen zuständigen Stellen.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Ein ehrlicher Irrtum oder eine gutgläubige Fehlmeldung
-ist nicht automatisch strafbar.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §51 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 51</span>
-
-<span class="paragraph-name">
-Missbrauch des Notrufs
-</span>
-
-<span class="penalty">
-<span class="he">10 HE</span>
-<span class="fine">2.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-
-<p>
-Das vorsätzliche Absetzen eines falschen oder sinnlosen
-Notrufs, der Einsatzkräfte unnötig bindet.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-
-<p>
-Ein versehentlicher Notruf oder eine gutgläubige Meldung
-eines vermeintlichen Notfalls ist kein Missbrauch.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<!-- §52 -->
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 52</span>
-
-<span class="paragraph-name">
-Terrorismus
-</span>
-
-<span class="penalty">
-<span class="he">60 HE</span>
-<span class="fine">100.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-
-<h4>Tatbestand</h4>
-
-<p>
-Terrorismus liegt vor, wenn eine Person oder organisierte
-Gruppierung durch besonders schwere Gewalt oder Anschläge
-gezielt versucht, die staatliche Ordnung, staatliche
-Einrichtungen oder die Bevölkerung einzuschüchtern oder
-erheblich zu destabilisieren.
-</p>
-
-</div>
-
-<div class="info-box">
-
-<h4>Auslegung</h4>
-
-<p>
-Der Paragraph ist ausschließlich bei besonders schweren
-und gezielt gegen den Staat oder die Bevölkerung gerichteten
-Handlungen anzuwenden. Eine normale Schießerei, ein Raub,
-eine Geiselnahme oder eine einzelne schwere Straftat ist
-nicht automatisch Terrorismus.
-</p>
-
-</div>
-
-<div class="info-box full">
-
-<h4>Beispiele</h4>
-
-<div class="example good">
-
-<strong>🟢 Terrorismus</strong>
-
-Eine organisierte Gruppierung führt einen gezielten
-Anschlag auf eine staatliche Einrichtung durch, um die
-Regierung einzuschüchtern oder die staatliche Ordnung
-zu destabilisieren.
-
-</div>
-
-<div class="example bad">
-
-<strong>🔴 Kein Terrorismus</strong>
-
-Eine Person überfällt eine Tankstelle und flieht anschließend.
-Auch eine gewöhnliche Geiselnahme erfüllt diesen Paragraphen
-nicht automatisch.
-
-</div>
-
-</div>
-
 </div>
-
-<div class="exception">
-
-<strong>Sonderregel:</strong>
-
-Dieser Paragraph ist der einzige Paragraph dieses
-Gesetzbuches, bei dem eine Geldstrafe von bis zu <strong>100.000 $</strong> vorgesehen ist.
-
-Die maximale Haftstrafe beträgt weiterhin <strong>60 HE</strong>.
-
-</div>
-
-</div>
-
-</details>
 
 </section>
 
-<!-- STVO -->
 
-<section class="law" id="stvo">
+<!-- =========================
+     STVO
+========================= -->
 
-<div class="law-title">
+<section class="law-book" id="stvo">
 
-<h2>
-StVO – Straßenverkehrsordnung
-</h2>
+<div class="book-header">
+
+<h2>Straßenverkehrsordnung – StVO</h2>
 
 <p>
-Regelungen für den öffentlichen Straßenverkehr
+Die Straßenverkehrsordnung regelt die Teilnahme am
+öffentlichen Straßenverkehr.
 </p>
 
 </div>
 
-<details class="paragraph">
 
-<summary>
+<div class="paragraph">
 
-<span class="paragraph-number">§ 1</span>
+<h3>§ 1 – Allgemeine Sorgfaltspflicht</h3>
 
-<span class="paragraph-name">
-Geschwindigkeitsüberschreitung
-</span>
+<p>
+Jeder Verkehrsteilnehmer hat sich so zu verhalten, dass
+kein anderer geschädigt, gefährdet oder mehr als nach den
+Umständen unvermeidbar behindert oder belästigt wird.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 2 – Geschwindigkeit</h3>
+
+<p>
+Die Geschwindigkeit ist stets den Straßen-, Verkehrs-,
+Sicht- und Wetterverhältnissen anzupassen.
+</p>
 
 <span class="penalty">
-<span class="he">3 HE</span>
-<span class="fine">500 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 10 HE / 10.000 €
 </span>
 
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-<p>
-Das Überschreiten der für den jeweiligen Straßenabschnitt
-festgelegten Höchstgeschwindigkeit.
-</p>
 </div>
 
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Die zulässige Geschwindigkeit richtet sich nach der jeweils
-ausgeschilderten oder gesetzlich festgelegten Begrenzung.
-</p>
-</div>
 
-<div class="info-box full">
+<div class="paragraph">
 
-<h4>Hinweis</h4>
+<h3>§ 3 – Missachtung von Verkehrszeichen</h3>
 
 <p>
-Bei erheblichen Überschreitungen kann zusätzlich ein
-gefährlicher Eingriff in den Straßenverkehr oder ein anderer
-Tatbestand geprüft werden.
+Verkehrszeichen und Lichtzeichenanlagen sind zu beachten.
 </p>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 2</span>
-
-<span class="paragraph-name">
-Gefährliches Fahren
-</span>
 
 <span class="penalty">
-<span class="he">10 HE</span>
-<span class="fine">2.500 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 10 HE / 10.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Auslegung</h4>
+<h3>§ 4 – Fahren unter Einfluss berauschender Mittel</h3>
+
 <p>
-Erfasst wird ein bewusst riskantes Fahrverhalten,
-durch das andere Verkehrsteilnehmer erheblich gefährdet
+Wer ein Kraftfahrzeug unter erheblichem Einfluss von Alkohol,
+Betäubungsmitteln oder anderen berauschenden Stoffen führt,
+handelt ordnungswidrig oder strafbar.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 30 HE / 30.000 €
+</span>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 5 – Gefährliches Fahren</h3>
+
+<p>
+Wer durch grob verkehrswidriges oder rücksichtsloses Fahren
+andere Verkehrsteilnehmer erheblich gefährdet, macht sich
+strafbar.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 35 HE / 35.000 €
+</span>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 6 – Vermummung und Schutzkleidung</h3>
+
+<p>
+Das Tragen eines Helmes oder einer Gesichtsmaske ist
+während der Fahrt auf einem Motorrad zulässig.
+
+Auch Insassen eines Kraftfahrzeuges dürfen ihr Gesicht
+verdecken, sofern dadurch die sichere Teilnahme am
+Straßenverkehr nicht beeinträchtigt wird.
+
+Eine weitergehende Einschränkung kann durch besondere
+gesetzliche Vorschriften angeordnet werden.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 7 – Fahren ohne Fahrerlaubnis</h3>
+
+<p>
+Wer ein Kraftfahrzeug führt, ohne die hierfür erforderliche
+Fahrerlaubnis zu besitzen, macht sich strafbar.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 25 HE / 25.000 €
+</span>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 8 – Unfallflucht</h3>
+
+<p>
+Wer sich nach einem Verkehrsunfall unerlaubt vom Unfallort
+entfernt, obwohl eine Feststellung der beteiligten Personen,
+Fahrzeuge oder des Schadens erforderlich ist, macht sich
+strafbar.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 30 HE / 30.000 €
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     WAFFENGESETZ
+========================= -->
+
+<section class="law-book" id="waffen">
+
+<div class="book-header">
+
+<h2>Waffengesetz – WaffG</h2>
+
+<p>
+Das Waffengesetz regelt Erwerb, Besitz, Führen und Verwendung
+von Waffen.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 1 – Erlaubnispflicht</h3>
+
+<p>
+Der Erwerb, Besitz und das Führen bestimmter Waffen bedürfen
+einer staatlichen Erlaubnis.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 2 – Unerlaubter Waffenbesitz</h3>
+
+<p>
+Wer eine erlaubnispflichtige Waffe ohne entsprechende
+Genehmigung besitzt, macht sich strafbar.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 40 HE / 50.000 €
+</span>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 3 – Unerlaubtes Führen</h3>
+
+<p>
+Wer eine erlaubnispflichtige Waffe außerhalb der dafür
+zugelassenen Bereiche ohne erforderliche Erlaubnis führt,
+macht sich strafbar.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 45 HE / 50.000 €
+</span>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 4 – Verwendung einer Schusswaffe</h3>
+
+<p>
+Der Einsatz einer Schusswaffe gegen eine Person ist nur
+zulässig, wenn hierfür eine gesetzliche Rechtfertigung
+besteht.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 50 HE / 60.000 €
+</span>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 5 – Verbotene Waffen</h3>
+
+<p>
+Der Besitz oder die Weitergabe gesetzlich verbotener Waffen
+ist untersagt.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 55 HE / 75.000 €
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     BTMG
+========================= -->
+
+<section class="law-book" id="btmg">
+
+<div class="book-header">
+
+<h2>Betäubungsmittelgesetz – BtMG</h2>
+
+<p>
+Das Betäubungsmittelgesetz regelt den Umgang mit verbotenen
+und kontrollierten Substanzen.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 1 – Unerlaubter Besitz</h3>
+
+<p>
+Der Besitz nicht genehmigter Betäubungsmittel ist verboten.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 30 HE / 30.000 €
+</span>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 2 – Handel mit Betäubungsmitteln</h3>
+
+<p>
+Wer Betäubungsmittel unerlaubt anbietet, verkauft, vermittelt
+oder gewerbsmäßig weitergibt, macht sich strafbar.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 50 HE / 60.000 €
+</span>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 3 – Herstellung</h3>
+
+<p>
+Die unerlaubte Herstellung von Betäubungsmitteln ist verboten.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 50 HE / 60.000 €
+</span>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 4 – Einfuhr und Ausfuhr</h3>
+
+<p>
+Die unerlaubte Einfuhr oder Ausfuhr von Betäubungsmitteln
+ist strafbar.
+</p>
+
+<span class="penalty">
+Strafmaß: bis zu 55 HE / 70.000 €
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     POLIZEIGESETZ
+========================= -->
+
+<section class="law-book" id="polizei">
+
+<div class="book-header">
+
+<h2>Polizeigesetz – PolG</h2>
+
+<p>
+Das Polizeigesetz bestimmt die Aufgaben und Befugnisse
+der staatlichen Polizeibehörden.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 1 – Aufgaben der Polizei</h3>
+
+<p>
+Die Polizei gewährleistet die öffentliche Sicherheit und
+Ordnung und trifft erforderliche Maßnahmen zur Abwehr
+von Gefahren.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 2 – Identitätsfeststellung</h3>
+
+<p>
+Die Polizei ist berechtigt, die Identität einer Person
+festzustellen, wenn hierfür eine gesetzliche Grundlage
+besteht.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 3 – Platzverweis</h3>
+
+<p>
+Eine Person kann aus einem bestimmten Bereich verwiesen
+werden, wenn dies zur Abwehr einer konkreten Gefahr
+erforderlich ist.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 4 – Durchsuchung</h3>
+
+<p>
+Personen und Sachen dürfen unter den gesetzlich bestimmten
+Voraussetzungen durchsucht werden.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 5 – Gewahrsam</h3>
+
+<p>
+Eine Person kann in Gewahrsam genommen werden, wenn dies
+zur Abwehr einer gegenwärtigen Gefahr oder aufgrund einer
+anderen gesetzlichen Grundlage erforderlich ist.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     GERICHTSGESETZ
+========================= -->
+
+<section class="law-book" id="gericht">
+
+<div class="book-header">
+
+<h2>Gerichtsgesetz – GVG</h2>
+
+<p>
+Das Gerichtsgesetz regelt die Organisation und Zuständigkeit
+der Gerichte von Final City.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 1 – Unabhängigkeit der Rechtsprechung</h3>
+
+<p>
+Die Rechtsprechung ist unabhängig und wird ausschließlich
+nach Maßgabe der geltenden Gesetze ausgeübt.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 2 – Zuständigkeit</h3>
+
+<p>
+Die Gerichte entscheiden über die ihnen gesetzlich
+zugewiesenen Straf- und Zivilsachen.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 3 – Urteil</h3>
+
+<p>
+Eine gerichtliche Entscheidung hat die maßgeblichen
+Tatsachen und die rechtliche Würdigung des Sachverhalts
+zu berücksichtigen.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     OWIG
+========================= -->
+
+<section class="law-book" id="owig">
+
+<div class="book-header">
+
+<h2>Ordnungswidrigkeitengesetz – OWiG</h2>
+
+<p>
+Das Ordnungswidrigkeitengesetz regelt Verstöße von geringerem
+Unrechtsgehalt.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 1 – Ordnungswidrigkeiten</h3>
+
+<p>
+Eine Handlung kann als Ordnungswidrigkeit verfolgt werden,
+wenn sie durch Gesetz oder Verordnung entsprechend bestimmt ist.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 2 – Verwarnung</h3>
+
+<p>
+Bei geringfügigen Verstößen kann eine Verwarnung ausgesprochen
 werden.
 </p>
+
 </div>
 
-<div class="info-box">
-<h4>Beispiel</h4>
+
+<div class="paragraph">
+
+<h3>§ 3 – Bußgeld</h3>
+
 <p>
-Mehrfaches riskantes Überholen, bewusstes Fahren auf der
-Gegenfahrbahn oder vergleichbare gefährliche Manöver.
+Bei einer Ordnungswidrigkeit kann ein angemessenes Bußgeld
+verhängt werden.
 </p>
-</div>
 
 </div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 3</span>
-
-<span class="paragraph-name">
-Fahren ohne Fahrerlaubnis
-</span>
-
-<span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-<p>
-Das Führen eines Kraftfahrzeugs ohne gültige erforderliche
-Fahrerlaubnis.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Eine abgelaufene, entzogene oder nicht vorhandene
-Fahrerlaubnis kann entsprechend berücksichtigt werden.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 4</span>
-
-<span class="paragraph-name">
-Fahrerflucht
-</span>
-
-<span class="penalty">
-<span class="he">20 HE</span>
-<span class="fine">7.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-<p>
-Das vorsätzliche Entfernen von einem Unfallort, ohne die
-erforderlichen Maßnahmen einzuleiten.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Insbesondere nach einem Unfall mit Personen- oder
-erheblichem Sachschaden muss die betroffene Person
-angemessen reagieren.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 5</span>
-
-<span class="paragraph-name">
-Illegales Straßenrennen
-</span>
-
-<span class="penalty">
-<span class="he">25 HE</span>
-<span class="fine">10.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-<p>
-Das organisierte oder bewusste Durchführen eines
-Geschwindigkeits- oder Beschleunigungsrennens im
-öffentlichen Verkehrsraum.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Ein spontanes schnelles Fahren ist nicht automatisch ein
-Straßenrennen. Es muss ein Renncharakter erkennbar sein.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
 
 </section>
 
-<!-- WAFFG -->
 
-<section class="law" id="waffg">
+<!-- =========================
+     VERSAMMLUNGSGESETZ
+========================= -->
 
-<div class="law-title">
+<section class="law-book" id="versammlung">
 
-<h2>
-WaffG – Waffengesetz
-</h2>
+<div class="book-header">
+
+<h2>Versammlungsgesetz – VersG</h2>
 
 <p>
-Besitz, Führung und Umgang mit Waffen
+Das Versammlungsgesetz regelt öffentliche Versammlungen
+und Kundgebungen.
 </p>
 
 </div>
 
-<details class="paragraph">
 
-<summary>
+<div class="paragraph">
 
-<span class="paragraph-number">§ 1</span>
+<h3>§ 1 – Versammlungsfreiheit</h3>
 
-<span class="paragraph-name">
-Unerlaubter Waffenbesitz
-</span>
+<p>
+Jede Person darf sich im Rahmen der geltenden Gesetze
+friedlich zu einer öffentlichen Versammlung zusammenfinden.
+</p>
+
+</div>
+
+
+<div class="paragraph">
+
+<h3>§ 2 – Friedliche Versammlung</h3>
+
+<p>
+Eine Versammlung muss friedlich durchgeführt werden.
+Gewalttätige Handlungen oder die unmittelbare Androhung
+solcher Handlungen sind unzulässig.
+</p>
 
 <span class="penalty">
-<span class="he">20 HE</span>
-<span class="fine">10.000 $</span>
-<span class="arrow">＋</span>
+Strafmaß: bis zu 25 HE / 25.000 €
 </span>
 
-</summary>
+</div>
 
-<div class="explanation">
 
-<div class="explanation-grid">
+<div class="paragraph">
 
-<div class="info-box">
-<h4>Tatbestand</h4>
+<h3>§ 3 – Auflösung</h3>
+
 <p>
-Der Besitz einer Waffe ohne die erforderliche Berechtigung.
+Eine Versammlung kann aufgelöst werden, wenn die gesetzlichen
+Voraussetzungen hierfür vorliegen.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Es ist zu prüfen, ob die Person über die für die jeweilige
-Waffe erforderliche Lizenz verfügt.
-</p>
-</div>
 
 </div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 2</span>
-
-<span class="paragraph-name">
-Unerlaubtes Führen einer Waffe
-</span>
-
-<span class="penalty">
-<span class="he">25 HE</span>
-<span class="fine">12.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Das Führen einer Waffe im öffentlichen Raum ohne die
-dafür notwendige Berechtigung.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Hinweis</h4>
-<p>
-Besitz und Führen sind getrennt zu betrachten.
-Eine vorhandene Besitzberechtigung erlaubt nicht automatisch
-das Führen in der Öffentlichkeit.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 3</span>
-
-<span class="paragraph-name">
-Verbotene Waffe
-</span>
-
-<span class="penalty">
-<span class="he">35 HE</span>
-<span class="fine">20.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Der Besitz einer ausdrücklich verbotenen Waffe wird
-unabhängig von einer gewöhnlichen Waffenlizenz behandelt.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
 
 </section>
 
-<!-- BTMG -->
 
-<section class="law" id="btmg">
+<!-- =========================
+     STPO
+========================= -->
 
-<div class="law-title">
+<section class="law-book" id="stpo">
 
-<h2>
-BtMG – Betäubungsmittelgesetz
-</h2>
+<div class="book-header">
+
+<h2>Strafprozessordnung – StPO</h2>
 
 <p>
-Besitz, Herstellung und Handel mit Betäubungsmitteln
+Die Strafprozessordnung regelt Ermittlungs- und
+Strafverfahren.
 </p>
 
 </div>
 
-<details class="paragraph">
 
-<summary>
+<div class="paragraph">
 
-<span class="paragraph-number">§ 1</span>
+<h3>§ 1 – Ermittlungsverfahren</h3>
 
-<span class="paragraph-name">
-Besitz geringer Menge
-</span>
-
-<span class="penalty">
-<span class="he">10 HE</span>
-<span class="fine">2.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
 <p>
-Der Besitz einer im Final City RP als geringe Menge
-eingestuften illegalen Substanz.
+Bei einem Anfangsverdacht einer Straftat können die zuständigen
+Behörden ein Ermittlungsverfahren einleiten.
 </p>
+
 </div>
 
-<div class="info-box">
-<h4>Auslegung</h4>
+
+<div class="paragraph">
+
+<h3>§ 2 – Beschuldigtenrechte</h3>
+
 <p>
-Die konkrete Menge richtet sich nach dem serverinternen
-Drogenkatalog.
+Eine beschuldigte Person ist über die gegen sie erhobenen
+Vorwürfe und ihre gesetzlich vorgesehenen Rechte zu belehren.
 </p>
-</div>
 
 </div>
 
-</div>
 
-</details>
+<div class="paragraph">
 
-<details class="paragraph">
+<h3>§ 3 – Beweismittel</h3>
 
-<summary>
-
-<span class="paragraph-number">§ 2</span>
-
-<span class="paragraph-name">
-Besitz größerer Menge
-</span>
-
-<span class="penalty">
-<span class="he">25 HE</span>
-<span class="fine">10.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
 <p>
-Eine größere Menge wird anhand der für Final City
-festgelegten Mengengrenzen bestimmt.
+Zur Aufklärung einer Straftat dürfen gesetzlich zulässige
+Beweismittel erhoben und ausgewertet werden.
 </p>
-</div>
 
 </div>
 
-</div>
 
-</details>
+<div class="paragraph">
 
-<details class="paragraph">
+<h3>§ 4 – Haft</h3>
 
-<summary>
-
-<span class="paragraph-number">§ 3</span>
-
-<span class="paragraph-name">
-Herstellung
-</span>
-
-<span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">15.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
 <p>
-Die Herstellung oder Verarbeitung illegaler
-Betäubungsmittel.
+Eine Person darf nur unter den gesetzlich bestimmten
+Voraussetzungen in Untersuchungshaft genommen werden.
 </p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Auch die aktive Beteiligung an einer Produktionskette
-kann erfasst werden.
-</p>
-</div>
 
 </div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 4</span>
-
-<span class="paragraph-name">
-Handel
-</span>
-
-<span class="penalty">
-<span class="he">35 HE</span>
-<span class="fine">25.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Tatbestand</h4>
-<p>
-Das Verkaufen, Tauschen oder gewinnorientierte Weitergeben
-illegaler Betäubungsmittel.
-</p>
-</div>
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Bloßer Besitz ist nicht automatisch Handel. Es muss eine
-Weitergabe oder ein konkreter Handelszweck vorliegen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
 
 </section>
 
-<!-- POLG -->
 
-<section class="law" id="polg">
+<!-- =========================
+     ZIVILGESETZBUCH
+========================= -->
 
-<div class="law-title">
+<section class="law-book" id="zivil">
 
-<h2>
-PolG – Polizeigesetz
-</h2>
+<div class="book-header">
+
+<h2>Zivilgesetzbuch – ZGB</h2>
 
 <p>
-Befugnisse und Pflichten der Polizei im Final City RP
+Das Zivilgesetzbuch regelt die rechtlichen Beziehungen
+zwischen Privatpersonen.
 </p>
 
 </div>
 
-<details class="paragraph">
 
-<summary>
+<div class="paragraph">
 
-<span class="paragraph-number">§ 1</span>
+<h3>§ 1 – Vertragliche Verpflichtungen</h3>
 
-<span class="paragraph-name">
-Polizeiliche Anordnung
-</span>
-
-<span class="penalty">
-<span class="he">10 HE</span>
-<span class="fine">2.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
 <p>
-Eine rechtmäßige polizeiliche Anordnung ist grundsätzlich
-zu befolgen. Sie muss im Rahmen der vorhandenen
-polizeilichen Befugnisse liegen.
+Durch einen wirksam geschlossenen Vertrag entstehen
+gegenseitige Rechte und Pflichten.
 </p>
+
 </div>
 
-<div class="info-box">
-<h4>Beispiel</h4>
+
+<div class="paragraph">
+
+<h3>§ 2 – Schadensersatz</h3>
+
 <p>
-Eine Person wird bei einer Verkehrskontrolle aufgefordert,
-das Fahrzeug abzustellen und die Hände sichtbar zu halten.
+Wer vorsätzlich oder fahrlässig einen anderen rechtswidrig
+schädigt, ist zum Ersatz des entstandenen Schadens verpflichtet,
+soweit das Gesetz nichts anderes bestimmt.
 </p>
-</div>
 
 </div>
 
-</div>
 
-</details>
+<div class="paragraph">
 
-<details class="paragraph">
+<h3>§ 3 – Eigentum</h3>
 
-<summary>
-
-<span class="paragraph-number">§ 2</span>
-
-<span class="paragraph-name">
-Behinderung einer Maßnahme
-</span>
-
-<span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
 <p>
-Das aktive Stören einer laufenden polizeilichen Maßnahme
-kann geahndet werden, sofern die Handlung über bloßes
-Beobachten oder Nachfragen hinausgeht.
+Das Eigentum an einer Sache berechtigt den Eigentümer,
+über diese im Rahmen der geltenden Gesetze zu verfügen.
 </p>
-</div>
 
 </div>
 
-</div>
 
-</details>
+<div class="paragraph">
+
+<h3>§ 4 – Vertragsbruch</h3>
+
+<p>
+Wer eine vertraglich übernommene Verpflichtung schuldhaft
+nicht erfüllt, kann zum Ersatz des daraus entstandenen
+Schadens verpflichtet sein.
+</p>
+
+</div>
 
 </section>
-
-<!-- OWIG -->
-
-<section class="law" id="owig">
-
-<div class="law-title">
-
-<h2>
-OWiG – Ordnungswidrigkeiten
-</h2>
-
-<p>
-Leichtere Verstöße gegen die öffentliche Ordnung
-</p>
-
-</div>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 1</span>
-
-<span class="paragraph-name">
-Ruhestörung
-</span>
-
-<span class="penalty">
-<span class="he">2 HE</span>
-<span class="fine">250 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Unnötiger und erheblicher Lärm, der andere Personen
-nachhaltig stört, kann als Ruhestörung geahndet werden.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 2</span>
-
-<span class="paragraph-name">
-Falschparken
-</span>
-
-<span class="penalty">
-<span class="he">2 HE</span>
-<span class="fine">150 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Das Abstellen eines Fahrzeugs entgegen einer geltenden
-Park- oder Verkehrsregel.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</section>
-
-<!-- GEWO -->
-
-<section class="law" id="gewo">
-
-<div class="law-title">
-
-<h2>
-GewO – Gewerbeordnung
-</h2>
-
-<p>
-Regelungen für Unternehmen und Gewerbebetriebe
-</p>
-
-</div>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 1</span>
-
-<span class="paragraph-name">
-Gewerbe ohne Anmeldung
-</span>
-
-<span class="penalty">
-<span class="he">10 HE</span>
-<span class="fine">3.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Ein dauerhaft betriebenes Gewerbe muss entsprechend
-den Final-City-Vorgaben angemeldet sein.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</section>
-
-<!-- STPO -->
-
-<section class="law" id="stpo">
-
-<div class="law-title">
-
-<h2>
-StPO – Strafprozessordnung
-</h2>
-
-<p>
-Ablauf und Grundsätze strafrechtlicher Verfahren
-</p>
-
-</div>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 1</span>
-
-<span class="paragraph-name">
-Vorladung
-</span>
-
-<span class="penalty">
-<span class="he">5 HE</span>
-<span class="fine">1.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Eine ordnungsgemäße Vorladung muss grundsätzlich beachtet
-werden. Bei einem nachvollziehbaren Verhinderungsgrund
-sollte die zuständige Stelle informiert werden.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 2</span>
-
-<span class="paragraph-name">
-Manipulation von Beweismitteln
-</span>
-
-<span class="penalty">
-<span class="he">25 HE</span>
-<span class="fine">12.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Das bewusste Verändern, Verfälschen oder gezielte
-Manipulieren eines relevanten Beweismittels.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</section>
-
-<!-- JGG -->
-
-<section class="law" id="jgg">
-
-<div class="law-title">
-
-<h2>
-JGG – Jugendgerichtsgesetz
-</h2>
-
-<p>
-Besondere Regelungen für jugendliche Charaktere
-</p>
-
-</div>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 1</span>
-
-<span class="paragraph-name">
-Verstoß gegen gerichtliche Auflagen
-</span>
-
-<span class="penalty">
-<span class="he">10 HE</span>
-<span class="fine">2.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Gerichtliche Auflagen für Jugendliche sollen vorrangig
-erzieherisch wirken. Die konkrete Maßnahme richtet sich
-nach Art und Schwere des Verstoßes.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</section>
-
-<!-- DIENST -->
-
-<section class="law" id="dienst">
-
-<div class="law-title">
-
-<h2>
-Dienstgesetzbuch
-</h2>
-
-<p>
-Dienstpflichten staatlicher Mitarbeiter
-</p>
-
-</div>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 1</span>
-
-<span class="paragraph-name">
-Verletzung der Dienstpflicht
-</span>
-
-<span class="penalty">
-<span class="he">10 HE</span>
-<span class="fine">2.500 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Staatliche Mitarbeiter müssen ihre dienstlichen Aufgaben
-ordnungsgemäß, verhältnismäßig und im Interesse des Staates
-erfüllen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 2</span>
-
-<span class="paragraph-name">
-Amtsmissbrauch
-</span>
-
-<span class="penalty">
-<span class="he">30 HE</span>
-<span class="fine">20.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Die dienstliche Position darf nicht für persönliche Vorteile
-oder zur willkürlichen Benachteiligung anderer Personen
-missbraucht werden.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</section>
-
-<!-- KORRUPTION -->
-
-<section class="law" id="korruption">
-
-<div class="law-title">
-
-<h2>
-Korruptionsgesetz
-</h2>
-
-<p>
-Bekämpfung von Bestechung und Amtsmissbrauch
-</p>
-
-</div>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 1</span>
-
-<span class="paragraph-name">
-Bestechung
-</span>
-
-<span class="penalty">
-<span class="he">25 HE</span>
-<span class="fine">15.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Das Anbieten eines Vorteils, um eine dienstliche oder
-amtliche Entscheidung zu beeinflussen.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</section>
-
-<!-- LIZENZEN -->
-
-<section class="law" id="lizenzen">
-
-<div class="law-title">
-
-<h2>
-Lizenzgesetz
-</h2>
-
-<p>
-Führer-, Waffen- und sonstige staatliche Lizenzen
-</p>
-
-</div>
-
-<details class="paragraph">
-
-<summary>
-
-<span class="paragraph-number">§ 1</span>
-
-<span class="paragraph-name">
-Führen ohne erforderliche Lizenz
-</span>
-
-<span class="penalty">
-<span class="he">15 HE</span>
-<span class="fine">5.000 $</span>
-<span class="arrow">＋</span>
-</span>
-
-</summary>
-
-<div class="explanation">
-
-<div class="explanation-grid">
-
-<div class="info-box">
-<h4>Auslegung</h4>
-<p>
-Eine Tätigkeit, für die eine staatliche Lizenz erforderlich
-ist, darf ohne diese Lizenz nicht ausgeübt werden.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</section>
-
-</div>
 
 </main>
 
+
+<!-- FOOTER -->
+
 <footer>
 
-<div class="footer">
+<p>
+© 2026 <strong>Final City</strong>
+– Department of Justice
+</p>
 
-<div>
-
-<strong>
-FINAL CITY — DEPARTMENT OF JUSTICE
-</strong>
-
-<br>
-
-<small>
-Fiktive Rechtsgrundlagen für FiveM Roleplay
-</small>
-
-</div>
-
-<small>
-© 2026 Final City
-</small>
-
-</div>
+<p style="margin-top:8px;">
+Gesetzliche Ordnung der Republik Final City
+</p>
 
 </footer>
 
+
 <script>
 
-/* SUCHFUNKTION */
+function searchLaws() {
 
-const search =
-document.getElementById("search");
+    let input =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
 
-const paragraphs =
-document.querySelectorAll(".paragraph");
+    let paragraphs =
+        document.querySelectorAll(".paragraph");
 
-const laws =
-document.querySelectorAll(".law");
+    paragraphs.forEach(function(paragraph) {
 
-search.addEventListener("input", () => {
-
-    const query =
-        search.value
-        .toLowerCase()
-        .trim();
-
-    paragraphs.forEach(paragraph => {
-
-        const text =
+        let text =
             paragraph.innerText.toLowerCase();
 
-        if(!query || text.includes(query)){
-
+        if (text.includes(input)) {
             paragraph.style.display = "";
-
-        }else{
-
+        } else {
             paragraph.style.display = "none";
-
         }
 
     });
 
-    laws.forEach(law => {
-
-        const visible =
-            [...law.querySelectorAll(".paragraph")]
-            .some(p => p.style.display !== "none");
-
-        if(!query){
-
-            law.style.display = "";
-
-        }else{
-
-            law.style.display =
-                visible ? "" : "none";
-
-        }
-
-    });
-
-});
+}
 
 </script>
 
 </body>
 </html>
-
+```
