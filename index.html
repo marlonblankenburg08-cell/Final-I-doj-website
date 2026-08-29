@@ -1,566 +1,430 @@
+```html
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Regierung & DOJ | Final City</title>
-
-<meta name="description" content="Regierung und Department of Justice des Staates Final City.">
-
-<style>
-    :root {
-        --dark: #303236;
-        --dark-2: #242528;
-        --gray: #686b70;
-        --light: #f1f1f1;
-        --white: #ffffff;
-        --gold: #d2a93b;
-        --gold-light: #e4c66d;
-        --text: #292a2d;
-        --muted: #707277;
-        --border: #dedede;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: var(--light);
-        color: var(--text);
-        line-height: 1.6;
-    }
-
-    /* NAVIGATION */
-
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        background: rgba(255, 255, 255, 0.97);
-        border-bottom: 1px solid var(--border);
-        backdrop-filter: blur(10px);
-    }
-
-    .nav {
-        max-width: 1180px;
-        height: 74px;
-        margin: auto;
-        padding: 0 20px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-
-        color: var(--text);
-        text-decoration: none;
-    }
-
-    .logo {
-        width: 48px;
-        height: 48px;
-
-        border-radius: 50%;
-        background: var(--dark);
-
-        border: 3px solid var(--gold);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        color: white;
-        font-size: 12px;
-        font-weight: 900;
-    }
-
-    .brand-name {
-        font-weight: 900;
-        letter-spacing: 1px;
-    }
-
-    .brand-sub {
-        display: block;
-
-        color: var(--muted);
-        font-size: 10px;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-    }
-
-    nav {
-        display: flex;
-        align-items: center;
-        gap: 22px;
-    }
-
-    nav a {
-        color: #55575b;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 700;
-
-        transition: 0.2s;
-    }
-
-    nav a:hover {
-        color: var(--gold);
-    }
-
-    .discord {
-        background: var(--dark);
-        color: white !important;
-
-        padding: 11px 17px;
-        border-radius: 6px;
-    }
-
-    .discord:hover {
-        background: var(--gold);
-        color: var(--dark) !important;
-    }
-
-    /* HERO */
-
-    .hero {
-        margin-top: 74px;
-
-        min-height: 430px;
-
-        display: flex;
-        align-items: center;
-
-        background:
-            linear-gradient(
-                rgba(35, 36, 39, 0.84),
-                rgba(35, 36, 39, 0.84)
-            ),
-            url("https://cdn.discordapp.com/attachments/1537960316187582515/1543188549799518289/f4619c5a-44c6-48f8-8c14-544eb3967a9d.png?ex=6a93f5d5&is=6a92a455&hm=0adc4b8a74e982de2cb308ad64f0992c3c628bac4c3961964fc18920d944d633&");
-
-        background-position: center;
-        background-size: cover;
-    }
-
-    .hero-content {
-        max-width: 1180px;
-        width: 100%;
-
-        margin: auto;
-        padding: 60px 20px;
-
-        color: white;
-    }
-
-    .eyebrow {
-        color: var(--gold-light);
-
-        font-size: 12px;
-        font-weight: 900;
-
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-
-    .hero h1 {
-        font-size: clamp(42px, 6vw, 68px);
-        line-height: 1.05;
-
-        margin: 10px 0 18px;
-    }
-
-    .hero p {
-        max-width: 680px;
-
-        color: #e0e0e0;
-        font-size: 17px;
-    }
-
-    /* GENERAL */
-
-    section {
-        padding: 80px 20px;
-    }
-
-    .container {
-        max-width: 1100px;
-        margin: auto;
-    }
-
-    .section-label {
-        color: var(--gold);
-
-        font-size: 12px;
-        font-weight: 900;
-
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-
-    .section-title {
-        font-size: 36px;
-        margin: 5px 0 10px;
-    }
-
-    .section-description {
-        max-width: 720px;
-        color: var(--muted);
-    }
-
-    /* PRESIDENT */
-
-    .president-section {
-        background: white;
-    }
-
-    .president-card {
-        margin-top: 35px;
-
-        background: #fafafa;
-
-        border: 1px solid var(--border);
-        border-radius: 10px;
-
-        padding: 32px;
-
-        display: grid;
-        grid-template-columns: 110px 1fr auto;
-
-        align-items: center;
-
-        gap: 25px;
-
-        box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-    }
-
-    .profile-image {
-        width: 100px;
-        height: 100px;
-
-        border-radius: 50%;
-
-        background: var(--dark);
-
-        border: 4px solid var(--gold);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        color: white;
-
-        font-size: 27px;
-        font-weight: 900;
-    }
-
-    .profile-info h3 {
-        font-size: 25px;
-        margin-bottom: 4px;
-    }
-
-    .profile-position {
-        color: var(--gold);
-        font-weight: 800;
-        font-size: 14px;
-    }
-
-    .profile-description {
-        color: var(--muted);
-        font-size: 14px;
-        margin-top: 7px;
-    }
-
-    .official {
-        background: var(--dark);
-
-        color: white;
-
-        padding: 8px 13px;
-
-        border-radius: 5px;
-
-        font-size: 11px;
-        font-weight: 800;
-
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    /* DOJ */
-
-    .doj-section {
-        background: var(--light);
-    }
-
-    .department-grid {
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 18px;
-
-        margin-top: 35px;
-    }
-
-    .department {
-        background: white;
-
-        border: 1px solid var(--border);
-
-        border-radius: 8px;
-
-        padding: 25px;
-
-        position: relative;
-    }
-
-    .department-number {
-        color: var(--gold);
-
-        font-size: 12px;
-        font-weight: 900;
-
-        letter-spacing: 2px;
-    }
-
-    .department h3 {
-        margin: 8px 0 5px;
-    }
-
-    .department p {
-        color: var(--muted);
-        font-size: 14px;
-    }
-
-    .vacant {
-        display: inline-block;
-
-        margin-top: 16px;
-
-        padding: 7px 10px;
-
-        border-radius: 5px;
-
-        background: #eeeeee;
-
-        color: #777;
-
-        font-size: 11px;
-        font-weight: 800;
-
-        text-transform: uppercase;
-        letter-spacing: .7px;
-    }
-
-    /* ALL POSITIONS */
-
-    .positions {
-        background: white;
-    }
-
-    .position-list {
-        margin-top: 35px;
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 14px;
-    }
-
-    .position {
-        border: 1px solid var(--border);
-
-        background: #fafafa;
-
-        border-radius: 7px;
-
-        padding: 20px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        gap: 15px;
-    }
-
-    .position-name {
-        font-weight: 800;
-    }
-
-    .position-status {
-        color: #858585;
-
-        font-size: 11px;
-        font-weight: 800;
-
-        text-transform: uppercase;
-        white-space: nowrap;
-    }
-
-    .position-status.filled {
-        color: var(--gold);
-    }
-
-    /* DISCORD */
-
-    .contact {
-        background: var(--dark);
-
-        color: white;
-
-        text-align: center;
-    }
-
-    .contact h2 {
-        font-size: 36px;
-    }
-
-    .contact p {
-        max-width: 650px;
-
-        margin: 10px auto 25px;
-
-        color: #d4d4d4;
-    }
-
-    .contact-button {
-        display: inline-block;
-
-        padding: 13px 22px;
-
-        background: var(--gold);
-
-        color: var(--dark);
-
-        border-radius: 6px;
-
-        text-decoration: none;
-
-        font-weight: 900;
-    }
-
-    .contact-button:hover {
-        background: var(--gold-light);
-    }
-
-    /* FOOTER */
-
-    footer {
-        background: var(--dark-2);
-
-        color: #aaa;
-
-        padding: 30px 20px;
-    }
-
-    .footer-inner {
-        max-width: 1100px;
-
-        margin: auto;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        gap: 20px;
-    }
-
-    .footer-title {
-        color: white;
-        font-weight: 900;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 850px) {
-
-        nav a:not(.discord) {
-            display: none;
+    <title>Final City | Department of Justice</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .president-card {
-            grid-template-columns: 1fr;
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eeeeee;
+            color: #222;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #303030;
+            border-bottom: 4px solid #d6aa35;
+            padding: 15px 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            color: #d6aa35;
+            font-size: 12px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+
+            padding: 10px 14px;
+            border-radius: 6px;
+
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #d6aa35;
+            color: #222;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 520px;
+
+            background:
+                linear-gradient(
+                    rgba(40, 40, 40, 0.82),
+                    rgba(40, 40, 40, 0.82)
+                ),
+                url("https://cdn.discordapp.com/attachments/1537960316187582515/1543188549799518289/f4619c5a-44c6-48f8-8c14-544eb3967a9d.png?ex=6a93f5d5&is=6a92a455&hm=0adc4b8a74e982de2cb308ad64f0992c3c628bac4c3961964fc18920d944d633&");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             text-align: center;
+            color: white;
+
+            padding: 50px 20px;
         }
 
-        .profile-image {
-            margin: auto;
+        .hero-content {
+            max-width: 850px;
         }
 
-        .department-grid {
-            grid-template-columns: 1fr;
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
         }
 
-        .position-list {
-            grid-template-columns: 1fr;
+        .hero h1 span {
+            color: #d6aa35;
         }
 
-        .official {
-            width: fit-content;
-            margin: auto;
+        .hero p {
+            font-size: 19px;
+            color: #dddddd;
+            line-height: 1.6;
         }
 
-        .footer-inner {
-            flex-direction: column;
-        }
-    }
-</style>
-```
+        .hero-buttons {
+            margin-top: 30px;
 
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 14px 24px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .button-main {
+            background: #d6aa35;
+            color: #222;
+        }
+
+        .button-main:hover {
+            background: #b68e20;
+            color: white;
+        }
+
+        .button-dark {
+            background: #444;
+            color: white;
+            border: 1px solid #666;
+        }
+
+        .button-dark:hover {
+            background: #555;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 55px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 31px;
+            color: #333;
+        }
+
+        .section-title p {
+            margin-top: 8px;
+            color: #666;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+            border-top: 4px solid #d6aa35;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.07);
+
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #383838;
+            color: #d6aa35;
+
+            border-radius: 50%;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .card a {
+            display: inline-block;
+
+            margin-top: 18px;
+
+            color: #9b7718;
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info {
+            background: #353535;
+            color: white;
+
+            padding: 35px;
+
+            border-radius: 10px;
+
+            border-left: 5px solid #d6aa35;
+
+            margin-top: 50px;
+        }
+
+        .info h2 {
+            color: #d6aa35;
+            margin-bottom: 15px;
+        }
+
+        .info p {
+            color: #ddd;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           DISCORD
+        ========================= */
+
+        .discord {
+            text-align: center;
+
+            background: white;
+
+            padding: 40px 20px;
+
+            border-radius: 10px;
+
+            margin-top: 50px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .discord h2 {
+            margin-bottom: 10px;
+        }
+
+        .discord p {
+            color: #666;
+            margin-bottom: 22px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #303030;
+
+            color: #aaa;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            border-top: 3px solid #d6aa35;
+
+            margin-top: 60px;
+        }
+
+        footer strong {
+            color: #d6aa35;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 450px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
-```
-<div class="nav">
+    <a href="index.html" class="logo">
 
-    <a class="brand" href="index.html">
+        <!--
+        Falls dein DOJ-Logo anders heißt,
+        ändere hier nur "doj-logo.png".
+        -->
 
-        <div class="logo">
-            DOJ
-        </div>
+        <img src="doj-logo.png" alt="Final City DOJ Logo">
 
-        <div>
-            <div class="brand-name">
-                FINAL CITY
-            </div>
-
-            <span class="brand-sub">
-                Department of Justice
-            </span>
+        <div class="logo-text">
+            FINAL CITY
+            <br>
+            <span>DEPARTMENT OF JUSTICE</span>
         </div>
 
     </a>
 
     <nav>
 
-        <a href="index.html">
+        <a href="index.html" class="active">
             Startseite
         </a>
 
-        <a href="index.html#gesetzbuch">
+        <a href="gesetzbuecher.html">
             Gesetzbücher
         </a>
 
@@ -568,100 +432,56 @@
             Regierung & DOJ
         </a>
 
-        <a href="index.html#kontakt">
-            Kontakt
+        <a href="#ueber-uns">
+            Über uns
         </a>
 
-        <a
-            class="discord"
-            href="https://discord.gg/ztZtzbQ9h"
-            target="_blank"
-            rel="noopener"
-        >
-            Discord
+        <a href="#kontakt">
+            Kontakt
         </a>
 
     </nav>
 
-</div>
-```
-
 </header>
 
-<main>
 
-```
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
     <div class="hero-content">
 
-        <div class="eyebrow">
-            Staat Final City
-        </div>
-
         <h1>
-            Regierung<br>
-            & Department of Justice
+            FINAL <span>CITY</span>
         </h1>
 
         <p>
-            Informationen über die politische Führung des Staates
-            sowie die zuständigen Stellen des Department of Justice.
+            Willkommen auf der offiziellen Website des
+            Department of Justice von Final City.
+            Hier findest du die geltenden Gesetze,
+            Informationen zur Regierung und wichtige
+            Informationen über unsere staatlichen Behörden.
         </p>
 
-    </div>
+        <div class="hero-buttons">
 
-</section>
+            <!-- FUNKTIONIERENDER LINK -->
 
+            <a
+                href="gesetzbuecher.html"
+                class="button button-main"
+            >
+                Gesetzbücher öffnen
+            </a>
 
-<!-- PRESIDENT -->
-
-<section class="president-section">
-
-    <div class="container">
-
-        <div class="section-label">
-            Staatsführung
-        </div>
-
-        <h2 class="section-title">
-            Präsident
-        </h2>
-
-        <p class="section-description">
-            Der Präsident ist das Staatsoberhaupt von Final City
-            und steht an der Spitze der staatlichen Führung.
-        </p>
-
-
-        <div class="president-card">
-
-            <div class="profile-image">
-                OH
-            </div>
-
-            <div class="profile-info">
-
-                <h3>
-                    Olaf Holz
-                </h3>
-
-                <div class="profile-position">
-                    Präsident von Final City
-                </div>
-
-                <div class="profile-description">
-                    Staatspräsident und oberste politische Vertretung
-                    des Staates Final City.
-                </div>
-
-            </div>
-
-            <div class="official">
-                Amt besetzt
-            </div>
+            <a
+                href="regierung.html"
+                class="button button-dark"
+            >
+                Regierung & DOJ
+            </a>
 
         </div>
 
@@ -670,266 +490,184 @@
 </section>
 
 
-<!-- DOJ -->
+<!-- =========================
+     HAUPTBEREICHE
+========================= -->
 
-<section class="doj-section">
+<main class="container">
 
-    <div class="container">
-
-        <div class="section-label">
-            Department of Justice
-        </div>
-
-        <h2 class="section-title">
-            Führung des DOJ
-        </h2>
-
-        <p class="section-description">
-            Die folgenden Positionen bilden die zukünftige Führung
-            und Organisation des Department of Justice.
-        </p>
-
-
-        <div class="department-grid">
-
-            <div class="department">
-
-                <div class="department-number">
-                    DOJ · 01
-                </div>
-
-                <h3>
-                    Oberster Richter
-                </h3>
-
-                <p>
-                    Leitung der höchsten gerichtlichen Instanz
-                    von Final City.
-                </p>
-
-                <span class="vacant">
-                    Noch nicht besetzt
-                </span>
-
-            </div>
-
-
-            <div class="department">
-
-                <div class="department-number">
-                    DOJ · 02
-                </div>
-
-                <h3>
-                    Generalstaatsanwalt
-                </h3>
-
-                <p>
-                    Leitung der Staatsanwaltschaft und
-                    oberste Vertretung der Anklage.
-                </p>
-
-                <span class="vacant">
-                    Noch nicht besetzt
-                </span>
-
-            </div>
-
-
-            <div class="department">
-
-                <div class="department-number">
-                    DOJ · 03
-                </div>
-
-                <h3>
-                    Justizminister
-                </h3>
-
-                <p>
-                    Verantwortlich für die politische und
-                    organisatorische Leitung des Justizwesens.
-                </p>
-
-                <span class="vacant">
-                    Noch nicht besetzt
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- POSITIONS -->
-
-<section class="positions">
-
-    <div class="container">
-
-        <div class="section-label">
-            Organisation
-        </div>
-
-        <h2 class="section-title">
-            Weitere Positionen
-        </h2>
-
-        <p class="section-description">
-            Diese Stellen können später besetzt und direkt auf
-            der Website aktualisiert werden.
-        </p>
-
-
-        <div class="position-list">
-
-            <div class="position">
-
-                <span class="position-name">
-                    Richter
-                </span>
-
-                <span class="position-status">
-                    Noch nicht besetzt
-                </span>
-
-            </div>
-
-
-            <div class="position">
-
-                <span class="position-name">
-                    Staatsanwalt
-                </span>
-
-                <span class="position-status">
-                    Noch nicht besetzt
-                </span>
-
-            </div>
-
-
-            <div class="position">
-
-                <span class="position-name">
-                    Stellvertretender Staatsanwalt
-                </span>
-
-                <span class="position-status">
-                    Noch nicht besetzt
-                </span>
-
-            </div>
-
-
-            <div class="position">
-
-                <span class="position-name">
-                    Pflichtverteidiger
-                </span>
-
-                <span class="position-status">
-                    Noch nicht besetzt
-                </span>
-
-            </div>
-
-
-            <div class="position">
-
-                <span class="position-name">
-                    Justizbeamter
-                </span>
-
-                <span class="position-status">
-                    Noch nicht besetzt
-                </span>
-
-            </div>
-
-
-            <div class="position">
-
-                <span class="position-name">
-                    Gerichtsverwaltung
-                </span>
-
-                <span class="position-status">
-                    Noch nicht besetzt
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- DISCORD -->
-
-<section class="contact">
-
-    <div class="container">
-
-        <div class="section-label">
-            Final City
-        </div>
+    <div class="section-title">
 
         <h2>
-            Fragen an Regierung oder DOJ?
+            Offizielle Bereiche
         </h2>
 
         <p>
-            Besuche unseren offiziellen Discord-Server,
-            um Kontakt mit dem Team von Final City aufzunehmen.
+            Alle wichtigen Informationen auf einen Blick
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <!-- GESETZBÜCHER -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                §
+            </div>
+
+            <h3>
+                Gesetzbücher
+            </h3>
+
+            <p>
+                Informiere dich über die geltenden Gesetze
+                von Final City. Unter anderem findest du
+                hier das StGB, die StVO, das Waffengesetz,
+                das BtMG und weitere Gesetzbücher.
+            </p>
+
+            <a href="gesetzbuecher.html">
+                Zu den Gesetzbüchern →
+            </a>
+
+        </div>
+
+
+        <!-- REGIERUNG -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                R
+            </div>
+
+            <h3>
+                Regierung & DOJ
+            </h3>
+
+            <p>
+                Erfahre mehr über die Regierung von Final City,
+                das Department of Justice und die staatlichen
+                Institutionen.
+            </p>
+
+            <a href="regierung.html">
+                Regierung ansehen →
+            </a>
+
+        </div>
+
+
+        <!-- SECRET SERVICE -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                S
+            </div>
+
+            <h3>
+                Secret Service
+            </h3>
+
+            <p>
+                Informationen über den Secret Service,
+                seine Aufgaben, den Personenschutz und
+                die Zusammenarbeit mit anderen Behörden.
+            </p>
+
+            <a href="regierung.html">
+                Informationen ansehen →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ÜBER UNS
+    ========================= -->
+
+    <section id="ueber-uns" class="info">
+
+        <h2>
+            Department of Justice
+        </h2>
+
+        <p>
+            Das Department of Justice ist eine zentrale
+            Institution des Staates Final City.
+
+            Es beschäftigt sich mit der Umsetzung und
+            Aufrechterhaltung der geltenden Gesetze und
+            arbeitet dabei mit Gerichten, Polizei,
+            Regierung und weiteren staatlichen Behörden
+            zusammen.
+        </p>
+
+        <br>
+
+        <p>
+            Auf dieser Website werden die offiziellen
+            Gesetzbücher und Informationen über die
+            staatlichen Institutionen von Final City
+            bereitgestellt.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         KONTAKT / DISCORD
+    ========================= -->
+
+    <section id="kontakt" class="discord">
+
+        <h2>
+            Offizieller Final City Discord
+        </h2>
+
+        <p>
+            Trete der offiziellen Final City Community bei.
         </p>
 
         <a
-            class="contact-button"
             href="https://discord.gg/ztZtzbQ9h"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
+            class="button button-main"
         >
-            Zum Discord Server
+            Zum Discord-Server
         </a>
 
-    </div>
-
-</section>
-```
+    </section>
 
 </main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-```
-<div class="footer-inner">
+    <p>
+        © 2026 <strong>Final City</strong>
+        – Department of Justice
+    </p>
 
-    <div>
-
-        <div class="footer-title">
-            FINAL CITY — DEPARTMENT OF JUSTICE
-        </div>
-
-        <small>
-            Fiktive Website für FiveM Roleplay
-        </small>
-
-    </div>
-
-    <small>
-        © 2026 Final City
-    </small>
-
-</div>
-```
+    <p style="margin-top: 8px;">
+        Offizielle Regierungs- und Justizinformationen
+    </p>
 
 </footer>
 
+
 </body>
 </html>
+```
